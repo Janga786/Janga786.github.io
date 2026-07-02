@@ -1,26 +1,123 @@
 @import "tailwindcss";
 
+/* ── Design tokens ──────────────────────────────────────────────────────
+   Dark-first "instrument panel" palette: graphite base, steel-blue accent,
+   desaturated cyan for secondary signals. Thin borders, soft depth.       */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0a0d12;
+  --surface: #0d1117;
+  --card: #11161e;
+  --card-2: #151b25;
+  --foreground: #e7eaf0;
+  --muted: #94a0b4;
+  --faint: #5d6a80;
+  --line: rgba(148, 163, 184, 0.14);
+  --line-strong: rgba(148, 163, 184, 0.3);
+  --accent: #7aa5ff;
+  --accent-soft: rgba(122, 165, 255, 0.12);
+  --accent-2: #6fd3e3;
+  --ring: #7aa5ff;
 }
 
 @theme inline {
   --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-card: var(--card);
+  --color-card-2: var(--card-2);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-muted: var(--muted);
+  --color-faint: var(--faint);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-2: var(--accent-2);
+  --color-ring: var(--ring);
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-jbmono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), system-ui, sans-serif;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: rgba(122, 165, 255, 0.28);
+}
+
+/* ── Recurring utilities ──────────────────────────────────────────────── */
+
+/* Faint engineering grid — used behind hero and section accents. */
+.bg-grid-faint {
+  background-image:
+    linear-gradient(to right, rgba(148, 163, 184, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(148, 163, 184, 0.05) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+/* Radial glow anchored to the top of a section. */
+.glow-top {
+  background: radial-gradient(
+    600px circle at 50% -10%,
+    rgba(122, 165, 255, 0.09),
+    transparent 70%
+  );
+}
+
+/* Standard panel treatment. */
+.panel {
+  border: 1px solid var(--line);
+  background: var(--card);
+  border-radius: 0.75rem;
+}
+
+.panel-hover {
+  transition:
+    border-color 180ms ease,
+    background-color 180ms ease,
+    transform 180ms ease;
+}
+.panel-hover:hover {
+  border-color: var(--line-strong);
+  background: var(--card-2);
+}
+
+/* Mono metadata label — eyebrow text, tags, schematic labels. */
+.meta-label {
+  font-family: var(--font-mono), monospace;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* Tasteful gradient text for the hero headline only. */
+.text-gradient-hero {
+  background: linear-gradient(135deg, #f4f6fa 30%, #a9c3f5 75%, #7aa5ff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Shared focus treatment (interactive elements also use Tailwind ring utils). */
+a:focus-visible,
+button:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+  border-radius: 4px;
 }
