@@ -170,6 +170,16 @@ export default async function ProjectPage({ params }: PageProps) {
           />
         </MotionReveal>
 
+        {project.media.length > 1 ? (
+          <MotionReveal>
+            <div className="grid gap-5 sm:grid-cols-2">
+              {project.media.slice(1).map((m) => (
+                <PlaceholderMedia key={m.alt} media={m} />
+              ))}
+            </div>
+          </MotionReveal>
+        ) : null}
+
         <MotionReveal>
           <section>
             <SectionHeading

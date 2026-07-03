@@ -1,19 +1,30 @@
 import type { MediaItem } from "@/lib/types";
+import { cn } from "@/lib/utils";
 
 /**
- * Media figure for case studies. With a `src` it renders the real asset;
- * without one it renders a deliberate schematic placeholder so pending
- * evidence still reads as designed-for rather than missing.
+ * Media figure for case studies. With a `src` it renders the real asset
+ * (video with poster frame, image, or SVG diagram); without one it renders
+ * a deliberate schematic placeholder so pending evidence still reads as
+ * designed-for rather than missing.
  */
-export function PlaceholderMedia({ media }: { media: MediaItem }) {
+export function PlaceholderMedia({
+  media,
+  className,
+}: {
+  media: MediaItem;
+  className?: string;
+}) {
   return (
-    <figure className="space-y-2">
+    <figure className={cn("space-y-2", className)}>
       {media.src ? (
         media.kind === "video" ? (
           <video
             src={media.src}
+            poster={media.poster}
             controls
-            className="w-full rounded-xl border border-line"
+            playsInline
+            preload="metadata"
+            className="w-full rounded-xl border border-line bg-surface"
             aria-label={media.alt}
           />
         ) : (
@@ -22,7 +33,10 @@ export function PlaceholderMedia({ media }: { media: MediaItem }) {
             src={media.src}
             alt={media.alt}
             loading="lazy"
-            className="w-full rounded-xl border border-line"
+            className={cn(
+              "w-full rounded-xl border border-line",
+              media.kind === "diagram" && "bg-surface p-2",
+            )}
           />
         )
       ) : (

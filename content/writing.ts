@@ -9,6 +9,18 @@ import type { WritingItem } from "@/lib/types";
  */
 export const writing: WritingItem[] = [
   {
+    slug: "baxter-troubleshooting",
+    title: "Baxter troubleshooting guide — reviving an unsupported robot",
+    type: "reflection",
+    typeLabel: "Field guide",
+    summary:
+      "Practical fixes for Baxter startup failures, ROS networking, and Intera SDK issues, documented while restoring two dormant industrial robots with no vendor support — written so the next person skips the late-night debugging sessions.",
+    isPlaceholder: false,
+    link: "https://github.com/Janga786/Baxter-Troubleshooting",
+    dateLabel: "2025",
+    featured: true,
+  },
+  {
     slug: "humanoid-deployment-report",
     title: "Deployment report — vision-language navigation on a real humanoid",
     type: "deployment-report",

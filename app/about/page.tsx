@@ -52,14 +52,30 @@ export default function AboutPage() {
           />
         </MotionReveal>
 
-        {/* Long bio */}
+        {/* Long bio + headshot */}
         <MotionReveal>
-          <div className="space-y-4 leading-relaxed text-muted">
-            {profile.longBio.map((paragraph, i) => (
-              <p key={i} className={cn(i === 0 && "text-lg")}>
-                <EditorAwareText text={paragraph} />
-              </p>
-            ))}
+          <div className="grid gap-8 sm:grid-cols-[1fr_190px]">
+            <div className="order-2 space-y-4 leading-relaxed text-muted sm:order-1">
+              {profile.longBio.map((paragraph, i) => (
+                <p key={i} className={cn(i === 0 && "text-lg")}>
+                  <EditorAwareText text={paragraph} />
+                </p>
+              ))}
+            </div>
+            <figure className="order-1 sm:order-2">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/media/profile.webp"
+                alt="Portrait of Jangara Bliss"
+                width={380}
+                height={475}
+                className="w-40 rounded-xl border border-line object-cover sm:w-full"
+                loading="eager"
+              />
+              <figcaption className="mt-2 font-mono text-[11px] text-faint">
+                Durango, Colorado
+              </figcaption>
+            </figure>
           </div>
         </MotionReveal>
 
@@ -94,7 +110,7 @@ export default function AboutPage() {
             <p className="font-medium text-foreground">{profile.school}</p>
             <p className="mt-1 text-sm text-muted">
               {profile.major}
-              {profile.minor ? ` · Minor in ${profile.minor}` : null}
+              {profile.minor ? ` · Minors in ${profile.minor}` : null}
             </p>
             <p className="mt-1 text-sm text-muted">
               B.S. expected {profile.graduation}
@@ -130,6 +146,44 @@ export default function AboutPage() {
                 <span>
                   <EditorAwareText text={principle} />
                 </span>
+              </li>
+            ))}
+          </ul>
+        </MotionReveal>
+
+        {/* Honors & awards */}
+        <MotionReveal className="mt-14">
+          <SubHeading>Honors &amp; awards</SubHeading>
+          <ul className="space-y-3">
+            {profile.honors.map((honor) => (
+              <li
+                key={honor}
+                className="flex items-start gap-3 text-sm leading-relaxed text-muted"
+              >
+                <span
+                  aria-hidden
+                  className="mt-2 h-px w-4 shrink-0 bg-accent/60"
+                />
+                <EditorAwareText text={honor} />
+              </li>
+            ))}
+          </ul>
+        </MotionReveal>
+
+        {/* Leadership & service */}
+        <MotionReveal className="mt-14">
+          <SubHeading>Leadership &amp; service</SubHeading>
+          <ul className="space-y-3">
+            {profile.leadership.map((role) => (
+              <li
+                key={role}
+                className="flex items-start gap-3 text-sm leading-relaxed text-muted"
+              >
+                <span
+                  aria-hidden
+                  className="mt-2 h-px w-4 shrink-0 bg-line-strong"
+                />
+                <EditorAwareText text={role} />
               </li>
             ))}
           </ul>

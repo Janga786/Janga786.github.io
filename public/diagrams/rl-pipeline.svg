@@ -1,0 +1,51 @@
+<svg viewBox="0 0 860 400" xmlns="http://www.w3.org/2000/svg" font-family="ui-monospace, 'JetBrains Mono', SFMono-Regular, Menlo, monospace" role="img" aria-label="PPO training and evaluation pipeline in Isaac Sim and Isaac Lab">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="rgba(148,163,184,0.55)"/>
+    </marker>
+    <marker id="acc" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#7aa5ff"/>
+    </marker>
+  </defs>
+  <style>
+    .box{fill:#151b25;stroke:rgba(148,163,184,0.35)}
+    .t{fill:#e7eaf0;font-size:14px;font-weight:600}
+    .s{fill:#94a0b4;font-size:11px}
+    .lbl{fill:#7aa5ff;font-size:11px}
+    .flow{stroke:rgba(148,163,184,0.55);stroke-width:1.5;fill:none}
+    .dash{stroke:rgba(148,163,184,0.4);stroke-width:1.2;fill:none;stroke-dasharray:5 5}
+  </style>
+
+  <text x="30" y="36" class="s" letter-spacing="2">TRAINING → EVALUATION LOOP — ISAAC SIM / ISAAC LAB</text>
+
+  <rect x="30" y="80" width="230" height="96" rx="10" class="box"/>
+  <text x="50" y="112" class="t">Isaac Sim / Isaac Lab</text>
+  <text x="50" y="134" class="s">parallelized environments</text>
+  <text x="50" y="152" class="s">domain randomization</text>
+
+  <rect x="330" y="80" width="200" height="96" rx="10" class="box"/>
+  <text x="350" y="112" class="t">PPO learner</text>
+  <text x="350" y="134" class="s">velocity-tracking</text>
+  <text x="350" y="152" class="s">locomotion reward</text>
+
+  <rect x="600" y="80" width="230" height="96" rx="10" class="box"/>
+  <text x="620" y="112" class="t">Policy checkpoints</text>
+  <text x="620" y="134" class="lbl">50 Hz control policy</text>
+  <text x="620" y="152" class="s">export for deployment</text>
+
+  <path d="M260 128 H326" class="flow" marker-end="url(#a)"/>
+  <text x="268" y="120" class="s">rollouts</text>
+  <path d="M530 128 H596" class="flow" marker-end="url(#a)"/>
+
+  <rect x="330" y="240" width="200" height="96" rx="10" class="box"/>
+  <text x="350" y="272" class="t">Evaluation harness</text>
+  <text x="350" y="294" class="s">benchmark tasks · seeds</text>
+  <text x="350" y="312" class="s">success criteria</text>
+
+  <path d="M715 176 V 288 H 534" class="flow" marker-end="url(#a)"/>
+  <path d="M330 288 H 145 V 180" class="dash" marker-end="url(#a)"/>
+  <text x="170" y="310" class="s">reward &amp; randomization iteration</text>
+
+  <path d="M830 128 h0" class="flow"/>
+  <text x="600" y="360" class="lbl">→ deploys under the ~1 Hz VLA planner on the real K1</text>
+</svg>

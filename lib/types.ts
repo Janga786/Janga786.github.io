@@ -47,6 +47,8 @@ export interface MediaItem {
   kind: "image" | "video" | "diagram";
   /** Omit src to render a polished schematic placeholder card. */
   src?: string;
+  /** Poster frame for videos. */
+  poster?: string;
   alt: string;
   caption?: string;
 }
@@ -184,6 +186,10 @@ export interface Profile {
   /** Third-person version — homepage (keeps first person off the home page). */
   graduateStudyHomepage: string[];
   builderEthos: string[];
+  /** Verified honors/awards — rendered on About and Resume. */
+  honors: string[];
+  /** Leadership & service roles — rendered on About and Resume. */
+  leadership: string[];
   /** Kept empty and hidden by default — see siteConfig.showTargetProgramsPublicly. */
   targetPrograms: string[];
   contact: {

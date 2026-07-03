@@ -1,0 +1,64 @@
+<svg viewBox="0 0 860 440" xmlns="http://www.w3.org/2000/svg" font-family="ui-monospace, 'JetBrains Mono', SFMono-Regular, Menlo, monospace" role="img" aria-label="Three-machine deployment topology for vision-language navigation on the Booster K1">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="rgba(148,163,184,0.55)"/>
+    </marker>
+    <marker id="acc" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#7aa5ff"/>
+    </marker>
+  </defs>
+  <style>
+    .box{fill:#151b25;stroke:rgba(148,163,184,0.35);rx:10}
+    .t{fill:#e7eaf0;font-size:14px;font-weight:600}
+    .s{fill:#94a0b4;font-size:11px}
+    .lbl{fill:#7aa5ff;font-size:11px}
+    .flow{stroke:rgba(148,163,184,0.55);stroke-width:1.5;fill:none}
+    .dash{stroke:rgba(148,163,184,0.4);stroke-width:1.2;fill:none;stroke-dasharray:5 5}
+  </style>
+
+  <text x="30" y="36" class="s" letter-spacing="2">DEPLOYMENT TOPOLOGY — VLA NAVIGATION ON THE BOOSTER K1</text>
+
+  <!-- Robot -->
+  <rect x="30" y="80" width="220" height="110" rx="10" class="box"/>
+  <text x="50" y="112" class="t">Booster K1</text>
+  <text x="50" y="134" class="s">RGB camera stream out</text>
+  <text x="50" y="152" class="s">SDK velocity control in</text>
+  <text x="50" y="170" class="lbl">50 Hz locomotion</text>
+
+  <!-- Relay -->
+  <rect x="320" y="80" width="220" height="110" rx="10" class="box"/>
+  <text x="340" y="112" class="t">Relay / control</text>
+  <text x="340" y="134" class="s">frame forwarding · pacing</text>
+  <text x="340" y="152" class="s">action → velocity translation</text>
+  <text x="340" y="170" class="s">safety limits</text>
+
+  <!-- GPU -->
+  <rect x="610" y="80" width="220" height="110" rx="10" class="box"/>
+  <text x="630" y="112" class="t">Inference workstation</text>
+  <text x="630" y="134" class="s">RTX 5090 · 8B VLA (NaVILA)</text>
+  <text x="630" y="152" class="lbl">~1 Hz planning</text>
+  <text x="630" y="170" class="lbl">~350 ms / inference step</text>
+
+  <!-- forward path (frames) -->
+  <path d="M250 110 H316" class="flow" marker-end="url(#a)"/>
+  <text x="258" y="102" class="s">frames</text>
+  <path d="M540 110 H606" class="flow" marker-end="url(#a)"/>
+  <text x="548" y="102" class="s">frames</text>
+
+  <!-- return path (actions) -->
+  <path d="M610 160 H544" class="flow" marker-end="url(#a)"/>
+  <text x="551" y="184" class="s">actions</text>
+  <path d="M320 160 H254" class="flow" marker-end="url(#acc)"/>
+  <text x="258" y="184" class="lbl">velocity cmds</text>
+
+  <!-- instruction input -->
+  <rect x="320" y="250" width="220" height="64" rx="10" class="box" stroke-dasharray="0"/>
+  <text x="340" y="278" class="t" font-size="13">Natural-language instruction</text>
+  <text x="340" y="298" class="s">"walk to the volleyball…"</text>
+  <path d="M540 282 C 600 282 700 260 720 194" class="flow" marker-end="url(#a)"/>
+
+  <!-- telemetry loop -->
+  <path d="M140 190 V 360 H 720 V 194" class="dash" marker-end="url(#a)"/>
+  <rect x="330" y="336" width="200" height="48" rx="10" fill="#0d1117" stroke="rgba(148,163,184,0.3)"/>
+  <text x="352" y="365" class="s">telemetry &amp; evaluation</text>
+</svg>
