@@ -7,7 +7,7 @@ export default function NotFound() {
       <div className="glow-top mx-auto flex min-h-[60vh] w-full max-w-6xl flex-col items-center justify-center px-4 py-16 text-center sm:px-6 lg:px-8">
         <p className="meta-label">404 — route not found</p>
         <h1 className="mt-4 text-balance text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
-          This page doesn&apos;t exist. The work does.
+          That page doesn&apos;t exist — the projects do.
         </h1>
         <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
           <Link

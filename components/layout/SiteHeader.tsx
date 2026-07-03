@@ -55,7 +55,7 @@ export function SiteHeader() {
           className="inline-flex h-11 w-11 items-center justify-center rounded-lg border border-line bg-card text-foreground transition-colors hover:border-line-strong md:hidden"
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
-          aria-controls="mobile-nav"
+          {...(open ? { "aria-controls": "mobile-nav" } : {})}
           onClick={() => setOpen((v) => !v)}
         >
           {open ? (

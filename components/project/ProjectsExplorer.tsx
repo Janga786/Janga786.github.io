@@ -74,6 +74,11 @@ export function ProjectsExplorer({ projects, categories }: ProjectsExplorerProps
         <p className="meta-label whitespace-nowrap">featured first</p>
       </div>
 
+      <p aria-live="polite" className="sr-only">
+        {visible.length} project{visible.length === 1 ? "" : "s"} shown
+        {activeMeta ? ` for ${activeMeta.label}` : ""}
+      </p>
+
       {visible.length > 0 ? (
         <div className="grid gap-4 md:grid-cols-2">
           {visible.map((project) => (
@@ -85,7 +90,7 @@ export function ProjectsExplorer({ projects, categories }: ProjectsExplorerProps
           ))}
         </div>
       ) : (
-        <div className="panel p-6">
+        <div role="status" className="panel p-6">
           <p className="text-sm text-muted">
             No projects in this category yet.
           </p>

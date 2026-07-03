@@ -21,6 +21,7 @@ export default function ProjectsPage() {
         title="Projects"
         lede="Each entry is a case study built around evidence — architecture, measurements, and honest limitations. Slots reserved for future work are labeled as placeholders rather than dressed up as finished projects."
       />
+      <h2 className="sr-only">All projects</h2>
       <ProjectsExplorer projects={allProjects} categories={categories} />
     </SectionShell>
   );

@@ -32,7 +32,7 @@ export function CapabilityGrid() {
       <SectionHeading
         eyebrow="Technical Focus"
         title="Lanes of work"
-        lede="Seven lanes, one through-line: models that have to work outside the notebook."
+        lede="Seven lanes, one through-line: models that have to survive real hardware."
       />
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {profile.capabilities.map((capability, i) => {
