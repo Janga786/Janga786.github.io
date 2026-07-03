@@ -15,6 +15,7 @@ export function BackgroundGrid({ className }: { className?: string }) {
     >
       <div className="bg-grid-faint absolute inset-0 [mask-image:radial-gradient(ellipse_80%_60%_at_50%_0%,black_40%,transparent_100%)]" />
       <div className="glow-top absolute inset-0" />
+      <div className="scanline" />
     </div>
   );
 }

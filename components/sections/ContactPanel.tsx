@@ -14,7 +14,7 @@ export function ContactPanel() {
 
   return (
     <SectionShell id="contact">
-      <div className="panel relative overflow-hidden p-8 sm:p-10">
+      <div data-glow className="panel relative overflow-hidden p-8 sm:p-10">
         <div
           aria-hidden="true"
           className="bg-grid-faint pointer-events-none absolute inset-0 [mask-image:radial-gradient(ellipse_70%_100%_at_50%_0%,black_25%,transparent_100%)]"

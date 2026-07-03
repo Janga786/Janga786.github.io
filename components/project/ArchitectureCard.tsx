@@ -27,7 +27,7 @@ export function ArchitectureCard({ summary, nodes }: ArchitectureCardProps) {
     "rounded-lg border border-line bg-card-2 px-3 py-2 font-mono text-xs leading-relaxed text-muted";
 
   return (
-    <div className="panel p-6">
+    <div data-glow className="panel p-6">
       <p className="meta-label">System architecture</p>
       <p className="mt-3 text-sm leading-relaxed text-muted">
         <NoteAware text={summary} />

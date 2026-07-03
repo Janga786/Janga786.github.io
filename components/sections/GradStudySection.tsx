@@ -14,7 +14,7 @@ export function GradStudySection() {
       <div className="grid gap-4 lg:grid-cols-3">
         {profile.graduateStudyHomepage.map((paragraph, i) => (
           <MotionReveal key={i} delay={i * 0.08}>
-            <div className="panel h-full p-5">
+            <div data-glow className="panel h-full p-5">
               <p className="font-mono text-xs tracking-[0.16em] text-accent">
                 {String(i + 1).padStart(2, "0")}
               </p>
