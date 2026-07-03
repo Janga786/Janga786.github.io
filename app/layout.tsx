@@ -7,6 +7,7 @@ import { socials } from "@/content/socials";
 import { absoluteUrl } from "@/lib/seo";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { SiteFooter } from "@/components/layout/SiteFooter";
+import { PointerFX } from "@/components/shared/PointerFX";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -87,6 +88,7 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd()) }}
         />
+        <PointerFX />
         <SiteHeader />
         <main id="main" className="flex-1">
           {children}

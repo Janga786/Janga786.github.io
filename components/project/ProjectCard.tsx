@@ -14,6 +14,7 @@ export function ProjectCard({ project, categoryLabel }: ProjectCardProps) {
   return (
     <Link
       href={`/projects/${project.slug}/`}
+      data-glow
       className="panel panel-hover group flex h-full flex-col gap-4 p-6"
     >
       <div className="flex flex-wrap items-center gap-2">
