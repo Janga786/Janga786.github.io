@@ -1,4 +1,5 @@
 const STROKE = "rgba(148, 163, 184, 0.4)";
+const ACCENT = "#7aa5ff";
 
 function Node({ name, sub }: { name: string; sub?: string }) {
   return (
@@ -9,8 +10,12 @@ function Node({ name, sub }: { name: string; sub?: string }) {
   );
 }
 
-/** Vertical arrow between nodes. */
-function DownArrow() {
+/**
+ * Vertical arrow between nodes, with a packet dot traveling down it.
+ * Dots are staggered per hop so the loop reads as sequential flow;
+ * they vanish entirely under prefers-reduced-motion (globals.css).
+ */
+function DownArrow({ delay = 0 }: { delay?: number }) {
   return (
     <svg
       aria-hidden="true"
@@ -21,6 +26,14 @@ function DownArrow() {
     >
       <line x1="6" y1="0" x2="6" y2="12" stroke={STROKE} strokeWidth="1.5" />
       <polygon points="2,11 10,11 6,17" fill={STROKE} />
+      <circle
+        className="flow-dot"
+        cx="6"
+        cy="2"
+        r="1.8"
+        fill={ACCENT}
+        style={{ animationDelay: `${delay}s` }}
+      />
     </svg>
   );
 }
@@ -32,16 +45,16 @@ function DownArrow() {
 export function SystemDiagram() {
   return (
     <div className="w-full max-w-full">
-      <div className="panel p-5">
+      <div data-glow className="panel p-5">
         <p className="meta-label mb-4">Deployment topology — schematic</p>
 
         <div className="flex flex-col">
           <Node name="Robot camera stream" sub="Booster K1" />
-          <DownArrow />
+          <DownArrow delay={0} />
           <Node name="Relay / control machine" />
-          <DownArrow />
+          <DownArrow delay={0.8} />
           <Node name="Model inference" sub="RTX 5090 · 8B VLA" />
-          <DownArrow />
+          <DownArrow delay={1.6} />
           <Node name="Velocity commands" sub="robot SDK" />
         </div>
 
@@ -65,6 +78,10 @@ export function SystemDiagram() {
           <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-faint">
             telemetry &amp; evaluation
           </span>
+          <span
+            aria-hidden="true"
+            className="soft-pulse ml-auto h-1.5 w-1.5 shrink-0 rounded-full bg-accent/70"
+          />
         </div>
 
         {/* Simulation counterpart, joined by a dashed sim-to-real link. */}
@@ -85,6 +102,7 @@ export function SystemDiagram() {
               preserveAspectRatio="none"
             >
               <line
+                className="dash-march"
                 x1="0"
                 y1="4"
                 x2="92"

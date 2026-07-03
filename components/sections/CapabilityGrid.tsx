@@ -39,7 +39,7 @@ export function CapabilityGrid() {
           const Icon = iconMap[capability.icon] ?? Bot;
           return (
             <MotionReveal key={capability.title} delay={(i % 3) * 0.05}>
-              <div className="panel panel-hover h-full p-5">
+              <div data-glow className="panel panel-hover h-full p-5">
                 <span className="inline-flex size-9 items-center justify-center rounded-lg bg-accent-soft text-accent">
                   <Icon size={18} aria-hidden="true" />
                 </span>

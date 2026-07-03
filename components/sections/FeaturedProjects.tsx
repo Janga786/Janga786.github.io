@@ -17,6 +17,7 @@ function ProjectCard({ project }: { project: Project }) {
   return (
     <Link
       href={`/projects/${project.slug}/`}
+      data-glow
       className="group panel panel-hover flex h-full flex-col gap-3 p-6"
     >
       <div className="flex flex-wrap items-center gap-2">

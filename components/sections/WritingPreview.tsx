@@ -49,6 +49,7 @@ export function WritingPreview() {
             {item.link ? (
               <Link
                 href={item.link}
+                data-glow
                 className="panel panel-hover block h-full p-5"
               >
                 <WritingCardBody item={item} />
