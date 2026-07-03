@@ -47,7 +47,7 @@ export default function AboutPage() {
         <MotionReveal>
           <SectionHeading
             as="h1"
-            eyebrow="Signal over noise"
+            eyebrow="Background"
             title="About Jangara"
           />
         </MotionReveal>

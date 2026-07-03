@@ -85,7 +85,7 @@ export const projects: Project[] = [
     oneLiner:
       "An 8B vision-language-action model, a three-machine inference relay, and a humanoid that walks toward natural-language goals.",
     summary:
-      "Deployment of a NaVILA-style 8B vision-language-action navigation model on a Booster K1 humanoid. The system spans three machines: a workstation running VLM inference on an RTX 5090, a relay/control machine, and the robot itself — streaming camera frames out and accepting SDK velocity commands back. The interesting work was less the model and more the loop around it: framing rates, latency budgets, command translation, and the failure modes that only exist on real hardware.",
+      "Deployment of a NaVILA-style 8B vision-language-action navigation model on a Booster K1 humanoid. The system spans three machines: a workstation running model inference on an RTX 5090, a relay/control machine, and the robot itself — streaming camera frames out and accepting SDK velocity commands back. The interesting work was less the model and more the loop around it: framing rates, latency budgets, command translation, and the failure modes that only exist on real hardware.",
     role: "System builder — model deployment, relay design, robot integration, debugging",
     teamContext:
       "Undergraduate project work. [Replace with precise advisor/team context — who set direction, who built what.]",
@@ -430,7 +430,7 @@ export const projects: Project[] = [
     oneLiner:
       "A reserved slot for a perception project with real metrics: sensing setup, pipeline, mAP/precision/recall, and edge cases.",
     summary:
-      "Structured for a computer-vision or perception project where the evidence is quantitative. Jangara has YOLOv8 pipeline experience to draw on; this slot is for the version of that work that's documented well enough to defend — dataset and sensing setup, training details, measured metrics, and the edge cases that define the system's honest operating envelope.",
+      "Structured for a computer-vision or perception project where the evidence is quantitative — dataset and sensing setup, training details, measured metrics, and the edge cases that define the system's honest operating envelope. [Fill from existing YOLOv8 pipeline work once it's documented to this standard.]",
     role: "[Your role]",
     teamContext: "[Solo or team — say which parts were yours.]",
     stack: ["[Sensor / dataset]", "YOLOv8 or successor", "[Training setup]"],
@@ -484,7 +484,7 @@ export const projects: Project[] = [
     oneLiner:
       "Board-level engineering — embedded systems, FPGA, PCB design, and NASA-challenge hexapod work — as the ground truth under the AI stack.",
     summary:
-      "A collection entry for hardware-adjacent systems work: embedded firmware, FPGA designs, PCB layout, and robotics hardware built around a NASA-challenge hexapod project. Individually these are coursework-and-competition scale; together they're why the deployment work upstairs treats latency, timing, and power as real numbers instead of abstractions. This entry should eventually be split into 1–2 fully-documented pieces with schematics and test evidence.",
+      "A collection entry for hardware-adjacent systems work: embedded firmware, FPGA designs, PCB layout, and robotics hardware built around a NASA-challenge hexapod project. Individually these are coursework-and-competition scale; together they're why the VLA-deployment and relay projects on this site treat latency, timing, and power as real numbers instead of abstractions. This entry should eventually be split into 1–2 fully-documented pieces with schematics and test evidence.",
     role: "Design, firmware, and integration across the listed projects",
     teamContext:
       "[Split this entry per project and clarify individual vs. team work for each.]",
@@ -546,7 +546,7 @@ export const projects: Project[] = [
     oneLiner:
       "A reserved slot for a product-shaped AI prototype: a real user problem, an architecture, and evidence of judgment.",
     summary:
-      "Structured for the project where technical work meets product reasoning. The bar: a genuine user problem (housing, agriculture, logistics, healthcare, and manufacturing are the sectors Jangara cares about), a working prototype, an articulated core insight, and a clear account of what was learned — including what didn't work. Entrepreneurship credentials (business minor, campus entrepreneurship, Goldman Sachs Emerging Leaders) inform this slot; they don't substitute for it.",
+      "Structured for the project where technical work meets product reasoning. The bar: a genuine user problem in a sector where physical AI matters — housing, agriculture, logistics, healthcare, manufacturing — a working prototype, an articulated core insight, and a clear account of what was learned, including what didn't work. Entrepreneurship training informs this slot; it doesn't substitute for it.",
     role: "[Your role]",
     teamContext: "[Solo or team — say which parts were yours.]",
     stack: ["[Prototype stack]"],

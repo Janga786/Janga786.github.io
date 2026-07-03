@@ -22,7 +22,7 @@ export function ContactPanel() {
         <div className="relative">
           <p className="meta-label">Contact</p>
           <h2 className="mt-3 max-w-2xl text-balance text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
-            Building something in physical AI — or evaluating an applicant?
+            Working on physical AI — or reviewing an application?
           </h2>
           <p className="mt-3 text-muted">Direct is best: email gets answered.</p>
           <div className="mt-8 flex flex-wrap items-center gap-3">

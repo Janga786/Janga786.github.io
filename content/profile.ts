@@ -49,13 +49,19 @@ export const profile: Profile = {
   values: [
     "Build things that survive contact with the real world",
     "Evidence over claims",
-    "High agency, low drama",
-    "Optionality and family stability are worth engineering for",
+    "Take initiative; keep drama out of the work",
+    "Build skills and systems that keep long-term options open",
     "Respect complexity; ship anyway",
   ],
 
   missionStatement:
     "Apply intelligence to physical systems — in housing, agriculture, logistics, healthcare, manufacturing, and space infrastructure — and become technically strong enough to build companies around it.",
+
+  graduateStudyHomepage: [
+    "The next systems need stronger foundations — optimization, learning theory, perception, control — than an undergraduate curriculum provides. A terminal master's is the direct path to that depth.",
+    "Deploying a vision-language model on a real humanoid surfaced questions about robustness, evaluation, and sim-to-real transfer that deserve proper study, not just engineering workarounds.",
+    "The long-term goal is building physical-AI products. Graduate study is leverage: research taste, harder problems, and an environment operating at a higher level.",
+  ],
 
   graduateStudyStatement: [
     "The systems I want to build next need more than working code — they need stronger foundations in optimization, learning theory, perception, and control than an undergraduate curriculum provides. A terminal master's is the direct path to that depth.",
@@ -85,7 +91,7 @@ export const profile: Profile = {
   credibilitySignals: [
     {
       label: "Real humanoid deployment",
-      detail: "8B VLA-style navigation model running on a Booster K1",
+      detail: "8B vision-language-action (VLA) model running on a Booster K1",
       icon: "Bot",
     },
     {

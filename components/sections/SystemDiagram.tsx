@@ -40,7 +40,7 @@ export function SystemDiagram() {
           <DownArrow />
           <Node name="Relay / control machine" />
           <DownArrow />
-          <Node name="VLM inference" sub="RTX 5090 · 8B VLA" />
+          <Node name="Model inference" sub="RTX 5090 · 8B VLA" />
           <DownArrow />
           <Node name="Velocity commands" sub="robot SDK" />
         </div>

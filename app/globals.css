@@ -10,7 +10,7 @@
   --card-2: #151b25;
   --foreground: #e7eaf0;
   --muted: #94a0b4;
-  --faint: #5d6a80;
+  --faint: #7e8aa2; /* ≥4.5:1 on background, card, and card-2 (WCAG AA) */
   --line: rgba(148, 163, 184, 0.14);
   --line-strong: rgba(148, 163, 184, 0.3);
   --accent: #7aa5ff;

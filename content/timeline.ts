@@ -57,7 +57,7 @@ export const timeline: TimelineItem[] = [
     title: "Graduate study",
     subtitle: "Terminal master's — AI / CS / ECE / Robotics",
     description:
-      "Deepen foundations in learning, perception, and control; sharpen research taste; build toward frontier physical-AI work.",
+      "Deepen foundations in learning, perception, and control; sharpen research taste; build toward physical-AI systems that hold up outside the lab.",
     dateLabel: "Next · post-May 2027",
     isPlaceholder: false,
   },

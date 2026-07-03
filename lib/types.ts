@@ -179,7 +179,10 @@ export interface Profile {
   interests: string[];
   values: string[];
   missionStatement: string;
+  /** First-person version — About page. */
   graduateStudyStatement: string[];
+  /** Third-person version — homepage (keeps first person off the home page). */
+  graduateStudyHomepage: string[];
   builderEthos: string[];
   /** Kept empty and hidden by default — see siteConfig.showTargetProgramsPublicly. */
   targetPrograms: string[];
