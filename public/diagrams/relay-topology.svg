@@ -1,0 +1,52 @@
+<svg viewBox="0 0 860 400" xmlns="http://www.w3.org/2000/svg" font-family="ui-monospace, 'JetBrains Mono', SFMono-Regular, Menlo, monospace" role="img" aria-label="Per-hop view of the three-machine relay: robot to relay to GPU workstation and back">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="rgba(148,163,184,0.55)"/>
+    </marker>
+    <marker id="acc" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#7aa5ff"/>
+    </marker>
+  </defs>
+  <style>
+    .box{fill:#151b25;stroke:rgba(148,163,184,0.35)}
+    .t{fill:#e7eaf0;font-size:14px;font-weight:600}
+    .s{fill:#94a0b4;font-size:11px}
+    .lbl{fill:#7aa5ff;font-size:11px}
+    .flow{stroke:rgba(148,163,184,0.55);stroke-width:1.5;fill:none}
+    .dash{stroke:rgba(148,163,184,0.4);stroke-width:1.2;fill:none;stroke-dasharray:5 5}
+  </style>
+
+  <text x="30" y="36" class="s" letter-spacing="2">THE RELAY, HOP BY HOP</text>
+
+  <rect x="30" y="90" width="200" height="110" rx="10" class="box"/>
+  <text x="50" y="120" class="t">Robot</text>
+  <text x="50" y="142" class="s">sensing &amp; actuation</text>
+  <text x="50" y="160" class="s">camera out · SDK in</text>
+  <text x="50" y="182" class="lbl">stays real-time</text>
+
+  <rect x="330" y="90" width="200" height="110" rx="10" class="box"/>
+  <text x="350" y="120" class="t">Relay / control node</text>
+  <text x="350" y="142" class="s">pacing · buffering</text>
+  <text x="350" y="160" class="s">action → velocity translation</text>
+  <text x="350" y="182" class="s">safety limits · recovery</text>
+
+  <rect x="630" y="90" width="200" height="110" rx="10" class="box"/>
+  <text x="650" y="120" class="t">GPU workstation</text>
+  <text x="650" y="142" class="s">heavy model inference</text>
+  <text x="650" y="160" class="s">no real-time constraint</text>
+  <text x="650" y="182" class="lbl">runs where compute is</text>
+
+  <path d="M230 120 H326" class="flow" marker-end="url(#a)"/>
+  <text x="248" y="112" class="s">frames →</text>
+  <path d="M530 120 H626" class="flow" marker-end="url(#a)"/>
+  <text x="548" y="112" class="s">frames →</text>
+  <path d="M630 172 H534" class="flow" marker-end="url(#a)"/>
+  <text x="552" y="196" class="s">← actions</text>
+  <path d="M330 172 H234" class="flow" marker-end="url(#acc)"/>
+  <text x="244" y="196" class="lbl">← velocity commands</text>
+
+  <text x="30" y="280" class="s">design rule: each machine has one job — the interfaces between them are the design surface.</text>
+  <text x="30" y="304" class="s">most failures were seam failures: timing, framing, buffering, recovery.</text>
+  <path d="M130 200 V 330 H 730 V 204" class="dash" marker-end="url(#a)"/>
+  <text x="380" y="352" class="s">telemetry &amp; run logs</text>
+</svg>

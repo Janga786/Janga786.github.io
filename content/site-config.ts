@@ -41,9 +41,9 @@ export const siteConfig = {
 
   /**
    * Path to a resume PDF inside /public (e.g. "/resume.pdf").
-   * Leave undefined until a PDF is added — the resume page adapts.
+   * Set to undefined to hide the download button — the resume page adapts.
    */
-  resumePdfPath: undefined as string | undefined,
+  resumePdfPath: "/resume.pdf" as string | undefined,
 } as const;
 
 export type SiteConfig = typeof siteConfig;

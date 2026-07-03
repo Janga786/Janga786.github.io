@@ -15,8 +15,8 @@ export const socials: SocialLink[] = [
   {
     kind: "linkedin",
     label: "LinkedIn",
-    href: undefined, // TODO: add LinkedIn profile URL
-    isPlaceholder: true,
+    href: "https://www.linkedin.com/in/jangarabliss/",
+    isPlaceholder: false,
   },
   {
     kind: "email",

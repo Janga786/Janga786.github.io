@@ -1,0 +1,53 @@
+<svg viewBox="0 0 860 420" xmlns="http://www.w3.org/2000/svg" font-family="ui-monospace, 'JetBrains Mono', SFMono-Regular, Menlo, monospace" role="img" aria-label="Photovoltaic hotspot inspection pipeline: synthetic and real thermal data into YOLOv8, deployed on a Sawyer arm">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="rgba(148,163,184,0.55)"/>
+    </marker>
+  </defs>
+  <style>
+    .box{fill:#151b25;stroke:rgba(148,163,184,0.35)}
+    .t{fill:#e7eaf0;font-size:14px;font-weight:600}
+    .s{fill:#94a0b4;font-size:11px}
+    .lbl{fill:#7aa5ff;font-size:11px}
+    .flow{stroke:rgba(148,163,184,0.55);stroke-width:1.5;fill:none}
+    .dash{stroke:rgba(148,163,184,0.4);stroke-width:1.2;fill:none;stroke-dasharray:5 5}
+  </style>
+
+  <text x="30" y="36" class="s" letter-spacing="2">PV HOTSPOT INSPECTION — DATA → DETECTOR → ROBOT</text>
+
+  <rect x="30" y="76" width="240" height="84" rx="10" class="box"/>
+  <text x="50" y="106" class="t">Synthetic renders</text>
+  <text x="50" y="128" class="s">Blender + Python pipeline</text>
+  <text x="50" y="146" class="s">defect simulation</text>
+
+  <rect x="30" y="192" width="240" height="84" rx="10" class="box"/>
+  <text x="50" y="222" class="t">Real thermal captures</text>
+  <text x="50" y="244" class="lbl">1,682 training images</text>
+  <text x="50" y="262" class="s">multi-angle acquisition</text>
+
+  <rect x="350" y="134" width="200" height="84" rx="10" class="box"/>
+  <text x="370" y="164" class="t">YOLOv8 training</text>
+  <text x="370" y="186" class="s">hotspot detection</text>
+  <text x="370" y="204" class="lbl">mAP@0.5 = 0.985</text>
+
+  <path d="M270 118 C 310 118 320 150 346 162" class="flow" marker-end="url(#a)"/>
+  <path d="M270 234 C 310 234 320 202 346 190" class="flow" marker-end="url(#a)"/>
+
+  <rect x="620" y="76" width="210" height="84" rx="10" class="box"/>
+  <text x="640" y="106" class="t">Sawyer 7-DoF arm</text>
+  <text x="640" y="128" class="s">ROS Noetic · MoveIt · Gazebo</text>
+  <text x="640" y="146" class="s">multi-angle sweep, undersides</text>
+
+  <rect x="620" y="192" width="210" height="84" rx="10" class="box"/>
+  <text x="640" y="222" class="t">Live inspection</text>
+  <text x="640" y="244" class="s">real-time thermal feed</text>
+  <text x="640" y="262" class="s">hotspot localization</text>
+
+  <path d="M550 160 C 590 160 590 118 616 118" class="flow" marker-end="url(#a)"/>
+  <path d="M725 160 V 188" class="flow" marker-end="url(#a)"/>
+
+  <path d="M620 250 H 450 V 222" class="dash" marker-end="url(#a)"/>
+  <text x="430" y="290" class="s">edge cases feed the next training round</text>
+
+  <text x="30" y="380" class="s">context: both robots restored from dormancy first — CMOS/BIOS diagnosis, SSD + OS rebuild, SDK reconfiguration</text>
+</svg>

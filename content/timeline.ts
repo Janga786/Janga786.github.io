@@ -1,64 +1,64 @@
 import type { TimelineItem } from "@/lib/types";
 
 /**
- * The "builder arc" — trajectory, not résumé. Date labels are deliberately
- * coarse; replace with specific ranges as you choose to disclose them.
+ * The "builder arc" — trajectory, not résumé. Dates follow the public
+ * LinkedIn record; refine as you choose to disclose more detail.
  */
 export const timeline: TimelineItem[] = [
   {
     title: "Computer engineering foundation",
-    subtitle: "Fort Lewis College",
+    subtitle: "Fort Lewis College · minors in mathematics and business",
     description:
-      "Core curriculum across circuits, embedded systems, digital design, and software — plus a business minor picked up deliberately alongside it.",
-    dateLabel: "Undergraduate",
-    isPlaceholder: false,
-  },
-  {
-    title: "Hardware-adjacent systems work",
-    subtitle: "Embedded · FPGA · PCB · NASA hexapod project",
-    description:
-      "Board-level and firmware projects where timing, power, and physics constrain the software — the layer that makes deployment instincts real.",
-    dateLabel: "Undergraduate",
-    isPlaceholder: false,
-  },
-  {
-    title: "Robotics software stack",
-    subtitle: "ROS · MoveIt · Gazebo · YOLOv8",
-    description:
-      "Middleware, motion planning, simulation, and perception pipelines — the connective tissue between models and actuators.",
-    dateLabel: "Undergraduate",
-    isPlaceholder: false,
-  },
-  {
-    title: "Simulation, RL, and evaluation",
-    subtitle: "Isaac Sim / Isaac Lab · PPO locomotion",
-    description:
-      "Training locomotion policies and building benchmark-style evaluation — learning where simulation is honest and where it flatters.",
-    dateLabel: "Recent",
-    isPlaceholder: false,
-  },
-  {
-    title: "Real humanoid deployment",
-    subtitle: "NaVILA-style 8B VLA on a Booster K1",
-    description:
-      "A three-machine relay — RTX 5090 inference, relay/control node, robot camera streaming and SDK velocity control — running vision-language navigation on real hardware, with all the debugging that implies.",
-    dateLabel: "Recent",
+      "Core curriculum across circuits, embedded systems, digital design, and software — with math and business minors picked up deliberately alongside it.",
+    dateLabel: "2022 – 2027",
     isPlaceholder: false,
   },
   {
     title: "Entrepreneurship track",
-    subtitle: "Business minor · campus entrepreneurship · Goldman Sachs Emerging Leaders",
+    subtitle: "President & co-founder, Entrepreneurial Ventures Association",
     description:
-      "Formal product and leadership training, treated as preparation for building real physical-AI products — not a detour from engineering.",
-    dateLabel: "Ongoing",
+      "Co-founded and led FLC's entrepreneurship organization to New Registered Student Organization of the Year; ran a campus pitch competition and brought the NASA Venture Program to campus. Goldman Sachs Emerging Leaders alum.",
+    dateLabel: "2023 – 2024",
+    isPlaceholder: false,
+  },
+  {
+    title: "Applied-AI data platform",
+    subtitle: "KDUR community radio · Power Apps, embeddings, Neo4j",
+    description:
+      "Built and deployed the radio station's library and scheduling platform (60+ daily users), then prototyped the AI layer: vector embeddings for artist-name resolution and natural-language-to-Cypher agents.",
+    dateLabel: "2024 – 2025",
+    isPlaceholder: false,
+  },
+  {
+    title: "Robot revival and perception research",
+    subtitle: "Sawyer/Baxter restoration · ROS · YOLOv8 thermal inspection",
+    description:
+      "Restored two dormant industrial arms with no vendor support, then built a YOLOv8 pipeline for photovoltaic hotspot inspection — synthetic Blender training data, live validation on hardware.",
+    dateLabel: "Summer 2025",
+    isPlaceholder: false,
+  },
+  {
+    title: "NASA-challenge hexapod",
+    subtitle: "18-DoF autonomous walker · team lead of four",
+    description:
+      "Led the electrical system, autonomous firmware, and Kuramoto-CPG locomotion simulation for a hexapod that competed at NASA's Colorado Robotics Challenge at the Great Sand Dunes.",
+    dateLabel: "Oct 2025 – Apr 2026",
+    isPlaceholder: false,
+  },
+  {
+    title: "Humanoid sim-to-real research",
+    subtitle: "Booster K1 · NaVILA-style VLA + RL locomotion · Dr. Yiyan Li",
+    description:
+      "Leading sim-to-real research on a real humanoid: a two-tier architecture pairing ~1 Hz vision-language planning with a 50 Hz reinforcement-learned locomotion policy trained in Isaac Sim / Isaac Lab.",
+    dateLabel: "May 2026 – present",
     isPlaceholder: false,
   },
   {
     title: "Graduate study",
-    subtitle: "Terminal master's — AI / CS / ECE / Robotics",
+    subtitle: "Embodied AI / robotics",
     description:
       "Deepen foundations in learning, perception, and control; sharpen research taste; build toward physical-AI systems that hold up outside the lab.",
-    dateLabel: "Next · post-May 2027",
+    dateLabel: "Next · Fall 2027",
     isPlaceholder: false,
   },
 ];

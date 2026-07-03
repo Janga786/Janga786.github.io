@@ -63,9 +63,6 @@ export default function ResumePage() {
     );
   }
 
-  const builderSignal = profile.credibilitySignals.find(
-    (s) => s.label === "Builder orientation",
-  );
   const productEthos = profile.builderEthos.find((line) =>
     line.startsWith("Product judgment"),
   );
@@ -96,7 +93,7 @@ export default function ResumePage() {
               </div>
               {profile.minor ? (
                 <div>
-                  <dt className="meta-label">Minor</dt>
+                  <dt className="meta-label">Minors</dt>
                   <dd className="mt-1 text-foreground">{profile.minor}</dd>
                 </div>
               ) : null}
@@ -171,18 +168,45 @@ export default function ResumePage() {
           </ul>
         </ResumeSection>
 
-        {/* Entrepreneurship & leadership */}
-        <ResumeSection label="Entrepreneurship & leadership">
-          <div className="panel p-6">
-            {builderSignal ? (
-              <p className="text-sm text-foreground">{builderSignal.detail}</p>
-            ) : null}
-            {productEthos ? (
-              <p className="mt-3 text-sm leading-relaxed text-muted">
-                {productEthos}
-              </p>
-            ) : null}
-          </div>
+        {/* Leadership & service */}
+        <ResumeSection label="Leadership & service">
+          <ul className="space-y-3">
+            {profile.leadership.map((role) => (
+              <li
+                key={role}
+                className="flex items-start gap-3 text-sm leading-relaxed text-muted"
+              >
+                <span
+                  aria-hidden="true"
+                  className="mt-2 h-px w-4 shrink-0 bg-line-strong"
+                />
+                <NoteAwareText text={role} />
+              </li>
+            ))}
+          </ul>
+          {productEthos ? (
+            <p className="mt-5 text-sm italic leading-relaxed text-faint">
+              {productEthos}
+            </p>
+          ) : null}
+        </ResumeSection>
+
+        {/* Honors & awards */}
+        <ResumeSection label="Honors & awards">
+          <ul className="space-y-3">
+            {profile.honors.map((honor) => (
+              <li
+                key={honor}
+                className="flex items-start gap-3 text-sm leading-relaxed text-muted"
+              >
+                <span
+                  aria-hidden="true"
+                  className="mt-2 h-px w-4 shrink-0 bg-accent/60"
+                />
+                <NoteAwareText text={honor} />
+              </li>
+            ))}
+          </ul>
         </ResumeSection>
 
         {/* Download */}
