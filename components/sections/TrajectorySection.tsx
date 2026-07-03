@@ -23,6 +23,8 @@ export function TrajectorySection() {
                 item.isPlaceholder
                   ? "bg-faint"
                   : "bg-accent ring-4 ring-accent-soft",
+                item.dateLabel.toLowerCase().includes("present") &&
+                  "ping-ring",
               )}
             />
             <MotionReveal delay={Math.min(i * 0.04, 0.2)}>

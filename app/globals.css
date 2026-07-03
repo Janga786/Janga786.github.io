@@ -89,11 +89,19 @@ body {
   transition:
     border-color 180ms ease,
     background-color 180ms ease,
-    transform 180ms ease;
+    transform 180ms ease,
+    box-shadow 180ms ease;
 }
 .panel-hover:hover {
   border-color: var(--line-strong);
   background: var(--card-2);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px -12px rgba(0, 0, 0, 0.55);
+}
+@media (prefers-reduced-motion: reduce) {
+  .panel-hover:hover {
+    transform: none;
+  }
 }
 
 /* Mono metadata label — eyebrow text, tags, schematic labels. */
@@ -105,12 +113,113 @@ body {
   color: var(--muted);
 }
 
-/* Tasteful gradient text for the hero headline only. */
+/* Tasteful gradient text for the hero headline only — with a slow sheen. */
 .text-gradient-hero {
-  background: linear-gradient(135deg, #f4f6fa 30%, #a9c3f5 75%, #7aa5ff 100%);
+  background: linear-gradient(
+    120deg,
+    #f4f6fa 20%,
+    #a9c3f5 45%,
+    #7aa5ff 60%,
+    #a9c3f5 75%,
+    #f4f6fa 95%
+  );
+  background-size: 220% 100%;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+  animation: hero-sheen 14s ease-in-out infinite alternate;
+}
+@keyframes hero-sheen {
+  from {
+    background-position: 0% 50%;
+  }
+  to {
+    background-position: 100% 50%;
+  }
+}
+
+/* Calibration sweep — a faint horizontal scanline drifting down the hero grid. */
+@keyframes scan-sweep {
+  0% {
+    transform: translateY(-10%);
+    opacity: 0;
+  }
+  12% {
+    opacity: 1;
+  }
+  88% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(52vh);
+    opacity: 0;
+  }
+}
+.scanline {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(122, 165, 255, 0.22) 30%,
+    rgba(122, 165, 255, 0.22) 70%,
+    transparent
+  );
+  animation: scan-sweep 9s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Pulsing ring for "current" timeline nodes. */
+@keyframes ping-ring {
+  0% {
+    box-shadow: 0 0 0 0 rgba(122, 165, 255, 0.45);
+  }
+  70% {
+    box-shadow: 0 0 0 8px rgba(122, 165, 255, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(122, 165, 255, 0);
+  }
+}
+.ping-ring {
+  animation: ping-ring 2.4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Sliding underline for header nav links. */
+.nav-link {
+  position: relative;
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 100%;
+  bottom: -3px;
+  height: 1px;
+  background: var(--accent);
+  transition: right 220ms ease;
+}
+.nav-link:hover::after,
+.nav-link:focus-visible::after {
+  right: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .text-gradient-hero {
+    animation: none;
+  }
+  .scanline {
+    animation: none;
+    opacity: 0;
+  }
+  .ping-ring {
+    animation: none;
+  }
+  .nav-link::after {
+    transition: none;
+  }
 }
 
 /* ── Instrumentation dynamics ─────────────────────────────────────────
@@ -130,15 +239,15 @@ body {
   opacity: 0;
   transition: opacity 300ms ease;
   background: radial-gradient(
-    220px circle at var(--gx, 50%) var(--gy, 50%),
-    rgba(122, 165, 255, 0.1),
+    260px circle at var(--gx, 50%) var(--gy, 50%),
+    rgba(122, 165, 255, 0.14),
     transparent 70%
   );
 }
 [data-glow="wide"]::after {
   background: radial-gradient(
-    560px circle at var(--gx, 50%) var(--gy, 30%),
-    rgba(122, 165, 255, 0.06),
+    620px circle at var(--gx, 50%) var(--gy, 30%),
+    rgba(122, 165, 255, 0.09),
     transparent 70%
   );
 }

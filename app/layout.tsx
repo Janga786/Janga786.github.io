@@ -8,6 +8,7 @@ import { absoluteUrl } from "@/lib/seo";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { PointerFX } from "@/components/shared/PointerFX";
+import { ScrollProgress } from "@/components/shared/ScrollProgress";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -90,6 +91,7 @@ export default function RootLayout({
         />
         <PointerFX />
         <SiteHeader />
+        <ScrollProgress />
         <main id="main" className="flex-1">
           {children}
         </main>

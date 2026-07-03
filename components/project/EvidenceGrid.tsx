@@ -17,7 +17,7 @@ export function EvidenceGrid({ evidence, metrics }: EvidenceGridProps) {
         <h3 className="meta-label">Evidence</h3>
         <div className="grid gap-3 sm:grid-cols-2">
           {evidence.map((slot) => (
-            <div key={slot.label} className="panel p-4">
+            <div key={slot.label} data-glow className="panel p-4">
               <div className="flex items-start justify-between gap-3">
                 <p className="text-sm font-medium text-foreground">
                   {slot.label}
@@ -50,7 +50,7 @@ export function EvidenceGrid({ evidence, metrics }: EvidenceGridProps) {
         <h3 className="meta-label">Metrics</h3>
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
           {metrics.map((metric) => (
-            <div key={metric.label} className="panel p-4">
+            <div key={metric.label} data-glow className="panel p-4">
               <p className="meta-label">{metric.label}</p>
               {metric.value ? (
                 <p className="mt-2 text-xl font-semibold text-foreground">

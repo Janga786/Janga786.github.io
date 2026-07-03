@@ -27,7 +27,7 @@ export function CredibilityStrip() {
         {profile.credibilitySignals.map((signal, i) => {
           const Icon = iconMap[signal.icon] ?? Bot;
           return (
-            <li key={signal.label}>
+            <li key={signal.label} data-glow className="-m-2 rounded-lg p-2">
               <MotionReveal delay={i * 0.05}>
                 <Icon size={18} aria-hidden="true" className="text-accent" />
                 <p className="mt-3 text-sm font-medium text-foreground">
