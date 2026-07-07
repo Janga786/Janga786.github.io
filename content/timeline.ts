@@ -54,6 +54,14 @@ export const timeline: TimelineItem[] = [
     isPlaceholder: false,
   },
   {
+    title: "Cross-embodiment benchmark",
+    subtitle: "ManiSkill3 · Panda ↔ Unitree G1 · language-grounded manipulation",
+    description:
+      "Building an independent benchmark that measures how much manipulation performance survives a change of robot body under a shared language-conditioned policy interface. Phase A infrastructure complete and frozen; Phase B training and evaluation pending.",
+    dateLabel: "2026 · in progress",
+    isPlaceholder: false,
+  },
+  {
     title: "Graduate study",
     subtitle: "Embodied AI / robotics",
     description:

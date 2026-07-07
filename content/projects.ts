@@ -202,7 +202,136 @@ export const projects: Project[] = [
   },
 
   /* ────────────────────────────────────────────────────────────────────
-   * 2 · Robotic inspection of photovoltaic hotspots (Sawyer + YOLOv8)
+   * 2 · X-embodiment language-grounded manipulation benchmark (in progress)
+   * All statements grounded in the repo state at tag v0.3.1 — no empirical
+   * claims until Phase B produces real numbers.
+   * ──────────────────────────────────────────────────────────────────── */
+  {
+    slug: "xembench",
+    title: "X-Embodiment Language-Grounded Manipulation Benchmark",
+    shortTitle: "X-Embodiment Benchmark",
+    category: "research",
+    status: "in-progress",
+    featured: true,
+    isPlaceholder: false,
+    dateLabel: "2026 · Phase B pending",
+    oneLiner:
+      "A ManiSkill3 benchmark foundation for measuring language-grounded manipulation transfer between a tabletop arm and a humanoid upper body through a shared canonical action interface.",
+    summary:
+      "An in-progress benchmark that treats embodiment transfer as a measurable systems problem. A shared language-conditioned policy stack emits actions in a canonical 21-dimensional interface; thin robot-specific adapters translate them for either a Panda/Franka-style tabletop arm or a Unitree G1 humanoid upper body in ManiSkill3. Identical tasks, language splits, and evaluation protocol on both bodies make the interesting quantity directly computable: how much performance survives when only the robot changes. Phase A — environments, demonstration pipeline, baseline scaffolding, and the reproducibility layer — is complete and frozen at tag v0.3.1; Phase B, real training and evaluation on an RTX 5090 Linux workstation, is pending, and with it all empirical results.",
+    role: "Creator — benchmark architecture, environments, evaluation design, reproducibility engineering",
+    teamContext:
+      "Solo project, developed independently alongside the Booster K1 research.",
+    stack: [
+      "ManiSkill3",
+      "Python",
+      "PyTorch",
+      "Panda / Franka-style arm",
+      "Unitree G1 (upper body)",
+      "HDF5",
+      "Behavior Cloning",
+      "PPO",
+    ],
+    tags: [
+      "embodied AI",
+      "robot learning",
+      "manipulation",
+      "benchmarking",
+      "imitation learning",
+      "reinforcement learning",
+      "humanoid",
+    ],
+    problem:
+      "Robot policies are increasingly expected to generalize across tasks, scenes, and bodies. This benchmark asks a narrower, measurable question: when language, task structure, and policy architecture are held fixed, how much manipulation performance survives a change in embodiment — and where exactly does it drop?",
+    systemType: "Simulation benchmark · cross-embodiment evaluation infrastructure",
+    whyItMatters:
+      "Cross-embodiment transfer is a central open question for physical AI. Claims about it need benchmarks with leakage-proof splits and honest failure accounting — the infrastructure this project builds before drawing any conclusions.",
+    contributions: [
+      "Designed the cross-embodiment benchmark structure around a shared canonical 21-dimensional action interface, with thin per-robot adapters for Panda, Panda-stick, and the Unitree G1 upper body.",
+      "Implemented language-conditioned task pathways for both embodiments in ManiSkill3, with leakage-proof held-out paraphrase and held-out color/object splits designed in before any training.",
+      "Built the HDF5 demonstration pipeline with validation, plus a Behavior Cloning baseline and PPO fine-tuning scaffolding.",
+      "Added episode-level evaluation records, a failure taxonomy, transfer-drop and retention metrics, and artifact-pack generation — rehearsed end-to-end on deterministic synthetic data.",
+      "Hardened the repo for reproducibility: 110 fast + 5 simulation tests, full smoke checks, documentation, and a Linux Phase B runbook; frozen pre-Linux at tag v0.3.1.",
+    ],
+    architectureSummary:
+      "A language instruction is drawn from a train or held-out paraphrase split and fed to the shared policy stack, which emits actions in the canonical 21-D interface. A robot adapter translates them for the Panda or G1 environment, and evaluation episodes stream into transfer, failure, and artifact reports. The same path runs unchanged for either body — that symmetry is the experiment.",
+    architectureNodes: [
+      "Language instruction — paraphrase / holdout splits",
+      "Shared policy stack — BC baseline · PPO scaffold",
+      "Canonical 21-D action interface",
+      "Robot adapter — Panda | Unitree G1",
+      "Eval episodes → transfer, failure & artifact reports",
+    ],
+    evidence: [
+      {
+        label: "Test suite",
+        hint: "",
+        status: "available",
+        value: "110 fast + 5 simulation tests passing; full smoke check green.",
+      },
+      {
+        label: "Reproducibility freeze",
+        hint: "",
+        status: "available",
+        value: "Tagged v0.3.1 pre-Linux — pinned pipeline, docs, and a Phase B runbook.",
+      },
+      {
+        label: "Artifact-pack rehearsal",
+        hint: "",
+        status: "available",
+        value: "Reporting pipeline rehearsed end-to-end on deterministic synthetic toy data — explicitly not real results.",
+      },
+      {
+        label: "Benchmark results",
+        hint: "All real training and evaluation numbers await Phase B on the RTX 5090 Linux workstation.",
+        status: "pending",
+      },
+      {
+        label: "Rollout videos",
+        hint: "Demo videos will accompany Phase B evaluation runs.",
+        status: "pending",
+      },
+    ],
+    metrics: [
+      { label: "Cross-embodiment transfer success", hint: "Pending Phase B — no real numbers exist yet." },
+      { label: "Transfer retention", hint: "Arm-to-humanoid retention ratio; pending Phase B." },
+      { label: "G1 expert success gate", hint: "Pending Phase B validation." },
+      { label: "BC / PPO evaluation matrix", hint: "Pending Phase B training runs." },
+      { label: "Test suite", value: "110 + 5", hint: "Fast + simulation tests, all passing." },
+      { label: "Pre-Linux freeze", value: "v0.3.1", hint: "Reproducibility tag." },
+    ],
+    limitations: [
+      "Real benchmark results are pending Linux Phase B — the current contribution is the benchmark foundation, not final empirical conclusions.",
+      "The failure taxonomy has its infrastructure in place ahead of full per-environment instrumentation.",
+      "G1 hand open/close action signs still need in-sim verification.",
+      "The motion-planning demonstration path awaits a Linux mplib shakedown.",
+      "A diffusion-policy baseline is a stretch goal, not a current result.",
+    ],
+    lessons: [
+      "Benchmarks earn trust through their splits: leakage-proof paraphrase and object holdouts were designed in before any training, so later claims can't quietly overfit.",
+      "Rehearsing the full reporting pipeline on labeled synthetic data separates infrastructure bugs from science before any GPU-hours are spent.",
+    ],
+    media: [
+      {
+        kind: "diagram",
+        src: "/diagrams/xembench-pipeline.svg",
+        alt: "Benchmark pipeline: a language instruction passes through paraphrase and holdout splits into a shared policy stack, a canonical 21-dimensional action interface, and robot adapters for a Panda arm or Unitree G1 upper body, ending in evaluation and transfer reports",
+        caption: "Benchmark pipeline — the same path runs unchanged for either embodiment.",
+      },
+    ],
+    artifacts: [
+      { kind: "repo", label: "Code (private — public release pending)" },
+      { kind: "report", label: "Benchmark report" },
+      { kind: "logs", label: "Artifact pack (real Phase B results)" },
+      { kind: "video", label: "Rollout videos" },
+    ],
+    seoDescription:
+      "An in-progress ManiSkill3 benchmark measuring language-grounded manipulation transfer between a Panda-style arm and a Unitree G1 humanoid upper body via a shared canonical action interface. Phase A infrastructure complete; Phase B results pending.",
+    sortOrder: 2,
+  },
+
+  /* ────────────────────────────────────────────────────────────────────
+   * 3 · Robotic inspection of photovoltaic hotspots (Sawyer + YOLOv8)
    * ──────────────────────────────────────────────────────────────────── */
   {
     slug: "pv-hotspot-inspection",
@@ -329,11 +458,11 @@ export const projects: Project[] = [
     ],
     seoDescription:
       "Robotic photovoltaic hotspot inspection: restored Sawyer/Baxter robots, a Blender synthetic-data pipeline, and a YOLOv8 detector at mAP@0.5 = 0.985, validated live on hardware.",
-    sortOrder: 2,
+    sortOrder: 3,
   },
 
   /* ────────────────────────────────────────────────────────────────────
-   * 3 · Autonomous 18-DoF hexapod — NASA Colorado Robotics Challenge
+   * 4 · Autonomous 18-DoF hexapod — NASA Colorado Robotics Challenge
    * ──────────────────────────────────────────────────────────────────── */
   {
     slug: "hexapod-nasa-challenge",
@@ -451,11 +580,11 @@ export const projects: Project[] = [
     ],
     seoDescription:
       "Autonomous 18-DoF hexapod for NASA's Colorado Robotics Challenge: custom electrical system, IMU heading-hold firmware, and emergent Kuramoto-CPG gaits — fully open source.",
-    sortOrder: 3,
+    sortOrder: 4,
   },
 
   /* ────────────────────────────────────────────────────────────────────
-   * 4 · PPO locomotion & evaluation in Isaac Sim / Isaac Lab
+   * 5 · PPO locomotion & evaluation in Isaac Sim / Isaac Lab
    * ──────────────────────────────────────────────────────────────────── */
   {
     slug: "rl-locomotion-isaac",
@@ -550,11 +679,11 @@ export const projects: Project[] = [
     ],
     seoDescription:
       "PPO locomotion training and benchmark evaluation in Isaac Sim / Isaac Lab for the Booster K1's 50 Hz velocity-tracking policy.",
-    sortOrder: 4,
+    sortOrder: 5,
   },
 
   /* ────────────────────────────────────────────────────────────────────
-   * 5 · The three-machine relay as a systems story
+   * 6 · The three-machine relay as a systems story
    * ──────────────────────────────────────────────────────────────────── */
   {
     slug: "three-machine-relay",
@@ -651,11 +780,11 @@ export const projects: Project[] = [
     ],
     seoDescription:
       "Design and debugging of a three-machine inference relay connecting a GPU workstation, relay/control node, and a humanoid robot into one real-time loop.",
-    sortOrder: 5,
+    sortOrder: 6,
   },
 
   /* ────────────────────────────────────────────────────────────────────
-   * 6 · KDUR community radio data platform
+   * 7 · KDUR community radio data platform
    * ──────────────────────────────────────────────────────────────────── */
   {
     slug: "kdur-data-platform",
@@ -663,7 +792,7 @@ export const projects: Project[] = [
     shortTitle: "KDUR Data Platform",
     category: "product",
     status: "selected",
-    featured: true,
+    featured: false,
     isPlaceholder: false,
     dateLabel: "Aug 2024 – Oct 2025",
     oneLiner:
@@ -749,11 +878,11 @@ export const projects: Project[] = [
     ],
     seoDescription:
       "A deployed Power Apps data platform for KDUR community radio (60+ daily users) with an applied-AI layer: embedding-based artist resolution and natural-language-to-Cypher agents.",
-    sortOrder: 6,
+    sortOrder: 7,
   },
 
   /* ────────────────────────────────────────────────────────────────────
-   * 7 · Embedded, FPGA & board-level systems (collection)
+   * 8 · Embedded, FPGA & board-level systems (collection)
    * ──────────────────────────────────────────────────────────────────── */
   {
     slug: "embedded-hardware-systems",
@@ -823,11 +952,11 @@ export const projects: Project[] = [
     ],
     seoDescription:
       "Embedded, FPGA, and board-level systems: Verilog on the Basys 3, ATmega2560 firmware and a custom PCB, and transistor-level CMOS VLSI design.",
-    sortOrder: 7,
+    sortOrder: 8,
   },
 
   /* ────────────────────────────────────────────────────────────────────
-   * 8 · PLACEHOLDER — multimodal / vision-language project slot
+   * 9 · PLACEHOLDER — multimodal / vision-language project slot
    * ──────────────────────────────────────────────────────────────────── */
   {
     slug: "multimodal-project-slot",
@@ -883,59 +1012,9 @@ export const projects: Project[] = [
     ],
     seoDescription:
       "Reserved slot for a self-contained vision-language / multimodal AI project with task definition, evaluation, and failure analysis.",
-    sortOrder: 8,
-  },
-
-  /* ────────────────────────────────────────────────────────────────────
-   * 9 · PLACEHOLDER — research-style investigation slot
-   * ──────────────────────────────────────────────────────────────────── */
-  {
-    slug: "research-investigation-slot",
-    title: "Technical Investigation — Slot Reserved",
-    shortTitle: "Investigation Slot",
-    category: "research",
-    status: "placeholder",
-    featured: false,
-    isPlaceholder: true,
-    oneLiner:
-      "A reserved slot for a research-style investigation: one question, a method, an evaluation, and a synthesis with limitations.",
-    summary:
-      "Structured for a report-first project — the kind that demonstrates research readiness. The natural fill: one narrow question from the humanoid work, studied properly and written up with the discipline of a short paper. Where exactly does the VLN system break down, and why? Which sim behaviors predict real ones? The Moravec's-paradox questions that motivate the research program, made falsifiable.",
-    role: "[Your role]",
-    teamContext: "[Solo or advised — name the advising context if any.]",
-    stack: ["[Method & tooling]"],
-    tags: ["investigation", "evaluation", "writeup"],
-    problem: "[The research question, in one falsifiable sentence.]",
-    systemType: "Research-style investigation",
-    whyItMatters: "[Why the answer changes a real design decision.]",
-    contributions: [
-      "[Question formulation.]",
-      "[Method and evaluation setup.]",
-      "[Synthesis — what the results do and don't support.]",
-    ],
-    architectureSummary: "[Method pipeline: setup → experiment → measurement → analysis.]",
-    architectureNodes: ["Question", "Method", "Experiment", "Analysis", "Synthesis"],
-    evidence: [
-      { label: "Written report", hint: "The full writeup — this slot is report-first.", status: "pending" },
-      { label: "Experimental setup", hint: "Enough detail that someone could rerun it.", status: "pending" },
-      { label: "Results & plots", hint: "With uncertainty acknowledged.", status: "pending" },
-    ],
-    metrics: [
-      { label: "Study results", hint: "Whatever the question demands — reported with its conditions." },
-    ],
-    limitations: ["[Scope limits and the confounds you couldn't remove.]"],
-    lessons: ["[What the investigation changed about your priors.]"],
-    media: [
-      { kind: "diagram", alt: "Investigation method placeholder", caption: "Method (placeholder schematic)." },
-    ],
-    artifacts: [
-      { kind: "report", label: "Report" },
-      { kind: "slides", label: "Slides" },
-    ],
-    seoDescription:
-      "Reserved slot for a research-style technical investigation with a defined question, method, evaluation, and limitations.",
     sortOrder: 9,
   },
+
 ];
 
 /* ── Selectors ─────────────────────────────────────────────────────────── */

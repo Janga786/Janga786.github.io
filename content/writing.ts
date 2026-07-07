@@ -21,6 +21,16 @@ export const writing: WritingItem[] = [
     featured: true,
   },
   {
+    slug: "xembench-report",
+    title: "X-embodiment manipulation benchmark — technical report",
+    type: "evaluation",
+    typeLabel: "Benchmark report",
+    summary:
+      "Planned report on language-grounded manipulation transfer across a tabletop arm and a humanoid upper body: canonical action-interface design, leakage-proof language splits, BC/PPO baselines, transfer-drop and retention metrics, and failure analysis. Publishes once Phase B training and evaluation produce real numbers.",
+    isPlaceholder: true,
+    featured: true,
+  },
+  {
     slug: "humanoid-deployment-report",
     title: "Deployment report — vision-language navigation on a real humanoid",
     type: "deployment-report",

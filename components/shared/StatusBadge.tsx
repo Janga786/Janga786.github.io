@@ -4,12 +4,14 @@ import { cn } from "@/lib/utils";
 const styles: Record<ProjectStatus, string> = {
   featured: "border-accent/40 bg-accent-soft text-accent",
   selected: "border-line-strong bg-card-2 text-muted",
+  "in-progress": "border-accent-2/40 bg-accent-2/10 text-accent-2",
   placeholder: "border-dashed border-line-strong bg-transparent text-faint",
 };
 
 const labels: Record<ProjectStatus, string> = {
   featured: "Featured",
   selected: "Selected work",
+  "in-progress": "In progress",
   placeholder: "Project placeholder",
 };
 

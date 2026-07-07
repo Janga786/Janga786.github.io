@@ -1,0 +1,66 @@
+<svg viewBox="0 0 860 440" xmlns="http://www.w3.org/2000/svg" font-family="ui-monospace, 'JetBrains Mono', SFMono-Regular, Menlo, monospace" role="img" aria-label="Cross-embodiment benchmark pipeline: language instruction through splits into a shared policy stack, canonical action interface, robot adapters, and evaluation reports">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="rgba(148,163,184,0.55)"/>
+    </marker>
+  </defs>
+  <style>
+    .box{fill:#151b25;stroke:rgba(148,163,184,0.35)}
+    .t{fill:#e7eaf0;font-size:14px;font-weight:600}
+    .s{fill:#94a0b4;font-size:11px}
+    .lbl{fill:#7aa5ff;font-size:11px}
+    .flow{stroke:rgba(148,163,184,0.55);stroke-width:1.5;fill:none}
+    .dash{stroke:rgba(148,163,184,0.4);stroke-width:1.2;fill:none;stroke-dasharray:5 5}
+  </style>
+
+  <text x="30" y="36" class="s" letter-spacing="2">X-EMBODIMENT BENCHMARK — ONE PATH, TWO BODIES</text>
+
+  <rect x="30" y="70" width="230" height="84" rx="10" class="box"/>
+  <text x="50" y="100" class="t">Language instruction</text>
+  <text x="50" y="122" class="s">held-out paraphrase splits</text>
+  <text x="50" y="140" class="s">held-out color / object splits</text>
+
+  <rect x="330" y="70" width="220" height="84" rx="10" class="box"/>
+  <text x="350" y="100" class="t">Shared policy stack</text>
+  <text x="350" y="122" class="s">BC baseline · PPO scaffold</text>
+  <text x="350" y="140" class="s">language-conditioned</text>
+
+  <path d="M260 112 H326" class="flow" marker-end="url(#a)"/>
+
+  <rect x="620" y="70" width="210" height="84" rx="10" class="box"/>
+  <text x="640" y="100" class="t">Canonical interface</text>
+  <text x="640" y="122" class="lbl">21-D action space</text>
+  <text x="640" y="140" class="s">embodiment-agnostic</text>
+
+  <path d="M550 112 H616" class="flow" marker-end="url(#a)"/>
+
+  <rect x="330" y="210" width="220" height="72" rx="10" class="box"/>
+  <text x="350" y="238" class="t" font-size="13">Robot adapter</text>
+  <text x="350" y="260" class="s">thin, per-embodiment translation</text>
+
+  <path d="M725 154 C 725 190 590 200 554 232" class="flow" marker-end="url(#a)"/>
+
+  <rect x="60" y="320" width="200" height="84" rx="10" class="box"/>
+  <text x="80" y="350" class="t" font-size="13">Panda / Franka arm</text>
+  <text x="80" y="372" class="s">tabletop manipulation</text>
+  <text x="80" y="390" class="s">ManiSkill3</text>
+
+  <rect x="330" y="320" width="220" height="84" rx="10" class="box"/>
+  <text x="350" y="350" class="t" font-size="13">Unitree G1 upper body</text>
+  <text x="350" y="372" class="s">humanoid manipulation</text>
+  <text x="350" y="390" class="s">ManiSkill3</text>
+
+  <path d="M380 282 C 330 296 220 300 175 316" class="flow" marker-end="url(#a)"/>
+  <path d="M440 282 V 316" class="flow" marker-end="url(#a)"/>
+
+  <rect x="620" y="320" width="210" height="84" rx="10" class="box"/>
+  <text x="640" y="350" class="t" font-size="13">Evaluation episodes</text>
+  <text x="640" y="372" class="s">transfer-drop · retention</text>
+  <text x="640" y="390" class="s">failure taxonomy · artifacts</text>
+
+  <path d="M260 362 H 326" class="dash"/>
+  <path d="M550 362 H 616" class="flow" marker-end="url(#a)"/>
+
+  <text x="30" y="196" class="s">same tasks, same splits, same protocol — only the body changes.</text>
+  <text x="620" y="430" class="lbl">real numbers pending Phase B</text>
+</svg>
