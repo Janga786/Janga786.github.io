@@ -14,13 +14,13 @@ export const profile: Profile = {
   eyebrow: "Computer Engineering · AI Systems · Physical World",
   headline: "Building AI systems for the physical world.",
   subheadline:
-    "Jangara Bliss is a computer engineering student focused on machine learning that leaves the notebook — vision-language navigation deployed on a real humanoid, locomotion policies trained in simulation, and the systems engineering that connects models to machines. Graduate study is the next step: deeper AI/ML foundations for building serious physical-AI systems.",
+    "Jangara Bliss is a computer engineering student focused on machine learning that leaves the notebook — vision-language navigation deployed on a real humanoid, a cross-embodiment manipulation benchmark taking shape in simulation, and the systems engineering that connects models to machines. Graduate study is the next step: deeper AI/ML foundations for building serious physical-AI systems.",
 
   shortBio:
     "Computer engineering student at Fort Lewis College leading humanoid sim-to-real research — deployment-first, simulation-literate, and comfortable from model inference down to the PCB.",
 
   longBio: [
-    "I'm a senior computer engineering student at Fort Lewis College (math and business minors), and most of my work sits at the same junction: taking a capable model and making it do something in the physical world. Right now that means leading sim-to-real research on the Booster K1 humanoid under Dr. Yiyan Li — a system where you describe a task in natural language and the robot executes it. The architecture is two-tiered: a vision-language model handles perception and task planning at about 1 Hz, while a reinforcement-learned locomotion policy trained in NVIDIA Isaac Sim runs the legs at 50 Hz.",
+    "I'm a senior computer engineering student at Fort Lewis College (math and business minors), and most of my work sits at the same junction: taking a capable model and making it do something in the physical world. Right now that means leading sim-to-real research on the Booster K1 humanoid under Dr. Yiyan Li — a system where you describe a task in natural language and the robot executes it. The architecture is two-tiered: a vision-language model handles perception and task planning at about 1 Hz, while a reinforcement-learned locomotion policy trained in NVIDIA Isaac Sim runs the legs at 50 Hz. Alongside it, I'm building an independent ManiSkill3 benchmark that asks how much of a language-conditioned manipulation policy survives a change of robot body — tabletop arm to humanoid upper body. The infrastructure is built and frozen; real results are pending its Phase B training runs.",
     "Before the humanoid, the pattern was already set. I led a four-person team building an autonomous 18-DoF hexapod that competed in NASA's Colorado Robotics Challenge at the Great Sand Dunes. I spent a summer under Dr. Kevin Wedeward reviving two dormant industrial robots — tracing a Sawyer's boot failure to a dead CMOS battery, rebuilding its OS from a corrupted encrypted SSD — and then built a YOLOv8 thermal-inspection pipeline on top of them. Under Dr. Matthew Welz I shipped a data platform that Fort Lewis's radio station staff use daily, then prototyped its applied-AI layer. Across three faculty labs, the lesson kept repeating: the model is rarely the hard part; the seams are.",
     "The question that drives me is Moravec's paradox — why the hardest problems in AI turned out to be the ones a toddler solves effortlessly, and how we close the gap between what robots do in simulation and what they do in the real world. That's the problem I want to spend a career on: robots that generalize to new tasks in the physical world the way foundation models generalize in language.",
     "I also come from an entrepreneurship track — co-founder and president of FLC's Entrepreneurial Ventures Association (New Registered Student Organization of the Year), a Goldman Sachs Emerging Leaders alum, and a business minor by design. I care about the sectors where physical AI could matter most: housing, food and agriculture, logistics, healthcare, manufacturing, and space infrastructure. Graduate school is how I get the theoretical depth to build in those spaces at a level I can't reach yet.",
@@ -61,13 +61,13 @@ export const profile: Profile = {
 
   graduateStudyHomepage: [
     "The next systems need stronger foundations — optimization, learning theory, perception, control — than an undergraduate curriculum provides. A terminal master's is the direct path to that depth.",
-    "Deploying a vision-language model on a real humanoid surfaced questions about robustness, evaluation, and sim-to-real transfer that deserve proper study, not just engineering workarounds.",
+    "Deploying a vision-language model on a real humanoid — and building a benchmark for cross-embodiment manipulation — surfaced questions about robustness, evaluation, and transfer that deserve proper study, not just engineering workarounds.",
     "The long-term goal is building physical-AI products. Graduate study is leverage: research taste, harder problems, and an environment operating at a higher level.",
   ],
 
   graduateStudyStatement: [
     "The systems I want to build next need more than working code — they need stronger foundations in optimization, learning theory, perception, and control than an undergraduate curriculum provides. A terminal master's is the direct path to that depth.",
-    "Deployment taught me what I don't know. Running a vision-language model on a real humanoid surfaces questions — about robustness, evaluation, and sim-to-real transfer — that I can currently engineer around but want to actually understand. Moravec's paradox isn't an abstraction when you watch it happen at 50 Hz.",
+    "Deployment taught me what I don't know. Running a vision-language model on a real humanoid — and designing a benchmark to measure manipulation transfer across robot bodies — surfaces questions about robustness, evaluation, and embodiment shift that I can currently engineer around but want to actually understand. Moravec's paradox isn't an abstraction when you watch it happen at 50 Hz.",
     "Long-term, I intend to build physical-AI products, likely as a technical founder. Graduate study is leverage for that: research taste, harder problems, and an environment of people operating at the level I want to reach.",
   ],
 
@@ -119,7 +119,7 @@ export const profile: Profile = {
     },
     {
       label: "Simulation & RL",
-      detail: "Isaac Sim / Isaac Lab, PPO locomotion, benchmark evaluation",
+      detail: "Isaac Sim / Isaac Lab, ManiSkill3, PPO locomotion, benchmark evaluation",
       icon: "Gauge",
     },
     {
@@ -156,13 +156,13 @@ export const profile: Profile = {
     {
       title: "Reinforcement Learning & Simulation",
       description:
-        "PPO locomotion training and evaluation in Isaac Sim / Isaac Lab, with attention to what transfers and what doesn't.",
+        "PPO training and evaluation in Isaac Sim / Isaac Lab and ManiSkill3, with attention to what transfers and what doesn't.",
       icon: "Gauge",
     },
     {
       title: "Robot Learning & Autonomy",
       description:
-        "Navigation and control stacks where learned components meet classical robotics — and the evaluation to tell them apart.",
+        "Navigation and manipulation stacks where learned components meet classical robotics — and the benchmarks to tell them apart.",
       icon: "Bot",
     },
     {

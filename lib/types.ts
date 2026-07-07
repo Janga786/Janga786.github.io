@@ -24,7 +24,11 @@ export interface CategoryMeta {
   evidenceNote: string;
 }
 
-export type ProjectStatus = "featured" | "selected" | "placeholder";
+export type ProjectStatus =
+  | "featured"
+  | "selected"
+  | "in-progress"
+  | "placeholder";
 
 export interface EvidenceSlot {
   /** e.g. "End-to-end latency", "Demo video", "Failure cases" */
