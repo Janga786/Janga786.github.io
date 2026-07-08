@@ -1,6 +1,7 @@
 import {
   Bot,
   CircuitBoard,
+  Database,
   Gauge,
   Layers,
   Network,
@@ -23,9 +24,10 @@ const iconMap: Record<string, LucideIcon> = {
   Rocket,
   Layers,
   ScanEye,
+  Database,
 };
 
-/** The seven technical lanes from profile.capabilities. */
+/** The technical lanes from profile.capabilities. */
 export function CapabilityGrid() {
   return (
     <SectionShell>

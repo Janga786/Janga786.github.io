@@ -57,7 +57,15 @@ export const timeline: TimelineItem[] = [
     title: "Cross-embodiment benchmark",
     subtitle: "ManiSkill3 · Panda ↔ Unitree G1 · language-grounded manipulation",
     description:
-      "Building an independent benchmark that measures how much manipulation performance survives a change of robot body under a shared language-conditioned policy interface. Phase A infrastructure complete and frozen; Phase B training and evaluation pending.",
+      "Building an independent benchmark that measures how much manipulation performance survives a change of robot body under a shared language-conditioned policy interface. Infrastructure complete and Linux-ready; Phase B training and evaluation pending.",
+    dateLabel: "2026 · in progress",
+    isPlaceholder: false,
+  },
+  {
+    title: "Physical AI data flywheel",
+    subtitle: "Failure-driven data collection · dataset validation · built on the benchmark",
+    description:
+      "A closed loop that turns benchmark failures into targeted demonstration requests, validates datasets before training, and packages every round as a reproducible artifact. Mac-safe foundation complete with five selection strategies; real experiments pending Linux.",
     dateLabel: "2026 · in progress",
     isPlaceholder: false,
   },

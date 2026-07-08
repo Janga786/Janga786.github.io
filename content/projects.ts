@@ -218,7 +218,7 @@ export const projects: Project[] = [
     oneLiner:
       "A ManiSkill3 benchmark foundation for measuring language-grounded manipulation transfer between a tabletop arm and a humanoid upper body through a shared canonical action interface.",
     summary:
-      "An in-progress benchmark that treats embodiment transfer as a measurable systems problem. A shared language-conditioned policy stack emits actions in a canonical 21-dimensional interface; thin robot-specific adapters translate them for either a Panda/Franka-style tabletop arm or a Unitree G1 humanoid upper body in ManiSkill3. Identical tasks, language splits, and evaluation protocol on both bodies make the interesting quantity directly computable: how much performance survives when only the robot changes. Phase A — environments, demonstration pipeline, baseline scaffolding, and the reproducibility layer — is complete and frozen at tag v0.3.1; Phase B, real training and evaluation on an RTX 5090 Linux workstation, is pending, and with it all empirical results.",
+      "An in-progress benchmark that treats embodiment transfer as a measurable systems problem. A shared language-conditioned policy stack emits actions in a canonical 21-dimensional interface; thin robot-specific adapters translate them for either a Panda/Franka-style tabletop arm or a Unitree G1 humanoid upper body in ManiSkill3. Identical tasks, language splits, and evaluation protocol on both bodies make the interesting quantity directly computable: how much performance survives when only the robot changes. The benchmark infrastructure is complete — environments, demonstration pipeline, baseline scaffolding, failure taxonomy, and the reproducibility layer, frozen pre-Linux at tag v0.3.1 — and readiness checks on the RTX 5090 Linux workstation have passed, including motion-planning and humanoid-environment shakedowns. Phase B, the real training and evaluation runs, is pending — and with it all empirical results.",
     role: "Creator — benchmark architecture, environments, evaluation design, reproducibility engineering",
     teamContext:
       "Solo project, developed independently alongside the Booster K1 research.",
@@ -236,9 +236,12 @@ export const projects: Project[] = [
       "embodied AI",
       "robot learning",
       "manipulation",
+      "cross-embodiment transfer",
+      "canonical action interface",
       "benchmarking",
       "imitation learning",
       "reinforcement learning",
+      "failure analysis",
       "humanoid",
     ],
     problem:
@@ -251,7 +254,8 @@ export const projects: Project[] = [
       "Implemented language-conditioned task pathways for both embodiments in ManiSkill3, with leakage-proof held-out paraphrase and held-out color/object splits designed in before any training.",
       "Built the HDF5 demonstration pipeline with validation, plus a Behavior Cloning baseline and PPO fine-tuning scaffolding.",
       "Added episode-level evaluation records, a failure taxonomy, transfer-drop and retention metrics, and artifact-pack generation — rehearsed end-to-end on deterministic synthetic data.",
-      "Hardened the repo for reproducibility: 110 fast + 5 simulation tests, full smoke checks, documentation, and a Linux Phase B runbook; frozen pre-Linux at tag v0.3.1.",
+      "Hardened the repo for reproducibility: full smoke checks, documentation, a Linux Phase B runbook, and a pre-Linux freeze at tag v0.3.1 — the repo-wide suite now stands at 187 fast + 5 simulation tests with the data-flywheel layer included.",
+      "Completed Linux/RTX 5090 readiness before training: motion-planning (mplib) demonstration collection shaken down end-to-end, the G1 humanoid environments verified on the training machine, and a G1 hand-sign bug found and fixed by a dedicated check script — before it could silently corrupt every grasp demonstration.",
     ],
     architectureSummary:
       "A language instruction is drawn from a train or held-out paraphrase split and fed to the shared policy stack, which emits actions in the canonical 21-D interface. A robot adapter translates them for the Panda or G1 environment, and evaluation episodes stream into transfer, failure, and artifact reports. The same path runs unchanged for either body — that symmetry is the experiment.",
@@ -267,13 +271,19 @@ export const projects: Project[] = [
         label: "Test suite",
         hint: "",
         status: "available",
-        value: "110 fast + 5 simulation tests passing; full smoke check green.",
+        value: "187 fast + 5 simulation tests passing; full smoke check green.",
       },
       {
         label: "Reproducibility freeze",
         hint: "",
         status: "available",
         value: "Tagged v0.3.1 pre-Linux — pinned pipeline, docs, and a Phase B runbook.",
+      },
+      {
+        label: "Linux / RTX 5090 readiness",
+        hint: "",
+        status: "available",
+        value: "Workstation prep passed: Panda motion-planning shakedown clean, G1 environment shakedown clean, and a hand-sign action bug caught and fixed before any training.",
       },
       {
         label: "Artifact-pack rehearsal",
@@ -297,14 +307,12 @@ export const projects: Project[] = [
       { label: "Transfer retention", hint: "Arm-to-humanoid retention ratio; pending Phase B." },
       { label: "G1 expert success gate", hint: "Pending Phase B validation." },
       { label: "BC / PPO evaluation matrix", hint: "Pending Phase B training runs." },
-      { label: "Test suite", value: "110 + 5", hint: "Fast + simulation tests, all passing." },
+      { label: "Test suite", value: "187 + 5", hint: "Fast + simulation tests, all passing." },
       { label: "Pre-Linux freeze", value: "v0.3.1", hint: "Reproducibility tag." },
     ],
     limitations: [
-      "Real benchmark results are pending Linux Phase B — the current contribution is the benchmark foundation, not final empirical conclusions.",
-      "The failure taxonomy has its infrastructure in place ahead of full per-environment instrumentation.",
-      "G1 hand open/close action signs still need in-sim verification.",
-      "The motion-planning demonstration path awaits a Linux mplib shakedown.",
+      "Real benchmark results are pending Linux Phase B — the current contribution is the reproducible benchmark foundation, not final empirical conclusions.",
+      "The failure taxonomy has its infrastructure in place ahead of full per-environment instrumentation; until then most failure labels resolve to timeout-level granularity.",
       "A diffusion-policy baseline is a stretch goal, not a current result.",
     ],
     lessons: [
@@ -326,12 +334,146 @@ export const projects: Project[] = [
       { kind: "video", label: "Rollout videos" },
     ],
     seoDescription:
-      "An in-progress ManiSkill3 benchmark measuring language-grounded manipulation transfer between a Panda-style arm and a Unitree G1 humanoid upper body via a shared canonical action interface. Phase A infrastructure complete; Phase B results pending.",
+      "An in-progress ManiSkill3 benchmark measuring language-grounded manipulation transfer between a Panda-style arm and a Unitree G1 humanoid upper body via a shared canonical action interface. Benchmark infrastructure complete and Linux-ready; Phase B results pending.",
     sortOrder: 2,
   },
 
   /* ────────────────────────────────────────────────────────────────────
-   * 3 · Robotic inspection of photovoltaic hotspots (Sawyer + YOLOv8)
+   * 3 · Physical AI Data Flywheel (in progress)
+   * Grounded in the repo state: Mac-safe foundation complete, all outputs
+   * synthetic/toy — no real flywheel experiments have run yet.
+   * ──────────────────────────────────────────────────────────────────── */
+  {
+    slug: "physical-ai-data-flywheel",
+    title: "Physical AI Data Flywheel",
+    shortTitle: "Physical AI Data Flywheel",
+    category: "research",
+    status: "in-progress",
+    featured: true,
+    isPlaceholder: false,
+    dateLabel: "2026 · foundation complete",
+    oneLiner:
+      "A closed-loop data-to-policy system that turns robot benchmark failures into targeted demonstration requests — then validates, trains, evaluates, and repeats.",
+    summary:
+      "Robot demonstrations are expensive, so which ones you collect matters. Instead of gathering more data at random, this flywheel — built inside the cross-embodiment benchmark — reads evaluation failures, generates candidate demonstration requests aimed at what actually failed, selects among them under an episode budget, validates the resulting dataset before any training touches it, and packages every round into a reproducible artifact with dataset cards and provenance. The Mac-safe foundation is complete: seventeen modules, typed schemas end to end, deterministic validation, five selection strategies, and a full toy round rehearsed on synthetic data with explicit warnings. The real collect–train–evaluate loop is pending Linux experiments, which are designed to test one falsifiable question: does failure-targeted data improve performance more efficiently than the same budget of random additional demonstrations?",
+    role: "Creator — system design, schemas, validation, selection strategies, artifact pipeline",
+    teamContext:
+      "Solo project, built as a layer inside the x-embodiment benchmark codebase.",
+    stack: [
+      "Python",
+      "xembench (ManiSkill3)",
+      "Typed dataset / provenance schemas",
+      "HDF5 validation",
+      "Failure-driven candidate generation",
+      "Artifact packaging",
+    ],
+    tags: [
+      "data-centric AI",
+      "robot learning",
+      "embodied AI",
+      "dataset validation",
+      "provenance",
+      "failure-driven data collection",
+      "selection strategies",
+      "cross-embodiment manipulation",
+      "reproducibility",
+    ],
+    problem:
+      "Robot-learning pipelines usually treat data collection as a fixed upfront cost: gather demonstrations, train, hope. But when a policy fails, those failures say exactly where the dataset is thin. The flywheel asks whether closing that loop — failures deciding what data comes next — beats collecting more of the same.",
+    systemType: "Data-to-policy loop · dataset validation & selection infrastructure",
+    whyItMatters:
+      "Data quality and data choice are becoming the bottleneck of physical AI. A trustworthy flywheel needs validation, provenance, and honest accounting built in from the start — otherwise 'more data' quietly becomes 'more of the same failure modes'.",
+    contributions: [
+      "Designed the round loop: evaluation failures → failure analysis → candidate demonstration requests → budgeted selection → collection → dataset validation → training → re-evaluation → artifact packs.",
+      "Built seventeen flywheel modules with typed schemas for provenance, dataset index records, quality issues, candidate demo requests, selection plans, dataset cards, model-card placeholders, and round manifests.",
+      "Implemented deterministic dataset validation with quality scoring — datasets are checked before any training consumes them.",
+      "Implemented five budgeted selection strategies — random, stratified, failure_targeted, diversity_greedy, and cost_aware_failure_targeted — so the core comparison (targeted vs. random) is a config switch, not a rewrite.",
+      "Rehearsed the entire loop as a deterministic toy round producing synthetic artifact packs with explicit warnings, and generated Linux command plans without executing any training on the Mac.",
+      "Covered the layer with 77 flywheel tests; the repo-wide suite stands at 187 fast + 5 simulation tests.",
+    ],
+    architectureSummary:
+      "Evaluation episodes stream failure records into analysis; failures become candidate demonstration requests; a selection strategy spends a fixed episode budget across candidates; collected demonstrations pass deterministic validation before entering the training set; the retrained policy is re-evaluated, and the whole round — dataset card, validation report, plans, and comparisons — is packaged as a checksummed artifact. Then the loop runs again.",
+    architectureNodes: [
+      "Evaluation failures → failure analysis",
+      "Candidate demonstration requests",
+      "Budgeted selection — 5 strategies",
+      "Collection → dataset validation",
+      "Policy training → re-evaluation",
+      "Round artifact pack — cards · provenance",
+    ],
+    evidence: [
+      {
+        label: "Flywheel foundation",
+        hint: "",
+        status: "available",
+        value: "17 modules, typed schemas end to end, deterministic validation with quality scoring, and failure-driven candidate generation.",
+      },
+      {
+        label: "Selection strategies",
+        hint: "",
+        status: "available",
+        value: "random · stratified · failure_targeted · diversity_greedy · cost_aware_failure_targeted — all budgeted, all tested.",
+      },
+      {
+        label: "Toy round rehearsal",
+        hint: "",
+        status: "available",
+        value: "Deterministic end-to-end round on synthetic data, packaged into artifact packs with explicit synthetic-data warnings.",
+      },
+      {
+        label: "Test suite",
+        hint: "",
+        status: "available",
+        value: "77 flywheel tests; repo-wide suite at 187 fast + 5 simulation tests, all passing.",
+      },
+      {
+        label: "Real flywheel rounds",
+        hint: "The collect–train–evaluate loop on real data awaits Linux experiments; all current outputs are synthetic/toy.",
+        status: "pending",
+      },
+      {
+        label: "Targeted-vs-random experiment",
+        hint: "Pre-registered comparison: baseline vs. +random demos vs. +failure-targeted demos at equal budget.",
+        status: "pending",
+      },
+    ],
+    metrics: [
+      { label: "Improvement per demonstration", hint: "The flywheel's headline metric; pending real Linux rounds." },
+      { label: "Failure-targeted vs. random selection", hint: "Equal-budget comparison; pending real experiments." },
+      { label: "Dataset quality score", hint: "Computed by validation on real collected data; pending." },
+      { label: "Flywheel modules", value: "17", hint: "Typed, tested, Mac-safe." },
+      { label: "Flywheel tests", value: "77", hint: "Within a 187 + 5 repo-wide suite." },
+    ],
+    limitations: [
+      "Mac-safe foundation complete; the real data/training/evaluation loop is pending Linux experiments — no flywheel results exist yet.",
+      "All current flywheel outputs are synthetic/toy and are explicitly labeled as such unless marked real later.",
+      "Failure targeting currently works at the granularity of the benchmark's existing failure labels; sharper targeting lands with richer per-episode instrumentation.",
+      "Designed and rehearsed on one benchmark (xembench); generality beyond it is a hypothesis, not a claim.",
+    ],
+    lessons: [
+      "Validation belongs before training, not after a bad run: a dataset the pipeline can't trust is a result you can't trust.",
+      "Making 'which data next?' a typed, budgeted, testable decision turns a vague intuition — failures should guide collection — into an experiment with a falsifiable answer.",
+    ],
+    media: [
+      {
+        kind: "diagram",
+        src: "/diagrams/flywheel-loop.svg",
+        alt: "Physical AI data flywheel loop: evaluation failures flow into failure analysis, candidate demonstration requests, budgeted selection, collection and dataset validation, policy training and re-evaluation, and round artifact packs — which feed the next round",
+        caption: "One flywheel round — failures decide what data gets collected next.",
+      },
+    ],
+    artifacts: [
+      { kind: "repo", label: "Code (private — public release pending)" },
+      { kind: "report", label: "Flywheel experiment report" },
+      { kind: "logs", label: "First real round artifact pack" },
+    ],
+    seoDescription:
+      "A closed-loop data-to-policy system for robot learning: benchmark failures drive targeted demonstration requests, datasets are validated before training, and every round ships as a reproducible artifact. Mac-safe foundation complete; real Linux experiments pending.",
+    sortOrder: 3,
+  },
+
+  /* ────────────────────────────────────────────────────────────────────
+   * 4 · Robotic inspection of photovoltaic hotspots (Sawyer + YOLOv8)
    * ──────────────────────────────────────────────────────────────────── */
   {
     slug: "pv-hotspot-inspection",
@@ -458,11 +600,11 @@ export const projects: Project[] = [
     ],
     seoDescription:
       "Robotic photovoltaic hotspot inspection: restored Sawyer/Baxter robots, a Blender synthetic-data pipeline, and a YOLOv8 detector at mAP@0.5 = 0.985, validated live on hardware.",
-    sortOrder: 3,
+    sortOrder: 4,
   },
 
   /* ────────────────────────────────────────────────────────────────────
-   * 4 · Autonomous 18-DoF hexapod — NASA Colorado Robotics Challenge
+   * 5 · Autonomous 18-DoF hexapod — NASA Colorado Robotics Challenge
    * ──────────────────────────────────────────────────────────────────── */
   {
     slug: "hexapod-nasa-challenge",
@@ -580,11 +722,11 @@ export const projects: Project[] = [
     ],
     seoDescription:
       "Autonomous 18-DoF hexapod for NASA's Colorado Robotics Challenge: custom electrical system, IMU heading-hold firmware, and emergent Kuramoto-CPG gaits — fully open source.",
-    sortOrder: 4,
+    sortOrder: 5,
   },
 
   /* ────────────────────────────────────────────────────────────────────
-   * 5 · PPO locomotion & evaluation in Isaac Sim / Isaac Lab
+   * 6 · PPO locomotion & evaluation in Isaac Sim / Isaac Lab
    * ──────────────────────────────────────────────────────────────────── */
   {
     slug: "rl-locomotion-isaac",
@@ -679,11 +821,11 @@ export const projects: Project[] = [
     ],
     seoDescription:
       "PPO locomotion training and benchmark evaluation in Isaac Sim / Isaac Lab for the Booster K1's 50 Hz velocity-tracking policy.",
-    sortOrder: 5,
+    sortOrder: 6,
   },
 
   /* ────────────────────────────────────────────────────────────────────
-   * 6 · The three-machine relay as a systems story
+   * 7 · The three-machine relay as a systems story
    * ──────────────────────────────────────────────────────────────────── */
   {
     slug: "three-machine-relay",
@@ -691,7 +833,7 @@ export const projects: Project[] = [
     shortTitle: "Inference Relay System",
     category: "systems-integration",
     status: "selected",
-    featured: true,
+    featured: false,
     isPlaceholder: false,
     dateLabel: "2026",
     oneLiner:
@@ -780,11 +922,11 @@ export const projects: Project[] = [
     ],
     seoDescription:
       "Design and debugging of a three-machine inference relay connecting a GPU workstation, relay/control node, and a humanoid robot into one real-time loop.",
-    sortOrder: 6,
+    sortOrder: 7,
   },
 
   /* ────────────────────────────────────────────────────────────────────
-   * 7 · KDUR community radio data platform
+   * 8 · KDUR community radio data platform
    * ──────────────────────────────────────────────────────────────────── */
   {
     slug: "kdur-data-platform",
@@ -878,11 +1020,11 @@ export const projects: Project[] = [
     ],
     seoDescription:
       "A deployed Power Apps data platform for KDUR community radio (60+ daily users) with an applied-AI layer: embedding-based artist resolution and natural-language-to-Cypher agents.",
-    sortOrder: 7,
+    sortOrder: 8,
   },
 
   /* ────────────────────────────────────────────────────────────────────
-   * 8 · Embedded, FPGA & board-level systems (collection)
+   * 9 · Embedded, FPGA & board-level systems (collection)
    * ──────────────────────────────────────────────────────────────────── */
   {
     slug: "embedded-hardware-systems",
@@ -952,11 +1094,11 @@ export const projects: Project[] = [
     ],
     seoDescription:
       "Embedded, FPGA, and board-level systems: Verilog on the Basys 3, ATmega2560 firmware and a custom PCB, and transistor-level CMOS VLSI design.",
-    sortOrder: 8,
+    sortOrder: 9,
   },
 
   /* ────────────────────────────────────────────────────────────────────
-   * 9 · PLACEHOLDER — multimodal / vision-language project slot
+   * 10 · PLACEHOLDER — multimodal / vision-language project slot
    * ──────────────────────────────────────────────────────────────────── */
   {
     slug: "multimodal-project-slot",
@@ -1012,7 +1154,7 @@ export const projects: Project[] = [
     ],
     seoDescription:
       "Reserved slot for a self-contained vision-language / multimodal AI project with task definition, evaluation, and failure analysis.",
-    sortOrder: 9,
+    sortOrder: 10,
   },
 
 ];

@@ -1,0 +1,58 @@
+<svg viewBox="0 0 860 440" xmlns="http://www.w3.org/2000/svg" font-family="ui-monospace, 'JetBrains Mono', SFMono-Regular, Menlo, monospace" role="img" aria-label="Physical AI data flywheel loop: evaluation failures feed failure analysis and candidate demonstration requests, a budgeted selection strategy chooses what to collect, collected data is validated before training, and the retrained policy is re-evaluated — producing the next round's failures and a round artifact pack">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="rgba(148,163,184,0.55)"/>
+    </marker>
+  </defs>
+  <style>
+    .box{fill:#151b25;stroke:rgba(148,163,184,0.35)}
+    .t{fill:#e7eaf0;font-size:14px;font-weight:600}
+    .s{fill:#94a0b4;font-size:11px}
+    .lbl{fill:#7aa5ff;font-size:11px}
+    .flow{stroke:rgba(148,163,184,0.55);stroke-width:1.5;fill:none}
+    .dash{stroke:rgba(148,163,184,0.4);stroke-width:1.2;fill:none;stroke-dasharray:5 5}
+  </style>
+
+  <text x="30" y="36" class="s" letter-spacing="2">PHYSICAL AI DATA FLYWHEEL — FAILURES DECIDE THE NEXT DATASET</text>
+
+  <rect x="30" y="70" width="240" height="76" rx="10" class="box"/>
+  <text x="50" y="99" class="t">Evaluation failures</text>
+  <text x="50" y="120" class="s">episode records · failure taxonomy</text>
+  <text x="50" y="136" class="s">from the x-embodiment benchmark</text>
+
+  <rect x="310" y="70" width="240" height="76" rx="10" class="box"/>
+  <text x="330" y="99" class="t">Candidate requests</text>
+  <text x="330" y="120" class="s">failure analysis → typed, costed</text>
+  <text x="330" y="136" class="s">demonstration requests</text>
+
+  <rect x="590" y="70" width="240" height="76" rx="10" class="box"/>
+  <text x="610" y="99" class="t">Budgeted selection</text>
+  <text x="610" y="120" class="s">5 strategies — failure-targeted,</text>
+  <text x="610" y="136" class="s">random, stratified, diversity, cost</text>
+
+  <rect x="590" y="260" width="240" height="76" rx="10" class="box"/>
+  <text x="610" y="289" class="t">Collect + validate</text>
+  <text x="610" y="310" class="s">deterministic dataset validation</text>
+  <text x="610" y="326" class="s">before any training consumes it</text>
+
+  <rect x="310" y="260" width="240" height="76" rx="10" class="box"/>
+  <text x="330" y="289" class="t">Train → re-evaluate</text>
+  <text x="330" y="310" class="s">BC on the grown dataset;</text>
+  <text x="330" y="326" class="s">new eval = next round's failures</text>
+
+  <rect x="30" y="260" width="240" height="76" rx="10" class="box"/>
+  <text x="50" y="289" class="t">Round artifact pack</text>
+  <text x="50" y="310" class="s">dataset card · provenance ·</text>
+  <text x="50" y="326" class="s">validation report · checksums</text>
+
+  <path d="M270 108 H306" class="flow" marker-end="url(#a)"/>
+  <path d="M550 108 H586" class="flow" marker-end="url(#a)"/>
+  <path d="M710 146 V256" class="flow" marker-end="url(#a)"/>
+  <path d="M590 298 H554" class="flow" marker-end="url(#a)"/>
+  <path d="M310 298 H274" class="dash" marker-end="url(#a)"/>
+  <path d="M430 260 V203 H150 V150" class="flow" marker-end="url(#a)"/>
+
+  <text x="440" y="197" class="lbl">next round — failures feed forward</text>
+  <text x="30" y="380" class="s">every stage is typed, tested, and rehearsed end-to-end on synthetic data.</text>
+  <text x="590" y="430" class="lbl">real rounds pending Linux experiments</text>
+</svg>
