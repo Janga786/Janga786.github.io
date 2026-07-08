@@ -31,6 +31,16 @@ export const writing: WritingItem[] = [
     featured: true,
   },
   {
+    slug: "flywheel-report",
+    title: "Physical AI data flywheel — experiment report",
+    type: "evaluation",
+    typeLabel: "Experiment report",
+    summary:
+      "Planned report on failure-driven data collection: whether demonstrations targeted at evaluation failures improve policy performance more efficiently than the same budget of random additional demos. Covers dataset validation, selection strategies, and per-round accounting. Publishes once real Linux experiments run — all current flywheel outputs are synthetic.",
+    isPlaceholder: true,
+    featured: false,
+  },
+  {
     slug: "humanoid-deployment-report",
     title: "Deployment report — vision-language navigation on a real humanoid",
     type: "deployment-report",
