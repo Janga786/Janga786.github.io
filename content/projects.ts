@@ -332,6 +332,13 @@ export const projects: Project[] = [
     ],
     media: [
       {
+        kind: "image",
+        src: "/media/xembench-task-montage.png",
+        alt: "ManiSkill3 task frames for Franka-style arm and Unitree G1 manipulation environments",
+        caption:
+          "Simulation task suite used by xembench: pick, tool-pull, Push-T, stack, apple-placement, and G1 box-transport environments.",
+      },
+      {
         kind: "diagram",
         src: "/diagrams/xembench-pipeline.svg",
         alt: "Xembench language-conditioned policy and canonical action interface across a Franka arm and Unitree G1",
@@ -446,6 +453,20 @@ export const projects: Project[] = [
         src: "/diagrams/kuka-validation.svg",
         alt: "KUKA kinematics modules and independent verification paths",
         caption: "Analytic model, generated URDF, and numerical oracles form one verification loop.",
+      },
+      {
+        kind: "image",
+        src: "/media/kuka-urdf-crosscheck.png",
+        alt: "KUKA KR 6 analytic DH stick model beside the independently rendered URDF model",
+        caption:
+          "Analytic DH model and reloaded URDF at the same documented configuration; numerical pose agreement is reported separately.",
+      },
+      {
+        kind: "image",
+        src: "/media/kuka-wrist-singularity.png",
+        alt: "KUKA wrist singularity sweep showing minimum singular value and manipulability approaching zero",
+        caption:
+          "Wrist-singularity sweep: the minimum singular value and manipulability collapse as q5 approaches zero.",
       },
     ],
     artifacts: [
@@ -816,7 +837,21 @@ export const projects: Project[] = [
       "Direct-register work builds intuition for the timing and bandwidth constraints hidden by high-level robotics frameworks.",
       "Breadth is most useful when tied back to concrete robot interfaces rather than presented as a catalog.",
     ],
-    media: [{ kind: "diagram", src: "/diagrams/embedded-stack.svg", alt: "Embedded systems portfolio from CMOS and FPGA through firmware and a four-layer PCB", caption: "Hardware breadth from logic through board-level implementation." }],
+    media: [
+      {
+        kind: "image",
+        src: "/media/embedded-pcb-layout.png",
+        alt: "Four-layer Arduino-Mega-class PCB layout in the board editor",
+        caption:
+          "Documented board layout with routed signals and copper layers; design files and Gerbers exist, but fabrication is not claimed.",
+      },
+      {
+        kind: "diagram",
+        src: "/diagrams/embedded-stack.svg",
+        alt: "Embedded systems portfolio from CMOS and FPGA through firmware and a four-layer PCB",
+        caption: "Hardware breadth from logic through board-level implementation.",
+      },
+    ],
     artifacts: [
       { kind: "repo", label: "Microcontroller portfolio", href: "https://github.com/Janga786/arduino-mega-microcontrollers" },
       { kind: "repo", label: "FPGA portfolio", href: "https://github.com/Janga786/basys3-fpga-portfolio" },
