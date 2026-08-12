@@ -1,933 +1,689 @@
 import type { CategoryMeta, Project } from "@/lib/types";
 
 /**
- * Project entries.
- *
- * HOW TO REPLACE A PLACEHOLDER WITH A REAL PROJECT
- * ------------------------------------------------
- * 1. Set `title`, `oneLiner`, `summary`, `problem`, `whyItMatters` to the real story.
- * 2. Fill `contributions` with YOUR specific work; put team context in `teamContext`.
- * 3. Replace `evidence` slot statuses with "available" + real values as you attach
- *    diagrams, videos, metrics, and logs. Add `artifacts` links (repo/report/video).
- * 4. Replace `metrics` hints with measured values. NEVER estimate — measure or omit.
- * 5. Set `isPlaceholder: false` and adjust `status` ("featured" | "selected").
- * 6. Keep `limitations` and `lessons` honest — admissions readers trust candor.
- *
- * All facts below come from Jangara's published record (LinkedIn/GitHub).
- * Strings starting with "[" are fill-in prompts and render as editor notes.
+ * Admissions-facing case studies. Every quantitative result below is tied to
+ * a linked report, repository artifact, or final team report. Hardware tests,
+ * simulation results, upstream foundations, and personal contributions are
+ * deliberately separated.
  */
 
 export const categories: CategoryMeta[] = [
   {
     id: "embodied-ai",
-    label: "Embodied AI · Deployment",
+    label: "Robot Learning & Autonomy",
     evidenceNote:
-      "Strong evidence here: video of the real system running, a topology diagram, measured latency, and documented failure modes.",
+      "Look for a defined task, a complete denominator, per-episode artifacts, failure decomposition, and a clear simulation-versus-hardware boundary.",
   },
   {
-    id: "multimodal",
-    label: "Multimodal · Vision-Language",
+    id: "research",
+    label: "Benchmarks & Experiments",
     evidenceNote:
-      "Strong evidence here: task definition, model/interface choices, qualitative examples, and failure analysis.",
+      "Strong evidence means controlled comparisons, reproducible configurations, negative results, and conclusions limited to what the experiment can establish.",
+  },
+  {
+    id: "modeling-control",
+    label: "Modeling & Control",
+    evidenceNote:
+      "Strong evidence connects mathematical derivation to numerical tests, independent cross-checks, and known singularities or limitations.",
   },
   {
     id: "perception",
-    label: "Vision & Perception",
+    label: "Perception & Sensing",
     evidenceNote:
-      "Strong evidence here: sensing setup, metrics (mAP / precision / recall), a pipeline diagram, and edge-case behavior.",
-  },
-  {
-    id: "rl-simulation",
-    label: "RL & Simulation",
-    evidenceNote:
-      "Strong evidence here: training setup, reward design, benchmark plots, and honest sim-to-real notes.",
+      "Strong evidence identifies the sensing setup, algorithm, experimental protocol, held-out evaluation boundary, and failure modes.",
   },
   {
     id: "systems-integration",
-    label: "Systems Integration",
+    label: "Robotic Systems",
     evidenceNote:
-      "Strong evidence here: hardware/software architecture, middleware and interface design, and debugging narratives.",
+      "Strong evidence identifies the interfaces personally owned, inherited hardware and software, safety constraints, and field validation.",
   },
   {
     id: "embedded",
     label: "Embedded & Edge",
     evidenceNote:
-      "Strong evidence here: board/FPGA context, timing and power constraints, and integration test results.",
+      "Strong evidence distinguishes designed from fabricated hardware and reports timing, protocol, power, or integration constraints precisely.",
   },
   {
     id: "product",
-    label: "Product & Entrepreneurship",
+    label: "Product & Leadership",
     evidenceNote:
-      "Strong evidence here: a real user problem, prototype architecture, customer reasoning, and what was learned.",
-  },
-  {
-    id: "research",
-    label: "Research & Investigation",
-    evidenceNote:
-      "Strong evidence here: a crisp question, method, evaluation setup, synthesis, and limitations.",
+      "Strong evidence separates a designed user population from actual deployment and explains handoff, operational constraints, and team context.",
   },
 ];
 
 export const projects: Project[] = [
-  /* ────────────────────────────────────────────────────────────────────
-   * 1 · Vision-language navigation deployed on a Booster K1 humanoid
-   * ──────────────────────────────────────────────────────────────────── */
   {
-    slug: "vla-navigation-booster-k1",
-    title: "Vision-Language Navigation on a Booster K1 Humanoid",
-    shortTitle: "VLA Navigation · Booster K1",
+    slug: "k1-navila-research",
+    title: "Humanoid Navigation Research on the Booster K1",
+    shortTitle: "K1 / NaVILA Navigation Research",
     category: "embodied-ai",
-    status: "featured",
+    status: "active-research",
     featured: true,
     isPlaceholder: false,
     dateLabel: "May 2026 – present",
     oneLiner:
-      "An 8B vision-language-action model, a three-machine inference relay, and a humanoid that walks toward natural-language goals.",
+      "A completed 1,077-episode simulation benchmark, an audited K1 locomotion stack, and a controlled study of how embodiment and viewpoint shape navigation failure.",
     summary:
-      "Sim-to-real research on the Booster K1 humanoid, led under Dr. Yiyan Li at Fort Lewis College. Give the robot an instruction like \"walk to the volleyball and turn 90 degrees\" and a NaVILA-style vision-language model interprets the camera feed, reasons about the scene, and emits actions in plain language — \"move forward 75 cm\" — which are translated into real-time velocity commands for a reinforcement-learned locomotion policy. NaVILA (UCSD + NVIDIA, RSS 2025) had no open implementation for the Booster K1; this deployment was built from the paper up. The architecture is two-tiered: vision-language planning at roughly 1 Hz over a 50 Hz RL locomotion policy.",
-    role: "Research lead — model deployment, relay design, robot integration, debugging",
+      "This project adds the Booster K1 as a new embodiment in the VLN-CE-Isaac / NaVILA evaluation stack. The canonical run completed all 1,077 R2R val-unseen episodes in Isaac Sim: 197 successes (18.3% SR), 326 episodes that reached the goal radius at some point (30.3% oracle success), 10.9% SPL, and 7.59 m final navigation error. The most useful result was the decomposition. Of the 326 reaches, 129 failed to stop, while 751 never reached the goal region. That distinguishes arrival recognition from the larger exploration cost created by the K1's lower viewpoint. The active follow-up is a pre-specified camera-height and image-transform sweep; it remains in progress and is not presented as a finished paper result.",
+    role:
+      "Research assistant — K1 embodiment integration, evaluation harness, locomotion diagnostics, evidence ledger, and experiment design",
     teamContext:
-      "Research assistant under Dr. Yiyan Li, Fort Lewis College — leading the sim-to-real research effort.",
+      "Independent undergraduate research under Dr. Yiyan Li at Fort Lewis College, built on NaVILA, VLN-CE-Isaac, Isaac Lab, and Booster Robotics frameworks.",
     stack: [
-      "NaVILA-style 8B VLA",
       "Booster K1",
-      "RTX 5090 inference",
+      "NaVILA",
       "Isaac Sim / Isaac Lab",
+      "VLN-CE-Isaac",
       "Python",
-      "Robot SDK velocity control",
+      "PPO / RSL-RL",
     ],
-    tags: ["VLA", "navigation", "humanoid", "deployment", "sim-to-real"],
+    tags: ["humanoid", "navigation", "evaluation", "embodiment"],
     problem:
-      "Vision-language navigation results are usually reported in simulation. Getting the same behavior out of a real humanoid means solving distribution shift, latency, and control-loop problems the benchmark never mentions.",
-    systemType: "Real-robot deployment · distributed inference/control loop",
+      "How does a shorter humanoid embodiment change the visual evidence, locomotion demands, and stopping behavior of a navigation policy evaluated on the same task distribution?",
+    systemType:
+      "Simulation benchmark + locomotion/deployment engineering + active controlled study",
     whyItMatters:
-      "Language-directed navigation is a building block for useful humanoids. The gap between a benchmark score and a robot that actually walks where you ask is exactly the gap this research explores.",
+      "A policy cannot be called embodiment-robust when camera geometry and controller interfaces change the problem it actually sees.",
     contributions: [
-      "Reproduced the NaVILA pipeline for the Booster K1 with no open reference implementation — built from the paper up.",
-      "Set up 8B VLA model inference on an RTX 5090 workstation and connected it to the robot over a relay/control machine.",
-      "Built the loop: robot camera stream → inference → action decoding → SDK velocity commands back to the K1, pairing ~1 Hz planning with 50 Hz locomotion.",
-      "Debugged real-deployment issues end to end — timing, framing, drift, and recovery problems that never appear in simulation.",
+      "Integrated K1 robot, camera, observation, wrapper, parser, and evaluation surfaces into the upstream NaVILA benchmark instead of treating the inherited stack as authored work.",
+      "Completed and preserved the 1,077-episode canonical evaluation with per-episode measurement JSONs and a regenerable metric script.",
+      "Separated never-reached, reached-without-stopping, and successful episodes to turn one aggregate score into testable failure mechanisms.",
+      "Extended Booster training and deployment frameworks with K1-specific environment configuration, reward terms, observation-contract checks, validators, filtering, and safety-aware mode handling.",
+      "Maintained an evidence ledger that records supported claims, nuanced values, conflicts, and missing raw artifacts rather than silently choosing the most favorable number.",
+    ],
+    provenance: [
+      "NaVILA, VLN-CE-Isaac, Isaac Lab, RSL-RL, and Booster training/deployment code are upstream foundations; the contribution is the K1-specific integration, experiments, diagnostics, and analysis.",
+      "The canonical 18.3% result is simulation-only. The public K1 volleyball clip shows physical locomotion but has no synchronized model trace, so it is not evidence of live NaVILA control.",
+      "The recorded below-1% prior baseline is useful context but its original raw run directory was unavailable during the evidence audit; the final 1,077-episode result is fully preserved and regenerable.",
     ],
     architectureSummary:
-      "Three machines share one control loop. The K1 streams camera frames to a relay/control node; frames are forwarded to the inference workstation where the 8B VLA produces navigation actions at roughly 1 Hz; actions are translated into velocity commands consumed by the 50 Hz locomotion policy. Telemetry flows back for monitoring and evaluation.",
+      "Natural-language navigation decisions are evaluated through a K1-specific benchmark wrapper and a 50 Hz locomotion policy. The wrapper aligns observations, joint ordering, commands, camera geometry, and termination logic; the evaluation layer preserves per-episode trajectories and metrics for failure analysis.",
     architectureNodes: [
-      "Booster K1 — camera stream + SDK",
-      "Relay / control machine",
-      "Inference workstation — RTX 5090 · 8B VLA",
-      "Velocity commands → robot",
-      "Telemetry & evaluation",
+      "R2R instruction + Matterport3D scene",
+      "NaVILA vision-language policy",
+      "K1 wrapper + action parser",
+      "50 Hz locomotion policy",
+      "Episode measurements + failure decomposition",
     ],
     evidence: [
       {
-        label: "Demo video",
+        label: "Canonical result",
         hint: "",
         status: "available",
-        value: "Embedded above — the K1 walking to a volleyball on a natural-language instruction.",
+        value: "1,077/1,077 episodes scored; 197 successes; all measurement artifacts preserved.",
       },
       {
-        label: "Architecture diagram",
+        label: "Failure decomposition",
         hint: "",
         status: "available",
-        value: "Topology diagram in the gallery — machines, links, and loop rates.",
+        value: "751 never reached, 129 reached without stopping, and 197 succeeded.",
       },
       {
-        label: "Inference latency",
+        label: "Evidence ledger",
         hint: "",
         status: "available",
-        value: "~350 ms per inference step, shown live in the system overlay.",
+        value: "Claim-by-claim receipts, conflicts, regeneration commands, and provenance boundaries are public.",
       },
       {
-        label: "Failure-mode log",
-        hint: "Documented on-hardware failures and recovery behavior (with clips or logs).",
-        status: "pending",
-      },
-      {
-        label: "Instruction success protocol",
-        hint: "Define the eval protocol (instructions, environments, n) before reporting rates.",
-        status: "pending",
+        label: "Current experiment",
+        hint: "",
+        status: "available",
+        value: "Viewpoint and image-transform sweep is labeled active; interim completion does not substitute for a final result.",
       },
     ],
     metrics: [
-      { label: "Inference latency", value: "~350 ms / step", hint: "Measured live in the deployment overlay." },
-      { label: "Planning rate", value: "~1 Hz", hint: "Vision-language planning tier." },
-      { label: "Locomotion control rate", value: "50 Hz", hint: "RL policy trained in Isaac Sim." },
-      { label: "Instruction success rate", hint: "Define the eval protocol first; report n." },
+      { label: "Episodes", value: "1,077 / 1,077", hint: "Complete denominator." },
+      { label: "Success rate", value: "18.3%", hint: "197 successful episodes." },
+      { label: "Oracle success", value: "30.3%", hint: "326 episodes reached the goal radius." },
+      { label: "SPL / NE", value: "10.9% / 7.59 m", hint: "Path efficiency / final navigation error." },
     ],
     limitations: [
-      "Vision-based humanoid navigation remains brittle; much of the current work is mapping exactly where the system breaks down and why.",
-      "Evaluation on real hardware is still informal — success criteria need to be pinned down before quantitative claims are made.",
+      "The canonical result is simulation-only and does not establish live NaVILA navigation on the physical K1.",
+      "The current viewpoint sweep is active and its design changed after nondeterministic repeat runs invalidated the original paired-retry assumption.",
+      "Aggregate navigation scores alone cannot isolate perception, exploration, locomotion, parser, and stopping failures; the decomposition narrows but does not eliminate that ambiguity.",
     ],
     lessons: [
-      "The model is rarely the bottleneck; the seams between machines are. Most debugging time went to the loop, not the network weights.",
-      "Instruction-following demos hide a long tail — the gap between one good run and a reliable system is the actual research problem.",
-      "Simulation results set expectations that hardware immediately renegotiates; treating deployment as its own engineering discipline was the unlock.",
+      "A new embodiment changes the observation distribution before any learning algorithm changes.",
+      "Reaching and recognizing arrival are different capabilities and should not be collapsed into one failure label.",
+      "An evidence ledger is part of the research system: it prevents stale slides and attractive demos from outrunning the data.",
     ],
     media: [
+      {
+        kind: "diagram",
+        src: "/diagrams/k1-benchmark.svg",
+        alt: "K1 NaVILA benchmark flow with 1,077 episodes and failure decomposition",
+        caption: "Canonical simulation benchmark and the reach-versus-stop decomposition.",
+      },
+      {
+        kind: "image",
+        src: "/media/isaac-red-box.webp",
+        alt: "Booster K1 humanoid in an Isaac Sim navigation environment",
+        caption: "K1 embodiment inside the simulation evaluation stack.",
+      },
       {
         kind: "video",
         src: "/media/k1-walk-to-volleyball.mp4",
         poster: "/media/k1-walk-to-volleyball-poster.jpg",
-        alt: "The Booster K1 humanoid walking toward a volleyball after receiving a natural-language instruction",
-        caption: "\"Walk to the volleyball\" — end-to-end run on real hardware.",
+        alt: "Booster K1 physical locomotion test near a volleyball",
+        caption: "Hardware locomotion context only — no synchronized trace establishes NaVILA control in this clip.",
       },
       {
         kind: "diagram",
         src: "/diagrams/vla-topology.svg",
-        alt: "Three-machine deployment topology: Booster K1, relay/control node, and RTX 5090 inference workstation with loop rates",
-        caption: "Deployment topology with measured loop rates.",
-      },
-      {
-        kind: "video",
-        src: "/media/me-with-k1.mp4",
-        poster: "/media/me-with-k1-poster.jpg",
-        alt: "Jangara working with the Booster K1 humanoid in the lab",
-        caption: "Working with the K1 in the lab.",
-      },
-      {
-        kind: "image",
-        src: "/media/mujoco.webp",
-        alt: "Simulated humanoid walking during training and validation",
-        caption: "Simulation side of the sim-to-real loop.",
+        alt: "Tested K1 deployment path with robot, relay, and inference workstation",
+        caption: "Built and tested deployment path; live closed-loop NaVILA evaluation remains unclaimed.",
       },
     ],
     artifacts: [
-      { kind: "video", label: "Deployment demo", href: "/media/k1-walk-to-volleyball.mp4" },
-      { kind: "diagram", label: "System topology", href: "/diagrams/vla-topology.svg" },
-      { kind: "report", label: "Deployment report" },
-      { kind: "logs", label: "Run logs" },
+      { kind: "repo", label: "Canonical repository", href: "https://github.com/Janga786/k1-navila-research" },
+      { kind: "report", label: "Final results", href: "https://github.com/Janga786/k1-navila-research/blob/main/FINAL_RESULTS_full1077.md" },
+      { kind: "logs", label: "Evidence ledger", href: "https://github.com/Janga786/k1-navila-research/blob/main/EVIDENCE.md" },
+      { kind: "report", label: "Sweep status", href: "https://github.com/Janga786/k1-navila-research/blob/main/SWEEP_STATUS.md" },
     ],
     seoDescription:
-      "Deploying a NaVILA-style 8B vision-language-action model on a Booster K1 humanoid: ~1 Hz VLA planning over a 50 Hz RL locomotion policy across a three-machine inference relay.",
+      "Booster K1 humanoid navigation research: a complete 1,077-episode NaVILA simulation benchmark, failure decomposition, locomotion diagnostics, and an active viewpoint study.",
     sortOrder: 1,
   },
 
-  /* ────────────────────────────────────────────────────────────────────
-   * 2 · X-embodiment language-grounded manipulation benchmark (in progress)
-   * All statements grounded in the repo state at tag v0.3.1 — no empirical
-   * claims until Phase B produces real numbers.
-   * ──────────────────────────────────────────────────────────────────── */
   {
     slug: "xembench",
     title: "X-Embodiment Language-Grounded Manipulation Benchmark",
-    shortTitle: "X-Embodiment Benchmark",
+    shortTitle: "xembench",
     category: "research",
-    status: "in-progress",
+    status: "active-research",
     featured: true,
     isPlaceholder: false,
-    dateLabel: "2026 · Phase B pending",
+    dateLabel: "2026 · v0.5.0",
     oneLiner:
-      "A ManiSkill3 benchmark foundation for measuring language-grounded manipulation transfer between a tabletop arm and a humanoid upper body through a shared canonical action interface.",
+      "A two-embodiment ManiSkill3 benchmark whose first large campaign found near-zero transfer under weak precision policies — then measured where action chunking helped and where it did not.",
     summary:
-      "An in-progress benchmark that treats embodiment transfer as a measurable systems problem. A shared language-conditioned policy stack emits actions in a canonical 21-dimensional interface; thin robot-specific adapters translate them for either a Panda/Franka-style tabletop arm or a Unitree G1 humanoid upper body in ManiSkill3. Identical tasks, language splits, and evaluation protocol on both bodies make the interesting quantity directly computable: how much performance survives when only the robot changes. The benchmark infrastructure is complete — environments, demonstration pipeline, baseline scaffolding, failure taxonomy, and the reproducibility layer, frozen pre-Linux at tag v0.3.1 — and readiness checks on the RTX 5090 Linux workstation have passed, including motion-planning and humanoid-environment shakedowns. Phase B, the real training and evaluation runs, is pending — and with it all empirical results.",
-    role: "Creator — benchmark architecture, environments, evaluation design, reproducibility engineering",
+      "Xembench asks a narrow question: how much performance survives when the task and language stay fixed but the robot body changes? A shared language-conditioned policy emits actions through a canonical 21-dimensional interface, and thin adapters map those actions to a Franka-style arm or Unitree G1 upper body. The completed Phase B baseline used 1,202 demonstrations, 18 behavior-cloning policies, and a 73-cell / 6,550-episode matrix. Push-T reached 45.7% native success and G1 box transport reached 18.8%; zero-shot cross-embodiment transfer was approximately zero because each transfer pair included a weak native side. A controlled follow-up found a real positive boundary: action chunking raised tool-pulling success from 1.3% to 14.7% across three seeds, while grasp-critical tasks stayed near zero.",
+    role:
+      "Project owner — research question, benchmark architecture, experimental decisions, campaign supervision, analysis, and artifact review",
     teamContext:
-      "Solo project, developed independently alongside the Booster K1 research.",
+      "Independent simulation research. The repository documents extensive AI-assisted implementation and operations; ownership is claimed for direction, decisions, verification, and interpretation rather than every generated line.",
     stack: [
       "ManiSkill3",
-      "Python",
       "PyTorch",
-      "Panda / Franka-style arm",
-      "Unitree G1 (upper body)",
-      "HDF5",
+      "Franka Panda",
+      "Unitree G1",
       "Behavior Cloning",
       "PPO",
+      "HDF5",
     ],
-    tags: [
-      "embodied AI",
-      "robot learning",
-      "manipulation",
-      "cross-embodiment transfer",
-      "canonical action interface",
-      "benchmarking",
-      "imitation learning",
-      "reinforcement learning",
-      "failure analysis",
-      "humanoid",
-    ],
+    tags: ["manipulation", "benchmark", "transfer", "language grounding"],
     problem:
-      "Robot policies are increasingly expected to generalize across tasks, scenes, and bodies. This benchmark asks a narrower, measurable question: when language, task structure, and policy architecture are held fixed, how much manipulation performance survives a change in embodiment — and where exactly does it drop?",
-    systemType: "Simulation benchmark · cross-embodiment evaluation infrastructure",
+      "Cross-embodiment claims are hard to interpret when tasks, action spaces, language splits, and native policy quality all change at once.",
+    systemType:
+      "Simulation-only benchmark + baseline campaign + intervention study",
     whyItMatters:
-      "Cross-embodiment transfer is a central open question for physical AI. Claims about it need benchmarks with leakage-proof splits and honest failure accounting — the infrastructure this project builds before drawing any conclusions.",
+      "A useful benchmark should expose when transfer is impossible to interpret, not turn a weak native policy into a misleading transfer claim.",
     contributions: [
-      "Designed the cross-embodiment benchmark structure around a shared canonical 21-dimensional action interface, with thin per-robot adapters for Panda, Panda-stick, and the Unitree G1 upper body.",
-      "Implemented language-conditioned task pathways for both embodiments in ManiSkill3, with leakage-proof held-out paraphrase and held-out color/object splits designed in before any training.",
-      "Built the HDF5 demonstration pipeline with validation, plus a Behavior Cloning baseline and PPO fine-tuning scaffolding.",
-      "Added episode-level evaluation records, a failure taxonomy, transfer-drop and retention metrics, and artifact-pack generation — rehearsed end-to-end on deterministic synthetic data.",
-      "Hardened the repo for reproducibility: full smoke checks, documentation, a Linux Phase B runbook, and a pre-Linux freeze at tag v0.3.1 — the repo-wide suite now stands at 187 fast + 5 simulation tests with the data-flywheel layer included.",
-      "Completed Linux/RTX 5090 readiness before training: motion-planning (mplib) demonstration collection shaken down end-to-end, the G1 humanoid environments verified on the training machine, and a G1 hand-sign bug found and fixed by a dedicated check script — before it could silently corrupt every grasp demonstration.",
+      "Defined a canonical 21-dimensional semantic action interface and per-robot adapters so a zero-shot body swap is an explicit, testable operation.",
+      "Built leak-checked paraphrase and unseen-color splits, a demonstration pipeline, behavior-cloning and PPO baselines, evaluation matrices, and failure-taxonomy reports.",
+      "Executed and reviewed the 1,202-demonstration, 6,550-episode Phase B campaign and stopped short of claiming transfer when native precision policies were too weak.",
+      "Ran one real failure-driven data-flywheel round with equal targeted and random budgets; the mostly null result showed that more same-kind data was not the binding constraint.",
+      "Designed a precision-manipulation intervention ladder and confirmed across three seeds that action chunking rescued tool pulling but not grasp-critical tasks.",
+    ],
+    provenance: [
+      "The project uses ManiSkill3 environments and robot assets; it does not claim authorship of the simulator or underlying robot models.",
+      "AI coding agents assisted substantial implementation and campaign operations. The public claim is project direction, experiment design, run supervision, analysis, and verification — not sole manual authorship of every file.",
+      "All results are simulation-only. No sim-to-real or hardware-transfer claim is made.",
     ],
     architectureSummary:
-      "A language instruction is drawn from a train or held-out paraphrase split and fed to the shared policy stack, which emits actions in the canonical 21-D interface. A robot adapter translates them for the Panda or G1 environment, and evaluation episodes stream into transfer, failure, and artifact reports. The same path runs unchanged for either body — that symmetry is the experiment.",
+      "Language-conditioned observations enter one policy stack. The policy emits a canonical action vector whose semantic slots remain fixed across bodies; a thin adapter maps valid slots to each robot. Native, held-out-language, unseen-color, and zero-shot body-swap cells share one evaluation and reporting pipeline.",
     architectureNodes: [
-      "Language instruction — paraphrase / holdout splits",
-      "Shared policy stack — BC baseline · PPO scaffold",
-      "Canonical 21-D action interface",
-      "Robot adapter — Panda | Unitree G1",
-      "Eval episodes → transfer, failure & artifact reports",
+      "Language-grounded task",
+      "Shared policy stack",
+      "Canonical 21-D action",
+      "Franka / G1 adapter",
+      "Native + transfer evaluation matrix",
     ],
     evidence: [
       {
-        label: "Test suite",
+        label: "Baseline campaign",
         hint: "",
         status: "available",
-        value: "187 fast + 5 simulation tests passing; full smoke check green.",
+        value: "1,202 demonstrations, 18 BC policies, 73 cells, and 6,550 evaluation episodes.",
       },
       {
-        label: "Reproducibility freeze",
+        label: "Native baselines",
         hint: "",
         status: "available",
-        value: "Tagged v0.3.1 pre-Linux — pinned pipeline, docs, and a Phase B runbook.",
+        value: "Push-T 45.7%; G1 box transport 18.8%; precision grasping near zero.",
       },
       {
-        label: "Linux / RTX 5090 readiness",
+        label: "Intervention result",
         hint: "",
         status: "available",
-        value: "Workstation prep passed: Panda motion-planning shakedown clean, G1 environment shakedown clean, and a hand-sign action bug caught and fixed before any training.",
+        value: "Action chunking improved pull_tool from 1.3% to 14.7% across three seeds; pick/stack remained near zero.",
       },
       {
-        label: "Artifact-pack rehearsal",
+        label: "Reproducibility pack",
         hint: "",
         status: "available",
-        value: "Reporting pipeline rehearsed end-to-end on deterministic synthetic toy data — explicitly not real results.",
-      },
-      {
-        label: "Benchmark results",
-        hint: "All real training and evaluation numbers await Phase B on the RTX 5090 Linux workstation.",
-        status: "pending",
-      },
-      {
-        label: "Rollout videos",
-        hint: "Demo videos will accompany Phase B evaluation runs.",
-        status: "pending",
+        value: "Configs, checkpoints, CSV matrices, reports, driver scripts, checksums, and artifact manifests are linked in the repository.",
       },
     ],
     metrics: [
-      { label: "Cross-embodiment transfer success", hint: "Pending Phase B — no real numbers exist yet." },
-      { label: "Transfer retention", hint: "Arm-to-humanoid retention ratio; pending Phase B." },
-      { label: "G1 expert success gate", hint: "Pending Phase B validation." },
-      { label: "BC / PPO evaluation matrix", hint: "Pending Phase B training runs." },
-      { label: "Test suite", value: "187 + 5", hint: "Fast + simulation tests, all passing." },
-      { label: "Pre-Linux freeze", value: "v0.3.1", hint: "Reproducibility tag." },
+      { label: "Baseline matrix", value: "6,550 episodes", hint: "73 cells." },
+      { label: "Demonstrations", value: "1,202", hint: "Baseline campaign." },
+      { label: "Best native tasks", value: "45.7% / 18.8%", hint: "Push-T / G1 transport." },
+      { label: "Chunking result", value: "1.3% → 14.7%", hint: "Tool pulling, three seeds." },
     ],
     limitations: [
-      "Real benchmark results are pending Linux Phase B — the current contribution is the reproducible benchmark foundation, not final empirical conclusions.",
-      "The failure taxonomy has its infrastructure in place ahead of full per-environment instrumentation; until then most failure labels resolve to timeout-level granularity.",
-      "A diffusion-policy baseline is a stretch goal, not a current result.",
+      "Cross-embodiment transfer was near zero and cannot be interpreted as a clean embodiment effect while native precision policies remain weak.",
+      "The benchmark is simulation-only and uses a deliberately constrained policy class; results do not generalize to stronger sequence models or physical robots.",
+      "The first failure-driven data round was underpowered for near-zero tasks and produced a mostly null comparison.",
     ],
     lessons: [
-      "Benchmarks earn trust through their splits: leakage-proof paraphrase and object holdouts were designed in before any training, so later claims can't quietly overfit.",
-      "Rehearsing the full reporting pipeline on labeled synthetic data separates infrastructure bugs from science before any GPU-hours are spent.",
+      "Native competence is a prerequisite for interpreting transfer.",
+      "Longer action horizons can help temporally extended tool use without solving last-inch grasp conversion.",
+      "A null result can narrow the search space: at this scale, more same-kind demonstrations were not enough.",
     ],
     media: [
       {
         kind: "diagram",
         src: "/diagrams/xembench-pipeline.svg",
-        alt: "Benchmark pipeline: a language instruction passes through paraphrase and holdout splits into a shared policy stack, a canonical 21-dimensional action interface, and robot adapters for a Panda arm or Unitree G1 upper body, ending in evaluation and transfer reports",
-        caption: "Benchmark pipeline — the same path runs unchanged for either embodiment.",
+        alt: "Xembench language-conditioned policy and canonical action interface across a Franka arm and Unitree G1",
+        caption: "One policy interface, two embodiments, and one shared evaluation matrix.",
       },
-    ],
-    artifacts: [
-      { kind: "repo", label: "Code (private — public release pending)" },
-      { kind: "report", label: "Benchmark report" },
-      { kind: "logs", label: "Artifact pack (real Phase B results)" },
-      { kind: "video", label: "Rollout videos" },
-    ],
-    seoDescription:
-      "An in-progress ManiSkill3 benchmark measuring language-grounded manipulation transfer between a Panda-style arm and a Unitree G1 humanoid upper body via a shared canonical action interface. Benchmark infrastructure complete and Linux-ready; Phase B results pending.",
-    sortOrder: 2,
-  },
-
-  /* ────────────────────────────────────────────────────────────────────
-   * 3 · Physical AI Data Flywheel (in progress)
-   * Grounded in the repo state: Mac-safe foundation complete, all outputs
-   * synthetic/toy — no real flywheel experiments have run yet.
-   * ──────────────────────────────────────────────────────────────────── */
-  {
-    slug: "physical-ai-data-flywheel",
-    title: "Physical AI Data Flywheel",
-    shortTitle: "Physical AI Data Flywheel",
-    category: "research",
-    status: "in-progress",
-    featured: true,
-    isPlaceholder: false,
-    dateLabel: "2026 · foundation complete",
-    oneLiner:
-      "A closed-loop data-to-policy system that turns robot benchmark failures into targeted demonstration requests — then validates, trains, evaluates, and repeats.",
-    summary:
-      "Robot demonstrations are expensive, so which ones you collect matters. Instead of gathering more data at random, this flywheel — built inside the cross-embodiment benchmark — reads evaluation failures, generates candidate demonstration requests aimed at what actually failed, selects among them under an episode budget, validates the resulting dataset before any training touches it, and packages every round into a reproducible artifact with dataset cards and provenance. The Mac-safe foundation is complete: seventeen modules, typed schemas end to end, deterministic validation, five selection strategies, and a full toy round rehearsed on synthetic data with explicit warnings. The real collect–train–evaluate loop is pending Linux experiments, which are designed to test one falsifiable question: does failure-targeted data improve performance more efficiently than the same budget of random additional demonstrations?",
-    role: "Creator — system design, schemas, validation, selection strategies, artifact pipeline",
-    teamContext:
-      "Solo project, built as a layer inside the x-embodiment benchmark codebase.",
-    stack: [
-      "Python",
-      "xembench (ManiSkill3)",
-      "Typed dataset / provenance schemas",
-      "HDF5 validation",
-      "Failure-driven candidate generation",
-      "Artifact packaging",
-    ],
-    tags: [
-      "data-centric AI",
-      "robot learning",
-      "embodied AI",
-      "dataset validation",
-      "provenance",
-      "failure-driven data collection",
-      "selection strategies",
-      "cross-embodiment manipulation",
-      "reproducibility",
-    ],
-    problem:
-      "Robot-learning pipelines usually treat data collection as a fixed upfront cost: gather demonstrations, train, hope. But when a policy fails, those failures say exactly where the dataset is thin. The flywheel asks whether closing that loop — failures deciding what data comes next — beats collecting more of the same.",
-    systemType: "Data-to-policy loop · dataset validation & selection infrastructure",
-    whyItMatters:
-      "Data quality and data choice are becoming the bottleneck of physical AI. A trustworthy flywheel needs validation, provenance, and honest accounting built in from the start — otherwise 'more data' quietly becomes 'more of the same failure modes'.",
-    contributions: [
-      "Designed the round loop: evaluation failures → failure analysis → candidate demonstration requests → budgeted selection → collection → dataset validation → training → re-evaluation → artifact packs.",
-      "Built seventeen flywheel modules with typed schemas for provenance, dataset index records, quality issues, candidate demo requests, selection plans, dataset cards, model-card placeholders, and round manifests.",
-      "Implemented deterministic dataset validation with quality scoring — datasets are checked before any training consumes them.",
-      "Implemented five budgeted selection strategies — random, stratified, failure_targeted, diversity_greedy, and cost_aware_failure_targeted — so the core comparison (targeted vs. random) is a config switch, not a rewrite.",
-      "Rehearsed the entire loop as a deterministic toy round producing synthetic artifact packs with explicit warnings, and generated Linux command plans without executing any training on the Mac.",
-      "Covered the layer with 77 flywheel tests; the repo-wide suite stands at 187 fast + 5 simulation tests.",
-    ],
-    architectureSummary:
-      "Evaluation episodes stream failure records into analysis; failures become candidate demonstration requests; a selection strategy spends a fixed episode budget across candidates; collected demonstrations pass deterministic validation before entering the training set; the retrained policy is re-evaluated, and the whole round — dataset card, validation report, plans, and comparisons — is packaged as a checksummed artifact. Then the loop runs again.",
-    architectureNodes: [
-      "Evaluation failures → failure analysis",
-      "Candidate demonstration requests",
-      "Budgeted selection — 5 strategies",
-      "Collection → dataset validation",
-      "Policy training → re-evaluation",
-      "Round artifact pack — cards · provenance",
-    ],
-    evidence: [
-      {
-        label: "Flywheel foundation",
-        hint: "",
-        status: "available",
-        value: "17 modules, typed schemas end to end, deterministic validation with quality scoring, and failure-driven candidate generation.",
-      },
-      {
-        label: "Selection strategies",
-        hint: "",
-        status: "available",
-        value: "random · stratified · failure_targeted · diversity_greedy · cost_aware_failure_targeted — all budgeted, all tested.",
-      },
-      {
-        label: "Toy round rehearsal",
-        hint: "",
-        status: "available",
-        value: "Deterministic end-to-end round on synthetic data, packaged into artifact packs with explicit synthetic-data warnings.",
-      },
-      {
-        label: "Test suite",
-        hint: "",
-        status: "available",
-        value: "77 flywheel tests; repo-wide suite at 187 fast + 5 simulation tests, all passing.",
-      },
-      {
-        label: "Real flywheel rounds",
-        hint: "The collect–train–evaluate loop on real data awaits Linux experiments; all current outputs are synthetic/toy.",
-        status: "pending",
-      },
-      {
-        label: "Targeted-vs-random experiment",
-        hint: "Pre-registered comparison: baseline vs. +random demos vs. +failure-targeted demos at equal budget.",
-        status: "pending",
-      },
-    ],
-    metrics: [
-      { label: "Improvement per demonstration", hint: "The flywheel's headline metric; pending real Linux rounds." },
-      { label: "Failure-targeted vs. random selection", hint: "Equal-budget comparison; pending real experiments." },
-      { label: "Dataset quality score", hint: "Computed by validation on real collected data; pending." },
-      { label: "Flywheel modules", value: "17", hint: "Typed, tested, Mac-safe." },
-      { label: "Flywheel tests", value: "77", hint: "Within a 187 + 5 repo-wide suite." },
-    ],
-    limitations: [
-      "Mac-safe foundation complete; the real data/training/evaluation loop is pending Linux experiments — no flywheel results exist yet.",
-      "All current flywheel outputs are synthetic/toy and are explicitly labeled as such unless marked real later.",
-      "Failure targeting currently works at the granularity of the benchmark's existing failure labels; sharper targeting lands with richer per-episode instrumentation.",
-      "Designed and rehearsed on one benchmark (xembench); generality beyond it is a hypothesis, not a claim.",
-    ],
-    lessons: [
-      "Validation belongs before training, not after a bad run: a dataset the pipeline can't trust is a result you can't trust.",
-      "Making 'which data next?' a typed, budgeted, testable decision turns a vague intuition — failures should guide collection — into an experiment with a falsifiable answer.",
-    ],
-    media: [
       {
         kind: "diagram",
         src: "/diagrams/flywheel-loop.svg",
-        alt: "Physical AI data flywheel loop: evaluation failures flow into failure analysis, candidate demonstration requests, budgeted selection, collection and dataset validation, policy training and re-evaluation, and round artifact packs — which feed the next round",
-        caption: "One flywheel round — failures decide what data gets collected next.",
+        alt: "Failure-driven data collection and retraining loop used in xembench",
+        caption: "The first real equal-budget targeted-versus-random round was executed; its mostly null result motivated the intervention study.",
       },
     ],
     artifacts: [
-      { kind: "repo", label: "Code (private — public release pending)" },
-      { kind: "report", label: "Flywheel experiment report" },
-      { kind: "logs", label: "First real round artifact pack" },
+      { kind: "repo", label: "Repository", href: "https://github.com/Janga786/xembench" },
+      { kind: "report", label: "Phase B report", href: "https://github.com/Janga786/xembench/blob/master/reports/phase_b_campaign_report.md" },
+      { kind: "report", label: "Transfer matrix", href: "https://github.com/Janga786/xembench/blob/master/reports/transfer_matrix.md" },
+      { kind: "diagram", label: "Architecture", href: "https://github.com/Janga786/xembench/blob/master/docs/architecture.md" },
     ],
     seoDescription:
-      "A closed-loop data-to-policy system for robot learning: benchmark failures drive targeted demonstration requests, datasets are validated before training, and every round ships as a reproducible artifact. Mac-safe foundation complete; real Linux experiments pending.",
-    sortOrder: 3,
+      "Xembench is a two-embodiment ManiSkill3 benchmark with a 6,550-episode baseline matrix, near-zero transfer under weak native policies, and an action-chunking intervention from 1.3% to 14.7% tool-pulling success.",
+    sortOrder: 2,
   },
 
-  /* ────────────────────────────────────────────────────────────────────
-   * 4 · Robotic inspection of photovoltaic hotspots (Sawyer + YOLOv8)
-   * ──────────────────────────────────────────────────────────────────── */
   {
-    slug: "pv-hotspot-inspection",
-    title: "Robotic Inspection of Photovoltaic Hotspots",
-    shortTitle: "PV Hotspot Inspection · Sawyer",
-    category: "perception",
-    status: "featured",
+    slug: "kuka-kr6-kinematics",
+    title: "KUKA KR 6 Kinematics & Verification Suite",
+    shortTitle: "KUKA KR 6 Kinematics",
+    category: "modeling-control",
+    status: "validated-library",
     featured: true,
     isPlaceholder: false,
-    dateLabel: "May – Sep 2025",
+    dateLabel: "Spring 2026 · packaged Summer 2026",
     oneLiner:
-      "Two industrial robots revived from a lab closet, a YOLOv8 model trained on 1,682 thermal images, and mAP@0.5 = 0.985 on hotspot detection.",
+      "Forward and inverse kinematics, a geometric Jacobian, singularity diagnostics, and trajectories — cross-checked against finite differences and a generated URDF in a 39-test suite.",
     summary:
-      "A solo research project under Dr. Kevin Wedeward: a lab-validated system for detecting thermal faults in photovoltaic panels using a 7-DoF Sawyer arm and a custom-trained YOLOv8 model. The arm performs automated multi-angle thermal inspections — including underside components that drone-based inspection misses. The project spanned the full lifecycle: first reviving two industrial robots dormant since 2018 (tracing a Sawyer boot failure to a dead CMOS battery that re-enabled Secure Boot, then rebuilding the OS on a new SSD), then building the ROS Noetic / MoveIt / Gazebo environment, engineering a Blender synthetic-data pipeline, and training and validating the detector on live hardware. Placed 2nd at FLC's Physics & Engineering Symposium.",
-    role: "Solo researcher — hardware restoration through model deployment",
+      "This individual robotics course project became a small standalone Python library for the six-axis KUKA KR 6 R900 sixx. The implementation connects standard Denavit–Hartenberg modeling to forward kinematics, closed-form inverse position kinematics, a 6×6 geometric Jacobian, singularity diagnostics, inverse velocity kinematics, and quintic/LSPB trajectories. The important part is the verification chain: central finite differences check the analytic Jacobian, FK→IK→FK random trials check inverse solutions, manufacturer reach data provides a physical sanity check, and a generated URDF is reloaded as an independent forward-kinematics oracle.",
+    role:
+      "Individual course project — mathematical derivation, implementation, tests, figures, and later standalone packaging",
     teamContext:
-      "Solo project under Dr. Kevin Wedeward, Fort Lewis College (summer research internship).",
-    stack: [
-      "Sawyer / Baxter",
-      "ROS Noetic",
-      "MoveIt",
-      "Gazebo",
-      "YOLOv8",
-      "Blender synthetic data",
-      "Python",
-    ],
-    tags: ["computer vision", "thermal inspection", "YOLOv8", "ROS", "synthetic data"],
+      "Completed in an undergraduate robotics course and later reorganized as a documented, tested public library.",
+    stack: ["Python", "NumPy", "DH parameters", "URDF", "Pytest", "GitHub Actions"],
+    tags: ["kinematics", "jacobian", "trajectory", "verification"],
     problem:
-      "Drone-based PV inspection is fast but misses underside faults and close-range detail. A robotic arm can inspect panels from angles drones can't reach — if the perception pipeline is accurate enough to trust.",
-    systemType: "Perception pipeline + robotic inspection platform",
+      "Robotics packages can return a pose without proving that the model, derivative, inverse solution, and robot description agree.",
+    systemType: "Analytic robotics library + numerical validation suite",
     whyItMatters:
-      "Thermal faults degrade solar output and can cascade. Beyond the energy application, the project is a full-lifecycle proof: dead hardware to deployed AI, with the metrics to show for it.",
+      "The project demonstrates mathematical readiness and a habit of validating the same mechanism through independent representations.",
     contributions: [
-      "Revived two non-functional industrial robots with no vendor support — diagnosed the Sawyer's boot failure (dead CMOS battery → BIOS reset → incompatible Secure Boot), disassembled the controller, and rebuilt the OS on a new SSD with fresh Intera software.",
-      "Built the complete ROS Noetic workstation and control environment; resolved firmware–SDK version conflicts and configured MoveIt and Gazebo for motion planning and simulation.",
-      "Engineered a synthetic-data pipeline in Blender + Python to generate training imagery at scale; explored NVIDIA Omniverse for scalable generation.",
-      "Trained a YOLOv8 hotspot detector on 1,682 thermal images and validated it live on Baxter/Sawyer hardware with real-time thermal feeds.",
+      "Implemented the six-link DH chain and forward kinematics with joint-limit and manufacturer-reach checks.",
+      "Implemented geometric Jacobian, manipulability, singularity sweeps, closed-form position IK, and inverse velocity kinematics.",
+      "Implemented quintic and LSPB trajectory primitives and task-space motion examples.",
+      "Built a programmatic URDF and cross-validated its reloaded transforms against the analytic DH model.",
+      "Packaged the project with 39 pytest tests, multi-version CI, reproducible figures, animations, and technical documentation.",
+    ],
+    provenance: [
+      "This began as a course project; the public library and test packaging were completed later and should not be read as a separate research project.",
+      "KUKA specifications and standard robotics references define the physical model; external libraries are used for visualization and independent cross-checks, not presented as authored algorithms.",
     ],
     architectureSummary:
-      "Two data sources — Blender-rendered synthetic imagery and real multi-angle thermal captures — train a YOLOv8 detector, which runs against the Sawyer's live thermal feed as the arm sweeps panels from angles drones can't reach. Edge cases discovered on hardware feed the next training round.",
+      "One DH model feeds FK, Jacobian, IK, trajectory, and URDF-generation modules. Each path is checked by a different oracle: finite differences, random round trips, manufacturer data, or a reloaded URDF.",
     architectureNodes: [
-      "Blender synthetic renders + real thermal captures",
-      "YOLOv8 training",
-      "Hotspot detector",
-      "Sawyer 7-DoF multi-angle sweep",
-      "Live inspection & localization",
+      "KUKA geometry + DH table",
+      "FK / Jacobian / IK",
+      "Joint + task-space trajectories",
+      "Generated URDF",
+      "Independent numerical cross-checks",
     ],
     evidence: [
-      {
-        label: "Detection metrics",
-        hint: "",
-        status: "available",
-        value: "mAP@0.5 = 0.985 · 98% detection accuracy · trained on 1,682 thermal images.",
-      },
-      {
-        label: "Live hardware validation",
-        hint: "",
-        status: "available",
-        value: "Validated on Baxter/Sawyer hardware with real-time thermal feeds.",
-      },
-      {
-        label: "Pipeline diagram",
-        hint: "",
-        status: "available",
-        value: "Data-to-deployment pipeline in the gallery.",
-      },
-      {
-        label: "Edge-case gallery",
-        hint: "Curate the inputs that break the detector — honest operating envelope.",
-        status: "pending",
-      },
+      { label: "Automated verification", hint: "", status: "available", value: "39 pytest tests across FK, Jacobian, IK, trajectories, and URDF behavior." },
+      { label: "Jacobian check", hint: "", status: "available", value: "Analytic Jacobian compared with central finite differences." },
+      { label: "IK check", hint: "", status: "available", value: "FK→IK→FK round trips across 200 random configurations." },
+      { label: "Model cross-check", hint: "", status: "available", value: "Analytic DH transforms compared with an independently reloaded generated URDF." },
     ],
     metrics: [
-      { label: "mAP@0.5", value: "0.985", hint: "Hotspot detection, validation split." },
-      { label: "Detection accuracy", value: "98%", hint: "As presented at the FLC symposium." },
-      { label: "Training set", value: "1,682 images", hint: "Real thermal captures + synthetic renders." },
-      { label: "Symposium result", value: "2nd place", hint: "FLC Physics & Engineering Symposium, Sep 2025." },
+      { label: "Tests", value: "39 passing", hint: "CI suite." },
+      { label: "Random IK trials", value: "200", hint: "FK→IK→FK." },
+      { label: "URDF agreement", value: "≤ 50 µm", hint: "At the documented ready pose." },
+      { label: "Robot axes", value: "6 DoF", hint: "KUKA KR 6 R900 sixx." },
     ],
     limitations: [
-      "Lab-validated, not field-deployed — panel variety, weather, and mounting geometry in the field remain untested.",
-      "Synthetic data closed the volume gap, but the synthetic-to-real distribution shift for rare fault types isn't yet quantified.",
+      "The library models kinematics, not dynamics, collision checking, calibration uncertainty, or closed-loop execution on a physical KR 6.",
+      "Closed-form IK relies on the robot's spherical-wrist geometry and does not transfer unchanged to arbitrary six-axis arms.",
+      "Numerical agreement validates implementation consistency, not real-robot calibration accuracy.",
     ],
     lessons: [
-      "The first 100+ hours were hardware revival, not AI — embodied systems reward system-level thinking and patience with legacy machines.",
-      "Synthetic data is leverage: Blender scripting turned a data-starved problem into a data-rich one, but only after the real captures defined what 'realistic' meant.",
+      "Independent representations are stronger than one self-consistent implementation.",
+      "Singularities become easier to reason about when analytic structure, numerical conditioning, and visualization are shown together.",
+      "Course work becomes useful evidence when its context remains visible and the verification story is reproducible.",
     ],
     media: [
       {
-        kind: "image",
-        src: "/media/pv-detection-grid.webp",
-        alt: "Grid of thermal images with YOLOv8 hotspot detections drawn as bounding boxes",
-        caption: "YOLOv8 hotspot detections on thermal imagery.",
-      },
-      {
         kind: "diagram",
-        src: "/diagrams/pv-pipeline.svg",
-        alt: "PV inspection pipeline: synthetic and real thermal data into YOLOv8, deployed on a Sawyer arm",
-        caption: "Data → detector → robot pipeline.",
-      },
-      {
-        kind: "image",
-        src: "/media/pv-thermal-grid.webp",
-        alt: "Raw thermal capture grid of photovoltaic panels",
-        caption: "Multi-angle thermal captures.",
-      },
-      {
-        kind: "image",
-        src: "/media/pv-baxter-rviz.webp",
-        alt: "Baxter robot alongside its RViz motion-planning visualization",
-        caption: "Restored hardware with RViz motion planning.",
-      },
-      {
-        kind: "image",
-        src: "/media/pv-gazebo.webp",
-        alt: "Gazebo simulation of the inspection workspace",
-        caption: "Gazebo simulation of the inspection cell.",
+        src: "/diagrams/kuka-validation.svg",
+        alt: "KUKA kinematics modules and independent verification paths",
+        caption: "Analytic model, generated URDF, and numerical oracles form one verification loop.",
       },
     ],
     artifacts: [
-      { kind: "repo", label: "Inspection pipeline (CV-YOLO-Inspection)", href: "https://github.com/Janga786/CV-YOLO-Inspection" },
-      { kind: "repo", label: "Synthetic data generator (robot_vision)", href: "https://github.com/Janga786/robot_vision" },
-      { kind: "report", label: "Baxter troubleshooting guide", href: "https://github.com/Janga786/Baxter-Troubleshooting" },
-      { kind: "slides", label: "Research poster", href: "/posters/pv-poster.jpg" },
+      { kind: "repo", label: "Repository", href: "https://github.com/Janga786/kuka-kr6-kinematics" },
+      { kind: "report", label: "Technical documentation", href: "https://github.com/Janga786/kuka-kr6-kinematics#verification--numerical-results" },
+      { kind: "demo", label: "Figures & animations", href: "https://github.com/Janga786/kuka-kr6-kinematics#gallery" },
     ],
     seoDescription:
-      "Robotic photovoltaic hotspot inspection: restored Sawyer/Baxter robots, a Blender synthetic-data pipeline, and a YOLOv8 detector at mAP@0.5 = 0.985, validated live on hardware.",
+      "A KUKA KR 6 kinematics library implementing FK, IK, Jacobians, singularity diagnostics, and trajectories with 39 tests, finite-difference checks, and URDF cross-validation.",
+    sortOrder: 3,
+  },
+
+  {
+    slug: "clida-lidar-motion",
+    title: "CLiDA LiDAR Debris Analysis",
+    shortTitle: "CLiDA / LiDAR Motion Analysis",
+    category: "perception",
+    status: "completed-study",
+    featured: true,
+    isPlaceholder: false,
+    dateLabel: "Fall 2024 · code packaged 2026",
+    oneLiner:
+      "A five-person sensing project that estimated object dimensions, principal axis, motion, and rotation rate from point-cloud sequences — with final 1 RPM and 3 RPM trials reported against a controlled test stand.",
+    summary:
+      "The Camera LiDAR Debris Analyzer (CLiDA) was a five-person computer engineering design project for characterizing small rotating objects. As algorithm developer, I contributed LiDAR preprocessing, file conversion, dimension measurement, principal-axis estimation, motion detection, and rotation-rate logic, then helped document the verification plan and results. The final team report records ten trials at each of two target rates: 1.009 RPM mean for the 1.0 RPM condition and 3.004 RPM mean for the 3.0 RPM condition, with all 20 trials within ±0.2 RPM. A later public Python package presents the point-cloud methods in a compact, inspectable form using NumPy and Open3D.",
+    role:
+      "Algorithm developer — LiDAR processing, motion/axis/dimension methods, test hardware support, and report sections",
+    teamContext:
+      "Five-person CE315 design team. Final metrics and individual roles come from the December 2024 team report.",
+    stack: ["Python", "Open3D", "NumPy", "LiDAR", "PCA", "ICP", "3D printing"],
+    tags: ["point cloud", "ICP", "PCA", "sensing"],
+    problem:
+      "Estimate the size, orientation, motion state, and rotation rate of a small object from sparse point-cloud sequences.",
+    systemType: "Team sensing prototype + controlled experiment + standalone methods package",
+    whyItMatters:
+      "It connects algorithm implementation to a physical test stand, ground-truth rates, repeated trials, and a documented team role.",
+    contributions: [
+      "Developed and debugged LiDAR processing for RPM detection, axis identification, dimension measurement, point pruning, and file-format conversion.",
+      "Used PCA to estimate principal orientation and ICP-derived inter-frame rotation for speed and axis estimates.",
+      "3D-printed silhouettes and mounts to improve repeatable sensor alignment and test geometry.",
+      "Authored manufacturing, verification, risk, planning, and lessons-learned sections of the final report.",
+      "Later packaged the point-cloud methods with sample data, scripts, documentation, and synthetic-cloud tests.",
+    ],
+    provenance: [
+      "CLiDA was a five-person team project; project management, hardware, software leadership, and test execution were shared across named roles.",
+      "The final team report is the authority for the 20-trial RPM results. The public code package is supporting algorithm evidence, and its included 0.83 RPM sample output is not presented as the final experiment.",
+    ],
+    architectureSummary:
+      "Point-cloud frames are cleaned, measured with bounding boxes, summarized with PCA, screened by a displacement gate, and registered with ICP. A controlled motorized stand supplies repeated target-rate trials for comparison.",
+    architectureNodes: [
+      "LiDAR point-cloud sequence",
+      "NaN / outlier cleanup",
+      "AABB dimensions + PCA axis",
+      "Motion gate + ICP registration",
+      "RPM estimate vs. test-stand truth",
+    ],
+    evidence: [
+      { label: "Final team report", hint: "", status: "available", value: "Names team roles, experimental protocol, individual contributions, and 20 final rotation-rate trials." },
+      { label: "Public method package", hint: "", status: "available", value: "Preprocessing, dimensions, PCA orientation, motion gate, ICP speed estimation, sample data, and tests." },
+      { label: "Hardware setup", hint: "", status: "available", value: "Controlled rotating target, known rates, LiDAR mounting, 3D-printed fixtures, and repeated trials." },
+      { label: "Result table", hint: "", status: "available", value: "Ten trials at 1 RPM and ten at 3 RPM; every reported trial was within ±0.2 RPM." },
+    ],
+    metrics: [
+      { label: "1 RPM condition", value: "1.009 RPM", hint: "Mean over 10 trials." },
+      { label: "3 RPM condition", value: "3.004 RPM", hint: "Mean over 10 trials." },
+      { label: "Within ±0.2 RPM", value: "20 / 20", hint: "Final report." },
+      { label: "Team", value: "5 people", hint: "Role attributed explicitly." },
+    ],
+    limitations: [
+      "The experiment used controlled objects and a fixed test stand, not unconstrained orbital debris or a flight-ready sensor system.",
+      "Axis-aligned dimensions are sensitive to object orientation; PCA has a sign ambiguity; ICP depends on overlap and initialization.",
+      "The public package is a compact methods artifact and does not contain the full team report or raw final-trial dataset.",
+    ],
+    lessons: [
+      "A clean algorithm is not enough; mounts, surface finish, alignment, and ground truth determine whether its output is meaningful.",
+      "Team reports are useful provenance when they name individual contributions instead of retroactively assigning sole ownership.",
+      "A small public methods package can make a long team report inspectable without pretending the package is the whole project.",
+    ],
+    media: [
+      { kind: "image", src: "/media/clida-point-cloud-processing.png", alt: "Example LiDAR point cloud with a geometric bounding box", caption: "Sample point cloud packaged with the public methods implementation." },
+      { kind: "image", src: "/media/clida-hardware-setup.png", alt: "CLiDA LiDAR and rotating-object test setup", caption: "Controlled sensor and rotating-target setup used for verification." },
+      { kind: "image", src: "/media/clida-results-table.png", alt: "CLiDA final dimension and rotation-rate results table", caption: "Final report results for dimension and RPM trials." },
+      { kind: "image", src: "/media/clida-functional-block-diagram.png", alt: "CLiDA functional block diagram", caption: "Team system architecture from sensing through analysis." },
+    ],
+    artifacts: [
+      { kind: "repo", label: "Point-cloud package", href: "https://github.com/Janga786/lidar-pointcloud-motion-pipeline" },
+      { kind: "report", label: "Methods documentation", href: "https://github.com/Janga786/lidar-pointcloud-motion-pipeline#readme" },
+    ],
+    seoDescription:
+      "CLiDA LiDAR debris analysis: a five-person sensing project with PCA and ICP point-cloud methods, controlled RPM trials, explicit role attribution, and a public methods package.",
     sortOrder: 4,
   },
 
-  /* ────────────────────────────────────────────────────────────────────
-   * 5 · Autonomous 18-DoF hexapod — NASA Colorado Robotics Challenge
-   * ──────────────────────────────────────────────────────────────────── */
   {
     slug: "hexapod-nasa-challenge",
     title: "Autonomous Hexapod — NASA Colorado Robotics Challenge",
-    shortTitle: "Hexapod · NASA Challenge",
-    category: "embedded",
-    status: "featured",
+    shortTitle: "18-DoF Field Hexapod",
+    category: "systems-integration",
+    status: "fielded-system",
     featured: true,
     isPlaceholder: false,
     dateLabel: "Oct 2025 – Apr 2026",
     oneLiner:
-      "An 18-DoF walker with emergent Kuramoto-CPG gaits and IMU heading-hold autonomy — competed on the dunes, then learned to dance.",
+      "A four-person team integrated and fielded an 18-DoF hexapod at Great Sand Dunes; my work centered on team integration, electrical/control interfaces, and a later coupled-oscillator gait study.",
     summary:
-      "End-to-end development of an autonomous hexapod rover for NASA's Colorado Robotics Challenge at Great Sand Dunes National Park, leading a 4-person team. The mechanical chassis and inverse-kinematics geometry started from an open-source design; everything else was rebuilt from the wiring up — the complete electrical system, the autonomous firmware, and a Python locomotion simulator where tripod, wave, and ripple gaits emerge from one Kuramoto coupled-oscillator system instead of hand-coded sequences. Fully open source, including a 34-test CI suite. After the competition, the team gave it a choreographed dance routine — six legs, 18 servos, no human input.",
-    role: "Team lead — electrical system, autonomous firmware, locomotion simulation",
+      "The challenge required a walking robot to operate on loose sand and uneven terrain, where power distribution, sensing, gait stability, and field repair mattered at the same time. I led the four-person team and worked on the electrical/control integration: Arduino Mega, ICM-20948 IMU, bump sensing, LiPo/SBEC power, and a three-bit interface for selecting eight behaviors. After the field project, I built a Python Kuramoto coupled-oscillator simulator in which wave, ripple, and tripod phase relationships emerge from one model, then packaged it with a 34-test suite and visualizations.",
+    role:
+      "Team lead and systems integrator — electrical/control interfaces, field integration, and later CPG simulation/testing",
     teamContext:
-      "4-person team. Chassis/IK geometry adapted from an open-source build; electrical system, firmware, and simulator were the team's own, led by Jangara.",
-    stack: [
-      "Arduino Mega 2560",
-      "ICM-20948 9-DoF IMU",
-      "C++ firmware",
-      "Python CPG simulator",
-      "LiPo + SBEC power",
-    ],
-    tags: ["hexapod", "autonomy", "firmware", "CPG", "NASA challenge"],
+      "Four-person challenge team. The physical robot, chassis, firmware, and field work were collaborative and include inherited reference implementations.",
+    stack: ["Arduino Mega", "C++", "Python", "ICM-20948", "Kuramoto CPG", "18 servos"],
+    tags: ["field robotics", "controls", "embedded", "locomotion"],
     problem:
-      "Sand is a hostile place for a walker: heading drifts, legs sink, and there's no operator in the loop. The robot needed self-contained autonomy — orientation, obstacle response, and gait control — on a microcontroller.",
-    systemType: "Autonomous legged robot · embedded control",
+      "Build and field a legged robot that can maintain useful behavior on loose sand under real power, sensing, and integration constraints.",
+    systemType: "Fielded team robot + later simulation and verification extension",
     whyItMatters:
-      "Legged locomotion on unstructured terrain is the same problem the humanoid work faces, one level down the stack — and this version required owning every layer, from power distribution to gait dynamics.",
+      "It shows the difference between a locomotion idea and a robot that must be wired, powered, repaired, and operated outdoors by a team.",
     contributions: [
-      "Designed the complete electrical system from scratch: Arduino Mega 2560, SparkFun ICM-20948 IMU, bump sensors, LiPo + SBEC power distribution, LED battery indicator, and a 3-bit command interface selecting between 8 autonomous behaviors.",
-      "Built the autonomous firmware: closed-loop heading hold via a P-controller fusing gyro and magnetometer data, gyro bias auto-calibration at startup, and a bump-avoidance state machine.",
-      "Developed a Python Kuramoto coupled-oscillator simulator where tripod, wave, and ripple gaits emerge from the same dynamical system.",
-      "Open-sourced the full project — firmware, simulation, CAD, and a 34-test CI suite.",
+      "Led a four-person team through system integration and field operation at Great Sand Dunes National Park.",
+      "Designed and integrated the Arduino/IMU/bump-sensor/power architecture and three-bit behavior-selection interface documented in project materials.",
+      "Worked on heading-hold, calibration, and obstacle-response behavior within the team firmware stack.",
+      "Built the later Kuramoto CPG simulator, gait visualizations, phase analysis, and 34-test CI suite.",
+      "Published field photographs, wiring documentation, firmware context, CAD references, simulations, and explicit attribution notes in one evidence repository.",
+    ],
+    provenance: [
+      "This is a team project, not a sole-authorship claim. The public repository includes firmware originally written by Mark W and modified for the project, team-authored code under another GitHub account, and geometry/IK derived from an external reference implementation.",
+      "The Python CPG is a later simulation and verification extension; the site does not claim that this exact Python controller ran on the physical challenge robot.",
     ],
     architectureSummary:
-      "IMU and bump sensors feed an ATmega2560 running the heading-hold controller and behavior state machine, driving 18 servos through emergent CPG gaits. A Python Kuramoto simulator designed the gait dynamics before they ran on hardware.",
+      "Sensors and a compact behavior interface feed Arduino-based control, which coordinates eighteen servos through inherited and modified gait code. The later CPG simulator studies gait phase relationships separately from the physical firmware.",
     architectureNodes: [
-      "ICM-20948 IMU + bump sensors",
-      "ATmega2560 firmware — P-control heading hold",
-      "Behavior FSM — 8 autonomous modes",
-      "18 servos — tripod / wave / ripple gaits",
-      "Kuramoto CPG simulator (design loop)",
+      "IMU + bump sensors",
+      "Arduino Mega behavior logic",
+      "Power + three-bit command interface",
+      "18-servo hexapod",
+      "Separate Kuramoto CPG study",
     ],
     evidence: [
-      {
-        label: "Demo video",
-        hint: "",
-        status: "available",
-        value: "Embedded above — the choreographed routine, fully autonomous.",
-      },
-      {
-        label: "Open-source release",
-        hint: "",
-        status: "available",
-        value: "Firmware, simulator, CAD, and 34-test CI suite on GitHub.",
-      },
-      {
-        label: "Competition field notes",
-        hint: "[Add outcome and terrain lessons from the Great Sand Dunes run.]",
-        status: "pending",
-      },
+      { label: "Field evidence", hint: "", status: "available", value: "Team and robot photographs at Great Sand Dunes plus physical walking media." },
+      { label: "System documentation", hint: "", status: "available", value: "Wiring, firmware, CAD context, control architecture, and challenge setup." },
+      { label: "CPG verification", hint: "", status: "available", value: "34-test suite with phase, gait, workspace, trajectory, and edge-case checks." },
+      { label: "Attribution boundary", hint: "", status: "available", value: "Team, inherited firmware, reference geometry, and later personal extension are identified explicitly." },
     ],
     metrics: [
-      { label: "Degrees of freedom", value: "18", hint: "6 legs × 3 servos." },
-      { label: "Autonomous behaviors", value: "8", hint: "Selected via 3-bit command interface." },
-      { label: "Verification", value: "34-test CI suite", hint: "Runs on the open-source repo." },
-      { label: "Team", value: "4 people", hint: "Led end-to-end." },
+      { label: "Degrees of freedom", value: "18", hint: "Six legs × three joints." },
+      { label: "Team", value: "4 people", hint: "Field project." },
+      { label: "Behavior interface", value: "3 bits / 8 modes", hint: "Selection interface." },
+      { label: "CPG tests", value: "34 passing", hint: "Later simulation suite." },
     ],
     limitations: [
-      "[Document competition performance and terrain failure modes — sand sink, heading drift limits, servo thermal behavior.]",
+      "No repeatable field success-rate protocol or terrain benchmark was preserved, so the project is presented as a fielded system rather than a quantified locomotion study.",
+      "The CPG simulator and physical firmware are related conceptually but were not the same deployed controller.",
+      "Ownership spans teammates, inherited firmware, and reference geometry; contribution claims therefore stay at the subsystem and integration level.",
     ],
     lessons: [
-      "Letting gaits emerge from one coupled-oscillator system replaced three hand-coded gait tables — dynamics did the work that sequencing couldn't.",
-      "Heading hold on sand is a controls problem first and a sensing problem second; the P-controller only worked after gyro bias auto-calibration.",
+      "Field conditions make power, connectors, calibration, and recovery first-class control problems.",
+      "A mathematical gait model becomes more useful when its relationship to the deployed firmware is stated honestly.",
+      "Precise attribution strengthens a team project because reviewers can see both collaboration and individual depth.",
     ],
     media: [
-      {
-        kind: "video",
-        src: "/media/hexapod-dance.mp4",
-        poster: "/media/hexapod-dance-poster.jpg",
-        alt: "The 18-DoF hexapod performing a choreographed dance routine autonomously",
-        caption: "Choreographed routine — no human input during the run.",
-      },
-      {
-        kind: "diagram",
-        src: "/diagrams/hexapod-system.svg",
-        alt: "Hexapod system architecture: sensors into ATmega2560 firmware driving 18 servos, with a Kuramoto CPG simulator informing gait design",
-        caption: "System architecture.",
-      },
-      {
-        kind: "image",
-        src: "/media/hexapod-action.webp",
-        alt: "The hexapod walking on sand at the NASA Colorado Robotics Challenge",
-        caption: "On the dunes at the NASA Colorado Robotics Challenge.",
-      },
-      {
-        kind: "image",
-        src: "/media/hexapod-team.webp",
-        alt: "The four-person team with the hexapod at Great Sand Dunes National Park",
-        caption: "The team at Great Sand Dunes National Park.",
-      },
-      {
-        kind: "image",
-        src: "/media/hexapod-closeup.webp",
-        alt: "Close-up of the hexapod's custom electrical system and wiring",
-        caption: "The rebuilt electrical system.",
-      },
+      { kind: "image", src: "/media/hexapod-action.webp", alt: "18-DoF hexapod moving on sand at Great Sand Dunes", caption: "Fielded robot during the challenge." },
+      { kind: "diagram", src: "/diagrams/hexapod-system.svg", alt: "Hexapod sensors, firmware, power, servos, and later CPG simulator", caption: "Physical system and later CPG study, shown as related but distinct layers." },
+      { kind: "video", src: "/media/hexapod-dance.mp4", poster: "/media/hexapod-dance-poster.jpg", alt: "Hexapod executing a coordinated motion routine", caption: "Physical coordination test." },
+      { kind: "image", src: "/media/hexapod-team.webp", alt: "Four-person hexapod challenge team with the robot", caption: "Four-person challenge team and robot." },
     ],
     artifacts: [
-      { kind: "repo", label: "Open-source release (hexapod-cpg)", href: "https://github.com/Janga786/hexapod-cpg" },
-      { kind: "video", label: "Dance routine", href: "/media/hexapod-dance.mp4" },
-      { kind: "slides", label: "Research poster", href: "/posters/hexapod-poster.jpg" },
+      { kind: "repo", label: "Evidence repository", href: "https://github.com/Janga786/hexapod-cpg" },
+      { kind: "report", label: "Wiring & firmware notes", href: "https://github.com/Janga786/hexapod-cpg/tree/main/docs" },
+      { kind: "video", label: "Physical motion clip", href: "/media/hexapod-dance.mp4" },
     ],
     seoDescription:
-      "Autonomous 18-DoF hexapod for NASA's Colorado Robotics Challenge: custom electrical system, IMU heading-hold firmware, and emergent Kuramoto-CPG gaits — fully open source.",
+      "A four-person, 18-DoF hexapod fielded at the NASA Colorado Robotics Challenge, with attributed electrical/control integration and a later Kuramoto CPG simulation and 34-test suite.",
     sortOrder: 5,
   },
 
-  /* ────────────────────────────────────────────────────────────────────
-   * 6 · PPO locomotion & evaluation in Isaac Sim / Isaac Lab
-   * ──────────────────────────────────────────────────────────────────── */
   {
-    slug: "rl-locomotion-isaac",
-    title: "Reinforcement-Learned Locomotion & Evaluation in Isaac Sim",
-    shortTitle: "PPO Locomotion · Isaac",
-    category: "rl-simulation",
-    status: "selected",
-    featured: true,
+    slug: "legacy-robot-restoration-inspection",
+    title: "Legacy Robot Restoration & Inspection Tooling",
+    shortTitle: "Sawyer / Baxter Restoration",
+    category: "perception",
+    status: "completed-study",
+    featured: false,
     isPlaceholder: false,
-    dateLabel: "2026 – present",
+    dateLabel: "May – Sep 2025",
     oneLiner:
-      "PPO locomotion policies and benchmark-style evaluation in Isaac Sim / Isaac Lab, with sim-to-real transfer as the point, not an afterthought.",
+      "Restored two unsupported industrial arms, rebuilt the ROS workstation, and developed synthetic-data and YOLO tooling for an inspection research direction — without publishing an invalid detector metric.",
     summary:
-      "The training side of the Booster K1 research program: building reinforcement-learning infrastructure in NVIDIA Isaac Lab / Isaac Sim for the K1's velocity-tracking locomotion policy — the 50 Hz tier that executes what the vision-language planner decides. The work covers PPO training, benchmark and evaluation tooling, and the practical study of which simulated behaviors survive contact with hardware.",
-    role: "RL training infrastructure, benchmark/evaluation setup, sim-to-real analysis",
-    teamContext:
-      "Part of the Booster K1 research program under Dr. Yiyan Li; training infrastructure built as the deployment substrate.",
-    stack: ["Isaac Sim", "Isaac Lab", "PPO", "Python", "PyTorch"],
-    tags: ["reinforcement learning", "locomotion", "simulation", "benchmarking", "sim-to-real"],
-    problem:
-      "Legged locomotion policies are easy to overfit to a simulator. The question is always the same: what in the reward, randomization, and evaluation setup actually predicts real-world behavior?",
-    systemType: "Simulation training + evaluation pipeline",
-    whyItMatters:
-      "Sim-to-real is the tax every embodied-AI system pays. Understanding it at the training-and-evaluation layer is what makes the humanoid deployment predictable instead of lucky.",
+      "The project began with two nonfunctional legacy robots and limited vendor support. I diagnosed controller and boot problems, restored operating environments, and rebuilt a ROS Noetic / MoveIt / Gazebo workstation so the arms could again be simulated and programmed. In parallel, I developed Blender/Python synthetic-data tooling and YOLO-based inspection experiments. Earlier résumé and portfolio versions reported a 0.985 mAP on 1,682 thermal images; the evidence audit found that the public training configuration reused training images for validation and did not preserve the claimed thermal dataset or a valid held-out results file. Those numbers are therefore removed. What remains is still useful: robot restoration, systems troubleshooting, synthetic-data generation, inspection tooling, and a symposium-award research direction.",
+    role: "Solo research assistant under Dr. Kevin Wedeward — restoration, ROS environment, synthetic data, and inspection experiments",
+    teamContext: "Individual undergraduate research project with faculty supervision.",
+    stack: ["Sawyer", "Baxter", "ROS Noetic", "MoveIt", "Gazebo", "Blender", "YOLO"],
+    tags: ["robot restoration", "ROS", "synthetic data", "computer vision"],
+    problem: "Recover unsupported research hardware and create an inspection-development environment when the original software and controller stack no longer worked reliably.",
+    systemType: "Hardware restoration + robotics workstation + perception prototype",
+    whyItMatters: "Restoring the platform made later robotics experiments possible and exposed the difference between a detector demo and a valid held-out evaluation.",
     contributions: [
-      "Building PPO training infrastructure in Isaac Lab / Isaac Sim for the K1's velocity-tracking locomotion policy (50 Hz control).",
-      "Running benchmark/evaluation passes over trained policies.",
-      "[Specify as the work matures: environments, reward shaping decisions, randomization strategy, and which evaluations were designed vs. reused.]",
+      "Diagnosed hardware and boot failures through controller inspection, storage/OS recovery, BIOS and firmware configuration, and network troubleshooting.",
+      "Rebuilt a ROS Noetic workstation with MoveIt and Gazebo for motion-planning and simulation workflows.",
+      "Created Blender/Python synthetic inspection scenes, automatic labels, YOLO training tooling, and demonstration assets.",
+      "Documented Baxter troubleshooting so future students could reproduce common startup and ROS-network fixes.",
+      "Presented the inspection research direction at the Fort Lewis College Physics & Engineering Symposium, receiving second place.",
     ],
-    architectureSummary:
-      "Standard modern RL loop: parallelized simulation environments feed a PPO learner; checkpoints flow into an evaluation harness that scores policies on defined tasks; results inform reward and randomization iteration — and the surviving policies deploy under the VLA planner on the real robot.",
-    architectureNodes: [
-      "Isaac Sim / Isaac Lab environments",
-      "PPO training loop",
-      "Policy checkpoints — 50 Hz control",
-      "Benchmark & evaluation harness",
-      "Deploy to K1 under VLA planner",
+    provenance: [
+      "Vendor ROS packages and workspaces are upstream; the contribution is restoration, environment integration, custom scripts, synthetic-data tooling, and documentation.",
+      "No mAP, accuracy, thermal-image count, live thermal feed, or closed-loop hardware-inspection result is claimed because the audited repositories do not support those statements.",
     ],
+    architectureSummary: "The supported work has three layers: recover the robot controllers, rebuild the ROS planning environment, and develop synthetic-data/detection tooling. A valid held-out detector evaluation remains future work rather than a retroactive claim.",
+    architectureNodes: ["Legacy robot diagnostics", "Recovered controller + OS", "ROS / MoveIt / Gazebo workstation", "Synthetic image + label generation", "YOLO experimentation with held-out evaluation still required"],
     evidence: [
-      {
-        label: "Pipeline diagram",
-        hint: "",
-        status: "available",
-        value: "Training → checkpoint → evaluation loop in the gallery.",
-      },
-      {
-        label: "Training curves",
-        hint: "Attach reward/episode-length curves with config details.",
-        status: "pending",
-      },
-      {
-        label: "Evaluation protocol",
-        hint: "Document tasks, seeds, episode counts, and success criteria.",
-        status: "pending",
-      },
-      {
-        label: "Sim-to-real comparison",
-        hint: "Side-by-side of simulated vs. real behavior for the same policy class.",
-        status: "pending",
-      },
+      { label: "Restoration record", hint: "", status: "available", value: "Controller photographs, boot/SDK errors, repair notes, ROS workspaces, and troubleshooting guide." },
+      { label: "Synthetic-data tooling", hint: "", status: "available", value: "Blender assets, generation scripts, automatic labels, and inspection examples." },
+      { label: "Research recognition", hint: "", status: "available", value: "Second place at the September 2025 Physics & Engineering Symposium." },
+      { label: "Metric boundary", hint: "", status: "available", value: "Previous 0.985 mAP / 1,682-image claim removed after the evidence audit found no valid held-out artifact." },
     ],
     metrics: [
-      { label: "Control rate", value: "50 Hz", hint: "Deployed policy tier on the K1." },
-      { label: "Benchmark scores", hint: "Report only with the exact eval config attached." },
-      { label: "Training scale", hint: "Env count, steps, wall-clock — measured, not recalled." },
+      { label: "Robots restored", value: "2", hint: "Sawyer and Baxter." },
+      { label: "Symposium", value: "2nd place", hint: "FLC P&E, Sep 2025." },
+      { label: "Published CV metric", value: "None", hint: "Held-out evidence not preserved." },
+      { label: "Research mode", value: "Prototype", hint: "Not closed-loop validation." },
     ],
     limitations: [
-      "[State clearly which parts of the pipeline were built vs. configured — Isaac Lab ships strong defaults, and readers know it.]",
+      "The public vision repositories do not preserve a valid train/validation/test split or the previously stated detector results.",
+      "Simulation, synthetic inspection examples, and restored hardware do not establish a closed-loop autonomous inspection system.",
+      "The Baxter troubleshooting repository is a practical reference, not sole proof of every repair event.",
     ],
     lessons: [
-      "Evaluation design is where RL work becomes science; without a fixed protocol, every policy looks fine in its own demo.",
-      "[Add a concrete reward-design or randomization lesson from your runs.]",
+      "Restoration work can be the highest-leverage research contribution when the platform is otherwise unusable.",
+      "Train-as-validation output can make a model look excellent while providing no evidence of generalization.",
+      "Removing an unsupported metric makes the remaining systems work more credible.",
     ],
     media: [
-      {
-        kind: "image",
-        src: "/media/isaac-red-box.webp",
-        alt: "The Booster K1 model in an Isaac Sim training environment",
-        caption: "K1 in the Isaac Sim training environment.",
-      },
-      {
-        kind: "diagram",
-        src: "/diagrams/rl-pipeline.svg",
-        alt: "PPO training and evaluation pipeline in Isaac Sim and Isaac Lab",
-        caption: "Training → checkpoint → evaluation loop.",
-      },
+      { kind: "image", src: "/media/pv-baxter-rviz.webp", alt: "Baxter robot model running in RViz after workstation restoration", caption: "Recovered ROS visualization and programming environment." },
+      { kind: "image", src: "/media/pv-gazebo.webp", alt: "Industrial robot simulation in Gazebo", caption: "Motion-planning and simulation workstation." },
+      { kind: "image", src: "/media/pv-detection-grid.webp", alt: "Synthetic product-defect detection examples", caption: "Synthetic inspection examples — qualitative tooling evidence, not a held-out metric." },
     ],
     artifacts: [
-      { kind: "report", label: "Evaluation writeup" },
-      { kind: "repo", label: "Training / eval code" },
-      { kind: "diagram", label: "Pipeline diagram", href: "/diagrams/rl-pipeline.svg" },
+      { kind: "repo", label: "Inspection tooling", href: "https://github.com/Janga786/CV-YOLO-Inspection" },
+      { kind: "repo", label: "Baxter field guide", href: "https://github.com/Janga786/Baxter-Troubleshooting" },
     ],
-    seoDescription:
-      "PPO locomotion training and benchmark evaluation in Isaac Sim / Isaac Lab for the Booster K1's 50 Hz velocity-tracking policy.",
+    seoDescription: "Legacy Sawyer and Baxter restoration, ROS/MoveIt/Gazebo workstation recovery, and synthetic inspection tooling with unsupported detector metrics explicitly removed.",
     sortOrder: 6,
   },
 
-  /* ────────────────────────────────────────────────────────────────────
-   * 7 · The three-machine relay as a systems story
-   * ──────────────────────────────────────────────────────────────────── */
   {
-    slug: "three-machine-relay",
-    title: "A Three-Machine Relay for Real-Time Robot Inference",
-    shortTitle: "Inference Relay System",
-    category: "systems-integration",
-    status: "selected",
+    slug: "embedded-hardware-systems",
+    title: "Embedded, FPGA & Board-Level Systems",
+    shortTitle: "Embedded Systems Portfolio",
+    category: "embedded",
+    status: "validated-library",
     featured: false,
     isPlaceholder: false,
-    dateLabel: "2026",
-    oneLiner:
-      "GPU workstation, relay/control node, and robot — turned into one control loop with defensible interfaces.",
-    summary:
-      "The systems half of the Booster K1 deployment, treated on its own terms: how camera streaming, model inference on an RTX 5090, and SDK velocity control were split across three machines, what the interfaces between them look like, and how the seams were debugged. The live overlay video shows the whole loop at once — the instruction at the top, the model's reasoning, and the velocity commands with latency and buffer state at the bottom.",
-    role: "Architecture, interface design, networking, debugging",
-    teamContext:
-      "Built within the K1 research program under Dr. Yiyan Li — SDK primitives from Booster; topology, translation, and integration were the research work.",
-    stack: ["Python", "Robot SDK", "Camera streaming", "RTX 5090 workstation", "Networking"],
-    tags: ["distributed systems", "control loop", "robotics middleware", "integration"],
-    problem:
-      "An 8B model doesn't fit on a robot. Splitting perception, inference, and control across machines buys compute but spends reliability — every hop adds latency, jitter, and a new way to fail.",
-    systemType: "Distributed inference/control topology",
-    whyItMatters:
-      "Almost every ambitious embodied-AI system is a distributed system in disguise. The relay pattern here — edge sensing, remote inference, local control — is the pattern the field keeps rebuilding.",
+    dateLabel: "2023 – 2026",
+    oneLiner: "A curated hardware portfolio spanning a four-layer Arduino-Mega-class board, direct-register 40 kHz ADC sampling, a hand-built IR link, FPGA protocols, and CMOS design exercises.",
+    summary: "These projects provide the hardware foundation beneath the robotics work. The strongest examples are a four-layer Arduino-Mega-class PCB design with exported Gerbers, a bare-metal ADC sampler configured for 40 kHz acquisition, a custom IR link-layer protocol, timer-interrupt audio projects, FPGA modules and protocol exercises, and transistor-level CMOS design coursework. The board is documented as designed and Gerber-ready, not fabricated; the self-balancing folder contains component validation rather than a complete balancing controller.",
+    role: "Individual coursework and project collection — firmware, HDL, PCB layout, tests, and documentation",
+    teamContext: "Multiple undergraduate course and independent projects, curated into public repositories later.",
+    stack: ["C / C++", "ATmega2560", "Verilog", "Vivado", "PCB design", "Gerbers", "CMOS"],
+    tags: ["embedded", "FPGA", "PCB", "bare metal"],
+    problem: "Build enough low-level fluency to reason about sensing, timing, protocols, power, and hardware interfaces without treating the robot as a black box.",
+    systemType: "Curated embedded / digital / PCB project collection",
+    whyItMatters: "Robot learning systems still fail at clocks, registers, connectors, signal paths, and power rails; this work makes those layers inspectable.",
     contributions: [
-      "Designed the three-machine topology: robot camera streaming, relay/control machine, GPU inference workstation.",
-      "Implemented command translation from model outputs to robot SDK velocity control, pacing ~1 Hz planning against 50 Hz control.",
-      "Owned cross-machine debugging — the integration seams where most failures lived.",
-      "Built the live diagnostic overlay: instruction, model reasoning, velocity commands, per-step latency, and buffer state in one view.",
+      "Designed and exported manufacturing files for a four-layer Arduino-Mega-class board based on the reference architecture with documented personal changes.",
+      "Configured ATmega2560 registers for 40 kHz ADC sampling and implemented interrupt-driven data handling.",
+      "Built an IR protocol and timer-interrupt music projects that make timing and state explicit at the firmware level.",
+      "Implemented FPGA and digital-design exercises in Verilog with simulation and synthesis workflows.",
+      "Used component smoke tests to validate motors, encoders, and inertial sensors without claiming a complete self-balancing robot.",
     ],
-    architectureSummary:
-      "Sensing and actuation stay near the robot; heavy inference runs where the compute is; a relay node in between owns translation, pacing, and safety. Each machine has one job, and the interfaces between them are the design surface.",
-    architectureNodes: [
-      "Robot — sensing & actuation",
-      "Relay / control node — pacing, translation, safety",
-      "GPU workstation — model inference",
-      "Return path — commands & telemetry",
+    provenance: [
+      "The custom board mirrors the Arduino Mega reference architecture with personal changes; it is not presented as a novel microcontroller platform.",
+      "Gerbers and design files exist, but fabrication is not claimed. Component-validation code is not presented as a finished balancing controller.",
     ],
+    architectureSummary: "The portfolio moves from transistor and logic design to FPGA modules, microcontroller peripherals, communication protocols, and a complete board layout — emphasizing explicit timing and interfaces at every level.",
+    architectureNodes: ["CMOS + digital logic", "FPGA modules", "ATmega2560 peripherals", "Firmware protocols + timing", "Four-layer PCB + Gerbers"],
     evidence: [
-      {
-        label: "Live loop recording",
-        hint: "",
-        status: "available",
-        value: "Embedded above — instruction, reasoning, and velocity commands with live latency readout.",
-      },
-      {
-        label: "Topology diagram",
-        hint: "",
-        status: "available",
-        value: "Hop-by-hop diagram in the gallery.",
-      },
-      {
-        label: "Interface definitions",
-        hint: "The actual message/command contracts between machines.",
-        status: "pending",
-      },
-      {
-        label: "Timing measurements",
-        hint: "Per-hop latency and jitter under load.",
-        status: "pending",
-      },
+      { label: "Board design", hint: "", status: "available", value: "Four-layer schematic/layout and production Gerbers; fabrication not claimed." },
+      { label: "Bare-metal timing", hint: "", status: "available", value: "Direct-register ADC configuration for 40 kHz sampling." },
+      { label: "Protocol implementation", hint: "", status: "available", value: "Hand-built IR link layer and interrupt-driven projects." },
+      { label: "Scope boundary", hint: "", status: "available", value: "Component validation is labeled separately from a complete closed-loop robot." },
     ],
     metrics: [
-      { label: "Inference step", value: "~350 ms", hint: "Shown live in the overlay." },
-      { label: "Per-hop latency", hint: "Measure camera→relay, relay→GPU, GPU→command." },
-      { label: "Sustained frame rate", hint: "What the loop actually holds during runs." },
+      { label: "ADC sample rate", value: "40 kHz", hint: "Direct-register sampler." },
+      { label: "PCB layers", value: "4", hint: "Gerber-ready design." },
+      { label: "Target MCU", value: "ATmega2560", hint: "Mega-class board." },
+      { label: "Fabrication", value: "Not claimed", hint: "Design files only." },
     ],
     limitations: [
-      "A production version would need monitoring, failover, and a security posture this research loop doesn't have.",
+      "The repository packages work from multiple courses and dates; public upload dates are not project dates.",
+      "The custom board has manufacturing files but no preserved fabricated-board bring-up record.",
+      "Some folders are peripheral validation exercises, not complete embedded products.",
     ],
     lessons: [
-      "Interfaces between machines deserve the same design attention as the model — most failures were seam failures.",
-      "[Add the tradeoff you'd make differently now.]",
+      "Precise scope language matters in hardware: designed, fabricated, assembled, and validated are different milestones.",
+      "Direct-register work builds intuition for the timing and bandwidth constraints hidden by high-level robotics frameworks.",
+      "Breadth is most useful when tied back to concrete robot interfaces rather than presented as a catalog.",
     ],
-    media: [
-      {
-        kind: "video",
-        src: "/media/k1-extra.mp4",
-        poster: "/media/k1-extra-poster.jpg",
-        alt: "Screen recording of the robot's first-person camera feed with live model inference overlaid: instruction, reasoning, and velocity commands with latency readout",
-        caption: "The view from inside the loop: instruction → reasoning → velocity commands, with live latency.",
-      },
-      {
-        kind: "diagram",
-        src: "/diagrams/relay-topology.svg",
-        alt: "Per-hop view of the three-machine relay: robot to relay to GPU workstation and back",
-        caption: "The relay, hop by hop.",
-      },
-    ],
+    media: [{ kind: "diagram", src: "/diagrams/embedded-stack.svg", alt: "Embedded systems portfolio from CMOS and FPGA through firmware and a four-layer PCB", caption: "Hardware breadth from logic through board-level implementation." }],
     artifacts: [
-      { kind: "video", label: "Live loop recording", href: "/media/k1-extra.mp4" },
-      { kind: "diagram", label: "Topology diagram", href: "/diagrams/relay-topology.svg" },
-      { kind: "report", label: "Integration postmortem" },
+      { kind: "repo", label: "Microcontroller portfolio", href: "https://github.com/Janga786/arduino-mega-microcontrollers" },
+      { kind: "repo", label: "FPGA portfolio", href: "https://github.com/Janga786/basys3-fpga-portfolio" },
     ],
-    seoDescription:
-      "Design and debugging of a three-machine inference relay connecting a GPU workstation, relay/control node, and a humanoid robot into one real-time loop.",
+    seoDescription: "Embedded systems portfolio: ATmega2560 firmware, a 40 kHz ADC sampler, IR protocol, FPGA work, and a four-layer Arduino-Mega-class PCB design with Gerbers.",
     sortOrder: 7,
   },
 
-  /* ────────────────────────────────────────────────────────────────────
-   * 8 · KDUR community radio data platform
-   * ──────────────────────────────────────────────────────────────────── */
   {
     slug: "kdur-data-platform",
     title: "KDUR Community Radio Data Platform",
@@ -937,232 +693,63 @@ export const projects: Project[] = [
     featured: false,
     isPlaceholder: false,
     dateLabel: "Aug 2024 – Oct 2025",
-    oneLiner:
-      "A deployed data platform for Fort Lewis College's radio station — 60+ daily users — with an applied-AI research layer for search and royalty integrity.",
-    summary:
-      "Under Dr. Matthew Welz: a complete database application built in Microsoft Power Apps that manages KDUR's music library and broadcast schedules for over 60 daily users — real software, in production, with real stakeholders. On top of the deployed platform sits a research layer: a vector-embedding model in Python that resolves artist-name variants (matching \"Jay Z\" to the official \"Jay-Z\") so royalty attribution stays accurate, a Neo4j graph-database prototype, and AI agents that translate natural language into Cypher queries.",
-    role: "Research assistant — built and deployed the platform; prototyped the AI layer",
-    teamContext:
-      "Research assistantship under Dr. Matthew Welz, Fort Lewis College.",
-    stack: ["Microsoft Power Apps", "Python", "Vector embeddings", "Neo4j", "Cypher"],
-    tags: ["product", "deployed software", "NLP", "graph database", "real users"],
-    problem:
-      "The station's catalog, schedules, and analytics lived in scattered records — and royalty attribution breaks when the same artist appears under five name variants.",
-    systemType: "Deployed CRUD platform + applied-AI prototype",
-    whyItMatters:
-      "Sixty people using your software every day is a different education than any class project: uptime, usability, and data integrity stop being abstract.",
+    oneLiner: "A Power Apps catalog and scheduling system designed with a community radio station for more than 60 daily users, plus embedding and graph-database prototypes — handed off before deployment.",
+    summary: "Working with Fort Lewis College's KDUR radio station, I designed and built a Power Apps data application for the music library and station workflows. The intended population was more than 60 daily DJs and staff members. I later explored an applied-AI layer: vector embeddings for artist-name normalization and a Neo4j prototype with natural-language-to-Cypher agents. When I moved full-time into robotics research, the application was handed off before deployment. The project therefore demonstrates user-centered data modeling, prototyping, and handoff — not verified production adoption.",
+    role: "Research assistant — application design, data modeling, embedding prototype, graph-database exploration, and handoff",
+    teamContext: "Built with KDUR stakeholders under Dr. Matthew Welz; intended users informed requirements, but production adoption was not preserved.",
+    stack: ["Power Apps", "Python", "Vector embeddings", "Neo4j", "Cypher", "Data modeling"],
+    tags: ["product", "data platform", "embeddings", "community"],
+    problem: "Replace fragmented music-library and scheduling workflows while reducing artist-name inconsistency that can affect search and royalty records.",
+    systemType: "Stakeholder-informed application + applied-AI prototypes",
+    whyItMatters: "It adds product judgment and real stakeholder collaboration without inflating a handoff into a deployment claim.",
     contributions: [
-      "Developed and deployed the full Power Apps database application for the music library and broadcast schedules — in daily production use by 60+ users.",
-      "Built a vector-embedding model in Python for artist-name resolution to protect royalty attribution accuracy.",
-      "Prototyped a Neo4j graph database and AI agents translating natural language into Cypher queries — toward conversational access to the catalog for students and community.",
+      "Mapped station entities and workflows into a relational Power Apps application for songs, albums, artists, locations, and schedules.",
+      "Designed the interface around an intended population of more than 60 daily station users.",
+      "Built an embedding-based artist-name resolution prototype and explored a graph representation in Neo4j.",
+      "Prototyped natural-language-to-Cypher access for catalog questions.",
+      "Documented and handed off the application when research priorities shifted to robotics.",
     ],
-    architectureSummary:
-      "DJs and staff work in the deployed Power Apps platform; the research layer sits alongside it — embeddings for entity resolution, a graph prototype for relationship queries, and natural-language-to-Cypher agents for conversational access.",
-    architectureNodes: [
-      "DJs & staff — 60+ daily users",
-      "Power Apps platform — library + schedules",
-      "Embedding layer — artist-name resolution",
-      "Neo4j prototype — NL → Cypher agents",
+    provenance: [
+      "More than 60 refers to the intended daily user population supplied by the station, not measured active users of a deployed application.",
+      "The Power Apps system was handed off before deployment; the embedding and graph layers remained research prototypes.",
     ],
+    architectureSummary: "Station workflows feed a structured catalog application; separate experiments test whether embeddings can normalize artist names and whether graph queries can provide a more natural discovery interface.",
+    architectureNodes: ["KDUR stakeholder workflows", "Power Apps catalog + schedules", "Structured station data", "Embedding name resolution", "Neo4j / NL-to-Cypher prototype"],
     evidence: [
-      {
-        label: "Production deployment",
-        hint: "",
-        status: "available",
-        value: "In daily use by 60+ station users.",
-      },
-      {
-        label: "Platform screenshots",
-        hint: "",
-        status: "available",
-        value: "Deployed app and graph prototype in the gallery.",
-      },
-      {
-        label: "Entity-resolution evaluation",
-        hint: "Quantify match accuracy on a labeled variant set.",
-        status: "pending",
-      },
+      { label: "Application artifact", hint: "", status: "available", value: "Power Apps screens, data model, and project poster." },
+      { label: "Data work", hint: "", status: "available", value: "Catalog-processing scripts, CSV exports, embedding experiments, and graph prototype." },
+      { label: "Stakeholder context", hint: "", status: "available", value: "Designed with station workflows and an intended population of more than 60 daily users." },
+      { label: "Status boundary", hint: "", status: "available", value: "Handed off pre-deployment; no active-user or production-impact claim." },
     ],
     metrics: [
-      { label: "Daily users", value: "60+", hint: "Station DJs and staff." },
-      { label: "Resolution accuracy", hint: "Evaluate the embedding matcher before quoting figures." },
+      { label: "Intended users", value: "60+ daily", hint: "Station population, not active users." },
+      { label: "Deployment", value: "Handed off", hint: "Pre-production." },
+      { label: "AI layer", value: "Prototype", hint: "Embeddings + graph queries." },
+      { label: "Domain", value: "Community radio", hint: "KDUR at FLC." },
     ],
     limitations: [
-      "The AI layer is a research prototype — the embeddings and NL-to-Cypher agents aren't yet part of the production deployment.",
+      "No production telemetry or adoption record was preserved because the application was handed off before deployment.",
+      "Embedding and natural-language graph-query experiments were prototypes, not validated station services.",
+      "The project should support a product/leadership narrative rather than displace stronger robotics evidence.",
     ],
     lessons: [
-      "Real users reorder your priorities immediately — reliability and data integrity beat features every week.",
-      "[Add the specific user-feedback moment that changed the design.]",
+      "Intended users and active users are different metrics.",
+      "A clean handoff is a legitimate project outcome when priorities change, provided status remains explicit.",
+      "Stakeholder work improved the ability to translate ambiguous needs into data structures and interfaces.",
     ],
     media: [
-      {
-        kind: "image",
-        src: "/media/kdur-app.webp",
-        alt: "The deployed KDUR radio station management application",
-        caption: "The deployed station-management app.",
-      },
-      {
-        kind: "diagram",
-        src: "/diagrams/kdur-platform.svg",
-        alt: "KDUR platform architecture: users, Power Apps CRUD application, and the applied-AI research layer",
-        caption: "Platform + research layer.",
-      },
-      {
-        kind: "image",
-        src: "/media/kdur-graph.webp",
-        alt: "Neo4j graph database prototype visualization of the KDUR catalog",
-        caption: "Neo4j prototype of catalog relationships.",
-      },
+      { kind: "image", src: "/media/kdur-app.webp", alt: "KDUR Power Apps radio-station catalog interface", caption: "Application interface built for station library and workflow needs." },
+      { kind: "diagram", src: "/diagrams/kdur-platform.svg", alt: "KDUR application, handoff status, and separate applied-AI prototypes", caption: "Built application and research prototypes, with pre-deployment status explicit." },
+      { kind: "image", src: "/media/kdur-graph.webp", alt: "Neo4j graph prototype for radio catalog relationships", caption: "Graph-database exploration for catalog relationships and natural-language querying." },
     ],
-    artifacts: [
-      { kind: "slides", label: "Research poster", href: "/posters/kdur-poster.jpg" },
-      { kind: "demo", label: "Platform demo" },
-    ],
-    seoDescription:
-      "A deployed Power Apps data platform for KDUR community radio (60+ daily users) with an applied-AI layer: embedding-based artist resolution and natural-language-to-Cypher agents.",
+    artifacts: [{ kind: "diagram", label: "System diagram", href: "/diagrams/kdur-platform.svg" }],
+    seoDescription: "A KDUR community-radio data application designed for 60+ intended daily users, with embedding and Neo4j prototypes, explicitly labeled as handed off before deployment.",
     sortOrder: 8,
   },
-
-  /* ────────────────────────────────────────────────────────────────────
-   * 9 · Embedded, FPGA & board-level systems (collection)
-   * ──────────────────────────────────────────────────────────────────── */
-  {
-    slug: "embedded-hardware-systems",
-    title: "Embedded, FPGA & Board-Level Systems",
-    shortTitle: "Embedded · FPGA · PCB",
-    category: "embedded",
-    status: "selected",
-    featured: false,
-    isPlaceholder: false,
-    oneLiner:
-      "Board-level engineering — Verilog on the Basys 3, bare-metal ATmega2560 work, a custom PCB with production Gerbers, and CMOS VLSI design.",
-    summary:
-      "A collection entry for the hardware layer under the AI stack: six Verilog systems on the Digilent Basys 3 (soft-core CPU, PicoBlaze + OLED, PS/2-to-UART), six ATmega2560 projects including a custom Arduino-Mega-class PCB with production Gerbers and a bare-metal 40 kHz ADC sampler, transistor-level CMOS designs in 0.6 µm SCMOS, and a self-balancing robot prototype running PID control with a custom integration PCB in progress. This is why the deployment work treats latency, timing, and power as real numbers instead of abstractions.",
-    role: "Design, firmware, and verification across the listed projects",
-    teamContext:
-      "Individual coursework and personal projects across the computer-engineering curriculum and three faculty research labs.",
-    stack: ["Verilog / Artix-7", "Embedded C/C++", "ATmega2560", "PCB design (EAGLE/KiCad)", "SPICE"],
-    tags: ["embedded", "FPGA", "PCB", "VLSI", "firmware"],
-    problem:
-      "AI systems eventually meet a voltage rail. This body of work is about being competent at the layer where software constraints become physical ones.",
-    systemType: "Embedded / board-level systems portfolio",
-    whyItMatters:
-      "Physical-AI ambitions without hardware literacy produce systems that can't be debugged below the API. This layer keeps the rest of the stack honest.",
-    contributions: [
-      "Six self-contained Verilog systems on the Basys 3 (Artix-7): PicoBlaze + PmodOLED, XADC-to-Arduino SPI bridge, PS/2-keyboard-to-UART stack, soft-core CPU, FSMs, LCD driver.",
-      "Six ATmega2560 projects including a custom Arduino-Mega-class PCB with production Gerbers, a bare-metal 40 kHz ADC sampler, and a hand-built IR link-layer protocol.",
-      "Transistor-level CMOS design in 0.6 µm SCMOS: 8-bit ALU, R-2R DAC + flash ADC, transmission-gate MUX, full static-CMOS gate library.",
-      "Self-balancing robot prototype: PID stabilization, with a custom PCB (upgraded MCU, onboard drivers, integrated IMU) in design.",
-    ],
-    architectureSummary:
-      "Per project: sensors and IO into a microcontroller or FPGA, firmware or HDL in the middle, actuation and bench validation on the other side — documented per repository.",
-    architectureNodes: ["Sensors / IO", "Microcontroller / FPGA", "Firmware & HDL", "Actuation", "Bench validation"],
-    evidence: [
-      {
-        label: "Open-source repositories",
-        hint: "",
-        status: "available",
-        value: "Three documented repos: FPGA portfolio, ATmega2560 projects, CMOS VLSI designs.",
-      },
-      {
-        label: "Bench test results",
-        hint: "Scope traces, validation runs, or demo clips for the strongest 1–2 pieces.",
-        status: "pending",
-      },
-    ],
-    metrics: [
-      { label: "Timing / power figures", hint: "Only the ones actually measured on the bench." },
-    ],
-    limitations: [
-      "This is a collection entry — its credibility improves sharply once one project is documented end-to-end with bench evidence.",
-    ],
-    lessons: [
-      "Hardware debugging builds the habit that carries into ML systems work: distrust the layer you can't observe.",
-      "[Add one concrete bench story.]",
-    ],
-    media: [
-      {
-        kind: "diagram",
-        alt: "Embedded systems block diagram placeholder",
-        caption: "Block diagram (schematic placeholder — add board photos and scope traces).",
-      },
-    ],
-    artifacts: [
-      { kind: "repo", label: "FPGA portfolio (Basys 3)", href: "https://github.com/Janga786/basys3-fpga-portfolio" },
-      { kind: "repo", label: "ATmega2560 projects + PCB", href: "https://github.com/Janga786/arduino-mega-microcontrollers" },
-      { kind: "repo", label: "CMOS VLSI designs", href: "https://github.com/Janga786/cmos-vlsi-spice-portfolio" },
-    ],
-    seoDescription:
-      "Embedded, FPGA, and board-level systems: Verilog on the Basys 3, ATmega2560 firmware and a custom PCB, and transistor-level CMOS VLSI design.",
-    sortOrder: 9,
-  },
-
-  /* ────────────────────────────────────────────────────────────────────
-   * 10 · PLACEHOLDER — multimodal / vision-language project slot
-   * ──────────────────────────────────────────────────────────────────── */
-  {
-    slug: "multimodal-project-slot",
-    title: "Vision-Language Project — Slot Reserved",
-    shortTitle: "Multimodal Slot",
-    category: "multimodal",
-    status: "placeholder",
-    featured: false,
-    isPlaceholder: true,
-    oneLiner:
-      "A reserved slot for a self-contained multimodal project: model choice, task definition, interface, and honest evaluation.",
-    summary:
-      "This slot is structured for a vision-language or multimodal project that stands on its own — separate from the humanoid deployment. The strongest fill here is small but complete: a crisply-defined task, a defensible model/interface choice, qualitative examples, and a failure analysis that shows judgment rather than enthusiasm.",
-    role: "[Your role]",
-    teamContext: "[Solo or team — say which parts were yours.]",
-    stack: ["[Model]", "[Perception inputs]", "[Interface layer]"],
-    tags: ["vision-language", "multimodal", "evaluation"],
-    problem:
-      "[One sentence: the task this project defines and why it isn't trivial.]",
-    systemType: "Multimodal model + task interface",
-    whyItMatters:
-      "[Connect the task to something real: accessibility, inspection, navigation, tooling.]",
-    contributions: [
-      "[Model / prompt / interface structure decisions and why.]",
-      "[Evaluation set construction — what counts as success.]",
-      "[Failure analysis — the examples that break it.]",
-    ],
-    architectureSummary:
-      "[Describe input → model → output structure, plus any grounding or post-processing stages.]",
-    architectureNodes: [
-      "Perception inputs",
-      "Vision-language model",
-      "Task interface / decoding",
-      "Evaluation examples",
-    ],
-    evidence: [
-      { label: "Task definition", hint: "The precise task spec and dataset/examples used.", status: "pending" },
-      { label: "Qualitative demos", hint: "Curated success AND failure examples, honestly chosen.", status: "pending" },
-      { label: "Failure analysis", hint: "Categorized error modes with counts.", status: "pending" },
-    ],
-    metrics: [
-      { label: "Task metric", hint: "Define per task — accuracy, success rate, or human eval." },
-    ],
-    limitations: ["[What the model can't do; what the eval can't see.]"],
-    lessons: ["[What the project changed about how you use multimodal models.]"],
-    media: [
-      { kind: "diagram", alt: "Multimodal project pipeline placeholder", caption: "Pipeline (placeholder schematic)." },
-    ],
-    artifacts: [
-      { kind: "repo", label: "Code" },
-      { kind: "demo", label: "Demo" },
-      { kind: "report", label: "Writeup" },
-    ],
-    seoDescription:
-      "Reserved slot for a self-contained vision-language / multimodal AI project with task definition, evaluation, and failure analysis.",
-    sortOrder: 10,
-  },
-
 ];
 
-/* ── Selectors ─────────────────────────────────────────────────────────── */
-
 export const featuredProjects = projects
-  .filter((p) => p.featured)
+  .filter((project) => project.featured)
   .sort((a, b) => a.sortOrder - b.sortOrder);
 
 export const allProjects = [...projects].sort(
@@ -1170,21 +757,18 @@ export const allProjects = [...projects].sort(
 );
 
 export function getProject(slug: string): Project | undefined {
-  return projects.find((p) => p.slug === slug);
+  return projects.find((project) => project.slug === slug);
 }
 
 export function getCategory(id: string): CategoryMeta | undefined {
-  return categories.find((c) => c.id === id);
+  return categories.find((category) => category.id === id);
 }
 
-export function adjacentProjects(slug: string): {
-  prev?: Project;
-  next?: Project;
-} {
-  const idx = allProjects.findIndex((p) => p.slug === slug);
-  if (idx === -1) return {};
+export function adjacentProjects(slug: string): { prev?: Project; next?: Project } {
+  const index = allProjects.findIndex((project) => project.slug === slug);
+  if (index === -1) return {};
   return {
-    prev: allProjects[idx - 1],
-    next: allProjects[idx + 1],
+    prev: allProjects[index - 1],
+    next: allProjects[index + 1],
   };
 }

@@ -11,9 +11,9 @@ import { Chip } from "@/components/shared/Chip";
 import { MotionReveal } from "@/components/shared/MotionReveal";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Writing",
+  title: "Reports",
   description:
-    "Technical reports and writeups — deployment reports, evaluations, and postmortems.",
+    "Technical reports, evidence ledgers, methods documentation, and field guides.",
   path: "/writing/",
 });
 
@@ -106,7 +106,7 @@ export default function WritingPage() {
     return (
       <SectionShell>
         <div className="mx-auto max-w-3xl">
-          <SectionHeading as="h1" title="Writing" />
+          <SectionHeading as="h1" title="Reports" />
           <div className="panel p-6">
             <p className="text-sm text-muted">Writing is offline.</p>
           </div>
@@ -121,9 +121,9 @@ export default function WritingPage() {
         <MotionReveal>
           <SectionHeading
             as="h1"
-            eyebrow="Writing & Reports"
-            title="Technical writing"
-            lede="Reports are the interface between work and readers who weren't in the room. These slots are structured for that standard."
+            eyebrow="Research Archive"
+            title="Reports & evidence"
+            lede="Canonical results, methods, and evidence ledgers — linked to the artifacts that support each claim."
           />
         </MotionReveal>
         <div className="space-y-4">

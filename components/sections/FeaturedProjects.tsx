@@ -56,7 +56,7 @@ export function FeaturedProjects() {
       <SectionHeading
         eyebrow="Selected Work"
         title="Featured projects"
-        lede="Case studies over screenshots — each entry is structured around evidence."
+        lede="Five proof points selected for research depth, mathematical readiness, field experience, and reproducible evidence."
       />
       <div className="grid gap-4 md:grid-cols-2">
         {featuredProjects.map((project, i) => (

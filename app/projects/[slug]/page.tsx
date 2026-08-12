@@ -192,6 +192,20 @@ export default async function ProjectPage({ params }: PageProps) {
           </section>
         </MotionReveal>
 
+        {project.provenance?.length ? (
+          <MotionReveal>
+            <section className="panel border-dashed p-6">
+              <SectionHeading
+                as="h2"
+                eyebrow="Scope"
+                title="Provenance & claim boundary"
+                className="mb-6"
+              />
+              <NoteAwareList items={project.provenance} />
+            </section>
+          </MotionReveal>
+        ) : null}
+
         <MotionReveal>
           <section>
             <SectionHeading

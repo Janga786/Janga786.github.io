@@ -14,12 +14,13 @@ interface PageMeta {
 /** Builds consistent per-page metadata (title template applied in layout). */
 export function pageMetadata({ title, description, path }: PageMeta): Metadata {
   const url = absoluteUrl(path);
+  const socialTitle = title ?? `${siteConfig.title} — Robot Learning & Autonomy`;
   return {
-    title,
+    ...(title ? { title } : {}),
     description,
     alternates: { canonical: url },
     openGraph: {
-      title: title ?? siteConfig.title,
+      title: socialTitle,
       description,
       url,
       siteName: siteConfig.title,
@@ -27,7 +28,7 @@ export function pageMetadata({ title, description, path }: PageMeta): Metadata {
     },
     twitter: {
       card: "summary_large_image",
-      title: title ?? siteConfig.title,
+      title: socialTitle,
       description,
     },
   };

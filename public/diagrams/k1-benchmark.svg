@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 460" role="img" aria-labelledby="title desc">
+  <title id="title">Booster K1 NaVILA benchmark and failure decomposition</title>
+  <desc id="desc">A flow from R2R instruction through NaVILA, a K1 benchmark wrapper, locomotion, and per-episode outcomes. Final metrics show 1,077 episodes, 197 successes, 129 reached without stopping, and 751 never reached.</desc>
+  <defs>
+    <style>
+      .box{fill:#10151d;stroke:#344052;stroke-width:1.2}.box2{fill:#121a26;stroke:#4c6fae;stroke-width:1.2}.t{fill:#e7eaf0;font:600 15px Inter,Arial,sans-serif}.s{fill:#8f9bad;font:12px 'JetBrains Mono',monospace}.n{fill:#7aa5ff;font:700 24px Inter,Arial,sans-serif}.lbl{fill:#a9c4ff;font:12px 'JetBrains Mono',monospace}.line{stroke:#5b6b81;stroke-width:1.5;fill:none}.dash{stroke:#5b6b81;stroke-width:1.2;stroke-dasharray:5 5;fill:none}
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#5b6b81"/></marker>
+  </defs>
+  <rect width="900" height="460" rx="18" fill="#0b0f15"/>
+  <text x="30" y="38" class="s" letter-spacing="2">K1 / NAVILA — COMPLETE SIMULATION BENCHMARK</text>
+
+  <rect x="30" y="78" width="150" height="86" rx="10" class="box"/>
+  <text x="48" y="108" class="t">R2R instruction</text><text x="48" y="132" class="s">Matterport3D scene</text><text x="48" y="149" class="s">val-unseen split</text>
+  <rect x="210" y="78" width="150" height="86" rx="10" class="box"/>
+  <text x="228" y="108" class="t">NaVILA policy</text><text x="228" y="132" class="s">vision + language</text><text x="228" y="149" class="s">upstream model</text>
+  <rect x="390" y="78" width="150" height="86" rx="10" class="box2"/>
+  <text x="408" y="108" class="t">K1 integration</text><text x="408" y="132" class="s">wrapper · parser</text><text x="408" y="149" class="s">camera · termination</text>
+  <rect x="570" y="78" width="140" height="86" rx="10" class="box"/>
+  <text x="588" y="108" class="t">Locomotion</text><text x="588" y="132" class="s">50 Hz policy</text><text x="588" y="149" class="s">Isaac simulation</text>
+  <rect x="740" y="78" width="130" height="86" rx="10" class="box2"/>
+  <text x="758" y="108" class="t">Evidence</text><text x="758" y="132" class="s">episode JSONs</text><text x="758" y="149" class="s">metrics + logs</text>
+  <path d="M180 121H210M360 121H390M540 121H570M710 121H740" class="line" marker-end="url(#arrow)"/>
+
+  <text x="30" y="218" class="t">What happened across the full denominator?</text>
+  <rect x="30" y="242" width="195" height="126" rx="12" class="box2"/>
+  <text x="50" y="278" class="n">1,077 / 1,077</text><text x="50" y="304" class="lbl">episodes scored</text><text x="50" y="335" class="s">SR 18.3% · OS 30.3%</text><text x="50" y="354" class="s">SPL 10.9% · NE 7.59 m</text>
+  <rect x="255" y="242" width="180" height="126" rx="12" class="box"/>
+  <text x="275" y="278" class="n">197</text><text x="275" y="304" class="t">successes</text><text x="275" y="335" class="s">reached + stopped</text><text x="275" y="354" class="lbl">18.3%</text>
+  <rect x="465" y="242" width="180" height="126" rx="12" class="box"/>
+  <text x="485" y="278" class="n">129</text><text x="485" y="304" class="t">reached, no stop</text><text x="485" y="335" class="s">arrival-recognition</text><text x="485" y="354" class="lbl">12.0%</text>
+  <rect x="675" y="242" width="195" height="126" rx="12" class="box"/>
+  <text x="695" y="278" class="n">751</text><text x="695" y="304" class="t">never reached</text><text x="695" y="335" class="s">exploration dominates</text><text x="695" y="354" class="lbl">69.7%</text>
+  <path d="M805 164V205H127V242M805 205H345V242M805 205H555V242M805 205H772V242" class="dash"/>
+  <text x="30" y="422" class="s">BOUNDARY: CANONICAL RESULT IS SIMULATION-ONLY · LIVE NAVILA CONTROL IS NOT CLAIMED</text>
+</svg>

@@ -24,10 +24,14 @@ export function AdmissionsContextCard() {
       <p className="meta-label mb-3">Graduate study focus</p>
       <div className="space-y-1.5 text-sm text-muted">
         <p>
-          Applying to terminal master&apos;s programs — AI, CS, ECE, robotics —
-          enrolling after a {profile.graduation} B.S. in {profile.major}.
+          Preparing for master&apos;s study in robotics, computer science, and
+          electrical and computer engineering after a {profile.graduation} B.S.
+          in {profile.major}.
         </p>
-        <p>Domestic U.S. applicant &middot; Colorado resident.</p>
+        <p>
+          Focus: robot learning and autonomy, rigorous evaluation, and access to
+          real robotic systems.
+        </p>
       </div>
       {showPrograms ? (
         <ul className="mt-4 flex flex-wrap gap-2">

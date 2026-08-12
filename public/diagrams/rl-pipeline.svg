@@ -47,5 +47,5 @@
   <text x="170" y="310" class="s">reward &amp; randomization iteration</text>
 
   <path d="M830 128 h0" class="flow"/>
-  <text x="600" y="360" class="lbl">→ deploys under the ~1 Hz VLA planner on the real K1</text>
+  <text x="540" y="360" class="lbl">→ deployment validators and hardware path tested separately</text>
 </svg>

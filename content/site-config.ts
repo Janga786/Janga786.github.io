@@ -11,7 +11,7 @@ export const siteConfig = {
   title: "Jangara Bliss",
   titleTemplate: "%s — Jangara Bliss",
   description:
-    "Jangara Bliss is a computer engineering student building AI systems for the physical world — vision-language navigation on a real humanoid, reinforcement learning in simulation, and the systems engineering in between.",
+    "Jangara Bliss is a computer engineering student working across robot learning, autonomy, controls, and embodied evaluation — with results separated clearly from active work and hardware-readiness claims.",
 
   /* ── Visibility toggles ─────────────────────────────────────────────── */
 

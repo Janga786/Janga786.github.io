@@ -36,22 +36,30 @@ function WritingCardBody({ item }: { item: WritingItem }) {
 export function WritingPreview() {
   if (!siteConfig.enableWritingPage) return null;
 
+  const featuredWriting = writing.filter((item) => item.featured).slice(0, 4);
+
   return (
     <SectionShell>
       <SectionHeading
-        eyebrow="Writing"
-        title="Technical reports"
-        lede="Systems are only as credible as their writeups. These are the reports this site is structured to hold."
+        eyebrow="Research Archive"
+        title="Reports & evidence"
+        lede="Canonical results and technical documentation, not planned-content placeholders."
       />
       <div className="grid gap-4 sm:grid-cols-2">
-        {writing.map((item, i) => (
+        {featuredWriting.map((item, i) => (
           <MotionReveal key={item.slug} delay={(i % 2) * 0.05}>
-            {item.link ? (
-              <Link
+            {item.link && /^https?:\/\//.test(item.link) ? (
+              <a
                 href={item.link}
+                target="_blank"
+                rel="noopener noreferrer"
                 data-glow
                 className="panel panel-hover block h-full p-5"
               >
+                <WritingCardBody item={item} />
+              </a>
+            ) : item.link ? (
+              <Link href={item.link} data-glow className="panel panel-hover block h-full p-5">
                 <WritingCardBody item={item} />
               </Link>
             ) : (
@@ -67,7 +75,7 @@ export function WritingPreview() {
           href="/writing/"
           className="inline-flex items-center gap-1.5 text-sm font-medium text-accent transition-colors hover:text-foreground"
         >
-          All writing
+          All reports
           <ArrowRight size={16} aria-hidden="true" />
         </Link>
       </div>

@@ -13,16 +13,16 @@
     .dash{stroke:rgba(148,163,184,0.4);stroke-width:1.2;fill:none;stroke-dasharray:5 5}
   </style>
 
-  <text x="30" y="36" class="s" letter-spacing="2">KDUR DATA PLATFORM — DEPLOYED APP + APPLIED-AI LAYER</text>
+  <text x="30" y="36" class="s" letter-spacing="2">KDUR DATA PLATFORM — BUILT APP + APPLIED-AI PROTOTYPES</text>
 
   <rect x="30" y="90" width="200" height="96" rx="10" class="box"/>
   <text x="50" y="120" class="t">DJs &amp; station staff</text>
-  <text x="50" y="142" class="lbl">60+ daily users</text>
+  <text x="50" y="142" class="lbl">60+ intended daily users</text>
   <text x="50" y="160" class="s">library · schedules · analytics</text>
 
   <rect x="330" y="90" width="220" height="96" rx="10" class="box"/>
   <text x="350" y="120" class="t">Power Apps platform</text>
-  <text x="350" y="142" class="s">CRUD app in production</text>
+  <text x="350" y="142" class="s">handed off pre-deployment</text>
   <text x="350" y="160" class="s">songs · albums · DJs · shows</text>
 
   <path d="M230 138 H326" class="flow" marker-end="url(#a)"/>
@@ -42,6 +42,6 @@
   <path d="M550 158 C 600 158 600 220 636 220" class="dash" marker-end="url(#a)"/>
   <text x="562" y="86" class="s">research layer</text>
 
-  <text x="30" y="320" class="s">deployed platform is in production use; the AI layer is a research prototype —</text>
-  <text x="30" y="340" class="s">natural-language access to the catalog for students and community.</text>
+  <text x="30" y="320" class="s">the application was built with station stakeholders and handed off before deployment;</text>
+  <text x="30" y="340" class="s">the embedding and graph layers remained research prototypes.</text>
 </svg>

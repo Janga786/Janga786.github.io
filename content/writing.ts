@@ -1,83 +1,77 @@
 import type { WritingItem } from "@/lib/types";
 
-/**
- * Writing & technical reports.
- *
- * All entries are structural placeholders until real reports are published.
- * To publish: write the piece, host it (PDF in /public, external post, or a
- * future MDX route), set `link`, add a `dateLabel`, and flip `isPlaceholder`.
- */
+/** Public reports and evidence ledgers only — no planned-content placeholders. */
 export const writing: WritingItem[] = [
   {
-    slug: "baxter-troubleshooting",
-    title: "Baxter troubleshooting guide — reviving an unsupported robot",
-    type: "reflection",
-    typeLabel: "Field guide",
-    summary:
-      "Practical fixes for Baxter startup failures, ROS networking, and Intera SDK issues, documented while restoring two dormant industrial robots with no vendor support — written so the next person skips the late-night debugging sessions.",
-    isPlaceholder: false,
-    link: "https://github.com/Janga786/Baxter-Troubleshooting",
-    dateLabel: "2025",
-    featured: true,
-  },
-  {
-    slug: "xembench-report",
-    title: "X-embodiment manipulation benchmark — technical report",
+    slug: "k1-navila-final-results",
+    title: "K1 NaVILA — full 1,077-episode benchmark results",
     type: "evaluation",
     typeLabel: "Benchmark report",
     summary:
-      "Planned report on language-grounded manipulation transfer across a tabletop arm and a humanoid upper body: canonical action-interface design, leakage-proof language splits, BC/PPO baselines, transfer-drop and retention metrics, and failure analysis. Publishes once Phase B training and evaluation produce real numbers.",
-    isPlaceholder: true,
+      "Canonical simulation result with full denominator, navigation metrics, failure decomposition, experimental configuration, and explicit provenance notes.",
+    isPlaceholder: false,
+    link: "https://github.com/Janga786/k1-navila-research/blob/main/FINAL_RESULTS_full1077.md",
+    dateLabel: "2026",
     featured: true,
   },
   {
-    slug: "flywheel-report",
-    title: "Physical AI data flywheel — experiment report",
-    type: "evaluation",
-    typeLabel: "Experiment report",
-    summary:
-      "Planned report on failure-driven data collection: whether demonstrations targeted at evaluation failures improve policy performance more efficiently than the same budget of random additional demos. Covers dataset validation, selection strategies, and per-round accounting. Publishes once real Linux experiments run — all current flywheel outputs are synthetic.",
-    isPlaceholder: true,
-    featured: false,
-  },
-  {
-    slug: "humanoid-deployment-report",
-    title: "Deployment report — vision-language navigation on a real humanoid",
-    type: "deployment-report",
-    typeLabel: "Deployment report",
-    summary:
-      "The intended home for a full writeup of the Booster K1 deployment: system topology, latency budget, failure modes encountered on hardware, and what the demo videos actually show.",
-    isPlaceholder: true,
-    featured: true,
-  },
-  {
-    slug: "sim-rl-evaluation",
-    title: "Simulation & RL evaluation — what transfers and what doesn't",
-    type: "evaluation",
-    typeLabel: "Evaluation",
-    summary:
-      "Planned analysis of PPO locomotion training in Isaac Sim / Isaac Lab: training setup, evaluation protocol, and an honest account of the sim-to-real gap.",
-    isPlaceholder: true,
-    featured: true,
-  },
-  {
-    slug: "perception-navigation-analysis",
-    title: "Perception & navigation analysis",
+    slug: "k1-evidence-ledger",
+    title: "K1 research evidence ledger",
     type: "investigation",
-    typeLabel: "Investigation",
+    typeLabel: "Evidence audit",
     summary:
-      "Reserved for a deep dive on a perception or navigation subsystem — sensing setup, metrics, edge cases, and where the pipeline breaks first.",
-    isPlaceholder: true,
+      "Claim-by-claim verification that records supported values, nuanced values, conflicts, missing raw artifacts, and the exact files used to regenerate key results.",
+    isPlaceholder: false,
+    link: "https://github.com/Janga786/k1-navila-research/blob/main/EVIDENCE.md",
+    dateLabel: "2026",
+    featured: true,
+  },
+  {
+    slug: "xembench-phase-b",
+    title: "xembench Phase B campaign report",
+    type: "evaluation",
+    typeLabel: "Research report",
+    summary:
+      "Methods and results for the 1,202-demonstration, 6,550-episode baseline campaign, the first data-flywheel round, and the precision-manipulation intervention study.",
+    isPlaceholder: false,
+    link: "https://github.com/Janga786/xembench/blob/master/reports/phase_b_campaign_report.md",
+    dateLabel: "2026",
+    featured: true,
+  },
+  {
+    slug: "kuka-kinematics",
+    title: "KUKA KR 6 kinematics and verification notes",
+    type: "architecture",
+    typeLabel: "Technical documentation",
+    summary:
+      "Derivations, implementation notes, validation tables, figures, and reproducible commands for forward and inverse kinematics, Jacobians, trajectories, and URDF cross-checks.",
+    isPlaceholder: false,
+    link: "https://github.com/Janga786/kuka-kr6-kinematics#readme",
+    dateLabel: "2026",
+    featured: true,
+  },
+  {
+    slug: "lidar-motion-pipeline",
+    title: "LiDAR point-cloud motion pipeline",
+    type: "architecture",
+    typeLabel: "Methods documentation",
+    summary:
+      "A compact technical reference for cleaning point clouds, measuring dimensions, estimating orientation with PCA, gating motion, and recovering rotation with ICP.",
+    isPlaceholder: false,
+    link: "https://github.com/Janga786/lidar-pointcloud-motion-pipeline#readme",
+    dateLabel: "2024 / packaged 2026",
     featured: false,
   },
   {
-    slug: "systems-integration-postmortem",
-    title: "Systems integration postmortem — the three-machine relay",
-    type: "postmortem",
-    typeLabel: "Postmortem",
+    slug: "baxter-troubleshooting",
+    title: "Baxter troubleshooting guide",
+    type: "reflection",
+    typeLabel: "Field guide",
     summary:
-      "Planned postmortem on connecting GPU inference, a relay/control node, and a robot into one control loop: the seams that failed, the debugging path, and the design tradeoffs that survived.",
-    isPlaceholder: true,
+      "Practical notes on startup failures, ROS networking, Intera SDK issues, and hardware debugging for a legacy platform with limited vendor support.",
+    isPlaceholder: false,
+    link: "https://github.com/Janga786/Baxter-Troubleshooting",
+    dateLabel: "2025",
     featured: false,
   },
 ];

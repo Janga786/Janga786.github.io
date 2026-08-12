@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 460" role="img" aria-labelledby="title desc">
+  <title id="title">KUKA KR 6 kinematics validation architecture</title>
+  <desc id="desc">The KUKA geometry and DH model feed kinematics, Jacobian, inverse kinematics, trajectory, and URDF modules. Independent finite-difference, random round-trip, manufacturer, and URDF checks validate the implementation.</desc>
+  <defs><style>.box{fill:#10151d;stroke:#344052;stroke-width:1.2}.hi{fill:#121a26;stroke:#7a66d9;stroke-width:1.2}.t{fill:#e7eaf0;font:600 15px Inter,Arial,sans-serif}.s{fill:#8f9bad;font:12px 'JetBrains Mono',monospace}.lbl{fill:#c1b6ff;font:12px 'JetBrains Mono',monospace}.line{stroke:#5b6b81;stroke-width:1.5;fill:none}</style><marker id="a" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#5b6b81"/></marker></defs>
+  <rect width="900" height="460" rx="18" fill="#0b0f15"/>
+  <text x="30" y="38" class="s" letter-spacing="2">KUKA KR 6 — ONE MODEL, MULTIPLE INDEPENDENT CHECKS</text>
+  <rect x="35" y="78" width="190" height="90" rx="11" class="hi"/><text x="55" y="110" class="t">Geometry + DH table</text><text x="55" y="135" class="s">six axes · link frames</text><text x="55" y="153" class="s">manufacturer dimensions</text>
+  <rect x="280" y="70" width="155" height="72" rx="10" class="box"/><text x="298" y="101" class="t">Forward kinematics</text><text x="298" y="124" class="s">T₀⁶(q)</text>
+  <rect x="470" y="70" width="155" height="72" rx="10" class="box"/><text x="488" y="101" class="t">Jacobian</text><text x="488" y="124" class="s">J(q) · singularity</text>
+  <rect x="660" y="70" width="205" height="72" rx="10" class="box"/><text x="678" y="101" class="t">Inverse kinematics</text><text x="678" y="124" class="s">position + velocity</text>
+  <rect x="280" y="176" width="155" height="72" rx="10" class="box"/><text x="298" y="207" class="t">Trajectories</text><text x="298" y="230" class="s">quintic · LSPB</text>
+  <rect x="470" y="176" width="155" height="72" rx="10" class="box"/><text x="488" y="207" class="t">Generated URDF</text><text x="488" y="230" class="s">reloaded model</text>
+  <rect x="660" y="176" width="205" height="72" rx="10" class="box"/><text x="678" y="207" class="t">Task-space motion</text><text x="678" y="230" class="s">IK + J⁻¹ velocity</text>
+  <path d="M225 112H280M225 122H470M225 132H660M225 142H250V212H280M225 150H250V212H470M225 158H250V212H660" class="line" marker-end="url(#a)"/>
+  <text x="35" y="302" class="t">Verification oracles</text>
+  <rect x="35" y="326" width="190" height="82" rx="10" class="hi"/><text x="53" y="356" class="t">Manufacturer reach</text><text x="53" y="380" class="s">physical sanity check</text>
+  <rect x="245" y="326" width="190" height="82" rx="10" class="hi"/><text x="263" y="356" class="t">Finite differences</text><text x="263" y="380" class="s">analytic Jacobian</text>
+  <rect x="455" y="326" width="190" height="82" rx="10" class="hi"/><text x="473" y="356" class="t">Random round trips</text><text x="473" y="380" class="s">FK → IK → FK</text>
+  <rect x="665" y="326" width="200" height="82" rx="10" class="hi"/><text x="683" y="356" class="t">Reloaded URDF</text><text x="683" y="380" class="s">independent FK path</text>
+  <text x="35" y="438" class="lbl">39 PYTEST CHECKS · COURSE PROJECT CONTEXT PRESERVED · NO PHYSICAL-ROBOT EXECUTION CLAIM</text>
+</svg>

@@ -12,6 +12,7 @@ export type ProjectCategory =
   | "multimodal"
   | "perception"
   | "rl-simulation"
+  | "modeling-control"
   | "systems-integration"
   | "embedded"
   | "product"
@@ -25,10 +26,11 @@ export interface CategoryMeta {
 }
 
 export type ProjectStatus =
-  | "featured"
-  | "selected"
-  | "in-progress"
-  | "placeholder";
+  | "active-research"
+  | "completed-study"
+  | "fielded-system"
+  | "validated-library"
+  | "selected";
 
 export interface EvidenceSlot {
   /** e.g. "End-to-end latency", "Demo video", "Failure cases" */
@@ -98,6 +100,8 @@ export interface Project {
   systemType: string;
   whyItMatters: string;
   contributions: string[];
+  /** Authorship, upstream foundations, team ownership, and claim boundaries. */
+  provenance?: string[];
   architectureSummary: string;
   /** Ordered node labels for the architecture flow card. */
   architectureNodes: string[];
