@@ -2,13 +2,12 @@ import type { NavItem } from "@/lib/types";
 import { siteConfig } from "./site-config";
 
 export const primaryNav: NavItem[] = [
-  { label: "Projects", href: "/projects" },
-  { label: "About", href: "/about" },
+  { label: "Research", href: "/#research" },
+  { label: "Systems", href: "/#systems" },
   ...(siteConfig.enableWritingPage
-    ? [{ label: "Reports", href: "/writing" }]
+    ? [{ label: "Outputs", href: "/writing/" }]
     : []),
-  ...(siteConfig.showResumePage ? [{ label: "Resume", href: "/resume" }] : []),
-  { label: "Contact", href: "/#contact" },
+  { label: "About", href: "/about" },
 ];
 
-export const headerCta: NavItem = { label: "View Projects", href: "/projects" };
+export const headerCta: NavItem = { label: "CV", href: "/resume.pdf" };

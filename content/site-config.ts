@@ -11,7 +11,7 @@ export const siteConfig = {
   title: "Jangara Bliss",
   titleTemplate: "%s — Jangara Bliss",
   description:
-    "Jangara Bliss is a computer engineering student working across robot learning, autonomy, controls, and embodied evaluation — with results separated clearly from active work and hardware-readiness claims.",
+    "Jangara Bliss studies learning-based autonomy, robot learning, and embodied systems across simulation and real robotic platforms, with completed results, active work, and claim boundaries separated clearly.",
 
   /* ── Visibility toggles ─────────────────────────────────────────────── */
 
@@ -23,7 +23,7 @@ export const siteConfig = {
   showGpaOnAbout: true,
 
   /** Small "graduate study focus" card on the About page. */
-  showAdmissionsContextSection: true,
+  showAdmissionsContextSection: false,
 
   /** Render the /resume route and header link. */
   showResumePage: true,

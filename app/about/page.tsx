@@ -6,9 +6,7 @@ import { siteConfig } from "@/content/site-config";
 import { pageMetadata } from "@/lib/seo";
 import { SectionShell } from "@/components/shared/SectionShell";
 import { SectionHeading } from "@/components/shared/SectionHeading";
-import { Chip } from "@/components/shared/Chip";
 import { MotionReveal } from "@/components/shared/MotionReveal";
-import { AdmissionsContextCard } from "@/components/sections/AdmissionsContextCard";
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = pageMetadata({
@@ -79,28 +77,22 @@ export default function AboutPage() {
           </div>
         </MotionReveal>
 
-        {/* Technical interests */}
+        {/* Research questions */}
         <MotionReveal className="mt-14">
-          <SubHeading>Technical interests</SubHeading>
-          <ul className="flex flex-wrap gap-2">
-            {profile.interests.map((interest) => (
-              <li key={interest}>
-                <Chip>{interest}</Chip>
+          <SubHeading>Research questions</SubHeading>
+          <ol className="space-y-4">
+            {profile.researchThemes.map((theme) => (
+              <li key={theme.title} className="panel p-5">
+                <h3 className="font-medium text-foreground">{theme.title}</h3>
+                <p className="mt-2 text-sm font-medium leading-relaxed text-foreground">
+                  {theme.question}
+                </p>
+                <p className="mt-2 text-sm leading-relaxed text-muted">
+                  {theme.description}
+                </p>
               </li>
             ))}
-          </ul>
-        </MotionReveal>
-
-        {/* Why graduate school */}
-        <MotionReveal className="mt-14">
-          <SubHeading>Why graduate school</SubHeading>
-          <div className="space-y-4 border-l-2 border-accent/40 pl-4">
-            {profile.graduateStudyStatement.map((paragraph, i) => (
-              <p key={i} className="leading-relaxed text-muted">
-                <EditorAwareText text={paragraph} />
-              </p>
-            ))}
-          </div>
+          </ol>
         </MotionReveal>
 
         {/* Education */}
@@ -122,11 +114,6 @@ export default function AboutPage() {
               </p>
             ) : null}
           </div>
-        </MotionReveal>
-
-        {/* Admissions context */}
-        <MotionReveal className="mt-6">
-          <AdmissionsContextCard />
         </MotionReveal>
 
         {/* Builder ethos */}

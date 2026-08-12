@@ -6,19 +6,6 @@ import { StatusBadge } from "@/components/shared/StatusBadge";
 
 const isEditorNote = (s: string) => s.trim().startsWith("[");
 
-/** Renders content strings; editor-note strings ("[...]") get a muted hint treatment. */
-function NoteAware({ text }: { text: string }) {
-  if (!isEditorNote(text)) return <>{text}</>;
-  return (
-    <span className="italic text-faint">
-      {text}
-      <span className="ml-2 inline-flex items-center rounded-full border border-dashed border-line-strong px-1.5 py-px align-middle font-mono text-[10px] not-italic tracking-wide text-faint">
-        to fill
-      </span>
-    </span>
-  );
-}
-
 interface ProjectHeroProps {
   project: Project;
   categoryLabel: string;
@@ -58,13 +45,8 @@ export function ProjectHero({ project, categoryLabel }: ProjectHeroProps) {
         </p>
       </div>
 
-      <p className="font-mono text-xs leading-relaxed text-muted">
-        <span className="text-faint">Role — </span>
-        <NoteAware text={project.role} />
-      </p>
-
       <div className="flex flex-wrap gap-2">
-        {project.stack.map((item) => (
+        {project.tags.slice(0, 5).map((item) => (
           <Chip key={item}>
             {isEditorNote(item) ? <span className="italic">{item}</span> : item}
           </Chip>

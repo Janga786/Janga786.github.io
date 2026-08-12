@@ -89,8 +89,7 @@ export function SiteFooter() {
             &copy; {new Date().getFullYear()} {profile.name}
           </p>
           <p className="font-mono text-[11px] text-faint">
-            Evidence-first: completed results, active work, and claim boundaries
-            are labeled separately.
+            Completed results, active work, team roles, and upstream systems are labeled separately.
           </p>
         </div>
       </div>

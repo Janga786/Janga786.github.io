@@ -7,10 +7,10 @@ import type { Profile } from "@/lib/types";
 export const profile: Profile = {
   name: "Jangara Bliss",
 
-  eyebrow: "Computer Engineering · Robot Learning · Autonomy",
-  headline: "Building and evaluating autonomous robots.",
+  eyebrow: "Jangara Bliss · Robot Learning & Autonomous Systems",
+  headline: "Learning-based autonomy for robots in the physical world.",
   subheadline:
-    "Jangara Bliss works across robot learning, autonomy, and embodied evaluation — from a 1,077-episode humanoid navigation benchmark to cross-embodiment manipulation and field robotics. The through-line is adapting algorithms to unfamiliar physical systems, then building the controls, diagnostics, and evidence needed to understand why the complete system succeeds or fails.",
+    "I build and study learning-based autonomous systems, with current work spanning embodied navigation, cross-embodiment manipulation, simulation, and real robotic systems.",
 
   shortBio:
     "Computer engineering student at Fort Lewis College focused on robot learning and autonomy, with experience spanning benchmark design, simulation, controls, perception, and embedded systems.",
@@ -43,6 +43,65 @@ export const profile: Profile = {
     "Controls & motion planning",
     "Experimental evaluation",
     "Embedded systems",
+  ],
+
+  researchThemes: [
+    {
+      title: "Generalization & Adaptation",
+      question:
+        "How can a robot remain capable when its environment, task, viewpoint, or embodiment differs from training?",
+      description:
+        "I am interested in identifying which parts of a learned system fail under distribution shift, then designing representations, data, and evaluations that make adaptation measurable.",
+    },
+    {
+      title: "Robot Learning & Learning-Based Control",
+      question:
+        "How can robots acquire robust physical skills from demonstrations, interaction, and closed-loop feedback?",
+      description:
+        "My current work uses behavior cloning and reinforcement-learning tools, while treating policy class, action representation, and native competence as experimental variables rather than fixed identities.",
+    },
+    {
+      title: "Embodied Autonomy",
+      question:
+        "How should perception, language, planning, learning, and control be integrated into one autonomous physical system?",
+      description:
+        "I care about complete-system behavior: what the robot observes, how decisions become motion, and what deployment evidence can actually establish.",
+    },
+  ],
+
+  experience: [
+    {
+      title: "Research Assistant — Humanoid Robotics",
+      organization: "Fort Lewis College · Advisor: Dr. Yiyan Li",
+      dateLabel: "May 2026 – present",
+      summary:
+        "Integrated the Booster K1 into a vision-language navigation benchmark, completed a 1,077-episode simulation evaluation, decomposed reach and stop failures, and began a controlled viewpoint study.",
+      href: "/projects/k1-navila-research/",
+    },
+    {
+      title: "Independent Research — xembench",
+      organization: "Language-grounded manipulation in ManiSkill3",
+      dateLabel: "2026 · active",
+      summary:
+        "Designed and ran a two-embodiment benchmark with 1,202 demonstrations and 6,550 baseline evaluation episodes, then tested failure-driven data collection and action chunking.",
+      href: "/projects/xembench/",
+    },
+    {
+      title: "Research Assistant — Field Robotics",
+      organization: "NASA Colorado Robotics Challenge · four-person team",
+      dateLabel: "Oct 2025 – Apr 2026",
+      summary:
+        "Led integration for an 18-DoF hexapod fielded at Great Sand Dunes, working across electrical, sensing, control, power, and team interfaces.",
+      href: "/projects/hexapod-nasa-challenge/",
+    },
+    {
+      title: "Research Assistant — AI & Robotics",
+      organization: "Fort Lewis College · Advisor: Dr. Kevin Wedeward",
+      dateLabel: "May – Sep 2025",
+      summary:
+        "Restored legacy Sawyer and Baxter platforms, rebuilt a ROS workstation, and developed synthetic-data and inspection tooling while keeping unsupported detector metrics out of the public record.",
+      href: "/projects/legacy-robot-restoration-inspection/",
+    },
   ],
 
   values: [

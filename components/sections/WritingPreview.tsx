@@ -25,6 +25,9 @@ function WritingCardBody({ item }: { item: WritingItem }) {
       <p className="mt-1.5 line-clamp-3 text-sm leading-relaxed text-muted">
         {item.summary}
       </p>
+      <p className="mt-4 font-mono text-[11px] leading-relaxed text-faint">
+        {item.authors} · {item.venueStatus} · {item.dateLabel}
+      </p>
     </>
   );
 }
@@ -39,11 +42,11 @@ export function WritingPreview() {
   const featuredWriting = writing.filter((item) => item.featured).slice(0, 4);
 
   return (
-    <SectionShell>
+    <SectionShell id="outputs" className="glow-top">
       <SectionHeading
-        eyebrow="Research Archive"
-        title="Reports & evidence"
-        lede="Canonical results and technical documentation, not planned-content placeholders."
+        eyebrow="Research Outputs"
+        title="Reports, methods, and evidence ledgers"
+        lede="No publication status is implied. These are the real technical artifacts currently available."
       />
       <div className="grid gap-4 sm:grid-cols-2">
         {featuredWriting.map((item, i) => (
@@ -75,7 +78,7 @@ export function WritingPreview() {
           href="/writing/"
           className="inline-flex items-center gap-1.5 text-sm font-medium text-accent transition-colors hover:text-foreground"
         >
-          All reports
+          All research outputs
           <ArrowRight size={16} aria-hidden="true" />
         </Link>
       </div>

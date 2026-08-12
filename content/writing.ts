@@ -9,6 +9,8 @@ export const writing: WritingItem[] = [
     typeLabel: "Benchmark report",
     summary:
       "Canonical simulation result with full denominator, navigation metrics, failure decomposition, experimental configuration, and explicit provenance notes.",
+    authors: "Jangara Bliss",
+    venueStatus: "Public benchmark report · not peer reviewed",
     isPlaceholder: false,
     link: "https://github.com/Janga786/k1-navila-research/blob/main/FINAL_RESULTS_full1077.md",
     dateLabel: "2026",
@@ -21,6 +23,8 @@ export const writing: WritingItem[] = [
     typeLabel: "Evidence audit",
     summary:
       "Claim-by-claim verification that records supported values, nuanced values, conflicts, missing raw artifacts, and the exact files used to regenerate key results.",
+    authors: "Jangara Bliss",
+    venueStatus: "Public evidence audit",
     isPlaceholder: false,
     link: "https://github.com/Janga786/k1-navila-research/blob/main/EVIDENCE.md",
     dateLabel: "2026",
@@ -33,6 +37,8 @@ export const writing: WritingItem[] = [
     typeLabel: "Research report",
     summary:
       "Methods and results for the 1,202-demonstration, 6,550-episode baseline campaign, the first data-flywheel round, and the precision-manipulation intervention study.",
+    authors: "Jangara Bliss",
+    venueStatus: "Public technical report · not peer reviewed",
     isPlaceholder: false,
     link: "https://github.com/Janga786/xembench/blob/master/reports/phase_b_campaign_report.md",
     dateLabel: "2026",
@@ -45,6 +51,8 @@ export const writing: WritingItem[] = [
     typeLabel: "Technical documentation",
     summary:
       "Derivations, implementation notes, validation tables, figures, and reproducible commands for forward and inverse kinematics, Jacobians, trajectories, and URDF cross-checks.",
+    authors: "Jangara Bliss",
+    venueStatus: "Public technical documentation",
     isPlaceholder: false,
     link: "https://github.com/Janga786/kuka-kr6-kinematics#readme",
     dateLabel: "2026",
@@ -57,6 +65,8 @@ export const writing: WritingItem[] = [
     typeLabel: "Methods documentation",
     summary:
       "A compact technical reference for cleaning point clouds, measuring dimensions, estimating orientation with PCA, gating motion, and recovering rotation with ICP.",
+    authors: "Jangara Bliss",
+    venueStatus: "Public methods documentation",
     isPlaceholder: false,
     link: "https://github.com/Janga786/lidar-pointcloud-motion-pipeline#readme",
     dateLabel: "2024 / packaged 2026",
@@ -69,6 +79,8 @@ export const writing: WritingItem[] = [
     typeLabel: "Field guide",
     summary:
       "Practical notes on startup failures, ROS networking, Intera SDK issues, and hardware debugging for a legacy platform with limited vendor support.",
+    authors: "Jangara Bliss",
+    venueStatus: "Public field guide",
     isPlaceholder: false,
     link: "https://github.com/Janga786/Baxter-Troubleshooting",
     dateLabel: "2025",

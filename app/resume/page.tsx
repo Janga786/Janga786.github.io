@@ -9,9 +9,9 @@ import { Chip } from "@/components/shared/Chip";
 import { MotionReveal } from "@/components/shared/MotionReveal";
 
 export const metadata = pageMetadata({
-  title: "Resume",
+  title: "CV",
   description:
-    "Resume of Jangara Bliss — computer engineering, AI systems, robotics deployment.",
+    "CV of Jangara Bliss — robot learning, autonomous systems, and computer engineering.",
   path: "/resume/",
 });
 
@@ -73,7 +73,7 @@ export default function ResumePage() {
         <MotionReveal>
           <p className="meta-label">{profile.eyebrow}</p>
           <h1 className="mt-3 text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
-            Resume
+            Curriculum vitae
           </h1>
           <p className="mt-4 text-pretty leading-relaxed text-muted">
             {profile.shortBio}

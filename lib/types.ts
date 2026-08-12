@@ -93,6 +93,9 @@ export interface Project {
   summary: string;
   role: string;
   teamContext: string;
+  advisor?: string;
+  collaborators: string;
+  upstreamSystems: string;
   stack: string[];
   tags: string[];
   dateLabel?: string;
@@ -100,6 +103,10 @@ export interface Project {
   systemType: string;
   whyItMatters: string;
   contributions: string[];
+  methodology?: string[];
+  experimentalDesign?: string[];
+  failureAnalysis?: string[];
+  nextQuestions?: string[];
   /** Authorship, upstream foundations, team ownership, and claim boundaries. */
   provenance?: string[];
   architectureSummary: string;
@@ -130,19 +137,13 @@ export interface WritingItem {
   type: WritingType;
   typeLabel: string;
   summary: string;
+  authors: string;
+  venueStatus: string;
   isPlaceholder: boolean;
   /** External or internal link once the piece is published. */
   link?: string;
   dateLabel?: string;
   featured: boolean;
-}
-
-export interface TimelineItem {
-  title: string;
-  subtitle: string;
-  description: string;
-  dateLabel: string;
-  isPlaceholder: boolean;
 }
 
 export interface NavItem {
@@ -160,8 +161,22 @@ export interface SocialLink {
 export interface Capability {
   title: string;
   description: string;
-  /** Lucide icon name, resolved in the CapabilityGrid component. */
+  /** Lucide icon name retained for data portability across layouts. */
   icon: string;
+}
+
+export interface ResearchTheme {
+  title: string;
+  question: string;
+  description: string;
+}
+
+export interface ExperienceItem {
+  title: string;
+  organization: string;
+  dateLabel: string;
+  summary: string;
+  href?: string;
 }
 
 export interface CredibilitySignal {
@@ -187,6 +202,8 @@ export interface Profile {
   upperDivisionGpa: string;
   gpaNote: string;
   interests: string[];
+  researchThemes: ResearchTheme[];
+  experience: ExperienceItem[];
   values: string[];
   missionStatement: string;
   /** First-person version — About page. */

@@ -13,6 +13,7 @@ import { SectionHeading } from "@/components/shared/SectionHeading";
 import { MotionReveal } from "@/components/shared/MotionReveal";
 import { ProjectHero } from "@/components/project/ProjectHero";
 import { ProjectFacts } from "@/components/project/ProjectFacts";
+import { AttributionBox } from "@/components/project/AttributionBox";
 import { PlaceholderMedia } from "@/components/project/PlaceholderMedia";
 import { ArchitectureCard } from "@/components/project/ArchitectureCard";
 import { EvidenceGrid } from "@/components/project/EvidenceGrid";
@@ -128,6 +129,10 @@ export default async function ProjectPage({ params }: PageProps) {
           <ProjectFacts project={project} />
         </MotionReveal>
 
+        <MotionReveal>
+          <AttributionBox project={project} />
+        </MotionReveal>
+
         {project.media[0] ? (
           <MotionReveal>
             <PlaceholderMedia media={project.media[0]} />
@@ -163,6 +168,20 @@ export default async function ProjectPage({ params }: PageProps) {
           </section>
         </MotionReveal>
 
+        {project.methodology?.length ? (
+          <MotionReveal>
+            <section>
+              <SectionHeading
+                as="h2"
+                eyebrow="02"
+                title="Methodology"
+                className="mb-6"
+              />
+              <NoteAwareList items={project.methodology} />
+            </section>
+          </MotionReveal>
+        ) : null}
+
         <MotionReveal>
           <ArchitectureCard
             summary={project.architectureSummary}
@@ -184,8 +203,8 @@ export default async function ProjectPage({ params }: PageProps) {
           <section>
             <SectionHeading
               as="h2"
-              eyebrow="02"
-              title="Contributions"
+              eyebrow="03"
+              title="My contribution"
               className="mb-6"
             />
             <NoteAwareList items={project.contributions} />
@@ -206,12 +225,26 @@ export default async function ProjectPage({ params }: PageProps) {
           </MotionReveal>
         ) : null}
 
+        {project.experimentalDesign?.length ? (
+          <MotionReveal>
+            <section>
+              <SectionHeading
+                as="h2"
+                eyebrow="04"
+                title="Experimental design"
+                className="mb-6"
+              />
+              <NoteAwareList items={project.experimentalDesign} />
+            </section>
+          </MotionReveal>
+        ) : null}
+
         <MotionReveal>
           <section>
             <SectionHeading
               as="h2"
-              eyebrow="03"
-              title="Evidence & evaluation"
+              eyebrow="05"
+              title="Results & evidence"
               className="mb-6"
             />
             <EvidenceGrid
@@ -221,10 +254,24 @@ export default async function ProjectPage({ params }: PageProps) {
           </section>
         </MotionReveal>
 
+        {project.failureAnalysis?.length ? (
+          <MotionReveal>
+            <section className="panel p-6">
+              <SectionHeading
+                as="h2"
+                eyebrow="06"
+                title="Failure analysis"
+                className="mb-6"
+              />
+              <NoteAwareList items={project.failureAnalysis} />
+            </section>
+          </MotionReveal>
+        ) : null}
+
         <MotionReveal>
           <div className="grid gap-4 md:grid-cols-2">
             <section className="panel p-6">
-              <p className="meta-label mb-2">04</p>
+              <p className="meta-label mb-2">07</p>
               <h2 className="text-lg font-medium text-foreground">
                 Limitations
               </h2>
@@ -233,7 +280,7 @@ export default async function ProjectPage({ params }: PageProps) {
               </div>
             </section>
             <section className="panel p-6">
-              <p className="meta-label mb-2">05</p>
+              <p className="meta-label mb-2">08</p>
               <h2 className="text-lg font-medium text-foreground">
                 Lessons & tradeoffs
               </h2>
@@ -244,11 +291,25 @@ export default async function ProjectPage({ params }: PageProps) {
           </div>
         </MotionReveal>
 
+        {project.nextQuestions?.length ? (
+          <MotionReveal>
+            <section>
+              <SectionHeading
+                as="h2"
+                eyebrow="09"
+                title="Next questions"
+                className="mb-6"
+              />
+              <NoteAwareList items={project.nextQuestions} />
+            </section>
+          </MotionReveal>
+        ) : null}
+
         <MotionReveal>
           <section>
             <SectionHeading
               as="h2"
-              eyebrow="06"
+              eyebrow="10"
               title="Artifacts"
               className="mb-6"
             />

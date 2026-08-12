@@ -70,6 +70,10 @@ export const projects: Project[] = [
       "Research assistant — K1 embodiment integration, evaluation harness, locomotion diagnostics, evidence ledger, and experiment design",
     teamContext:
       "Independent undergraduate research under Dr. Yiyan Li at Fort Lewis College, built on NaVILA, VLN-CE-Isaac, Isaac Lab, and Booster Robotics frameworks.",
+    advisor: "Dr. Yiyan Li, Fort Lewis College",
+    collaborators: "Independent undergraduate research with faculty supervision.",
+    upstreamSystems:
+      "NaVILA, VLN-CE-Isaac, Isaac Lab, RSL-RL, and Booster Robotics training and deployment frameworks.",
     stack: [
       "Booster K1",
       "NaVILA",
@@ -78,7 +82,7 @@ export const projects: Project[] = [
       "Python",
       "PPO / RSL-RL",
     ],
-    tags: ["humanoid", "navigation", "evaluation", "embodiment"],
+    tags: ["Vision-Language Navigation", "Embodied AI", "Generalization", "Simulation"],
     problem:
       "How does a shorter humanoid embodiment change the visual evidence, locomotion demands, and stopping behavior of a navigation policy evaluated on the same task distribution?",
     systemType:
@@ -91,6 +95,26 @@ export const projects: Project[] = [
       "Separated never-reached, reached-without-stopping, and successful episodes to turn one aggregate score into testable failure mechanisms.",
       "Extended Booster training and deployment frameworks with K1-specific environment configuration, reward terms, observation-contract checks, validators, filtering, and safety-aware mode handling.",
       "Maintained an evidence ledger that records supported claims, nuanced values, conflicts, and missing raw artifacts rather than silently choosing the most favorable number.",
+    ],
+    methodology: [
+      "Added K1-specific robot, camera, observation, action-parser, and evaluation interfaces to the existing NaVILA / VLN-CE-Isaac stack, while preserving upstream ownership.",
+      "Ran the navigation policy through a K1 wrapper and 50 Hz locomotion policy, preserving per-episode measurement artifacts instead of relying on a summary screenshot.",
+      "Audited locomotion and deployment contracts separately from the canonical navigation evaluation so simulation performance, physical locomotion, and live closed-loop deployment remain distinct claims.",
+    ],
+    experimentalDesign: [
+      "Scored the complete 1,077-episode R2R val-unseen set under one canonical simulation configuration and reported SR, oracle success, SPL, and final navigation error.",
+      "Partitioned every episode into never reached, reached without stopping, or successful to separate exploration and arrival-recognition behavior.",
+      "Pre-specified a follow-up camera-height and image-transform sweep after nondeterministic repeat runs invalidated the original paired-retry design; the sweep remains active.",
+    ],
+    failureAnalysis: [
+      "751 episodes never entered the goal radius, making exploration and observation shift the dominant observed failure class.",
+      "129 episodes reached the goal radius but did not stop, isolating a smaller arrival-recognition or termination problem.",
+      "The decomposition identifies mechanisms but does not prove that camera height caused them; that causal question belongs to the active controlled sweep.",
+    ],
+    nextQuestions: [
+      "How much of the K1 performance gap is explained by viewpoint alone when policy, task set, and evaluation logic are held fixed?",
+      "Can observation transforms or viewpoint-aware training improve exploration without degrading stop behavior?",
+      "What instrumentation is required before a physical K1 run can support a defensible closed-loop NaVILA claim?",
     ],
     provenance: [
       "NaVILA, VLN-CE-Isaac, Isaac Lab, RSL-RL, and Booster training/deployment code are upstream foundations; the contribution is the K1-specific integration, experiments, diagnostics, and analysis.",
@@ -203,6 +227,10 @@ export const projects: Project[] = [
       "Project owner — research question, benchmark architecture, experimental decisions, campaign supervision, analysis, and artifact review",
     teamContext:
       "Independent simulation research. The repository documents extensive AI-assisted implementation and operations; ownership is claimed for direction, decisions, verification, and interpretation rather than every generated line.",
+    collaborators:
+      "Independent research project; AI coding agents assisted implementation and campaign operations under explicit review and verification.",
+    upstreamSystems:
+      "ManiSkill3 environments and robot assets, PyTorch, Franka Panda and Unitree G1 simulation models.",
     stack: [
       "ManiSkill3",
       "PyTorch",
@@ -212,7 +240,7 @@ export const projects: Project[] = [
       "PPO",
       "HDF5",
     ],
-    tags: ["manipulation", "benchmark", "transfer", "language grounding"],
+    tags: ["Robot Learning", "Generalization", "Manipulation", "X-Embodiment"],
     problem:
       "Cross-embodiment claims are hard to interpret when tasks, action spaces, language splits, and native policy quality all change at once.",
     systemType:
@@ -225,6 +253,26 @@ export const projects: Project[] = [
       "Executed and reviewed the 1,202-demonstration, 6,550-episode Phase B campaign and stopped short of claiming transfer when native precision policies were too weak.",
       "Ran one real failure-driven data-flywheel round with equal targeted and random budgets; the mostly null result showed that more same-kind data was not the binding constraint.",
       "Designed a precision-manipulation intervention ladder and confirmed across three seeds that action chunking rescued tool pulling but not grasp-critical tasks.",
+    ],
+    methodology: [
+      "Represented both embodiments through a canonical 21-dimensional semantic action interface and thin robot-specific adapters.",
+      "Trained language-conditioned behavior-cloning baselines from collected demonstrations, then evaluated native, held-out-language, unseen-color, and zero-shot body-swap cells through one reporting pipeline.",
+      "Used a failure taxonomy to choose an equal-budget targeted-versus-random data round and a later intervention ladder rather than treating more data as the automatic remedy.",
+    ],
+    experimentalDesign: [
+      "The completed Phase B campaign used 1,202 demonstrations, 18 behavior-cloning policies, and 73 evaluation cells totaling 6,550 episodes.",
+      "Native competence was checked before interpreting cross-embodiment transfer; transfer pairs containing a weak native side were not treated as clean embodiment tests.",
+      "The action-chunking comparison was repeated across three seeds and reported separately for tool pulling and grasp-critical tasks.",
+    ],
+    failureAnalysis: [
+      "Zero-shot transfer was approximately zero, but the binding ambiguity was weak native precision manipulation rather than embodiment alone.",
+      "The equal-budget failure-driven data round was mostly null, indicating that more same-kind demonstrations did not resolve the observed ceiling at this scale.",
+      "Action chunking improved temporally extended tool pulling while leaving pick-and-stack tasks near zero, localizing a persistent last-inch grasp-conversion problem.",
+    ],
+    nextQuestions: [
+      "Which policy classes can first establish reliable native precision manipulation on both embodiments?",
+      "How should action representations separate shared task semantics from embodiment-specific control authority?",
+      "Once native competence is established, which task factors produce genuine zero-shot or adaptation-based transfer?",
     ],
     provenance: [
       "The project uses ManiSkill3 environments and robot assets; it does not claim authorship of the simulator or underlying robot models.",
@@ -313,7 +361,7 @@ export const projects: Project[] = [
     shortTitle: "KUKA KR 6 Kinematics",
     category: "modeling-control",
     status: "validated-library",
-    featured: true,
+    featured: false,
     isPlaceholder: false,
     dateLabel: "Spring 2026 · packaged Summer 2026",
     oneLiner:
@@ -324,6 +372,9 @@ export const projects: Project[] = [
       "Individual course project — mathematical derivation, implementation, tests, figures, and later standalone packaging",
     teamContext:
       "Completed in an undergraduate robotics course and later reorganized as a documented, tested public library.",
+    collaborators: "Individual undergraduate course project; later packaged independently.",
+    upstreamSystems:
+      "KUKA manufacturer specifications, standard robotics references, NumPy, URDF tooling, and visualization libraries.",
     stack: ["Python", "NumPy", "DH parameters", "URDF", "Pytest", "GitHub Actions"],
     tags: ["kinematics", "jacobian", "trajectory", "verification"],
     problem:
@@ -337,6 +388,22 @@ export const projects: Project[] = [
       "Implemented quintic and LSPB trajectory primitives and task-space motion examples.",
       "Built a programmatic URDF and cross-validated its reloaded transforms against the analytic DH model.",
       "Packaged the project with 39 pytest tests, multi-version CI, reproducible figures, animations, and technical documentation.",
+    ],
+    methodology: [
+      "Derived one standard Denavit–Hartenberg model and used it to implement forward kinematics, closed-form position IK, a geometric Jacobian, inverse velocity kinematics, singularity diagnostics, and trajectories.",
+      "Generated a URDF from the same documented geometry but reloaded it through an independent representation for cross-checking.",
+    ],
+    experimentalDesign: [
+      "Compared the analytic Jacobian against central finite differences, ran 200 FK→IK→FK random round trips, checked reach against manufacturer data, and exercised 39 automated tests.",
+      "Treated each oracle as a different failure detector rather than using one implementation to validate itself.",
+    ],
+    failureAnalysis: [
+      "Singular or ill-conditioned configurations expose where inverse-velocity calculations become unstable.",
+      "Agreement among analytic and numerical models still cannot reveal physical calibration or compliance error because no real KR 6 was measured.",
+    ],
+    nextQuestions: [
+      "How does calibration uncertainty propagate through the analytic model on a physical arm?",
+      "Which dynamics, collision, and closed-loop control layers are needed before the library can support real motion experiments?",
     ],
     provenance: [
       "This began as a course project; the public library and test packaging were completed later and should not be read as a separate research project.",
@@ -408,8 +475,10 @@ export const projects: Project[] = [
       "Algorithm developer — LiDAR processing, motion/axis/dimension methods, test hardware support, and report sections",
     teamContext:
       "Five-person CE315 design team. Final metrics and individual roles come from the December 2024 team report.",
+    collaborators: "Five-person CE315 design team with shared hardware, software, testing, and documentation responsibilities.",
+    upstreamSystems: "LiDAR hardware, NumPy, Open3D, PCA, and ICP methods.",
     stack: ["Python", "Open3D", "NumPy", "LiDAR", "PCA", "ICP", "3D printing"],
-    tags: ["point cloud", "ICP", "PCA", "sensing"],
+    tags: ["Perception", "Point Clouds", "ICP", "Experimental Robotics"],
     problem:
       "Estimate the size, orientation, motion state, and rotation rate of a small object from sparse point-cloud sequences.",
     systemType: "Team sensing prototype + controlled experiment + standalone methods package",
@@ -421,6 +490,22 @@ export const projects: Project[] = [
       "3D-printed silhouettes and mounts to improve repeatable sensor alignment and test geometry.",
       "Authored manufacturing, verification, risk, planning, and lessons-learned sections of the final report.",
       "Later packaged the point-cloud methods with sample data, scripts, documentation, and synthetic-cloud tests.",
+    ],
+    methodology: [
+      "Cleaned sequential point clouds, measured axis-aligned dimensions, estimated principal orientation with PCA, gated motion from displacement, and recovered inter-frame rotation with ICP.",
+      "Used 3D-printed silhouettes and mounts to make the sensing geometry and alignment repeatable enough for controlled trials.",
+    ],
+    experimentalDesign: [
+      "Compared estimated rotation rate against a motorized test stand at two known conditions: ten trials at 1 RPM and ten trials at 3 RPM.",
+      "Used the final five-person team report as the authority for the protocol, role allocation, and aggregate results; the later public package is supporting method evidence.",
+    ],
+    failureAnalysis: [
+      "Point-cloud sparsity, surface finish, alignment, overlap, and ICP initialization can dominate the apparent algorithm quality.",
+      "Axis-aligned dimensions vary with orientation, PCA has a sign ambiguity, and the controlled stand does not reproduce unconstrained debris motion.",
+    ],
+    nextQuestions: [
+      "How do the estimators behave under tumbling, partial occlusion, and changing sensor range?",
+      "What ground-truth and calibration procedure would be required for unconstrained 3D rotation rather than a fixed-axis test stand?",
     ],
     provenance: [
       "CLiDA was a five-person team project; project management, hardware, software leadership, and test execution were shared across named roles.",
@@ -478,7 +563,7 @@ export const projects: Project[] = [
     shortTitle: "18-DoF Field Hexapod",
     category: "systems-integration",
     status: "fielded-system",
-    featured: true,
+    featured: false,
     isPlaceholder: false,
     dateLabel: "Oct 2025 – Apr 2026",
     oneLiner:
@@ -489,6 +574,9 @@ export const projects: Project[] = [
       "Team lead and systems integrator — electrical/control interfaces, field integration, and later CPG simulation/testing",
     teamContext:
       "Four-person challenge team. The physical robot, chassis, firmware, and field work were collaborative and include inherited reference implementations.",
+    collaborators: "Four-person challenge team; physical integration and field operation were collaborative.",
+    upstreamSystems:
+      "Inherited firmware by Mark W, team-authored code under another GitHub account, and external reference geometry / IK.",
     stack: ["Arduino Mega", "C++", "Python", "ICM-20948", "Kuramoto CPG", "18 servos"],
     tags: ["field robotics", "controls", "embedded", "locomotion"],
     problem:
@@ -502,6 +590,22 @@ export const projects: Project[] = [
       "Worked on heading-hold, calibration, and obstacle-response behavior within the team firmware stack.",
       "Built the later Kuramoto CPG simulator, gait visualizations, phase analysis, and 34-test CI suite.",
       "Published field photographs, wiring documentation, firmware context, CAD references, simulations, and explicit attribution notes in one evidence repository.",
+    ],
+    methodology: [
+      "Integrated sensing, power, behavior selection, and eighteen servo channels around an Arduino-based team firmware stack for outdoor operation.",
+      "Studied wave, ripple, and tripod phase relationships later in a separate Kuramoto coupled-oscillator simulator with automated checks.",
+    ],
+    experimentalDesign: [
+      "Fielded the team robot at Great Sand Dunes and preserved photographs, wiring documentation, and physical motion media.",
+      "No repeatable terrain-success protocol was preserved, so field operation is evidence of integration rather than a quantified locomotion result.",
+    ],
+    failureAnalysis: [
+      "Power delivery, connectors, calibration, loose terrain, and recovery procedures became coupled parts of the locomotion problem.",
+      "The later Python CPG was not the physical challenge controller and cannot be used retroactively to explain field performance.",
+    ],
+    nextQuestions: [
+      "How would the coupled-oscillator controller perform when deployed on the physical robot under repeatable terrain conditions?",
+      "Which field metrics can separate gait instability from power, sensing, and operator-recovery failures?",
     ],
     provenance: [
       "This is a team project, not a sole-authorship claim. The public repository includes firmware originally written by Mark W and modified for the project, team-authored code under another GitHub account, and geometry/IK derived from an external reference implementation.",
@@ -569,6 +673,9 @@ export const projects: Project[] = [
       "The project began with two nonfunctional legacy robots and limited vendor support. I diagnosed controller and boot problems, restored operating environments, and rebuilt a ROS Noetic / MoveIt / Gazebo workstation so the arms could again be simulated and programmed. In parallel, I developed Blender/Python synthetic-data tooling and YOLO-based inspection experiments. Earlier résumé and portfolio versions reported a 0.985 mAP on 1,682 thermal images; the evidence audit found that the public training configuration reused training images for validation and did not preserve the claimed thermal dataset or a valid held-out results file. Those numbers are therefore removed. What remains is still useful: robot restoration, systems troubleshooting, synthetic-data generation, inspection tooling, and a symposium-award research direction.",
     role: "Solo research assistant under Dr. Kevin Wedeward — restoration, ROS environment, synthetic data, and inspection experiments",
     teamContext: "Individual undergraduate research project with faculty supervision.",
+    advisor: "Dr. Kevin Wedeward, Fort Lewis College",
+    collaborators: "Individual undergraduate research with faculty supervision.",
+    upstreamSystems: "Sawyer and Baxter vendor stacks, ROS Noetic, MoveIt, Gazebo, Blender, and YOLO.",
     stack: ["Sawyer", "Baxter", "ROS Noetic", "MoveIt", "Gazebo", "Blender", "YOLO"],
     tags: ["robot restoration", "ROS", "synthetic data", "computer vision"],
     problem: "Recover unsupported research hardware and create an inspection-development environment when the original software and controller stack no longer worked reliably.",
@@ -580,6 +687,22 @@ export const projects: Project[] = [
       "Created Blender/Python synthetic inspection scenes, automatic labels, YOLO training tooling, and demonstration assets.",
       "Documented Baxter troubleshooting so future students could reproduce common startup and ROS-network fixes.",
       "Presented the inspection research direction at the Fort Lewis College Physics & Engineering Symposium, receiving second place.",
+    ],
+    methodology: [
+      "Recovered controller and workstation functionality through hardware inspection, operating-system repair, firmware and BIOS configuration, networking, and ROS environment reconstruction.",
+      "Built qualitative synthetic-data and detection tooling in Blender, Python, and YOLO while auditing the boundary between a demo and a held-out evaluation.",
+    ],
+    experimentalDesign: [
+      "Preserved restoration records, ROS workspaces, troubleshooting notes, generated scenes, labels, and qualitative inspection examples.",
+      "Rejected the former detector result because the available configuration reused training images for validation and did not preserve the claimed dataset or valid held-out result file.",
+    ],
+    failureAnalysis: [
+      "Unsupported software, controller state, networking, and operating-system compatibility were the initial blockers before perception experiments could begin.",
+      "Train-as-validation output exposed a methodological failure: an attractive metric without independent held-out evidence does not demonstrate generalization.",
+    ],
+    nextQuestions: [
+      "Can a versioned dataset with subject-independent train, validation, and test splits support a defensible inspection baseline?",
+      "What sensing and synchronization are required for closed-loop inspection on the restored physical arms?",
     ],
     provenance: [
       "Vendor ROS packages and workspaces are upstream; the contribution is restoration, environment integration, custom scripts, synthetic-data tooling, and documentation.",
@@ -635,6 +758,8 @@ export const projects: Project[] = [
     summary: "These projects provide the hardware foundation beneath the robotics work. The strongest examples are a four-layer Arduino-Mega-class PCB design with exported Gerbers, a bare-metal ADC sampler configured for 40 kHz acquisition, a custom IR link-layer protocol, timer-interrupt audio projects, FPGA modules and protocol exercises, and transistor-level CMOS design coursework. The board is documented as designed and Gerber-ready, not fabricated; the self-balancing folder contains component validation rather than a complete balancing controller.",
     role: "Individual coursework and project collection — firmware, HDL, PCB layout, tests, and documentation",
     teamContext: "Multiple undergraduate course and independent projects, curated into public repositories later.",
+    collaborators: "Primarily individual undergraduate course and independent projects.",
+    upstreamSystems: "Arduino Mega reference architecture, ATmega2560 documentation, Vivado, and standard CMOS / digital-design references.",
     stack: ["C / C++", "ATmega2560", "Verilog", "Vivado", "PCB design", "Gerbers", "CMOS"],
     tags: ["embedded", "FPGA", "PCB", "bare metal"],
     problem: "Build enough low-level fluency to reason about sensing, timing, protocols, power, and hardware interfaces without treating the robot as a black box.",
@@ -646,6 +771,22 @@ export const projects: Project[] = [
       "Built an IR protocol and timer-interrupt music projects that make timing and state explicit at the firmware level.",
       "Implemented FPGA and digital-design exercises in Verilog with simulation and synthesis workflows.",
       "Used component smoke tests to validate motors, encoders, and inertial sensors without claiming a complete self-balancing robot.",
+    ],
+    methodology: [
+      "Moved from transistor and logic exercises through FPGA simulation and synthesis, direct-register microcontroller work, protocol implementation, and a four-layer board layout.",
+      "Separated schematic/layout completion, manufacturing-file export, fabrication, assembly, and bring-up as different hardware milestones.",
+    ],
+    experimentalDesign: [
+      "Used simulation, register-level timing checks, peripheral smoke tests, synthesis results, and design-rule outputs appropriate to each artifact.",
+      "No fabricated-board validation is presented because no preserved bring-up record exists.",
+    ],
+    failureAnalysis: [
+      "Timing, protocol state, sensor wiring, and power interfaces exposed failure modes that high-level frameworks normally hide.",
+      "Several folders stop at component validation, so they cannot support claims about a complete closed-loop robot.",
+    ],
+    nextQuestions: [
+      "Which board-level design should be fabricated and instrumented for a complete bring-up record?",
+      "How can the low-level timing and sensing work be connected to a repeatable closed-loop robotics experiment?",
     ],
     provenance: [
       "The custom board mirrors the Arduino Mega reference architecture with personal changes; it is not presented as a novel microcontroller platform.",
@@ -697,6 +838,9 @@ export const projects: Project[] = [
     summary: "Working with Fort Lewis College's KDUR radio station, I designed and built a Power Apps data application for the music library and station workflows. The intended population was more than 60 daily DJs and staff members. I later explored an applied-AI layer: vector embeddings for artist-name normalization and a Neo4j prototype with natural-language-to-Cypher agents. When I moved full-time into robotics research, the application was handed off before deployment. The project therefore demonstrates user-centered data modeling, prototyping, and handoff — not verified production adoption.",
     role: "Research assistant — application design, data modeling, embedding prototype, graph-database exploration, and handoff",
     teamContext: "Built with KDUR stakeholders under Dr. Matthew Welz; intended users informed requirements, but production adoption was not preserved.",
+    advisor: "Dr. Matthew Welz, Fort Lewis College",
+    collaborators: "KDUR staff and intended users contributed workflow requirements and feedback.",
+    upstreamSystems: "Microsoft Power Apps, vector-embedding services, Neo4j, and natural-language-to-Cypher tooling.",
     stack: ["Power Apps", "Python", "Vector embeddings", "Neo4j", "Cypher", "Data modeling"],
     tags: ["product", "data platform", "embeddings", "community"],
     problem: "Replace fragmented music-library and scheduling workflows while reducing artist-name inconsistency that can affect search and royalty records.",
@@ -708,6 +852,22 @@ export const projects: Project[] = [
       "Built an embedding-based artist-name resolution prototype and explored a graph representation in Neo4j.",
       "Prototyped natural-language-to-Cypher access for catalog questions.",
       "Documented and handed off the application when research priorities shifted to robotics.",
+    ],
+    methodology: [
+      "Mapped stakeholder workflows into a structured catalog and scheduling model, then prototyped artist-name resolution with embeddings and relationship exploration in Neo4j.",
+      "Kept the delivered application and later AI experiments distinct so prototype capabilities do not imply production adoption.",
+    ],
+    experimentalDesign: [
+      "Requirements were informed by an intended population of more than 60 daily station users, but no production telemetry or adoption study was preserved.",
+      "The project is therefore evaluated through application artifacts, data models, prototypes, and handoff evidence rather than user-impact metrics.",
+    ],
+    failureAnalysis: [
+      "The absence of deployment telemetry prevents claims about active users, reliability, or workflow impact.",
+      "Embedding and natural-language graph-query prototypes were not validated as station services.",
+    ],
+    nextQuestions: [
+      "What deployment and telemetry plan would allow station adoption and data-quality improvements to be measured?",
+      "Can entity-resolution accuracy be evaluated against a labeled catalog before adding a natural-language query layer?",
     ],
     provenance: [
       "More than 60 refers to the intended daily user population supplied by the station, not measured active users of a deployed application.",
