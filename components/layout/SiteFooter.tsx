@@ -89,8 +89,8 @@ export function SiteFooter() {
             &copy; {new Date().getFullYear()} {profile.name}
           </p>
           <p className="font-mono text-[11px] text-faint">
-            Built with Next.js — content is evidence-first: claims link to
-            artifacts or are labeled pending.
+            Evidence-first: completed results, active work, and claim boundaries
+            are labeled separately.
           </p>
         </div>
       </div>

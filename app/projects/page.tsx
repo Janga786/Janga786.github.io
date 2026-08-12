@@ -8,7 +8,7 @@ import { ProjectsExplorer } from "@/components/project/ProjectsExplorer";
 export const metadata: Metadata = pageMetadata({
   title: "Projects",
   description:
-    "Case studies in embodied AI, RL and simulation, perception, systems integration, embedded hardware, and AI products — structured around evidence.",
+    "Evidence-backed case studies in robot learning, autonomy, control, perception, systems integration, and embedded hardware.",
   path: "/projects/",
 });
 
@@ -17,9 +17,9 @@ export default function ProjectsPage() {
     <SectionShell>
       <SectionHeading
         as="h1"
-        eyebrow="Selected + Structured Work"
+        eyebrow="Selected Work"
         title="Projects"
-        lede="Each entry is a case study built around evidence — architecture, measurements, and honest limitations. Slots reserved for future work are labeled as placeholders rather than dressed up as finished projects."
+        lede="Each case study separates completed results, active work, personal contribution, upstream foundations, and limitations."
       />
       <h2 className="sr-only">All projects</h2>
       <ProjectsExplorer projects={allProjects} categories={categories} />

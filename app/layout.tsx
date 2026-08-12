@@ -25,7 +25,7 @@ const jbMono = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.siteUrl),
   title: {
-    default: `${profile.name} — AI systems for the physical world`,
+    default: `${profile.name} — Robot Learning & Autonomy`,
     template: siteConfig.titleTemplate,
   },
   description: siteConfig.description,
@@ -33,12 +33,12 @@ export const metadata: Metadata = {
     type: "website",
     siteName: siteConfig.title,
     url: siteConfig.siteUrl,
-    title: `${profile.name} — AI systems for the physical world`,
+    title: `${profile.name} — Robot Learning & Autonomy`,
     description: siteConfig.description,
   },
   twitter: {
     card: "summary_large_image",
-    title: `${profile.name} — AI systems for the physical world`,
+    title: `${profile.name} — Robot Learning & Autonomy`,
     description: siteConfig.description,
   },
   robots: { index: true, follow: true },

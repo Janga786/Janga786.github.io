@@ -4,7 +4,7 @@ import { profile } from "@/content/profile";
 import { BackgroundGrid } from "@/components/shared/BackgroundGrid";
 import { SystemDiagram } from "@/components/sections/SystemDiagram";
 
-/** Homepage hero: headline + CTAs on the left, deployment schematic right. */
+/** Homepage hero: headline + CTAs on the left, research-loop schematic right. */
 export function HeroPanel() {
   return (
     <section data-glow="wide" className="relative">

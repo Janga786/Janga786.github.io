@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 430" role="img" aria-labelledby="title desc">
+  <title id="title">Embedded systems portfolio stack</title>
+  <desc id="desc">A progression from CMOS and digital logic through FPGA, ATmega2560 firmware, timing and communication protocols, and a four-layer board design. Fabrication is not claimed.</desc>
+  <defs><style>.box{fill:#10151d;stroke:#344052;stroke-width:1.2}.hi{fill:#121a26;stroke:#4f9c91;stroke-width:1.2}.t{fill:#e7eaf0;font:600 15px Inter,Arial,sans-serif}.s{fill:#8f9bad;font:12px 'JetBrains Mono',monospace}.lbl{fill:#8fd6ca;font:12px 'JetBrains Mono',monospace}.line{stroke:#5b6b81;stroke-width:1.5;fill:none}</style><marker id="a" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#5b6b81"/></marker></defs>
+  <rect width="900" height="430" rx="18" fill="#0b0f15"/>
+  <text x="30" y="38" class="s" letter-spacing="2">EMBEDDED SYSTEMS — FROM LOGIC TO BOARD FILES</text>
+  <rect x="30" y="86" width="150" height="104" rx="11" class="box"/><text x="48" y="118" class="t">CMOS + logic</text><text x="48" y="144" class="s">transistor paths</text><text x="48" y="163" class="s">combinational / sequential</text>
+  <rect x="205" y="86" width="150" height="104" rx="11" class="box"/><text x="223" y="118" class="t">FPGA</text><text x="223" y="144" class="s">Verilog · Vivado</text><text x="223" y="163" class="s">protocol + simulation</text>
+  <rect x="380" y="86" width="150" height="104" rx="11" class="hi"/><text x="398" y="118" class="t">ATmega2560</text><text x="398" y="144" class="s">registers · timers</text><text x="398" y="163" class="lbl">40 kHz ADC</text>
+  <rect x="555" y="86" width="150" height="104" rx="11" class="box"/><text x="573" y="118" class="t">Firmware I/O</text><text x="573" y="144" class="s">IR link · interrupts</text><text x="573" y="163" class="s">sensor smoke tests</text>
+  <rect x="730" y="86" width="140" height="104" rx="11" class="hi"/><text x="748" y="118" class="t">PCB design</text><text x="748" y="144" class="s">four layers</text><text x="748" y="163" class="lbl">Gerbers exported</text>
+  <path d="M180 138H205M355 138H380M530 138H555M705 138H730" class="line" marker-end="url(#a)"/>
+  <rect x="30" y="242" width="840" height="118" rx="12" class="box"/>
+  <text x="52" y="276" class="t">Scope language is part of the engineering evidence</text>
+  <text x="52" y="307" class="s">DESIGNED: schematic + layout + manufacturing files</text>
+  <text x="52" y="332" class="s">NOT CLAIMED: fabricated / assembled / board bring-up</text>
+  <text x="500" y="307" class="s">VALIDATED: individual peripherals + protocols</text>
+  <text x="500" y="332" class="s">NOT CLAIMED: complete balancing controller</text>
+  <text x="30" y="400" class="lbl">BREADTH SUPPORTS THE ROBOTICS STORY; IT DOES NOT REPLACE CLOSED-LOOP SYSTEM EVIDENCE</text>
+</svg>

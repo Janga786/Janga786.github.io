@@ -62,5 +62,5 @@
   <path d="M550 362 H 616" class="flow" marker-end="url(#a)"/>
 
   <text x="30" y="196" class="s">same tasks, same splits, same protocol — only the body changes.</text>
-  <text x="620" y="430" class="lbl">real numbers pending Phase B</text>
+  <text x="545" y="430" class="lbl">Phase B complete: 73 cells · 6,550 episodes</text>
 </svg>

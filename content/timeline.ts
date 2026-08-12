@@ -1,79 +1,68 @@
 import type { TimelineItem } from "@/lib/types";
 
-/**
- * The "builder arc" — trajectory, not résumé. Dates follow the public
- * LinkedIn record; refine as you choose to disclose more detail.
- */
+/** A concise trajectory focused on technical development, not a résumé dump. */
 export const timeline: TimelineItem[] = [
   {
     title: "Computer engineering foundation",
-    subtitle: "Fort Lewis College · minors in mathematics and business",
+    subtitle: "Fort Lewis College · mathematics and business minors",
     description:
-      "Core curriculum across circuits, embedded systems, digital design, and software — with math and business minors picked up deliberately alongside it.",
+      "Built breadth across algorithms, circuits, computer architecture, embedded systems, digital design, statistics, controls, and robotics.",
     dateLabel: "2022 – 2027",
     isPlaceholder: false,
   },
   {
-    title: "Entrepreneurship track",
-    subtitle: "President & co-founder, Entrepreneurial Ventures Association",
+    title: "Product and community systems",
+    subtitle: "Entrepreneurship leadership · KDUR data platform",
     description:
-      "Co-founded and led FLC's entrepreneurship organization to New Registered Student Organization of the Year; ran a campus pitch competition and brought the NASA Venture Program to campus. Goldman Sachs Emerging Leaders alum.",
-    dateLabel: "2023 – 2024",
+      "Co-founded FLC's entrepreneurship organization and built a radio-station data application designed for more than 60 daily users; the app was handed off before deployment when research focus shifted to robotics.",
+    dateLabel: "2023 – 2025",
     isPlaceholder: false,
   },
   {
-    title: "Applied-AI data platform",
-    subtitle: "KDUR community radio · Power Apps, embeddings, Neo4j",
+    title: "LiDAR algorithms and experimental design",
+    subtitle: "CLiDA · point clouds · PCA · ICP",
     description:
-      "Built and deployed the radio station's library and scheduling platform (60+ daily users), then prototyped the AI layer: vector embeddings for artist-name resolution and natural-language-to-Cypher agents.",
-    dateLabel: "2024 – 2025",
+      "Served as algorithm developer on a five-person camera/LiDAR debris-analysis project, contributing motion, axis, dimension, and file-conversion code plus experimental documentation.",
+    dateLabel: "Fall 2024",
     isPlaceholder: false,
   },
   {
-    title: "Robot revival and perception research",
-    subtitle: "Sawyer/Baxter restoration · ROS · YOLOv8 thermal inspection",
+    title: "Legacy robot restoration and inspection tooling",
+    subtitle: "Sawyer / Baxter · ROS · synthetic data · YOLO",
     description:
-      "Restored two dormant industrial arms with no vendor support, then built a YOLOv8 pipeline for photovoltaic hotspot inspection — synthetic Blender training data, live validation on hardware.",
+      "Restored two unsupported industrial arms, rebuilt the ROS workstation, and developed synthetic-data and detection tooling for an inspection research direction. No held-out detector metric is claimed.",
     dateLabel: "Summer 2025",
     isPlaceholder: false,
   },
   {
-    title: "NASA-challenge hexapod",
-    subtitle: "18-DoF autonomous walker · team lead of four",
+    title: "Field robotics and controls",
+    subtitle: "18-DoF hexapod · four-person team",
     description:
-      "Led the electrical system, autonomous firmware, and Kuramoto-CPG locomotion simulation for a hexapod that competed at NASA's Colorado Robotics Challenge at the Great Sand Dunes.",
+      "Led team integration for a robot fielded at the NASA Colorado Robotics Challenge, then packaged a coupled-oscillator gait simulator and 34-test verification suite.",
     dateLabel: "Oct 2025 – Apr 2026",
     isPlaceholder: false,
   },
   {
-    title: "Humanoid sim-to-real research",
-    subtitle: "Booster K1 · NaVILA-style VLA + RL locomotion · Dr. Yiyan Li",
+    title: "Humanoid navigation research",
+    subtitle: "Booster K1 · NaVILA · Isaac Sim / Lab",
     description:
-      "Leading sim-to-real research on a real humanoid: a two-tier architecture pairing ~1 Hz vision-language planning with a 50 Hz reinforcement-learned locomotion policy trained in Isaac Sim / Isaac Lab.",
+      "Completed a 1,077-episode simulation benchmark, separated reach from stop failures, extended K1 locomotion and deployment interfaces, and began controlled viewpoint studies. Live NaVILA navigation remains a separate, unclaimed hardware milestone.",
     dateLabel: "May 2026 – present",
     isPlaceholder: false,
   },
   {
-    title: "Cross-embodiment benchmark",
-    subtitle: "ManiSkill3 · Panda ↔ Unitree G1 · language-grounded manipulation",
+    title: "Cross-embodiment manipulation",
+    subtitle: "xembench · Franka arm ↔ Unitree G1",
     description:
-      "Building an independent benchmark that measures how much manipulation performance survives a change of robot body under a shared language-conditioned policy interface. Infrastructure complete and Linux-ready; Phase B training and evaluation pending.",
-    dateLabel: "2026 · in progress",
+      "Executed a 6,550-episode baseline campaign, a real failure-driven data round, and an action-chunking intervention that improved tool pulling while exposing a persistent precision-grasping ceiling.",
+    dateLabel: "2026 · active",
     isPlaceholder: false,
   },
   {
-    title: "Physical AI data flywheel",
-    subtitle: "Failure-driven data collection · dataset validation · built on the benchmark",
+    title: "Graduate study and robot learning",
+    subtitle: "Research depth with real-system contact",
     description:
-      "A closed loop that turns benchmark failures into targeted demonstration requests, validates datasets before training, and packages every round as a reproducible artifact. Mac-safe foundation complete with five selection strategies; real experiments pending Linux.",
-    dateLabel: "2026 · in progress",
-    isPlaceholder: false,
-  },
-  {
-    title: "Graduate study",
-    subtitle: "Embodied AI / robotics",
-    description:
-      "Deepen foundations in learning, perception, and control; sharpen research taste; build toward physical-AI systems that hold up outside the lab.",
+      "Pursue deeper learning, perception, optimization, and control, then work as a robot learning engineer or research engineer on general-purpose autonomous systems.",
     dateLabel: "Next · Fall 2027",
     isPlaceholder: false,
   },

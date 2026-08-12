@@ -16,7 +16,7 @@
     .dash{stroke:rgba(148,163,184,0.4);stroke-width:1.2;fill:none;stroke-dasharray:5 5}
   </style>
 
-  <text x="30" y="36" class="s" letter-spacing="2">DEPLOYMENT TOPOLOGY — VLA NAVIGATION ON THE BOOSTER K1</text>
+  <text x="30" y="36" class="s" letter-spacing="2">TESTED DEPLOYMENT PATH — LIVE NAVILA EVALUATION NOT YET ESTABLISHED</text>
 
   <!-- Robot -->
   <rect x="30" y="80" width="220" height="110" rx="10" class="box"/>
@@ -36,8 +36,8 @@
   <rect x="610" y="80" width="220" height="110" rx="10" class="box"/>
   <text x="630" y="112" class="t">Inference workstation</text>
   <text x="630" y="134" class="s">RTX 5090 · 8B VLA (NaVILA)</text>
-  <text x="630" y="152" class="lbl">~1 Hz planning</text>
-  <text x="630" y="170" class="lbl">~350 ms / inference step</text>
+  <text x="630" y="152" class="lbl">model-serving path</text>
+  <text x="630" y="170" class="s">dry-run + interface tests</text>
 
   <!-- forward path (frames) -->
   <path d="M250 110 H316" class="flow" marker-end="url(#a)"/>
@@ -53,8 +53,8 @@
 
   <!-- instruction input -->
   <rect x="320" y="250" width="220" height="64" rx="10" class="box" stroke-dasharray="0"/>
-  <text x="340" y="278" class="t" font-size="13">Natural-language instruction</text>
-  <text x="340" y="298" class="s">"walk to the volleyball…"</text>
+  <text x="340" y="278" class="t" font-size="13">Validation boundary</text>
+  <text x="340" y="298" class="s">built/tested path ≠ completed live evaluation</text>
   <path d="M540 282 C 600 282 700 260 720 194" class="flow" marker-end="url(#a)"/>
 
   <!-- telemetry loop -->

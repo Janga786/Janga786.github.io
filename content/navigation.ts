@@ -5,7 +5,7 @@ export const primaryNav: NavItem[] = [
   { label: "Projects", href: "/projects" },
   { label: "About", href: "/about" },
   ...(siteConfig.enableWritingPage
-    ? [{ label: "Writing", href: "/writing" }]
+    ? [{ label: "Reports", href: "/writing" }]
     : []),
   ...(siteConfig.showResumePage ? [{ label: "Resume", href: "/resume" }] : []),
   { label: "Contact", href: "/#contact" },

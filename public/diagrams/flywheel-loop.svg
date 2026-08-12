@@ -53,6 +53,6 @@
   <path d="M430 260 V203 H150 V150" class="flow" marker-end="url(#a)"/>
 
   <text x="440" y="197" class="lbl">next round — failures feed forward</text>
-  <text x="30" y="380" class="s">every stage is typed, tested, and rehearsed end-to-end on synthetic data.</text>
-  <text x="590" y="430" class="lbl">real rounds pending Linux experiments</text>
+  <text x="30" y="380" class="s">round 1 executed on real benchmark artifacts: equal 50-episode targeted and random arms.</text>
+  <text x="530" y="430" class="lbl">mostly null result → precision intervention study</text>
 </svg>
