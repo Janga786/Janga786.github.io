@@ -5,13 +5,13 @@ import path from "node:path";
 // Required for `output: "export"` — the image is generated at build time.
 export const dynamic = "force-static";
 
-export const alt = "Jangara Bliss — building and evaluating autonomous robots";
+export const alt = "Jangara Bliss — learning-based autonomy and robot learning";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
 export default async function OpenGraphImage() {
   const background = await readFile(
-    path.join(process.cwd(), "public/og/robotics-evidence-social.png"),
+    path.join(process.cwd(), "public/og/k1-navigation-sim.png"),
   );
   const backgroundSrc = `data:image/png;base64,${background.toString("base64")}`;
 
@@ -68,7 +68,7 @@ export default async function OpenGraphImage() {
               color: "#94a0b4",
             }}
           >
-            COMPUTER ENGINEERING · ROBOT LEARNING · AUTONOMY
+            JANGARA BLISS · ROBOT LEARNING · AUTONOMOUS SYSTEMS
           </div>
           <div
             style={{
@@ -78,7 +78,7 @@ export default async function OpenGraphImage() {
               color: "#e7eaf0",
             }}
           >
-            Jangara Bliss
+            Learning-based autonomy
           </div>
           <div
             style={{
@@ -88,7 +88,7 @@ export default async function OpenGraphImage() {
               color: "#7aa5ff",
             }}
           >
-            Building and evaluating autonomous robots.
+            Research across embodied navigation, robot learning, and real systems.
           </div>
         </div>
         <div
@@ -99,7 +99,7 @@ export default async function OpenGraphImage() {
             color: "#7d899c",
           }}
         >
-          RESEARCH · SYSTEMS · EVIDENCE
+          QUESTIONS · EXPERIMENTS · ROBOTS · EVIDENCE
         </div>
       </div>
     ),

@@ -15,17 +15,16 @@ function NoteAware({ text }: { text: string }) {
   );
 }
 
-/** "Key facts" strip: problem, system type, stakes, and team context at a glance. */
+/** Research question, system type, and stakes at a glance. */
 export function ProjectFacts({ project }: { project: Project }) {
   const facts = [
-    { label: "Problem", value: project.problem },
+    { label: "Research question", value: project.problem },
     { label: "System type", value: project.systemType },
     { label: "Why it matters", value: project.whyItMatters },
-    { label: "Team context", value: project.teamContext },
   ];
 
   return (
-    <dl className="grid gap-px overflow-hidden rounded-xl border border-line bg-line sm:grid-cols-2 lg:grid-cols-4">
+    <dl className="grid gap-px overflow-hidden rounded-xl border border-line bg-line md:grid-cols-3">
       {facts.map((fact) => (
         <div key={fact.label} className="bg-card p-4">
           <dt className="meta-label">{fact.label}</dt>

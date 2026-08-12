@@ -6,7 +6,7 @@ import { SectionHeading } from "@/components/shared/SectionHeading";
 import { ProjectsExplorer } from "@/components/project/ProjectsExplorer";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Projects",
+  title: "Research & Systems",
   description:
     "Evidence-backed case studies in robot learning, autonomy, control, perception, systems integration, and embedded hardware.",
   path: "/projects/",
@@ -17,9 +17,9 @@ export default function ProjectsPage() {
     <SectionShell>
       <SectionHeading
         as="h1"
-        eyebrow="Selected Work"
-        title="Projects"
-        lede="Each case study separates completed results, active work, personal contribution, upstream foundations, and limitations."
+        eyebrow="Research & Systems Archive"
+        title="Case studies"
+        lede="Research studies and engineering systems share one evidence standard: completed results, active work, personal contribution, upstream foundations, failures, and limitations stay distinct."
       />
       <h2 className="sr-only">All projects</h2>
       <ProjectsExplorer projects={allProjects} categories={categories} />

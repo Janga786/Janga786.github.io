@@ -22,9 +22,11 @@ export function ContactPanel() {
         <div className="relative">
           <p className="meta-label">Contact</p>
           <h2 className="mt-3 max-w-2xl text-balance text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
-            Working on physical AI — or reviewing an application?
+            Interested in robot learning, embodied autonomy, or real-system evaluation?
           </h2>
-          <p className="mt-3 text-muted">Direct is best: email gets answered.</p>
+          <p className="mt-3 text-muted">
+            I am always glad to compare notes on research questions, systems, and experiments.
+          </p>
           <div className="mt-8 flex flex-wrap items-center gap-3">
             <a
               href={`mailto:${profile.contact.email}`}

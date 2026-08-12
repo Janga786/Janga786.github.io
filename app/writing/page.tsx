@@ -11,7 +11,7 @@ import { Chip } from "@/components/shared/Chip";
 import { MotionReveal } from "@/components/shared/MotionReveal";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Reports",
+  title: "Research Outputs",
   description:
     "Technical reports, evidence ledgers, methods documentation, and field guides.",
   path: "/writing/",
@@ -51,6 +51,10 @@ function WritingCardBody({ item }: { item: WritingItem }) {
         </h2>
         <p className="mt-2 text-sm leading-relaxed text-muted">
           <EditorAwareText text={item.summary} />
+        </p>
+        <p className="mt-3 font-mono text-[11px] leading-relaxed text-faint">
+          {item.authors} · {item.venueStatus}
+          {item.dateLabel ? ` · ${item.dateLabel}` : ""}
         </p>
       </div>
       <div className="shrink-0 pt-1">
@@ -122,8 +126,8 @@ export default function WritingPage() {
           <SectionHeading
             as="h1"
             eyebrow="Research Archive"
-            title="Reports & evidence"
-            lede="Canonical results, methods, and evidence ledgers — linked to the artifacts that support each claim."
+            title="Research outputs"
+            lede="Technical reports, benchmark results, methods documentation, and evidence ledgers. No peer-review or publication status is implied."
           />
         </MotionReveal>
         <div className="space-y-4">
