@@ -775,8 +775,8 @@ export const projects: Project[] = [
     featured: false,
     isPlaceholder: false,
     dateLabel: "2023 – 2026",
-    oneLiner: "A curated hardware portfolio spanning a four-layer Arduino-Mega-class board, direct-register 40 kHz ADC sampling, a hand-built IR link, FPGA protocols, and CMOS design exercises.",
-    summary: "These projects provide the hardware foundation beneath the robotics work. The strongest examples are a four-layer Arduino-Mega-class PCB design with exported Gerbers, a bare-metal ADC sampler configured for 40 kHz acquisition, a custom IR link-layer protocol, timer-interrupt audio projects, FPGA modules and protocol exercises, and transistor-level CMOS design coursework. The board is documented as designed and Gerber-ready, not fabricated; the self-balancing folder contains component validation rather than a complete balancing controller.",
+    oneLiner: "A curated hardware portfolio spanning a two-layer Arduino-Mega-class board, direct-register 40 kHz ADC sampling, a hand-built IR link, FPGA protocols, and CMOS design exercises.",
+    summary: "These projects provide the hardware foundation beneath the robotics work. The strongest examples are a two-layer Arduino-Mega-class PCB design with exported Gerbers, a bare-metal ADC sampler configured for 40 kHz acquisition, a custom IR link-layer protocol, timer-interrupt audio projects, FPGA modules and protocol exercises, and transistor-level CMOS design coursework. The board is documented as designed and Gerber-ready, not fabricated; the self-balancing folder contains component validation rather than a complete balancing controller.",
     role: "Individual coursework and project collection — firmware, HDL, PCB layout, tests, and documentation",
     teamContext: "Multiple undergraduate course and independent projects, curated into public repositories later.",
     collaborators: "Primarily individual undergraduate course and independent projects.",
@@ -787,14 +787,14 @@ export const projects: Project[] = [
     systemType: "Curated embedded / digital / PCB project collection",
     whyItMatters: "Robot learning systems still fail at clocks, registers, connectors, signal paths, and power rails; this work makes those layers inspectable.",
     contributions: [
-      "Designed and exported manufacturing files for a four-layer Arduino-Mega-class board based on the reference architecture with documented personal changes.",
+      "Designed and exported manufacturing files for a two-layer Arduino-Mega-class board based on the reference architecture with documented personal changes.",
       "Configured ATmega2560 registers for 40 kHz ADC sampling and implemented interrupt-driven data handling.",
       "Built an IR protocol and timer-interrupt music projects that make timing and state explicit at the firmware level.",
       "Implemented FPGA and digital-design exercises in Verilog with simulation and synthesis workflows.",
       "Used component smoke tests to validate motors, encoders, and inertial sensors without claiming a complete self-balancing robot.",
     ],
     methodology: [
-      "Moved from transistor and logic exercises through FPGA simulation and synthesis, direct-register microcontroller work, protocol implementation, and a four-layer board layout.",
+      "Moved from transistor and logic exercises through FPGA simulation and synthesis, direct-register microcontroller work, protocol implementation, and a two-layer board layout.",
       "Separated schematic/layout completion, manufacturing-file export, fabrication, assembly, and bring-up as different hardware milestones.",
     ],
     experimentalDesign: [
@@ -814,9 +814,9 @@ export const projects: Project[] = [
       "Gerbers and design files exist, but fabrication is not claimed. Component-validation code is not presented as a finished balancing controller.",
     ],
     architectureSummary: "The portfolio moves from transistor and logic design to FPGA modules, microcontroller peripherals, communication protocols, and a complete board layout — emphasizing explicit timing and interfaces at every level.",
-    architectureNodes: ["CMOS + digital logic", "FPGA modules", "ATmega2560 peripherals", "Firmware protocols + timing", "Four-layer PCB + Gerbers"],
+    architectureNodes: ["CMOS + digital logic", "FPGA modules", "ATmega2560 peripherals", "Firmware protocols + timing", "Two-layer PCB + Gerbers"],
     evidence: [
-      { label: "Board design", hint: "", status: "available", value: "Four-layer schematic/layout and production Gerbers; fabrication not claimed." },
+      { label: "Board design", hint: "", status: "available", value: "Two-layer schematic/layout and production Gerbers; fabrication not claimed." },
       { label: "Bare-metal timing", hint: "", status: "available", value: "Direct-register ADC configuration for 40 kHz sampling." },
       { label: "Protocol implementation", hint: "", status: "available", value: "Hand-built IR link layer and interrupt-driven projects." },
       { label: "Scope boundary", hint: "", status: "available", value: "Component validation is labeled separately from a complete closed-loop robot." },
@@ -841,14 +841,14 @@ export const projects: Project[] = [
       {
         kind: "image",
         src: "/media/embedded-pcb-layout.png",
-        alt: "Four-layer Arduino-Mega-class PCB layout in the board editor",
+        alt: "Two-layer Arduino-Mega-class PCB layout in the board editor",
         caption:
           "Documented board layout with routed signals and copper layers; design files and Gerbers exist, but fabrication is not claimed.",
       },
       {
         kind: "diagram",
         src: "/diagrams/embedded-stack.svg",
-        alt: "Embedded systems portfolio from CMOS and FPGA through firmware and a four-layer PCB",
+        alt: "Embedded systems portfolio from CMOS and FPGA through firmware and a two-layer PCB",
         caption: "Hardware breadth from logic through board-level implementation.",
       },
     ],
@@ -856,7 +856,7 @@ export const projects: Project[] = [
       { kind: "repo", label: "Microcontroller portfolio", href: "https://github.com/Janga786/arduino-mega-microcontrollers" },
       { kind: "repo", label: "FPGA portfolio", href: "https://github.com/Janga786/basys3-fpga-portfolio" },
     ],
-    seoDescription: "Embedded systems portfolio: ATmega2560 firmware, a 40 kHz ADC sampler, IR protocol, FPGA work, and a four-layer Arduino-Mega-class PCB design with Gerbers.",
+    seoDescription: "Embedded systems portfolio: ATmega2560 firmware, a 40 kHz ADC sampler, IR protocol, FPGA work, and a two-layer Arduino-Mega-class PCB design with Gerbers.",
     sortOrder: 7,
   },
 
