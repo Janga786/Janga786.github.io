@@ -38,8 +38,7 @@ The production site is emitted to `out/`. There is no server runtime.
 The downloadable résumé is generated from evidence-aligned source copy:
 
 ```bash
-/Users/janga/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3 \
-  scripts/generate_resume.py
+python3 scripts/generate_resume.py
 ```
 
 ## Content architecture
