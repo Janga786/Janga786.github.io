@@ -53,7 +53,7 @@ export function HeroPanel() {
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/media/k1-walk-to-volleyball-poster.jpg"
-              alt="Booster K1 humanoid during a physical locomotion test in the robotics lab"
+              alt="Booster K1 humanoid walking during the May 2026 live NaVILA episode"
               width={1200}
               height={800}
               className="aspect-[4/3] w-full object-cover object-right"
