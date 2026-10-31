@@ -104,7 +104,7 @@ export const projects: Project[] = [
     experimentalDesign: [
       "Scored the complete 1,077-episode R2R val-unseen set under one canonical simulation configuration and reported SR, oracle success, SPL, and final navigation error.",
       "Partitioned every episode into never reached, reached without stopping, or successful to separate exploration and arrival-recognition behavior.",
-      "Pre-specified a follow-up camera-height and image-transform sweep after nondeterministic repeat runs invalidated the original paired design; the 2,400-episode sweep completed in August 2026 with all pre-specified contrasts null, and its reliability findings became the subject of the paper in preparation.",
+      "Pre-specified a follow-up camera-height and image-transform sweep; a nondeterminism probe then undercut the preregistered paired test, so the paired design was dropped before launch and the analysis used unpaired comparisons (the change is documented in the repository's known-gaps ledger). The 2,400-episode sweep completed in August 2026 with all pre-specified contrasts null, and its reliability findings became the subject of the paper in preparation.",
     ],
     failureAnalysis: [
       "751 episodes never entered the goal radius, making exploration the dominant observed failure class.",
@@ -164,7 +164,7 @@ export const projects: Project[] = [
       { label: "SPL / NE", value: "10.9% / 7.59 m", hint: "Path efficiency / final navigation error." },
     ],
     limitations: [
-      "The canonical result is simulation-only and does not establish live NaVILA navigation on the physical K1.",
+      "The canonical result is simulation-only. The receipted May 2026 live episode shows NaVILA driving the physical K1 through the relay (built-in walker executing); no navigation score is claimed for it.",
       "The viewpoint sweep's design changed once before launch, after nondeterministic repeat runs invalidated the original paired-retry assumption; the final 2,400-episode sweep completed with null pre-specified contrasts.",
       "Aggregate navigation scores alone cannot isolate perception, exploration, locomotion, parser, and stopping failures; the decomposition narrows but does not eliminate that ambiguity.",
     ],

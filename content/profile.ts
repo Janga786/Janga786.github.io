@@ -73,7 +73,7 @@ export const profile: Profile = {
     {
       title: "Research Assistant — Humanoid Robotics",
       organization: "Fort Lewis College · Advisor: Dr. Yiyan Li",
-      dateLabel: "May 2026 – present",
+      dateLabel: "May – Aug 2026 · paper in preparation",
       summary:
         "Integrated the Booster K1 into a vision-language navigation benchmark, completed a 1,077-episode simulation evaluation, decomposed reach and stop failures, and ran a pre-specified 2,400-episode viewpoint sweep whose null contrasts exposed the evaluation-reliability problem now in a paper in preparation.",
       href: "/projects/k1-navila-research/",

@@ -60,8 +60,9 @@ export function HeroPanel() {
               loading="eager"
             />
             <figcaption className="border-t border-line px-4 py-3 font-mono text-[11px] leading-relaxed text-faint">
-              Booster K1 hardware context. Canonical NaVILA results on this site
-              are simulation-only; live closed-loop navigation is not claimed.
+              Booster K1 during the receipted May 2026 live NaVILA episode
+              (VLM-issued commands, built-in walker). Canonical benchmark
+              results on this site are simulation-only.
             </figcaption>
           </figure>
         </div>

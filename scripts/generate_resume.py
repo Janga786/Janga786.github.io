@@ -170,7 +170,7 @@ def build_resume():
 
     story.extend(section_heading("Research Experience"))
     story.append(KeepTogether([
-        entry_heading("Research Assistant — Humanoid Robotics", "May 2026 – Present", "Fort Lewis College · Advisor: Dr. Yiyan Li · Independent undergraduate research"),
+        entry_heading("Research Assistant — Humanoid Robotics", "May – Aug 2026 · paper in prep", "Fort Lewis College · Advisor: Dr. Yiyan Li · Independent undergraduate research"),
         bullet("Integrated the Booster K1 into VLN-CE-Isaac / NaVILA and completed all <b>1,077</b> R2R val-unseen simulation episodes: <b>18.3% success</b>, <b>30.3% oracle success</b>, 10.9% SPL, and 7.59 m final navigation error."),
         bullet("Decomposed outcomes into 751 never-reached, 129 reached-without-stopping, and 197 successful episodes, separating exploration from arrival recognition and motivating a controlled viewpoint study."),
         bullet("Ran a preregistered <b>2,400-episode</b> viewpoint/transform sweep; all pre-specified contrasts were null, and identically configured runs disagreed on <b>11.0%</b> of episode outcomes — the evaluation-reliability result now in a first-author paper in preparation (AIRC 2027)."),
