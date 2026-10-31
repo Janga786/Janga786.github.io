@@ -63,9 +63,9 @@ export const projects: Project[] = [
     isPlaceholder: false,
     dateLabel: "May 2026 – present",
     oneLiner:
-      "A completed 1,077-episode simulation benchmark, an audited K1 locomotion stack, and a controlled study of how embodiment and viewpoint shape navigation failure.",
+      "A completed 1,077-episode simulation benchmark, an audited K1 locomotion stack, and a 2,400-episode controlled sweep whose strongest finding is about evaluation reliability itself.",
     summary:
-      "This project adds the Booster K1 as a new embodiment in the VLN-CE-Isaac / NaVILA evaluation stack. The canonical run completed all 1,077 R2R val-unseen episodes in Isaac Sim: 197 successes (18.3% SR), 326 episodes that reached the goal radius at some point (30.3% oracle success), 10.9% SPL, and 7.59 m final navigation error. The most useful result was the decomposition. Of the 326 reaches, 129 failed to stop, while 751 never reached the goal region. That distinguishes arrival recognition from the larger exploration cost created by the K1's lower viewpoint. The active follow-up is a pre-specified camera-height and image-transform sweep; it remains in progress and is not presented as a finished paper result.",
+      "This project adds the Booster K1 as a new embodiment in the VLN-CE-Isaac / NaVILA evaluation stack. The canonical run completed all 1,077 R2R val-unseen episodes in Isaac Sim: 197 successes (18.3% SR), 326 episodes that reached the goal radius at some point (30.3% oracle success), 10.9% SPL, and 7.59 m final navigation error. The most useful result was the decomposition. Of the 326 reaches, 129 failed to stop, while 751 never reached the goal region. That separates arrival recognition from the dominant exploration failure class. A pre-specified 2,400-episode camera-height and image-transform sweep completed in August 2026 with every pre-specified contrast null; the strongest finding was about evaluation reliability itself — identically configured 300-episode runs disagreed on 11.0% of episode outcomes (Cohen's κ = 0.58), and a fixed wall-clock limit censored conditions unequally. That reliability result is the basis of a first-author paper in preparation for AIRC 2027.",
     role:
       "Research assistant — K1 embodiment integration, evaluation harness, locomotion diagnostics, evidence ledger, and experiment design",
     teamContext:
@@ -86,7 +86,7 @@ export const projects: Project[] = [
     problem:
       "How does a shorter humanoid embodiment change the visual evidence, locomotion demands, and stopping behavior of a navigation policy evaluated on the same task distribution?",
     systemType:
-      "Simulation benchmark + locomotion/deployment engineering + active controlled study",
+      "Simulation benchmark + locomotion/deployment engineering + evaluation-reliability study",
     whyItMatters:
       "A policy cannot be called embodiment-robust when camera geometry and controller interfaces change the problem it actually sees.",
     contributions: [
@@ -104,7 +104,7 @@ export const projects: Project[] = [
     experimentalDesign: [
       "Scored the complete 1,077-episode R2R val-unseen set under one canonical simulation configuration and reported SR, oracle success, SPL, and final navigation error.",
       "Partitioned every episode into never reached, reached without stopping, or successful to separate exploration and arrival-recognition behavior.",
-      "Pre-specified a follow-up camera-height and image-transform sweep after nondeterministic repeat runs invalidated the original paired-retry design; the sweep remains active.",
+      "Pre-specified a follow-up camera-height and image-transform sweep after nondeterministic repeat runs invalidated the original paired design; the 2,400-episode sweep completed in August 2026 with all pre-specified contrasts null, and its reliability findings became the subject of the paper in preparation.",
     ],
     failureAnalysis: [
       "751 episodes never entered the goal radius, making exploration and observation shift the dominant observed failure class.",
@@ -182,8 +182,8 @@ export const projects: Project[] = [
       {
         kind: "image",
         src: "/media/isaac-red-box.webp",
-        alt: "Booster K1 humanoid in an Isaac Sim navigation environment",
-        caption: "K1 embodiment inside the simulation evaluation stack.",
+        alt: "Booster K1 humanoid walking toward a red box in MuJoCo",
+        caption: "K1 sim2sim demo in MuJoCo (from k1-vlm-navigation), heading assist enabled.",
       },
       {
         kind: "video",
@@ -206,7 +206,7 @@ export const projects: Project[] = [
       { kind: "report", label: "Sweep status", href: "https://github.com/Janga786/k1-navila-research/blob/main/SWEEP_STATUS.md" },
     ],
     seoDescription:
-      "Booster K1 humanoid navigation research: a complete 1,077-episode NaVILA simulation benchmark, failure decomposition, locomotion diagnostics, and an active viewpoint study.",
+      "Booster K1 humanoid navigation research: a complete 1,077-episode NaVILA simulation benchmark, failure decomposition, locomotion diagnostics, and an evaluation-reliability study (AIRC 2027, in preparation).",
     sortOrder: 1,
   },
 
@@ -485,13 +485,13 @@ export const projects: Project[] = [
     shortTitle: "CLiDA / LiDAR Motion Analysis",
     category: "perception",
     status: "completed-study",
-    featured: true,
+    featured: false,
     isPlaceholder: false,
     dateLabel: "Fall 2024 · code packaged 2026",
     oneLiner:
-      "A five-person sensing project that estimated object dimensions, principal axis, motion, and rotation rate from point-cloud sequences — with final 1 RPM and 3 RPM trials reported against a controlled test stand.",
+      "A five-person sensing project that estimated object dimensions, principal axis, motion state, and rotation rate from point-cloud sequences, later packaged as a public, tested methods library.",
     summary:
-      "The Camera LiDAR Debris Analyzer (CLiDA) was a five-person computer engineering design project for characterizing small rotating objects. As algorithm developer, I contributed LiDAR preprocessing, file conversion, dimension measurement, principal-axis estimation, motion detection, and rotation-rate logic, then helped document the verification plan and results. The final team report records ten trials at each of two target rates: 1.009 RPM mean for the 1.0 RPM condition and 3.004 RPM mean for the 3.0 RPM condition, with all 20 trials within ±0.2 RPM. A later public Python package presents the point-cloud methods in a compact, inspectable form using NumPy and Open3D.",
+      "The Camera LiDAR Debris Analyzer (CLiDA) was a five-person computer engineering design project for characterizing small rotating objects. As algorithm developer, I contributed LiDAR preprocessing, file conversion, dimension measurement, principal-axis estimation, motion detection, and rotation-rate logic, then helped document the verification plan. A later public Python package presents the point-cloud methods in a compact, inspectable form using NumPy and Open3D, with synthetic-cloud tests.",
     role:
       "Algorithm developer — LiDAR processing, motion/axis/dimension methods, test hardware support, and report sections",
     teamContext:
@@ -517,8 +517,8 @@ export const projects: Project[] = [
       "Used 3D-printed silhouettes and mounts to make the sensing geometry and alignment repeatable enough for controlled trials.",
     ],
     experimentalDesign: [
-      "Compared estimated rotation rate against a motorized test stand at two known conditions: ten trials at 1 RPM and ten trials at 3 RPM.",
-      "Used the final five-person team report as the authority for the protocol, role allocation, and aggregate results; the later public package is supporting method evidence.",
+      "Compared estimated rotation rate against a motorized test stand at two known target rates (1 RPM and 3 RPM).",
+      "Used the final five-person team report as the authority for the protocol and role allocation; the later public package is supporting method evidence.",
     ],
     failureAnalysis: [
       "Point-cloud sparsity, surface finish, alignment, overlap, and ICP initialization can dominate the apparent algorithm quality.",
@@ -530,7 +530,7 @@ export const projects: Project[] = [
     ],
     provenance: [
       "CLiDA was a five-person team project; project management, hardware, software leadership, and test execution were shared across named roles.",
-      "The final team report is the authority for the 20-trial RPM results. The public code package is supporting algorithm evidence, and its included 0.83 RPM sample output is not presented as the final experiment.",
+      "The final team report is the authority for the protocol and role allocation. The public code package is supporting algorithm evidence; its sample outputs are illustrative, not experiment results.",
     ],
     architectureSummary:
       "Point-cloud frames are cleaned, measured with bounding boxes, summarized with PCA, screened by a displacement gate, and registered with ICP. A controlled motorized stand supplies repeated target-rate trials for comparison.",
@@ -542,16 +542,14 @@ export const projects: Project[] = [
       "RPM estimate vs. test-stand truth",
     ],
     evidence: [
-      { label: "Final team report", hint: "", status: "available", value: "Names team roles, experimental protocol, individual contributions, and 20 final rotation-rate trials." },
+      { label: "Final team report", hint: "", status: "available", value: "Names team roles, experimental protocol, and individual contributions." },
       { label: "Public method package", hint: "", status: "available", value: "Preprocessing, dimensions, PCA orientation, motion gate, ICP speed estimation, sample data, and tests." },
-      { label: "Hardware setup", hint: "", status: "available", value: "Controlled rotating target, known rates, LiDAR mounting, 3D-printed fixtures, and repeated trials." },
-      { label: "Result table", hint: "", status: "available", value: "Ten trials at 1 RPM and ten at 3 RPM; every reported trial was within ±0.2 RPM." },
+      { label: "Hardware setup", hint: "", status: "available", value: "Controlled rotating target, known rates, LiDAR mounting, and 3D-printed fixtures." },
     ],
     metrics: [
-      { label: "1 RPM condition", value: "1.009 RPM", hint: "Mean over 10 trials." },
-      { label: "3 RPM condition", value: "3.004 RPM", hint: "Mean over 10 trials." },
-      { label: "Within ±0.2 RPM", value: "20 / 20", hint: "Final report." },
       { label: "Team", value: "5 people", hint: "Role attributed explicitly." },
+      { label: "Methods package", value: "Public", hint: "NumPy/Open3D, synthetic-cloud tests." },
+      { label: "Course", value: "CE 315", hint: "Fall 2024 design project." },
     ],
     limitations: [
       "The experiment used controlled objects and a fixed test stand, not unconstrained orbital debris or a flight-ready sensor system.",
@@ -566,7 +564,6 @@ export const projects: Project[] = [
     media: [
       { kind: "image", src: "/media/clida-point-cloud-processing.png", alt: "Example LiDAR point cloud with a geometric bounding box", caption: "Sample point cloud packaged with the public methods implementation." },
       { kind: "image", src: "/media/clida-hardware-setup.png", alt: "CLiDA LiDAR and rotating-object test setup", caption: "Controlled sensor and rotating-target setup used for verification." },
-      { kind: "image", src: "/media/clida-results-table.png", alt: "CLiDA final dimension and rotation-rate results table", caption: "Final report results for dimension and RPM trials." },
       { kind: "image", src: "/media/clida-functional-block-diagram.png", alt: "CLiDA functional block diagram", caption: "Team system architecture from sensing through analysis." },
     ],
     artifacts: [
@@ -574,7 +571,7 @@ export const projects: Project[] = [
       { kind: "report", label: "Methods documentation", href: "https://github.com/Janga786/lidar-pointcloud-motion-pipeline#readme" },
     ],
     seoDescription:
-      "CLiDA LiDAR debris analysis: a five-person sensing project with PCA and ICP point-cloud methods, controlled RPM trials, explicit role attribution, and a public methods package.",
+      "CLiDA LiDAR debris analysis: a five-person sensing project with PCA and ICP point-cloud methods, a controlled test-stand protocol, explicit role attribution, and a public methods package.",
     sortOrder: 4,
   },
 
@@ -691,20 +688,20 @@ export const projects: Project[] = [
     oneLiner:
       "Restored two unsupported industrial arms, rebuilt the ROS workstation, and developed synthetic-data and YOLO tooling for an inspection research direction — without publishing an invalid detector metric.",
     summary:
-      "The project began with two nonfunctional legacy robots and limited vendor support. I diagnosed controller and boot problems, restored operating environments, and rebuilt a ROS Noetic / MoveIt / Gazebo workstation so the arms could again be simulated and programmed. In parallel, I developed Blender/Python synthetic-data tooling and YOLO-based inspection experiments. Earlier résumé and portfolio versions reported a 0.985 mAP on 1,682 thermal images; the evidence audit found that the public training configuration reused training images for validation and did not preserve the claimed thermal dataset or a valid held-out results file. Those numbers are therefore removed. What remains is still useful: robot restoration, systems troubleshooting, synthetic-data generation, inspection tooling, and a symposium-award research direction.",
+      "The project began with two nonfunctional legacy robots and limited vendor support. I diagnosed controller and boot problems, restored operating environments, and rebuilt a Dockerized ROS 1 (Indigo) + ROS 2 (Humble) MoveIt/Gazebo workstation so the arms could again be simulated and programmed. In parallel, I developed Blender/Python synthetic-data tooling and YOLO-based inspection experiments. An earlier detector metric was removed after an internal evidence audit found the training configuration reused training images for validation, with no preserved held-out set. What remains is still useful: robot restoration, systems troubleshooting, synthetic-data generation, inspection tooling, and a symposium-award research direction.",
     role: "Solo research assistant under Dr. Kevin Wedeward — restoration, ROS environment, synthetic data, and inspection experiments",
     teamContext: "Individual undergraduate research project with faculty supervision.",
     advisor: "Dr. Kevin Wedeward, Fort Lewis College",
     collaborators: "Individual undergraduate research with faculty supervision.",
-    upstreamSystems: "Sawyer and Baxter vendor stacks, ROS Noetic, MoveIt, Gazebo, Blender, and YOLO.",
-    stack: ["Sawyer", "Baxter", "ROS Noetic", "MoveIt", "Gazebo", "Blender", "YOLO"],
+    upstreamSystems: "Sawyer and Baxter vendor stacks, ROS 1/ROS 2, MoveIt, Gazebo, Blender, and YOLO.",
+    stack: ["Sawyer", "Baxter", "ROS 1/2", "MoveIt", "Gazebo", "Blender", "YOLO"],
     tags: ["robot restoration", "ROS", "synthetic data", "computer vision"],
     problem: "Recover unsupported research hardware and create an inspection-development environment when the original software and controller stack no longer worked reliably.",
     systemType: "Hardware restoration + robotics workstation + perception prototype",
     whyItMatters: "Restoring the platform made later robotics experiments possible and exposed the difference between a detector demo and a valid held-out evaluation.",
     contributions: [
       "Diagnosed hardware and boot failures through controller inspection, storage/OS recovery, BIOS and firmware configuration, and network troubleshooting.",
-      "Rebuilt a ROS Noetic workstation with MoveIt and Gazebo for motion-planning and simulation workflows.",
+      "Rebuilt a Dockerized ROS 1 (Indigo) + ROS 2 (Humble) workstation with ros1_bridge, MoveIt, and Gazebo for motion-planning and simulation workflows.",
       "Created Blender/Python synthetic inspection scenes, automatic labels, YOLO training tooling, and demonstration assets.",
       "Documented Baxter troubleshooting so future students could reproduce common startup and ROS-network fixes.",
       "Presented the inspection research direction at the Fort Lewis College Physics & Engineering Symposium, receiving second place.",
@@ -735,7 +732,7 @@ export const projects: Project[] = [
       { label: "Restoration record", hint: "", status: "available", value: "Controller photographs, boot/SDK errors, repair notes, ROS workspaces, and troubleshooting guide." },
       { label: "Synthetic-data tooling", hint: "", status: "available", value: "Blender assets, generation scripts, automatic labels, and inspection examples." },
       { label: "Research recognition", hint: "", status: "available", value: "Second place at the September 2025 Physics & Engineering Symposium." },
-      { label: "Metric boundary", hint: "", status: "available", value: "Previous 0.985 mAP / 1,682-image claim removed after the evidence audit found no valid held-out artifact." },
+      { label: "Metric boundary", hint: "", status: "available", value: "An earlier detector metric was removed after the evidence audit found no valid held-out artifact." },
     ],
     metrics: [
       { label: "Robots restored", value: "2", hint: "Sawyer and Baxter." },
@@ -756,7 +753,7 @@ export const projects: Project[] = [
     media: [
       { kind: "image", src: "/media/pv-baxter-rviz.webp", alt: "Baxter robot model running in RViz after workstation restoration", caption: "Recovered ROS visualization and programming environment." },
       { kind: "image", src: "/media/pv-gazebo.webp", alt: "Industrial robot simulation in Gazebo", caption: "Motion-planning and simulation workstation." },
-      { kind: "image", src: "/media/pv-detection-grid.webp", alt: "Synthetic product-defect detection examples", caption: "Synthetic inspection examples — qualitative tooling evidence, not a held-out metric." },
+      { kind: "image", src: "/media/pv-detection-grid.webp", alt: "Restored Baxter robot positioned over a test panel", caption: "Restored Baxter over a test panel — tooling-development evidence, not a held-out metric." },
     ],
     artifacts: [
       { kind: "repo", label: "Inspection tooling", href: "https://github.com/Janga786/CV-YOLO-Inspection" },
@@ -823,7 +820,7 @@ export const projects: Project[] = [
     ],
     metrics: [
       { label: "ADC sample rate", value: "40 kHz", hint: "Direct-register sampler." },
-      { label: "PCB layers", value: "4", hint: "Gerber-ready design." },
+      { label: "PCB layers", value: "2", hint: "Gerber-ready design." },
       { label: "Target MCU", value: "ATmega2560", hint: "Mega-class board." },
       { label: "Fabrication", value: "Not claimed", hint: "Design files only." },
     ],

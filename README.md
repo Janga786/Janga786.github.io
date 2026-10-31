@@ -2,11 +2,11 @@
 
 An evidence-first research portfolio for Jangara Bliss, a computer engineering student focused on robot learning and autonomous systems. The site is intentionally explicit about what was completed in simulation, what ran on hardware, what remains active research, what came from a team or course, and which upstream systems made the work possible.
 
-The public research narrative foregrounds three studies:
+The public research narrative foregrounds two studies:
 
 - Booster K1 / NaVILA navigation research — complete 1,077-episode simulation benchmark and active viewpoint study
 - xembench — executed cross-embodiment manipulation benchmark and intervention campaign
-- CLiDA / LiDAR motion analysis — attributed five-person sensing project with controlled final trials
+- CLiDA / LiDAR motion analysis appears as an attributed team sensing project with a public methods package
 
 Selected Systems & Engineering separately covers the NASA hexapod, KUKA kinematics, legacy robot restoration, and embedded/FPGA/PCB work. The complete archive also preserves the KDUR data platform.
 
