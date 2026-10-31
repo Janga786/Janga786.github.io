@@ -107,19 +107,19 @@ export const projects: Project[] = [
       "Pre-specified a follow-up camera-height and image-transform sweep after nondeterministic repeat runs invalidated the original paired design; the 2,400-episode sweep completed in August 2026 with all pre-specified contrasts null, and its reliability findings became the subject of the paper in preparation.",
     ],
     failureAnalysis: [
-      "751 episodes never entered the goal radius, making exploration and observation shift the dominant observed failure class.",
+      "751 episodes never entered the goal radius, making exploration the dominant observed failure class.",
       "129 episodes reached the goal radius but did not stop, isolating a smaller arrival-recognition or termination problem.",
       "The decomposition identifies failure classes but does not prove that camera height caused them; the completed 2,400-episode controlled sweep did not support the causal height hypothesis (all pre-specified contrasts were null).",
     ],
     nextQuestions: [
-      "How much of the K1 performance gap is explained by viewpoint alone when policy, task set, and evaluation logic are held fixed?",
+      "What evaluation scale and design would resolve embodiment effects smaller than the measured run-to-run noise floor?",
       "Can observation transforms or viewpoint-aware training improve exploration without degrading stop behavior?",
       "What instrumentation is required before a physical K1 run can support a defensible closed-loop NaVILA claim?",
     ],
     provenance: [
       "NaVILA, VLN-CE-Isaac, Isaac Lab, RSL-RL, and Booster training/deployment code are upstream foundations; the contribution is the K1-specific integration, experiments, diagnostics, and analysis.",
       "Substantial parts of the implementation and the unattended sweep operations were AI-assisted under my direction; the archived handoff notes in the repository record that process. The experiment designs, decisions, and claims are mine.",
-      "The canonical 18.3% result is simulation-only. The public K1 volleyball clip shows physical locomotion but has no synchronized model trace, so it is not evidence of live NaVILA control.",
+      "The canonical 18.3% result is simulation-only. A live May 2026 NaVILA episode on the real K1 is documented in the repository: a relay screen recording shows the VLM issuing the velocity commands (executed by Booster's built-in walking controller), paired with a dated third-person clip. The trained RL policy has not walked on hardware, and no navigation score is claimed for the live session.",
       "The recorded below-1% prior baseline is useful context but its original raw run directory was unavailable during the evidence audit; the final 1,077-episode result is fully preserved and regenerable.",
     ],
     architectureSummary:
@@ -190,14 +190,20 @@ export const projects: Project[] = [
         kind: "video",
         src: "/media/k1-walk-to-volleyball.mp4",
         poster: "/media/k1-walk-to-volleyball-poster.jpg",
-        alt: "Booster K1 physical locomotion test near a volleyball",
-        caption: "Hardware locomotion context only — no synchronized trace establishes NaVILA control in this clip.",
+        alt: "Booster K1 walking toward a volleyball during the live NaVILA episode",
+        caption: "Live NaVILA episode (May 2026) — paired with the relay recording below, which shows the VLM issuing the velocity commands (Booster's built-in walker executing).",
+      },
+      {
+        kind: "video",
+        src: "/media/k1-relay-live.mp4",
+        alt: "Screen recording of the NaVILA laptop relay in live mode",
+        caption: "The synchronized trace: the relay in [LIVE] mode streaming VLM velocity commands (~350 ms/inference) over the robot's own moving head camera.",
       },
       {
         kind: "diagram",
         src: "/diagrams/vla-topology.svg",
         alt: "Tested K1 deployment path with robot, relay, and inference workstation",
-        caption: "Built and tested deployment path; live closed-loop NaVILA evaluation remains unclaimed.",
+        caption: "Deployment path. A live May 2026 episode is documented in the repository; no scored navigation run is claimed.",
       },
     ],
     artifacts: [
@@ -312,7 +318,7 @@ export const projects: Project[] = [
         label: "Reproducibility pack",
         hint: "",
         status: "available",
-        value: "Configs, checkpoints, CSV matrices, reports, driver scripts, checksums, and artifact manifests are linked in the repository.",
+        value: "Configs, reports, driver scripts, and manifests are committed; checkpoints and CSV packs are regenerable artifacts, summarized in reports/ and available on request.",
       },
     ],
     metrics: [
