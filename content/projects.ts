@@ -368,6 +368,109 @@ export const projects: Project[] = [
       "Xembench is a two-embodiment ManiSkill3 benchmark with a 6,550-episode baseline matrix, near-zero transfer under weak native policies, and an action-chunking intervention from 1.3% to 14.7% tool-pulling success.",
     sortOrder: 2,
   },
+  {
+    slug: "rebot-crack-inspection",
+    title: "Bridge Crack-Inspection Arm \u2014 reBot B601-DM",
+    shortTitle: "Crack-Inspection Arm",
+    category: "systems-integration",
+    status: "active-research",
+    featured: true,
+    isPlaceholder: false,
+    dateLabel: "Sep 2026 \u2013 present",
+    oneLiner:
+      "Senior-design bridge crack-inspection arm: 7-motor CAN bring-up at 200 Hz, gravity/friction feed-forward identified on the real hardware, guarded first trajectories, and a zero-shot crack-segmentation pipeline.",
+    summary:
+      "The reBot B601-DM is a 6+1-DoF arm being developed into a bridge crack-inspection system by a two-person senior-design team. I brought up all seven motors over CAN in MIT mode at a 200 Hz control rate (per-motor setpoint, stiffness/damping gains, and feed-forward torque), measured the elbow's real gravity load at 6.6 N\u00b7m against the URDF's 2.7 N\u00b7m prediction, and identified gravity and friction feed-forward on the hardware: post-tuning holds cut loaded-joint error from 0.04\u20130.05 rad to \u2264 0.005 rad across a 41-run logged campaign (28 completed; aborted and refused runs are logged too). The first guarded trajectory ran on the physical arm on 2026-10-22, tracking within 0.023 rad with no guard fault; a visible 3.3 Hz shoulder/elbow wobble was traced to low damping and roughly halved by raising derivative gain. On the perception side, a wrist RealSense D405 streams into zero-shot OpenCrack/nnU-Net segmentation (weights used as released), producing crack masks about 17 times a second and offline trace-path demos. No detection accuracy on real imagery is claimed yet.",
+    role:
+      "Control, kinematics/IK, planning, and tuning \u2014 the motion stack documented in the repository is mine",
+    teamContext:
+      "Two-person Fort Lewis College senior-design team advised by Dr. Yiyan Li; supported in part by an FLC undergraduate research grant. Hardware sessions are operator-attended.",
+    advisor: "Dr. Yiyan Li, Fort Lewis College",
+    collaborators: "Two-person capstone team; crack-segmentation weights are upstream work, credited.",
+    upstreamSystems:
+      "reBot B601-DM arm and vendor SDK, OpenCrack nnU-Net weights (used as released), RealSense D405, USB\u2013CAN bridge.",
+    stack: ["CAN bus", "MIT-mode motor control", "Python", "DLS IK", "Minimum-jerk planning", "RealSense D405", "nnU-Net"],
+    tags: ["hardware", "controls", "system identification", "safety", "inspection"],
+    problem:
+      "Make a real 6+1-DoF arm hold and track poses accurately under load so it can scan crack surfaces, with safety guards strong enough to iterate on physical hardware.",
+    systemType: "Physical arm bring-up + controller identification and tuning + guarded motion + inspection perception pipeline",
+    whyItMatters:
+      "This is the project where model error met measurement: the URDF under-predicted the elbow gravity load by 2.4\u00d7, and closing that gap with identified feed-forward is what made accurate holds possible.",
+    contributions: [
+      "Brought up all 7 motors over a USB\u2013CAN bridge in MIT mode with a 200 Hz loop streaming setpoint, stiffness/damping gains, and feed-forward torque per motor.",
+      "Measured the elbow gravity load (6.6 N\u00b7m vs the URDF's 2.7 N\u00b7m) and identified gravity plus friction feed-forward on the real arm, cutting loaded-joint hold error to \u2264 0.005 rad in post-tuning holds.",
+      "Built the analytic 6\u00d76 Jacobian, damped-least-squares IK with multi-start seeding, and a minimum-jerk trajectory planner; root-caused a gripper-axis frame error (+X, not +Z).",
+      "Put every motor command behind arm_guard, a last-line safety filter with a startup position check, before running the first guarded trajectory (2026-10-22, within 0.023 rad, no guard fault).",
+      "Connected the wrist D405 and ran the zero-shot crack-segmentation pipeline live at ~17 Hz, with capture, overlay, and offline trace-path demo tooling.",
+    ],
+    methodology: [
+      "Identify before tuning: measure the real gravity/friction loads, inject them as feed-forward, then tune gains against logged hold and tracking error rather than by feel.",
+      "Log everything: the 41-run campaign records completed, aborted, refused, and read-only runs with raw logs committed as evidence.",
+      "Guarded escalation: simulation rehearsal first, then operator-attended guarded runs with hard clamps and a startup position check.",
+    ],
+    failureAnalysis: [
+      "A 3.3 Hz shoulder/elbow wobble in the first guarded run was traced to low damping; raising derivative gain cut it roughly in half.",
+      "The URDF's elbow gravity prediction was 2.4\u00d7 low; uncorrected, holds drifted 0.04\u20130.05 rad under load.",
+      "A gripper-axis frame error (+X instead of +Z) was root-caused in the kinematic chain before it could corrupt tool-pose targets.",
+    ],
+    nextQuestions: [
+      "Hand-eye calibration and measured joint limits ahead of gated commissioning (the current camera extrinsic and limits are vendor-nominal).",
+      "A quantitative held-out evaluation of crack segmentation on real D405 imagery, per the repository's test plan.",
+      "Planned extensions: MPC and corrections learned from data on top of the identified feed-forward.",
+    ],
+    provenance: [
+      "Two-person senior-design team; the control, kinematics/IK, planning, and tuning work presented here is mine, and hardware sessions are operator-attended.",
+      "Substantial parts of the implementation were carried out with AI coding agents under my direction (the repository's task cards are their work orders); tuning decisions and verification runs are the operator's own, with raw logs committed.",
+      "Crack segmentation uses the OpenCrack nnU-Net weights exactly as released \u2014 no training is claimed; the arm, SDK, and camera are vendor systems.",
+    ],
+    architectureSummary:
+      "A wrist RGB-D camera feeds zero-shot crack segmentation; masks become trace paths, which the DLS IK and minimum-jerk planner turn into joint trajectories. Every command passes the arm_guard safety filter before the 200 Hz CAN loop drives the motors.",
+    architectureNodes: [
+      "D405 RGB-D stream",
+      "Zero-shot crack mask (nnU-Net)",
+      "Trace-path planning",
+      "DLS IK + minimum-jerk trajectories",
+      "arm_guard safety filter",
+      "200 Hz CAN motor loop",
+    ],
+    evidence: [
+      { label: "Tuning campaign", hint: "", status: "available", value: "CONTROLLER_TUNING.md write-up with raw logs: 41 logged runs (28 completed), gravity measurement, and per-joint post-tuning holds." },
+      { label: "First guarded run", hint: "", status: "available", value: "2026-10-22 evidence directory: tracking within 0.023 rad, wobble diagnosis plots, and the kd comparison." },
+      { label: "Vision pipeline", hint: "", status: "available", value: "Live D405 capture, ~17 Hz crack masks, and offline trace-path demos with overlays." },
+      { label: "Test suite", hint: "", status: "available", value: "Offline unit/integration/contract tests (588 test functions as of 2026-10-30)." },
+    ],
+    metrics: [
+      { label: "Post-tuning hold error", value: "\u2264 0.005 rad", hint: "From 0.04\u20130.05 rad before feed-forward." },
+      { label: "Gravity reality gap", value: "6.6 vs 2.7 N\u00b7m", hint: "Measured elbow load vs URDF prediction." },
+      { label: "Control rate", value: "200 Hz", hint: "Per-motor MIT-mode commands over CAN." },
+      { label: "Logged hardware runs", value: "41", hint: "28 completed; aborts and refusals logged." },
+    ],
+    limitations: [
+      "Operator-attended development runs, not commissioning: camera extrinsics, tool tip, workcell, and joint limits are still vendor-nominal values.",
+      "No quantitative crack-detection metric on real imagery is claimed; the segmentation weights are zero-shot upstream work.",
+      "The \u2264 0.005 rad figure describes post-tuning holds, not every run in the 41-run campaign.",
+    ],
+    lessons: [
+      "Feed-forward identified from measurements beats gain-cranking: most of the hold error was unmodeled gravity and friction, not controller weakness.",
+      "Safety filters are what make hardware iteration fast \u2014 the guard let tuning proceed without risking the arm.",
+      "A frame-convention error can look like a control bug; checking the kinematic chain first saved the tool-pose work.",
+    ],
+    media: [
+      { kind: "image", src: "/media/rebot-replay-measured.jpg", alt: "Rendered replay of measured joint states from the real reBot arm", caption: "Measured-state replay: joint states recorded on the real arm (2026-10-22 smoke run), re-rendered for inspection." },
+      { kind: "image", src: "/media/rebot-kd-tuning.png", alt: "Velocity plots comparing low and raised damping gains", caption: "The 3.3 Hz wobble diagnosis: velocity traces at kd 1 vs kd 4 from the first guarded run's evidence." },
+      { kind: "image", src: "/media/rebot-tracking.png", alt: "Joint tracking plot from the controller-tuning campaign", caption: "Seven-joint demo tracking from the tuning campaign's committed figures." },
+      { kind: "image", src: "/media/rebot-crack-rehearsal.png", alt: "Simulated rehearsal of a crack-tracing trajectory", caption: "Crack-trace rehearsal in simulation \u2014 trajectories are rehearsed before any powered run." },
+      { kind: "image", src: "/media/rebot-trace-overlay.png", alt: "Crack image with planned trace paths overlaid", caption: "Offline demo: zero-shot crack mask converted into planned trace paths (2026-10-23)." },
+    ],
+    artifacts: [
+      { kind: "repo", label: "Repository", href: "https://github.com/Janga786/rebot-crack-vision" },
+      { kind: "report", label: "Controller tuning write-up", href: "https://github.com/Janga786/rebot-crack-vision/blob/main/docs/motion/CONTROLLER_TUNING.md" },
+      { kind: "logs", label: "First guarded run evidence", href: "https://github.com/Janga786/rebot-crack-vision/tree/main/evidence/operator/first-guarded-run-2026-10-22" },
+    ],
+    seoDescription:
+      "Senior-design bridge crack-inspection arm: CAN motor bring-up at 200 Hz, measured gravity feed-forward, guarded trajectories within 0.023 rad, and a zero-shot crack-segmentation pipeline.",
+    sortOrder: 3,
+  },
 
   {
     slug: "kuka-kr6-kinematics",
@@ -483,7 +586,7 @@ export const projects: Project[] = [
     ],
     seoDescription:
       "A KUKA KR 6 kinematics library implementing FK, IK, Jacobians, singularity diagnostics, and trajectories with 39 tests, finite-difference checks, and URDF cross-validation.",
-    sortOrder: 3,
+    sortOrder: 4,
   },
 
   {
@@ -579,7 +682,7 @@ export const projects: Project[] = [
     ],
     seoDescription:
       "CLiDA LiDAR debris analysis: a five-person sensing project with PCA and ICP point-cloud methods, a controlled test-stand protocol, explicit role attribution, and a public methods package.",
-    sortOrder: 4,
+    sortOrder: 5,
   },
 
   {
@@ -680,7 +783,7 @@ export const projects: Project[] = [
     ],
     seoDescription:
       "A four-person, 18-DoF hexapod fielded at the NASA Colorado Robotics Challenge, with attributed electrical/control integration and a later Kuramoto CPG simulation and 34-test suite.",
-    sortOrder: 5,
+    sortOrder: 6,
   },
 
   {
@@ -767,7 +870,7 @@ export const projects: Project[] = [
       { kind: "repo", label: "Baxter field guide", href: "https://github.com/Janga786/Baxter-Troubleshooting" },
     ],
     seoDescription: "Legacy Sawyer and Baxter restoration, ROS/MoveIt/Gazebo workstation recovery, and synthetic inspection tooling with explicit evidence boundaries.",
-    sortOrder: 6,
+    sortOrder: 7,
   },
 
   {
@@ -861,7 +964,7 @@ export const projects: Project[] = [
       { kind: "repo", label: "FPGA portfolio", href: "https://github.com/Janga786/basys3-fpga-portfolio" },
     ],
     seoDescription: "Embedded systems portfolio: ATmega2560 firmware, a 40 kHz ADC sampler, IR protocol, FPGA work, and a two-layer Arduino-Mega-class PCB design with Gerbers.",
-    sortOrder: 7,
+    sortOrder: 8,
   },
 
   {
@@ -943,7 +1046,7 @@ export const projects: Project[] = [
     ],
     artifacts: [{ kind: "diagram", label: "System diagram", href: "/diagrams/kdur-platform.svg" }],
     seoDescription: "A KDUR community-radio data application designed for 60+ intended daily users, with embedding and Neo4j prototypes, explicitly labeled as handed off before deployment.",
-    sortOrder: 8,
+    sortOrder: 9,
   },
 ];
 

@@ -87,6 +87,14 @@ export const profile: Profile = {
       href: "/projects/xembench/",
     },
     {
+      title: "Senior Design — Bridge Crack-Inspection Arm",
+      organization: "Fort Lewis College · Advisor: Dr. Yiyan Li · two-person team",
+      dateLabel: "Sep 2026 – present",
+      summary:
+        "Brought up a 6+1-DoF arm over CAN at 200 Hz, identified gravity/friction feed-forward on the real hardware (post-tuning holds ≤ 0.005 rad over a 41-run logged campaign), and ran guarded trajectories feeding a zero-shot crack-segmentation pipeline.",
+      href: "/projects/rebot-crack-inspection/",
+    },
+    {
       title: "Team Lead — Field Robotics",
       organization: "NASA Colorado Robotics Challenge · four-person team",
       dateLabel: "Oct 2025 – Apr 2026",

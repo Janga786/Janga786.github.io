@@ -196,12 +196,13 @@ def build_resume():
 
     story.extend(section_heading("Selected Technical Work"))
     story.append(KeepTogether([
-        entry_heading("KUKA KR 6 Kinematics & Verification", "2026", "Individual robotics course project; later packaged as a public library"),
-        bullet("Implemented FK, closed-form position IK, a 6×6 geometric Jacobian, singularity diagnostics, inverse velocity kinematics, and trajectories; verified with finite differences, 200 random round trips, a generated URDF, and <b>39 tests</b>."),
+        entry_heading("Bridge Crack-Inspection Arm — reBot B601-DM (Senior Design)", "Sep 2026 – Present", "Two-person team · Advisor: Dr. Yiyan Li"),
+        bullet("Brought up 7 motors over CAN at <b>200 Hz</b> (MIT mode); measured the elbow gravity load (6.6 N·m vs the URDF's 2.7 N·m) and identified gravity/friction feed-forward on hardware, cutting loaded-joint hold error to <b>≤ 0.005 rad</b> in post-tuning holds across a 41-run logged campaign."),
+        bullet("Built the analytic Jacobian, DLS IK, and minimum-jerk planner behind a last-line safety guard; the first guarded trajectory tracked within 0.023 rad, and a wrist D405 runs zero-shot crack segmentation at ~17 Hz."),
     ]))
     story.append(KeepTogether([
-        entry_heading("CLiDA LiDAR Debris Analysis", "Fall 2024", "Algorithm developer on a five-person design team"),
-        bullet("Implemented point-cloud pruning/conversion, dimension, PCA-axis, motion, and ICP rotation-rate methods against a controlled test stand; later packaged the methods as a public, tested NumPy/Open3D library."),
+        entry_heading("KUKA KR 6 Kinematics & Verification", "2026", "Individual robotics course project; later packaged as a public library"),
+        bullet("Implemented FK, closed-form position IK, a 6×6 geometric Jacobian, singularity diagnostics, inverse velocity kinematics, and trajectories; verified with finite differences, 200 random round trips, a generated URDF, and <b>39 tests</b>."),
     ]))
 
     story.extend(section_heading("Technical Skills"))
