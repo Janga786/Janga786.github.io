@@ -109,7 +109,7 @@ export const projects: Project[] = [
     failureAnalysis: [
       "751 episodes never entered the goal radius, making exploration and observation shift the dominant observed failure class.",
       "129 episodes reached the goal radius but did not stop, isolating a smaller arrival-recognition or termination problem.",
-      "The decomposition identifies mechanisms but does not prove that camera height caused them; that causal question belongs to the active controlled sweep.",
+      "The decomposition identifies failure classes but does not prove that camera height caused them; the completed 2,400-episode controlled sweep did not support the causal height hypothesis (all pre-specified contrasts were null).",
     ],
     nextQuestions: [
       "How much of the K1 performance gap is explained by viewpoint alone when policy, task set, and evaluation logic are held fixed?",
@@ -118,6 +118,7 @@ export const projects: Project[] = [
     ],
     provenance: [
       "NaVILA, VLN-CE-Isaac, Isaac Lab, RSL-RL, and Booster training/deployment code are upstream foundations; the contribution is the K1-specific integration, experiments, diagnostics, and analysis.",
+      "Substantial parts of the implementation and the unattended sweep operations were AI-assisted under my direction; the archived handoff notes in the repository record that process. The experiment designs, decisions, and claims are mine.",
       "The canonical 18.3% result is simulation-only. The public K1 volleyball clip shows physical locomotion but has no synchronized model trace, so it is not evidence of live NaVILA control.",
       "The recorded below-1% prior baseline is useful context but its original raw run directory was unavailable during the evidence audit; the final 1,077-episode result is fully preserved and regenerable.",
     ],
@@ -150,10 +151,10 @@ export const projects: Project[] = [
         value: "Claim-by-claim receipts, conflicts, regeneration commands, and provenance boundaries are public.",
       },
       {
-        label: "Current experiment",
+        label: "Controlled sweep",
         hint: "",
         status: "available",
-        value: "Viewpoint and image-transform sweep is labeled active; interim completion does not substitute for a final result.",
+        value: "Completed August 2026: 2,400 episodes, all pre-specified contrasts null; the reliability findings feed the AIRC 2027 paper in preparation.",
       },
     ],
     metrics: [
@@ -164,7 +165,7 @@ export const projects: Project[] = [
     ],
     limitations: [
       "The canonical result is simulation-only and does not establish live NaVILA navigation on the physical K1.",
-      "The current viewpoint sweep is active and its design changed after nondeterministic repeat runs invalidated the original paired-retry assumption.",
+      "The viewpoint sweep's design changed once before launch, after nondeterministic repeat runs invalidated the original paired-retry assumption; the final 2,400-episode sweep completed with null pre-specified contrasts.",
       "Aggregate navigation scores alone cannot isolate perception, exploration, locomotion, parser, and stopping failures; the decomposition narrows but does not eliminate that ambiguity.",
     ],
     lessons: [
@@ -495,7 +496,7 @@ export const projects: Project[] = [
     role:
       "Algorithm developer — LiDAR processing, motion/axis/dimension methods, test hardware support, and report sections",
     teamContext:
-      "Five-person CE315 design team. Final metrics and individual roles come from the December 2024 team report.",
+      "Five-person CE315 design team. Protocol and individual roles come from the December 2024 team report.",
     collaborators: "Five-person CE315 design team with shared hardware, software, testing, and documentation responsibilities.",
     upstreamSystems: "LiDAR hardware, NumPy, Open3D, PCA, and ICP methods.",
     stack: ["Python", "Open3D", "NumPy", "LiDAR", "PCA", "ICP", "3D printing"],
@@ -517,7 +518,7 @@ export const projects: Project[] = [
       "Used 3D-printed silhouettes and mounts to make the sensing geometry and alignment repeatable enough for controlled trials.",
     ],
     experimentalDesign: [
-      "Compared estimated rotation rate against a motorized test stand at two known target rates (1 RPM and 3 RPM).",
+      "Compared estimated rotation rate against a motorized test stand at known target rates.",
       "Used the final five-person team report as the authority for the protocol and role allocation; the later public package is supporting method evidence.",
     ],
     failureAnalysis: [
@@ -686,7 +687,7 @@ export const projects: Project[] = [
     isPlaceholder: false,
     dateLabel: "May – Sep 2025",
     oneLiner:
-      "Restored two unsupported industrial arms, rebuilt the ROS workstation, and developed synthetic-data and YOLO tooling for an inspection research direction — without publishing an invalid detector metric.",
+      "Restored two unsupported industrial arms, rebuilt the ROS workstation, and developed synthetic-data and YOLO tooling for an inspection research direction recognized at the 2025 FLC symposium.",
     summary:
       "The project began with two nonfunctional legacy robots and limited vendor support. I diagnosed controller and boot problems, restored operating environments, and rebuilt a Dockerized ROS 1 (Indigo) + ROS 2 (Humble) MoveIt/Gazebo workstation so the arms could again be simulated and programmed. In parallel, I developed Blender/Python synthetic-data tooling and YOLO-based inspection experiments. An earlier detector metric was removed after an internal evidence audit found the training configuration reused training images for validation, with no preserved held-out set. What remains is still useful: robot restoration, systems troubleshooting, synthetic-data generation, inspection tooling, and a symposium-award research direction.",
     role: "Solo research assistant under Dr. Kevin Wedeward — restoration, ROS environment, synthetic data, and inspection experiments",
@@ -737,7 +738,7 @@ export const projects: Project[] = [
     metrics: [
       { label: "Robots restored", value: "2", hint: "Sawyer and Baxter." },
       { label: "Symposium", value: "2nd place", hint: "FLC P&E, Sep 2025." },
-      { label: "Published CV metric", value: "None", hint: "Held-out evidence not preserved." },
+      { label: "Inspection tooling", value: "Qualitative", hint: "No held-out metric preserved." },
       { label: "Research mode", value: "Prototype", hint: "Not closed-loop validation." },
     ],
     limitations: [
@@ -759,7 +760,7 @@ export const projects: Project[] = [
       { kind: "repo", label: "Inspection tooling", href: "https://github.com/Janga786/CV-YOLO-Inspection" },
       { kind: "repo", label: "Baxter field guide", href: "https://github.com/Janga786/Baxter-Troubleshooting" },
     ],
-    seoDescription: "Legacy Sawyer and Baxter restoration, ROS/MoveIt/Gazebo workstation recovery, and synthetic inspection tooling with unsupported detector metrics explicitly removed.",
+    seoDescription: "Legacy Sawyer and Baxter restoration, ROS/MoveIt/Gazebo workstation recovery, and synthetic inspection tooling with explicit evidence boundaries.",
     sortOrder: 6,
   },
 

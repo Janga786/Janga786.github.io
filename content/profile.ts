@@ -87,7 +87,7 @@ export const profile: Profile = {
       href: "/projects/xembench/",
     },
     {
-      title: "Research Assistant — Field Robotics",
+      title: "Team Lead — Field Robotics",
       organization: "NASA Colorado Robotics Challenge · four-person team",
       dateLabel: "Oct 2025 – Apr 2026",
       summary:
@@ -99,7 +99,7 @@ export const profile: Profile = {
       organization: "Fort Lewis College · Advisor: Dr. Kevin Wedeward",
       dateLabel: "May – Sep 2025",
       summary:
-        "Restored legacy Sawyer and Baxter platforms, rebuilt a ROS workstation, and developed synthetic-data and inspection tooling while keeping unsupported detector metrics out of the public record.",
+        "Restored legacy Sawyer and Baxter platforms, rebuilt a Dockerized ROS 1 + ROS 2 workstation, and developed synthetic-data and inspection tooling; 2nd place at the 2025 FLC Physics & Engineering Symposium.",
       href: "/projects/legacy-robot-restoration-inspection/",
     },
   ],

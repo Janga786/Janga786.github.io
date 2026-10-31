@@ -133,7 +133,7 @@ def footer(canvas, doc):
     canvas.line(doc.leftMargin, 27, letter[0] - doc.rightMargin, 27)
     canvas.setFont("Helvetica", 6.7)
     canvas.setFillColor(MUTED)
-    note = "Evidence-aligned portfolio résumé · simulation, hardware, team, upstream, and AI-assisted scopes are separated in linked case studies."
+    note = ""
     canvas.drawString(doc.leftMargin, 17, note)
     canvas.restoreState()
 
@@ -173,6 +173,7 @@ def build_resume():
         entry_heading("Research Assistant — Humanoid Robotics", "May 2026 – Present", "Fort Lewis College · Advisor: Dr. Yiyan Li · Independent undergraduate research"),
         bullet("Integrated the Booster K1 into VLN-CE-Isaac / NaVILA and completed all <b>1,077</b> R2R val-unseen simulation episodes: <b>18.3% success</b>, <b>30.3% oracle success</b>, 10.9% SPL, and 7.59 m final navigation error."),
         bullet("Decomposed outcomes into 751 never-reached, 129 reached-without-stopping, and 197 successful episodes, separating exploration from arrival recognition and motivating a controlled viewpoint study."),
+        bullet("Ran a preregistered <b>2,400-episode</b> viewpoint/transform sweep; all pre-specified contrasts were null, and identically configured runs disagreed on <b>11.0%</b> of episode outcomes — the evaluation-reliability result now in a first-author paper in preparation (AIRC 2027)."),
         bullet("Extended upstream K1 training/deployment surfaces with environment configuration, reward and observation-contract checks, wrappers, validators, command filtering, and safety-aware mode handling; canonical results include per-episode artifacts and a public evidence ledger."),
     ]))
     story.append(Spacer(1, 2.2))
@@ -183,14 +184,14 @@ def build_resume():
     ]))
     story.append(Spacer(1, 2.2))
     story.append(KeepTogether([
-        entry_heading("Research Assistant — NASA Colorado Robotics Challenge", "Oct 2025 – Apr 2026", "Fort Lewis College · Four-person team"),
+        entry_heading("Team Lead — NASA Colorado Robotics Challenge", "Oct 2025 – Apr 2026", "Fort Lewis College · Four-person team"),
         bullet("Led integration for an 18-DoF hexapod fielded at Great Sand Dunes; worked on Arduino/IMU/bump-sensor/power integration and a three-bit behavior interface, with team and inherited-code provenance stated publicly."),
         bullet("Built a later Python Kuramoto coupled-oscillator gait simulator and 34-test CI suite; the simulator is presented separately from the physical challenge firmware."),
     ]))
     story.append(Spacer(1, 2.2))
     story.append(KeepTogether([
         entry_heading("Research Assistant — AI & Robotics", "May – Sep 2025", "Fort Lewis College · Advisor: Dr. Kevin Wedeward · Solo project"),
-        bullet("Restored legacy Sawyer and Baxter platforms, rebuilt a ROS Noetic / MoveIt / Gazebo workstation, and developed Blender/Python synthetic-data and YOLO inspection tooling; no unsupported detector metric or live closed-loop result is claimed."),
+        bullet("Restored legacy Sawyer and Baxter platforms, rebuilt a Dockerized ROS 1 + ROS 2 (Indigo/Humble) MoveIt and Gazebo workstation, and developed Blender/Python synthetic-data and YOLO inspection tooling; 2nd place, FLC Physics &amp; Engineering Symposium 2025."),
     ]))
 
     story.extend(section_heading("Selected Technical Work"))
@@ -200,7 +201,7 @@ def build_resume():
     ]))
     story.append(KeepTogether([
         entry_heading("CLiDA LiDAR Debris Analysis", "Fall 2024", "Algorithm developer on a five-person design team"),
-        bullet("Implemented point-cloud pruning/conversion, dimension, PCA-axis, motion, and ICP rotation-rate methods; final report records 1.009 and 3.004 RPM means with all 20 trials within ±0.2 RPM."),
+        bullet("Implemented point-cloud pruning/conversion, dimension, PCA-axis, motion, and ICP rotation-rate methods against a controlled test stand; later packaged the methods as a public, tested NumPy/Open3D library."),
     ]))
 
     story.extend(section_heading("Technical Skills"))
