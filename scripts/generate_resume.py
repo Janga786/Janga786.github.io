@@ -191,7 +191,7 @@ def build_resume():
     story.append(Spacer(1, 2.2))
     story.append(KeepTogether([
         entry_heading("Research Assistant — AI & Robotics", "May – Sep 2025", "Fort Lewis College · Advisor: Dr. Kevin Wedeward · Solo project"),
-        bullet("Restored legacy Sawyer and Baxter platforms, rebuilt a Dockerized ROS 1 + ROS 2 (Indigo/Humble) MoveIt and Gazebo workstation, and developed Blender/Python synthetic-data and YOLO inspection tooling; 2nd place, FLC Physics &amp; Engineering Symposium 2025."),
+        bullet("Restored legacy Sawyer and Baxter platforms, rebuilt a Dockerized ROS 1 + ROS 2 (Indigo/Humble) MoveIt and Gazebo workstation, and developed Blender/Python synthetic-data and YOLO inspection tooling, tested qualitatively on real panels; 2nd place, FLC Physics &amp; Engineering Symposium 2025."),
     ]))
 
     story.extend(section_heading("Selected Technical Work"))

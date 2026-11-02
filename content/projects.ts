@@ -802,7 +802,7 @@ export const projects: Project[] = [
     oneLiner:
       "Restored two unsupported industrial arms, rebuilt the ROS workstation, and developed synthetic-data and YOLO tooling for an inspection research direction recognized at the 2025 FLC symposium.",
     summary:
-      "The project began with two nonfunctional legacy robots and limited vendor support. I diagnosed controller and boot problems, restored operating environments, and rebuilt a Dockerized ROS 1 (Indigo) + ROS 2 (Humble) MoveIt/Gazebo workstation so the arms could again be simulated and programmed. In parallel, I developed Blender/Python synthetic-data tooling and YOLO-based inspection experiments. An earlier detector metric was removed after an internal evidence audit found the training configuration reused training images for validation, with no preserved held-out set. What remains is still useful: robot restoration, systems troubleshooting, synthetic-data generation, inspection tooling, and a symposium-award research direction.",
+      "The project began with two nonfunctional legacy robots and limited vendor support. I diagnosed controller and boot problems, restored operating environments, and rebuilt a Dockerized ROS 1 (Indigo) + ROS 2 (Humble) MoveIt/Gazebo workstation so the arms could again be simulated and programmed. In parallel, I developed Blender/Python synthetic-data tooling and YOLO-based inspection experiments. In August 2025 we also ran the detector on real panels as a qualitative end-to-end check. An earlier detector metric was removed after an internal evidence audit found the training configuration reused training images for validation, with no preserved held-out set. What remains is still useful: robot restoration, systems troubleshooting, synthetic-data generation, inspection tooling, and a symposium-award research direction.",
     role: "Solo research assistant under Dr. Kevin Wedeward — restoration, ROS environment, synthetic data, and inspection experiments",
     teamContext: "Individual undergraduate research project with faculty supervision.",
     advisor: "Dr. Kevin Wedeward, Fort Lewis College",
@@ -826,6 +826,7 @@ export const projects: Project[] = [
     ],
     experimentalDesign: [
       "Preserved restoration records, ROS workspaces, troubleshooting notes, generated scenes, labels, and qualitative inspection examples.",
+      "In August 2025 we ran the detector on real panels as a qualitative end-to-end check: Baxter's end effector held a thermal camera over four small test modules, and because four modules could not drive enough current to create a real solar-panel hotspot, we induced one by heating a single cell with a heat gun. On the saved thermal frames, the detector flagged the heated cell as a hotspot every time (thermal frames shown on this page). This was a qualitative confirmation only; a valid held-out detector evaluation remains future work.",
       "Rejected the former detector result because the available configuration reused training images for validation and did not preserve the claimed dataset or valid held-out result file.",
     ],
     failureAnalysis: [
@@ -847,6 +848,7 @@ export const projects: Project[] = [
       { label: "Synthetic-data tooling", hint: "", status: "available", value: "Blender assets, generation scripts, automatic labels, and inspection examples." },
       { label: "Research recognition", hint: "", status: "available", value: "Second place at the September 2025 Physics & Engineering Symposium." },
       { label: "Metric boundary", hint: "", status: "available", value: "An earlier detector metric was removed after the evidence audit found no valid held-out artifact." },
+      { label: "Real-panel check", hint: "", status: "available", value: "Saved thermal frames (August 2025) from a Baxter-held camera showing the detector flagging a heat-gun-induced hotspot on small test modules — qualitative only." },
     ],
     metrics: [
       { label: "Robots restored", value: "2", hint: "Sawyer and Baxter." },
@@ -868,6 +870,8 @@ export const projects: Project[] = [
       { kind: "image", src: "/media/pv-baxter-rviz.webp", alt: "Baxter robot model running in RViz after workstation restoration", caption: "Recovered ROS visualization and programming environment." },
       { kind: "image", src: "/media/pv-gazebo.webp", alt: "Industrial robot simulation in Gazebo", caption: "Motion-planning and simulation workstation." },
       { kind: "image", src: "/media/pv-detection-grid.webp", alt: "Restored Baxter robot positioned over a test panel", caption: "Restored Baxter over a test panel — tooling-development evidence, not a held-out metric." },
+      { kind: "image", src: "/media/pv-real-panel-thermal-hotspot-1.jpg", alt: "Thermal camera frame of four small test modules with a detector box labelled hotspot on the heated cell", caption: "Saved thermal frame (Aug 2025) from the camera held by Baxter's end effector: the detector boxes the heat-gun-induced hotspot on one of four small test modules. Qualitative check, not a held-out metric." },
+      { kind: "image", src: "/media/pv-real-panel-thermal-hotspot-2.jpg", alt: "Second thermal frame from a different camera position with the same heated cell flagged as a hotspot", caption: "Second saved frame from a different camera position — the same heated cell is flagged again. Qualitative check, not a held-out metric." },
     ],
     artifacts: [
       { kind: "repo", label: "Inspection tooling", href: "https://github.com/Janga786/CV-YOLO-Inspection" },
