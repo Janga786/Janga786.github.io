@@ -31,7 +31,7 @@ export const profile: Profile = {
   gpa: "3.65",
   upperDivisionGpa: "3.8",
   gpaNote:
-    "cumulative through Summer 2026; 4.00 in Spring 2026 (17 credits), Spring Dean's List",
+    "cumulative through Summer 2026; 4.0 in Spring and Summer 2026, Spring Dean's List",
 
   interests: [
     "Robot learning",
