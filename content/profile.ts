@@ -16,9 +16,9 @@ export const profile: Profile = {
     "Computer engineering student at Fort Lewis College focused on robot learning and autonomy, with experience spanning benchmark design, simulation, controls, perception, and embedded systems.",
 
   longBio: [
-    "I'm a computer engineering student at Fort Lewis College, with minors in mathematics and business administration. My current research centers on humanoid navigation and robot learning. Under Dr. Yiyan Li, I integrated the Booster K1 into the VLN-CE-Isaac / NaVILA evaluation stack and completed all 1,077 R2R val-unseen episodes. The result — 18.3% success and 30.3% oracle success — became more useful after I decomposed it: 129 episodes reached the goal region but did not stop, separating arrival recognition from the larger exploration problem. A pre-specified 2,400-episode viewpoint sweep returned null contrasts but exposed how unreliable single-run VLN evaluation is — identically configured runs disagreed on 11.0% of episode outcomes — and that reliability result is now a first-author paper in preparation for AIRC 2027.",
+    "I'm a computer engineering student at Fort Lewis College, with minors in mathematics and business administration. My current research centers on humanoid navigation and robot learning. Under Dr. Yiyan Li, I integrated the Booster K1 into the VLN-CE-Isaac / NaVILA evaluation stack and completed all 1,077 R2R val-unseen episodes. The result — 18.3% success and 30.3% oracle success — became more useful after I decomposed it: 129 episodes reached the goal region but did not stop, separating arrival recognition from the larger exploration problem. A pre-specified 2,400-episode viewpoint sweep returned null contrasts but exposed how unreliable single-run VLN evaluation is — identically configured runs disagreed on 11.0% of episode outcomes — and that evaluation-reliability result is now the center of the work.",
     "Alongside that work, I built xembench, a ManiSkill3 benchmark for language-grounded manipulation across a Franka-style arm and a Unitree G1 upper body. Its completed baseline campaign includes 1,202 demonstrations and a 6,550-episode evaluation matrix. The first result was mostly negative: zero-shot transfer was near zero because the native precision-manipulation policies were themselves weak. A follow-up intervention showed where progress was possible — action chunking raised tool-pulling success from 1.3% to 14.7%, while grasp-critical tasks remained near zero. That boundary is the point of the benchmark: make failure measurable before calling it transfer.",
-    "Earlier projects gave me the rest of the stack. I led integration for a four-person, 18-DoF hexapod team that fielded a robot at the NASA Colorado Robotics Challenge; implemented LiDAR point-cloud algorithms for a five-person debris-analysis project; restored legacy Sawyer and Baxter robots; and built a KUKA kinematics library with analytic, finite-difference, and URDF cross-checks. Embedded and FPGA coursework keeps the hardware layer concrete rather than abstract.",
+    "Earlier projects gave me the rest of the stack. I led a four-person team that fielded an 18-DoF hexapod at the NASA Colorado Robotics Challenge, designing its electrical system and extending its firmware; implemented LiDAR point-cloud algorithms for a five-person debris-analysis project; restored legacy Sawyer and Baxter robots; and built a KUKA kinematics library with analytic, finite-difference, and URDF cross-checks. Embedded and FPGA coursework keeps the hardware layer concrete rather than abstract.",
     "The research question I want to pursue is how autonomous robots generalize and continue improving after deployment: how embodiment, viewpoint, action representation, data selection, and closed-loop feedback interact outside a curated training distribution. After a master's, I want to work as a robot learning engineer or research engineer building general-purpose autonomous systems. I value research that survives contact with a real platform and engineering that produces conclusions, not only demos.",
   ],
 
@@ -71,11 +71,11 @@ export const profile: Profile = {
 
   experience: [
     {
-      title: "Research Assistant — Humanoid Robotics",
+      title: "Research Assistant — Humanoid Robot Intelligence",
       organization: "Fort Lewis College · Advisor: Dr. Yiyan Li",
-      dateLabel: "May – Aug 2026 · paper in preparation",
+      dateLabel: "May – Aug 2026",
       summary:
-        "Integrated the Booster K1 into a vision-language navigation benchmark, completed a 1,077-episode simulation evaluation, decomposed reach and stop failures, and ran a pre-specified 2,400-episode viewpoint sweep whose null contrasts exposed the evaluation-reliability problem now in a paper in preparation.",
+        "Integrated the Booster K1 into a vision-language navigation benchmark, completed a 1,077-episode simulation evaluation, decomposed reach and stop failures, and ran a pre-specified 2,400-episode viewpoint sweep whose null contrasts exposed the evaluation-reliability result: two identically configured 300-episode runs agreed in aggregate (15.0% vs 16.0%) but disagreed on 11.0% of episodes.",
       href: "/projects/k1-navila-research/",
     },
     {
@@ -88,7 +88,7 @@ export const profile: Profile = {
     },
     {
       title: "Senior Design — Bridge Crack-Inspection Arm",
-      organization: "Fort Lewis College · Advisor: Dr. Yiyan Li · two-person team",
+      organization: "Fort Lewis College · Advisor: Dr. Yiyan Li · two-person team; my teammate builds a separate robot, so all arm work is mine",
       dateLabel: "Sep 2026 – present",
       summary:
         "Brought up a 6+1-DoF arm over CAN at 200 Hz, identified gravity/friction feed-forward on the real hardware (post-tuning holds ≤ 0.005 rad over a 41-run logged campaign), and ran guarded trajectories feeding a zero-shot crack-segmentation pipeline.",
@@ -96,19 +96,27 @@ export const profile: Profile = {
     },
     {
       title: "Team Lead — Field Robotics",
-      organization: "NASA Colorado Robotics Challenge · four-person team",
+      organization: "NASA Colorado Robotics Challenge · Advisor: Dr. Charles Hakes · four-person team",
       dateLabel: "Oct 2025 – Apr 2026",
       summary:
-        "Led integration for an 18-DoF hexapod fielded at Great Sand Dunes, working across electrical, sensing, control, power, and team interfaces.",
+        "Led a four-person team fielding an 18-DoF hexapod at Great Sand Dunes; designed the electrical system (Arduino Mega, 9-DoF IMU, bump sensors, LiPo + SBEC power) and extended the firmware with gyro-magnetometer heading hold, gyro-bias calibration, and bump avoidance.",
       href: "/projects/hexapod-nasa-challenge/",
     },
     {
-      title: "Research Assistant — AI & Robotics",
+      title: "Research Assistant — Computer Vision & Robotics",
       organization: "Fort Lewis College · Advisor: Dr. Kevin Wedeward",
       dateLabel: "May – Sep 2025",
       summary:
         "Restored legacy Sawyer and Baxter platforms, rebuilt a Dockerized ROS 1 + ROS 2 workstation, and developed synthetic-data and inspection tooling; 2nd place at the 2025 FLC Physics & Engineering Symposium.",
       href: "/projects/legacy-robot-restoration-inspection/",
+    },
+    {
+      title: "Research Assistant — AI & Data",
+      organization: "Fort Lewis College · Advisor: Dr. Matthew Welz",
+      dateLabel: "Aug 2024 – Oct 2025",
+      summary:
+        "Designed a Power Apps music-library database for the FLC radio station (designed for 60+ daily users, handed off pre-deployment), prototyped embedding-based artist-name matching, and built LLM agents that query Neo4j in natural language.",
+      href: "/projects/kdur-data-platform/",
     },
   ],
 

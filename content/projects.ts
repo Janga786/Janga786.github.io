@@ -65,7 +65,7 @@ export const projects: Project[] = [
     oneLiner:
       "A completed 1,077-episode simulation benchmark, an audited K1 locomotion stack, and a 2,400-episode controlled sweep whose strongest finding is about evaluation reliability itself.",
     summary:
-      "This project adds the Booster K1 as a new embodiment in the VLN-CE-Isaac / NaVILA evaluation stack. The canonical run completed all 1,077 R2R val-unseen episodes in Isaac Sim: 197 successes (18.3% SR), 326 episodes that reached the goal radius at some point (30.3% oracle success), 10.9% SPL, and 7.59 m final navigation error. The most useful result was the decomposition. Of the 326 reaches, 129 failed to stop, while 751 never reached the goal region. That separates arrival recognition from the dominant exploration failure class. A pre-specified 2,400-episode camera-height and image-transform sweep completed in August 2026 with every pre-specified contrast null; the strongest finding was about evaluation reliability itself — identically configured 300-episode runs disagreed on 11.0% of episode outcomes (Cohen's κ = 0.58), and a fixed wall-clock limit censored conditions unequally. That reliability result is the basis of a first-author paper in preparation for AIRC 2027.",
+      "This project adds the Booster K1 as a new embodiment in the VLN-CE-Isaac / NaVILA evaluation stack. The canonical run completed all 1,077 R2R val-unseen episodes in Isaac Sim: 197 successes (18.3% SR), 326 episodes that reached the goal radius at some point (30.3% oracle success), 10.9% SPL, and 7.59 m final navigation error. The most useful result was the decomposition. Of the 326 reaches, 129 failed to stop, while 751 never reached the goal region. That separates arrival recognition from the dominant exploration failure class. A pre-specified 2,400-episode camera-height and image-transform sweep completed in August 2026 with every pre-specified contrast null; the strongest finding was about evaluation reliability itself — identically configured 300-episode runs disagreed on 11.0% of episode outcomes (Cohen's κ = 0.58), and a fixed wall-clock limit censored conditions unequally (timeouts of 2.0% vs 12.3% across two 300-episode runs). The two runs agreed in aggregate (15.0% vs 16.0%) but disagreed on 11.0% of episodes (33/300), and only 48% (30/63) of episodes that succeeded in either run succeeded in both.",
     role:
       "Research assistant — K1 embodiment integration, evaluation harness, locomotion diagnostics, evidence ledger, and experiment design",
     teamContext:
@@ -104,7 +104,7 @@ export const projects: Project[] = [
     experimentalDesign: [
       "Scored the complete 1,077-episode R2R val-unseen set under one canonical simulation configuration and reported SR, oracle success, SPL, and final navigation error.",
       "Partitioned every episode into never reached, reached without stopping, or successful to separate exploration and arrival-recognition behavior.",
-      "Pre-specified a follow-up camera-height and image-transform sweep; a nondeterminism probe then undercut the preregistered paired test, so the paired design was dropped before launch and the analysis used unpaired comparisons (the change is documented in the repository's known-gaps ledger). The 2,400-episode sweep completed in August 2026 with all pre-specified contrasts null, and its reliability findings became the subject of the paper in preparation.",
+      "Pre-specified a follow-up camera-height and image-transform sweep; a nondeterminism probe then undercut the preregistered paired test, so the paired design was dropped before launch and the analysis used unpaired comparisons (the change is documented in the repository's known-gaps ledger). The 2,400-episode sweep completed in August 2026 with all pre-specified contrasts null; its evaluation-reliability result is that two identically configured 300-episode runs agreed in aggregate (15.0% vs 16.0%) but disagreed on 11.0% of episodes (Cohen's κ = 0.58).",
     ],
     failureAnalysis: [
       "751 episodes never entered the goal radius, making exploration the dominant observed failure class.",
@@ -119,7 +119,7 @@ export const projects: Project[] = [
     provenance: [
       "NaVILA, VLN-CE-Isaac, Isaac Lab, RSL-RL, and Booster training/deployment code are upstream foundations; the contribution is the K1-specific integration, experiments, diagnostics, and analysis.",
       "Substantial parts of the implementation and the unattended sweep operations were AI-assisted under my direction; the archived handoff notes in the repository record that process. The experiment designs, decisions, and claims are mine.",
-      "The canonical 18.3% result is simulation-only. A live May 2026 NaVILA episode on the real K1 is documented in the repository: a relay screen recording shows the VLM issuing the velocity commands (executed by Booster's built-in walking controller), paired with a dated third-person clip. The trained RL policy has not walked on hardware, and no navigation score is claimed for the live session.",
+      "The canonical 18.3% result is simulation-only. Two live natural-language NaVILA episodes ran on the real K1 in May 2026 with zero teleoperation (one captured on video, the second on the project record): a relay screen recording shows the VLM issuing the velocity commands (executed by Booster's built-in walking controller), paired with a dated third-person clip. The trained RL policy has not walked on hardware, and no navigation score is claimed for the live session.",
       "The recorded below-1% prior baseline is useful context but its original raw run directory was unavailable during the evidence audit; the final 1,077-episode result is fully preserved and regenerable.",
     ],
     architectureSummary:
@@ -154,7 +154,7 @@ export const projects: Project[] = [
         label: "Controlled sweep",
         hint: "",
         status: "available",
-        value: "Completed August 2026: 2,400 episodes, all pre-specified contrasts null; the reliability findings feed the AIRC 2027 paper in preparation.",
+        value: "Completed August 2026: 2,400 episodes, all pre-specified contrasts null; two identically configured 300-episode runs agreed in aggregate (15.0% vs 16.0%) but disagreed on 11.0% of episodes.",
       },
     ],
     metrics: [
@@ -213,7 +213,7 @@ export const projects: Project[] = [
       { kind: "report", label: "Sweep status", href: "https://github.com/Janga786/k1-navila-research/blob/main/SWEEP_STATUS.md" },
     ],
     seoDescription:
-      "Booster K1 humanoid navigation research: a complete 1,077-episode NaVILA simulation benchmark, failure decomposition, locomotion diagnostics, and an evaluation-reliability study (AIRC 2027, in preparation).",
+      "Booster K1 humanoid navigation research: a complete 1,077-episode NaVILA simulation benchmark, failure decomposition, locomotion diagnostics, and an evaluation-reliability study showing identically configured runs disagreeing on 11.0% of episodes.",
     sortOrder: 1,
   },
 
@@ -380,13 +380,13 @@ export const projects: Project[] = [
     oneLiner:
       "Senior-design bridge crack-inspection arm: 7-motor CAN bring-up at 200 Hz, gravity/friction feed-forward identified on the real hardware, guarded first trajectories, and a zero-shot crack-segmentation pipeline.",
     summary:
-      "The reBot B601-DM is a 6+1-DoF arm being developed into a bridge crack-inspection system by a two-person senior-design team. I brought up all seven motors over CAN in MIT mode at a 200 Hz control rate (per-motor setpoint, stiffness/damping gains, and feed-forward torque), measured the elbow's real gravity load at 6.6 N\u00b7m against the URDF's 2.7 N\u00b7m prediction, and identified gravity and friction feed-forward on the hardware: post-tuning holds cut loaded-joint error from 0.04\u20130.05 rad to \u2264 0.005 rad across a 41-run logged campaign (28 completed; aborted and refused runs are logged too). The first guarded trajectory ran on the physical arm on 2026-10-22, tracking within 0.023 rad with no guard fault; a visible 3.3 Hz shoulder/elbow wobble was traced to low damping and roughly halved by raising derivative gain. On the perception side, a wrist RealSense D405 streams into zero-shot OpenCrack/nnU-Net segmentation (weights used as released), producing crack masks about 17 times a second and offline trace-path demos. No detection accuracy on real imagery is claimed yet.",
+      "The reBot B601-DM is a 6+1-DoF arm being developed into a bridge crack-inspection system as a two-person senior-design project; my teammate is building a separate robot, so all work on this arm is mine. I brought up all seven motors over CAN in MIT mode at a 200 Hz control rate (per-motor setpoint, stiffness/damping gains, and feed-forward torque), measured the elbow's real gravity load at 6.6 N\u00b7m against the URDF's 2.7 N\u00b7m prediction, and identified gravity and friction feed-forward on the hardware: post-tuning holds cut loaded-joint error from 0.04\u20130.05 rad to \u2264 0.005 rad across a 41-run logged campaign (28 completed; aborted and refused runs are logged too). The first guarded trajectory ran on the physical arm on 2026-10-22, tracking within 0.023 rad with no guard fault; a visible 3.3 Hz shoulder/elbow wobble was traced to low damping and roughly halved by raising derivative gain. On the perception side, a wrist RealSense D405 streams into zero-shot OpenCrack/nnU-Net segmentation (weights used as released), producing crack masks about 17 times a second and offline trace-path demos. No detection accuracy on real imagery is claimed yet.",
     role:
-      "Control, kinematics/IK, planning, and tuning \u2014 the motion stack documented in the repository is mine",
+      "Sole owner of the arm \u2014 bring-up, control, kinematics/IK, planning, tuning, and vision integration",
     teamContext:
-      "Two-person Fort Lewis College senior-design team advised by Dr. Yiyan Li; supported in part by an FLC undergraduate research grant. Hardware sessions are operator-attended.",
+      "Two-person Fort Lewis College senior-design team advised by Dr. Yiyan Li; my teammate builds a separate robot, and the arm work is entirely mine; supported in part by an FLC undergraduate research grant. Hardware sessions are operator-attended.",
     advisor: "Dr. Yiyan Li, Fort Lewis College",
-    collaborators: "Two-person capstone team; crack-segmentation weights are upstream work, credited.",
+    collaborators: "Two-person senior-design team; my teammate builds a separate robot, so the arm (bring-up, control, kinematics/IK, planning, tuning, vision integration) is mine. Crack-segmentation weights are upstream work, credited.",
     upstreamSystems:
       "reBot B601-DM arm and vendor SDK, OpenCrack nnU-Net weights (used as released), RealSense D405, USB\u2013CAN bridge.",
     stack: ["CAN bus", "MIT-mode motor control", "Python", "DLS IK", "Minimum-jerk planning", "RealSense D405", "nnU-Net"],
@@ -419,7 +419,7 @@ export const projects: Project[] = [
       "Planned extensions: MPC and corrections learned from data on top of the identified feed-forward.",
     ],
     provenance: [
-      "Two-person senior-design team; the control, kinematics/IK, planning, and tuning work presented here is mine, and hardware sessions are operator-attended.",
+      "Two-person senior-design team in which my teammate builds a separate robot; all work on this arm (bring-up, control, kinematics/IK, planning, tuning, and vision integration) is mine, and hardware sessions are operator-attended.",
       "Substantial parts of the implementation were carried out with AI coding agents under my direction (the repository's task cards are their work orders); tuning decisions and verification runs are the operator's own, with raw logs committed.",
       "Crack segmentation uses the OpenCrack nnU-Net weights exactly as released \u2014 no training is claimed; the arm, SDK, and camera are vendor systems.",
     ],
@@ -699,13 +699,14 @@ export const projects: Project[] = [
     isPlaceholder: false,
     dateLabel: "Oct 2025 – Apr 2026",
     oneLiner:
-      "A four-person team integrated and fielded an 18-DoF hexapod at Great Sand Dunes; my work centered on team integration, electrical/control interfaces, and a later coupled-oscillator gait study.",
+      "A four-person team integrated and fielded an 18-DoF hexapod at Great Sand Dunes; I led the team, designed the electrical system, extended the firmware, and later built a coupled-oscillator gait simulator.",
     summary:
-      "The challenge required a walking robot to operate on loose sand and uneven terrain, where power distribution, sensing, gait stability, and field repair mattered at the same time. I led the four-person team and worked on the electrical/control integration: Arduino Mega, ICM-20948 IMU, bump sensing, LiPo/SBEC power, and a three-bit interface for selecting eight behaviors. After the field project, I built a Python Kuramoto coupled-oscillator simulator in which wave, ripple, and tripod phase relationships emerge from one model, then packaged it with a 34-test suite and visualizations.",
+      "The challenge required a walking robot to operate on loose sand and uneven terrain, where power distribution, sensing, gait stability, and field repair mattered at the same time. I led the four-person team, designed the electrical system (Arduino Mega, ICM-20948 9-DoF IMU, bump sensors, LiPo + SBEC power, and a three-bit interface for selecting eight behaviors), and extended the firmware with gyro-magnetometer heading hold, gyro-bias calibration, and bump avoidance. After the field project, I built a Python Kuramoto coupled-oscillator simulator in which wave, ripple, and tripod phase relationships emerge from one model, then packaged it with a 34-test suite and visualizations.",
     role:
-      "Team lead and systems integrator — electrical/control interfaces, field integration, and later CPG simulation/testing",
+      "Team lead — electrical system design, firmware extensions, field integration, and later CPG simulation/testing",
     teamContext:
       "Four-person challenge team. The physical robot, chassis, firmware, and field work were collaborative and include inherited reference implementations.",
+    advisor: "Dr. Charles Hakes, Fort Lewis College",
     collaborators: "Four-person challenge team; physical integration and field operation were collaborative.",
     upstreamSystems:
       "Inherited firmware by Mark W, team-authored code under another GitHub account, and external reference geometry / IK.",
@@ -718,8 +719,8 @@ export const projects: Project[] = [
       "It shows the difference between a locomotion idea and a robot that must be wired, powered, repaired, and operated outdoors by a team.",
     contributions: [
       "Led a four-person team through system integration and field operation at Great Sand Dunes National Park.",
-      "Designed and integrated the Arduino/IMU/bump-sensor/power architecture and three-bit behavior-selection interface documented in project materials.",
-      "Worked on heading-hold, calibration, and obstacle-response behavior within the team firmware stack.",
+      "Designed the electrical system: Arduino Mega, 9-DoF IMU, bump sensors, LiPo + SBEC power, and the three-bit behavior-selection interface documented in project materials.",
+      "Extended the team firmware with gyro-magnetometer heading hold, gyro-bias calibration, and bump avoidance.",
       "Built the later Kuramoto CPG simulator, gait visualizations, phase analysis, and 34-test CI suite.",
       "Published field photographs, wiring documentation, firmware context, CAD references, simulations, and explicit attribution notes in one evidence repository.",
     ],
@@ -786,7 +787,7 @@ export const projects: Project[] = [
       { kind: "video", label: "Physical motion clip", href: "/media/hexapod-dance.mp4" },
     ],
     seoDescription:
-      "A four-person, 18-DoF hexapod fielded at the NASA Colorado Robotics Challenge, with attributed electrical/control integration and a later Kuramoto CPG simulation and 34-test suite.",
+      "A four-person, 18-DoF hexapod fielded at the NASA Colorado Robotics Challenge, with an electrical system I designed, firmware I extended, and a later Kuramoto CPG simulation and 34-test suite.",
     sortOrder: 6,
   },
 
@@ -803,7 +804,7 @@ export const projects: Project[] = [
       "Restored two unsupported industrial arms, rebuilt the ROS workstation, and developed synthetic-data and YOLO tooling for an inspection research direction recognized at the 2025 FLC symposium.",
     summary:
       "The project began with two nonfunctional legacy robots and limited vendor support. I diagnosed controller and boot problems, restored operating environments, and rebuilt a Dockerized ROS 1 (Indigo) + ROS 2 (Humble) MoveIt/Gazebo workstation so the arms could again be simulated and programmed. In parallel, I developed Blender/Python synthetic-data tooling and YOLO-based inspection experiments. In August 2025 we also ran the detector on real panels as a qualitative end-to-end check. An earlier detector metric was removed after an internal evidence audit found the training configuration reused training images for validation, with no preserved held-out set. What remains is still useful: robot restoration, systems troubleshooting, synthetic-data generation, inspection tooling, and a symposium-award research direction.",
-    role: "Solo research assistant under Dr. Kevin Wedeward — restoration, ROS environment, synthetic data, and inspection experiments",
+    role: "Research Assistant, Computer Vision & Robotics (solo project) under Dr. Kevin Wedeward — restoration, ROS environment, synthetic data, and inspection experiments",
     teamContext: "Individual undergraduate research project with faculty supervision.",
     advisor: "Dr. Kevin Wedeward, Fort Lewis College",
     collaborators: "Individual undergraduate research with faculty supervision.",
@@ -986,7 +987,7 @@ export const projects: Project[] = [
     dateLabel: "Aug 2024 – Oct 2025",
     oneLiner: "A Power Apps catalog and scheduling system designed with a community radio station for more than 60 daily users, plus embedding and graph-database prototypes — handed off before deployment.",
     summary: "Working with Fort Lewis College's KDUR radio station, I designed and built a Power Apps data application for the music library and station workflows. The intended population was more than 60 daily DJs and staff members. I later explored an applied-AI layer: vector embeddings for artist-name normalization and a Neo4j prototype with natural-language-to-Cypher agents. When I moved full-time into robotics research, the application was handed off before deployment. The project therefore demonstrates user-centered data modeling, prototyping, and handoff — not verified production adoption.",
-    role: "Research assistant — application design, data modeling, embedding prototype, graph-database exploration, and handoff",
+    role: "Research Assistant, AI & Data — application design, data modeling, embedding prototype, graph-database exploration, and handoff",
     teamContext: "Built with KDUR stakeholders under Dr. Matthew Welz; intended users informed requirements, but production adoption was not preserved.",
     advisor: "Dr. Matthew Welz, Fort Lewis College",
     collaborators: "KDUR staff and intended users contributed workflow requirements and feedback.",

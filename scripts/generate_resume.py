@@ -105,7 +105,7 @@ def entry_heading(title: str, dates: str, subtitle: str | None = None):
     title_text = title if subtitle is None else f"{title}<br/><font name='Helvetica' color='#4f5d73' size='7.4'>{subtitle}</font>"
     table = Table(
         [[Paragraph(title_text, ENTRY), Paragraph(dates, DATE)]],
-        colWidths=[6.1 * inch, 1.0 * inch],
+        colWidths=[5.95 * inch, 1.15 * inch],
         hAlign="LEFT",
     )
     table.setStyle(
@@ -166,60 +166,59 @@ def build_resume():
     )
     story.append(Paragraph(contact, SMALL))
     story.extend(section_heading("Education"))
-    story.append(entry_heading("Fort Lewis College — B.S. Computer Engineering", "May 2027", "Minors: Mathematics & Business Administration · GPA 3.65 · Upper-division GPA 3.8"))
+    story.append(entry_heading("Fort Lewis College (FLC), Durango, CO — B.S. Computer Engineering", "Expected May 2027", "Minors in Mathematics and Business Administration · Cumulative GPA 3.65 · Upper-division GPA 3.80"))
+    story.append(Paragraph("<b>Coursework:</b> Intro to Robotics; Systems &amp; Control; CE 433 Embedded Devices (FPGA design); Digital Signal Processing; Engineering Statistics (calculus-based); Differential Equations; Calculus III. Fall 2026: Linear Algebra, Discrete Math, Analog Electronics; Spring 2027: semiconductor fab (FLC nanolab).", BODY))
+    story.append(Paragraph("<b>Embedded projects:</b> custom ATmega PCB design; FLC microcontroller-board bring-up with C drivers (GPIO, PWM, ADC, UART).", BODY))
 
-    story.extend(section_heading("Research Experience"))
+    story.extend(section_heading("Research &amp; Engineering Experience"))
     story.append(KeepTogether([
-        entry_heading("Research Assistant — Humanoid Robotics", "May – Aug 2026 · paper in prep", "Fort Lewis College · Advisor: Dr. Yiyan Li · Independent undergraduate research"),
-        bullet("Integrated the Booster K1 into VLN-CE-Isaac / NaVILA and completed all <b>1,077</b> R2R val-unseen simulation episodes: <b>18.3% success</b>, <b>30.3% oracle success</b>, 10.9% SPL, and 7.59 m final navigation error."),
-        bullet("Decomposed outcomes into 751 never-reached, 129 reached-without-stopping, and 197 successful episodes, separating exploration from arrival recognition and motivating a controlled viewpoint study."),
-        bullet("Ran a preregistered <b>2,400-episode</b> viewpoint/transform sweep; all pre-specified contrasts were null, and identically configured runs disagreed on <b>11.0%</b> of episode outcomes — the evaluation-reliability result now in a first-author paper in preparation (AIRC 2027)."),
-        bullet("Extended upstream K1 training/deployment surfaces with environment configuration, reward and observation-contract checks, wrappers, validators, command filtering, and safety-aware mode handling; canonical results include per-episode artifacts and a public evidence ledger."),
+        entry_heading("Research Assistant, Humanoid Robot Intelligence", "May 2026 – Aug 2026", "Advisor: Dr. Yiyan Li · Booster K1 humanoid"),
+        bullet("Built a two-tier stack: NaVILA, an 8-billion-parameter vision-language navigation model (~1 Hz), commanding a reinforcement-learning locomotion policy I trained in Isaac Sim/Isaac Lab (50 Hz; simulation only)."),
+        bullet("Integrated the K1 into the VLN-CE-Isaac benchmark and ran all <b>1,077</b> episodes; over 22 training runs (~270 GPU-hours) and pipeline fixes, including termination and camera-warmup fixes that more than doubled walking distance, raised success from under 1% to <b>18.3%</b>."),
+        bullet("Ran a preregistered <b>2,400-episode</b> ablation: two identically configured 300-episode runs agreed in aggregate (15.0% vs. 16.0%) but disagreed on <b>11.0%</b> of episodes (Cohen's kappa = 0.58); a fixed time limit censored conditions unequally (2.0% vs. 12.3% timeouts)."),
+        bullet("Built a relay (RTX 5090 VLM inference, ~350 ms; Booster SDK velocity control) that ran NaVILA live on the physical K1 for two natural-language episodes with zero teleoperation, using Booster's built-in walker."),
+        bullet("Built a ROS 2 cart-seek stack (YOLO-World): walks the K1 to a cart, stops it ~1 m away (Booster's walker); ~25 live runs."),
     ]))
     story.append(Spacer(1, 2.2))
     story.append(KeepTogether([
-        entry_heading("Independent Research — xembench", "2026", "Language-grounded manipulation across a Franka arm and Unitree G1 in ManiSkill3"),
-        bullet("Designed and executed a two-embodiment benchmark with a canonical 21-D action interface, 1,202 demonstrations, 18 BC policies, and a <b>73-cell / 6,550-episode</b> baseline matrix; reported near-zero transfer under weak native precision policies."),
-        bullet("Ran a failure-driven data round and intervention study; action chunking improved tool-pulling success from <b>1.3% to 14.7%</b> across three seeds, while grasp-critical tasks remained near zero. AI-assisted implementation is documented in the repository."),
+        entry_heading("Senior Design: Bridge Crack-Inspection Robot Arm", "Sep 2026 – present", "Advisor: Dr. Yiyan Li · reBot B601-DM, 6+1 DoF"),
+        bullet("Brought up all seven motors over CAN with a <b>200 Hz</b> control loop (setpoint, stiffness, damping, feed-forward torque per motor); built the Jacobian, inverse kinematics, and a minimum-jerk planner, testing every move in simulation first."),
+        bullet("Measured the elbow's gravity load with an up-and-down torque test (6.6 N·m vs. 2.7 N·m in the URDF); gravity/friction feed-forward and gain tuning cut loaded-joint holding error from 0.04–0.05 to at most <b>0.005 rad</b> (41 logged runs)."),
     ]))
     story.append(Spacer(1, 2.2))
     story.append(KeepTogether([
-        entry_heading("Team Lead — NASA Colorado Robotics Challenge", "Oct 2025 – Apr 2026", "Fort Lewis College · Four-person team"),
-        bullet("Led integration for an 18-DoF hexapod fielded at Great Sand Dunes; worked on Arduino/IMU/bump-sensor/power integration and a three-bit behavior interface, with team and inherited-code provenance stated publicly."),
-        bullet("Built a later Python Kuramoto coupled-oscillator gait simulator and 34-test CI suite; the simulator is presented separately from the physical challenge firmware."),
+        entry_heading("Research Assistant, Computer Vision &amp; Robotics", "May 2025 – Sep 2025", "Advisor: Dr. Kevin Wedeward · Solo project"),
+        bullet("Revived two non-functional Rethink robots (Sawyer, Baxter) with no vendor support: traced Sawyer's boot failure to a dead CMOS battery that had reset its BIOS into an incompatible Secure Boot setting, got the needed Intera update through outreach to other universities, and set up ROS 1/ROS 2 with Docker, MoveIt, and Gazebo."),
+        bullet("Trained a YOLOv8 solar-panel thermal hotspot detector with a Blender synthetic-data pipeline and checked it qualitatively on real panels; <b>2nd place</b>, FLC Physics &amp; Engineering Symposium, the highest-placing solo project."),
     ]))
     story.append(Spacer(1, 2.2))
     story.append(KeepTogether([
-        entry_heading("Research Assistant — AI & Robotics", "May – Sep 2025", "Fort Lewis College · Advisor: Dr. Kevin Wedeward · Solo project"),
-        bullet("Restored legacy Sawyer and Baxter platforms, rebuilt a Dockerized ROS 1 + ROS 2 (Indigo/Humble) MoveIt and Gazebo workstation, and developed Blender/Python synthetic-data and YOLO inspection tooling, tested qualitatively on real panels; 2nd place, FLC Physics &amp; Engineering Symposium 2025."),
+        entry_heading("Team Lead, Colorado Robotics Challenge (NASA Space Grant)", "Oct 2025 – Apr 2026", "Advisor: Dr. Charles Hakes"),
+        bullet("Led a 4-person team; designed the electrical system of an 18-DoF hexapod (Arduino Mega, 9-DoF IMU, bump sensors, LiPo + SBEC power) and extended its firmware: gyro-magnetometer heading hold, gyro-bias calibration, bump avoidance."),
+        bullet("Built a Kuramoto coupled-oscillator gait simulator (tripod, wave, ripple gaits from one system); open-sourced, <b>34-test</b> CI."),
+    ]))
+    story.append(Spacer(1, 2.2))
+    story.append(KeepTogether([
+        entry_heading("Research Assistant, AI &amp; Data", "Aug 2024 – Oct 2025", "Advisor: Dr. Matthew Welz"),
+        bullet("Built a Power Apps music-library database with the FLC radio station, designed for 60+ daily users (handed off pre-deployment); prototyped embedding-based artist-name matching and LLM agents querying a Neo4j graph in natural language."),
     ]))
 
-    story.extend(section_heading("Selected Technical Work"))
-    story.append(KeepTogether([
-        entry_heading("Bridge Crack-Inspection Arm — reBot B601-DM (Senior Design)", "Sep 2026 – Present", "Two-person team · Advisor: Dr. Yiyan Li"),
-        bullet("Brought up 7 motors over CAN at <b>200 Hz</b> (MIT mode); measured the elbow gravity load (6.6 N·m vs the URDF's 2.7 N·m) and identified gravity/friction feed-forward on hardware, cutting loaded-joint hold error to <b>≤ 0.005 rad</b> in post-tuning holds across a 41-run logged campaign."),
-        bullet("Built the analytic Jacobian, DLS IK, and minimum-jerk planner behind a last-line safety guard; the first guarded trajectory tracked within 0.023 rad, and a wrist D405 runs zero-shot crack segmentation at ~17 Hz."),
-    ]))
-    story.append(KeepTogether([
-        entry_heading("KUKA KR 6 Kinematics & Verification", "2026", "Individual robotics course project; later packaged as a public library"),
-        bullet("Implemented FK, closed-form position IK, a 6×6 geometric Jacobian, singularity diagnostics, inverse velocity kinematics, and trajectories; verified with finite differences, 200 random round trips, a generated URDF, and <b>39 tests</b>."),
-    ]))
+    story.extend(section_heading("Awards, Honors &amp; Programs"))
+    story.append(Paragraph("2nd Place, FLC Physics &amp; Engineering Symposium (2025) · Katz School of Business Leadership Award (2024) · New Registered Student Organization of the Year (2023–24) · Goldman Sachs Emerging Leaders Series (2024)", BODY))
 
-    story.extend(section_heading("Technical Skills"))
+    story.extend(section_heading("Leadership &amp; Service"))
+    story.append(bullet("<b>Co-Founder &amp; President, Entrepreneurial Ventures Association</b> (2023–24): led an 8-person executive team; ran a pitch competition allocating $1,500 in micro-grants; brought NASA's Technology Transfer University (T2U) program to campus."))
+    story.append(bullet("<b>Student Representative, FLC Strategic Implementation Committee</b> (2025–26): one of four students working with the college president, trustees, and deans on the 2025–2030 Strategic Plan."))
+    story.append(bullet("STEM Tutor (2024–25) · Chip Competition Manager, Nicholas Cisewski Memorial Golf Tournament for pediatric cancer research (2020–present)"))
+
+    story.extend(section_heading("Skills"))
     skill_rows = [
-        ("Languages", "Python, C++, Verilog, JavaScript / TypeScript, SQL, Bash"),
-        ("Robot learning / AI", "PyTorch, behavior cloning, PPO, NaVILA, vision-language navigation, YOLO, experiment design"),
-        ("Robotics", "Isaac Sim / Lab, ManiSkill3, MuJoCo, ROS / ROS 2, MoveIt, Gazebo, kinematics, motion planning"),
-        ("Hardware / tools", "Arduino, FPGA / Vivado, PCB design, sensors, Git, Docker, Linux, AWS, PostgreSQL, Neo4j"),
+        ("Robotics &amp; ML", "PyTorch, reinforcement learning, Isaac Sim/Isaac Lab, MuJoCo, ROS 1/ROS 2, MoveIt, Gazebo, YOLOv8, YOLO-World, Open3D"),
+        ("Control &amp; Hardware", "PD and feed-forward motor control over CAN, trajectory planning, board bring-up, soldering, embedded C drivers (GPIO, PWM, ADC, UART), ATmega board design, oscilloscope, logic analyzer, FPGA (Vivado)"),
+        ("Programming", "Python, C++, C, Verilog, SQL; Linux, Docker, Git · Spanish (conversational)"),
     ]
     for label, value in skill_rows:
         story.append(Paragraph(f"<b>{label}:</b> {value}", BODY))
-
-    story.extend(section_heading("Leadership & Honors"))
-    story.append(Paragraph(
-        "<b>Student Representative, FLC Strategic Implementation Committee</b> · <b>President & Co-Founder, Entrepreneurial Ventures Association</b> (8-person executive team; $1,500 in student micro-grants) · Physics & Engineering Symposium <b>2nd Place</b> (2025) · Dean's List (Spring 2026) · Goldman Sachs Emerging Leaders (2024)",
-        BODY,
-    ))
 
     doc.build(story)
 
