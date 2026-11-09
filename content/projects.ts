@@ -496,7 +496,7 @@ export const projects: Project[] = [
     collaborators: "Individual undergraduate course project; later packaged independently.",
     upstreamSystems:
       "KUKA manufacturer specifications, standard robotics references, NumPy, URDF tooling, and visualization libraries.",
-    stack: ["Python", "NumPy", "DH parameters", "URDF", "Pytest", "GitHub Actions"],
+    stack: ["Python", "NumPy", "DH parameters", "URDF", "GitHub Actions"],
     tags: ["kinematics", "jacobian", "trajectory", "verification"],
     problem:
       "Robotics packages can return a pose without proving that the model, derivative, inverse solution, and robot description agree.",
