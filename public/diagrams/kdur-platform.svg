@@ -22,7 +22,7 @@
 
   <rect x="330" y="90" width="220" height="96" rx="10" class="box"/>
   <text x="350" y="120" class="t">Power Apps platform</text>
-  <text x="350" y="142" class="s">handed off pre-deployment</text>
+  <text x="350" y="142" class="s">handed off before deployment</text>
   <text x="350" y="160" class="s">songs · albums · DJs · shows</text>
 
   <path d="M230 138 H326" class="flow" marker-end="url(#a)"/>
@@ -43,5 +43,6 @@
   <text x="562" y="86" class="s">research layer</text>
 
   <text x="30" y="320" class="s">the application was built with station stakeholders and handed off before deployment;</text>
-  <text x="30" y="340" class="s">the embedding and graph layers remained research prototypes.</text>
+  <text x="30" y="340" class="s">the station has since deployed the system on another platform built on my work.</text>
+  <text x="30" y="360" class="s">the embedding and graph layers remained research prototypes.</text>
 </svg>

@@ -125,7 +125,7 @@ export default function ResumePage() {
         </ResumeSection>
 
         {/* Capability summary */}
-        <ResumeSection label="Capability summary">
+        <ResumeSection label="Skills">
           <ul className="grid gap-3 sm:grid-cols-2">
             {profile.capabilities.map((capability) => (
               <li key={capability.title} className="panel p-5">

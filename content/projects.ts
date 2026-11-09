@@ -67,9 +67,9 @@ export const projects: Project[] = [
     summary:
       "This project adds the Booster K1 as a new embodiment in the VLN-CE-Isaac / NaVILA evaluation stack. The canonical run completed all 1,077 R2R val-unseen episodes in Isaac Sim: 197 successes (18.3% SR), 326 episodes that reached the goal radius at some point (30.3% oracle success), 10.9% SPL, and 7.59 m final navigation error. The most useful result was the decomposition. Of the 326 reaches, 129 failed to stop, while 751 never reached the goal region. That separates arrival recognition from the dominant exploration failure class. A pre-specified 2,400-episode camera-height and image-transform sweep completed in August 2026 with every pre-specified contrast null; the strongest finding was about evaluation reliability itself — identically configured 300-episode runs disagreed on 11.0% of episode outcomes (Cohen's κ = 0.58), and a fixed wall-clock limit censored conditions unequally (timeouts of 2.0% vs 12.3% across two 300-episode runs). The two runs agreed in aggregate (15.0% vs 16.0%) but disagreed on 11.0% of episodes (33/300), and only 48% (30/63) of episodes that succeeded in either run succeeded in both.",
     role:
-      "Research assistant — K1 embodiment integration, evaluation harness, locomotion diagnostics, evidence ledger, and experiment design",
+      "Research assistant (paid, solo project) — K1 embodiment integration, evaluation harness, locomotion diagnostics, evidence ledger, and experiment design",
     teamContext:
-      "Independent undergraduate research under Dr. Yiyan Li at Fort Lewis College, built on NaVILA, VLN-CE-Isaac, Isaac Lab, and Booster Robotics frameworks.",
+      "Paid, solo undergraduate research under Dr. Yiyan Li at Fort Lewis College, built on NaVILA, VLN-CE-Isaac, Isaac Lab, and Booster Robotics frameworks.",
     advisor: "Dr. Yiyan Li, Fort Lewis College",
     collaborators: "Independent undergraduate research with faculty supervision.",
     upstreamSystems:
@@ -119,7 +119,7 @@ export const projects: Project[] = [
     provenance: [
       "NaVILA, VLN-CE-Isaac, Isaac Lab, RSL-RL, and Booster training/deployment code are upstream foundations; the contribution is the K1-specific integration, experiments, diagnostics, and analysis.",
       "Substantial parts of the implementation and the unattended sweep operations were AI-assisted under my direction; the archived handoff notes in the repository record that process. The experiment designs, decisions, and claims are mine.",
-      "The canonical 18.3% result is simulation-only. Two live natural-language NaVILA episodes ran on the real K1 in May 2026 with zero teleoperation (one captured on video, the second on the project record): a relay screen recording shows the VLM issuing the velocity commands (executed by Booster's built-in walking controller), paired with a dated third-person clip. The trained RL policy has not walked on hardware, and no navigation score is claimed for the live session.",
+      "The canonical 18.3% result is simulation-only. Two live natural-language NaVILA episodes ran on the real K1 in May 2026 with zero teleoperation (one captured on video, the second on the project record): a relay screen recording shows the VLM issuing the velocity commands (executed by Booster's built-in walking controller), paired with a dated third-person clip. My trained RL walking policy has not yet worked outside simulation, and no navigation score is claimed for the live session.",
       "The recorded below-1% prior baseline is useful context but its original raw run directory was unavailable during the evidence audit; the final 1,077-episode result is fully preserved and regenerable.",
     ],
     architectureSummary:
@@ -380,13 +380,13 @@ export const projects: Project[] = [
     oneLiner:
       "Senior-design bridge crack-inspection arm: 7-motor CAN bring-up at 200 Hz, gravity/friction feed-forward identified on the real hardware, guarded first trajectories, and a zero-shot crack-segmentation pipeline.",
     summary:
-      "The reBot B601-DM is a 6+1-DoF arm being developed into a bridge crack-inspection system as a two-person senior-design project; my teammate is building a separate robot, so all work on this arm is mine. I brought up all seven motors over CAN in MIT mode at a 200 Hz control rate (per-motor setpoint, stiffness/damping gains, and feed-forward torque), measured the elbow's real gravity load at 6.6 N\u00b7m against the URDF's 2.7 N\u00b7m prediction, and identified gravity and friction feed-forward on the hardware: post-tuning holds cut loaded-joint error from 0.04\u20130.05 rad to \u2264 0.005 rad across a 41-run logged campaign (28 completed; aborted and refused runs are logged too). The first guarded trajectory ran on the physical arm on 2026-10-22, tracking within 0.023 rad with no guard fault; a visible 3.3 Hz shoulder/elbow wobble was traced to low damping and roughly halved by raising derivative gain. On the perception side, a wrist RealSense D405 streams into zero-shot OpenCrack/nnU-Net segmentation (weights used as released), producing crack masks about 17 times a second and offline trace-path demos. No detection accuracy on real imagery is claimed yet.",
+      "The reBot B601-DM is a 6+1-DoF arm being developed into a bridge crack-inspection system as a two-person senior-design project; my teammate is building a second arm from scratch and has not worked on this arm, so all work on this arm is mine. I brought up all seven motors over CAN in MIT mode at a 200 Hz control rate (per-motor setpoint, stiffness/damping gains, and feed-forward torque), measured the elbow's real gravity load at 6.6 N\u00b7m against the URDF's 2.7 N\u00b7m prediction, and identified gravity and friction feed-forward on the hardware: post-tuning holds cut loaded-joint error from 0.04\u20130.05 rad to \u2264 0.005 rad across a 41-run logged campaign (28 completed; aborted and refused runs are logged too). The first guarded trajectory ran on the physical arm on 2026-10-22, tracking within 0.023 rad with no guard fault; a visible 3.3 Hz shoulder/elbow wobble was traced to low damping and roughly halved by raising derivative gain. On the perception side, a wrist RealSense D405 streams into zero-shot OpenCrack/nnU-Net segmentation (weights used as released), producing crack masks about 17 times a second and offline trace-path demos. No detection accuracy on real imagery is claimed yet.",
     role:
       "Sole owner of the arm \u2014 bring-up, control, kinematics/IK, planning, tuning, and vision integration",
     teamContext:
-      "Two-person Fort Lewis College senior-design team advised by Dr. Yiyan Li; my teammate builds a separate robot, and the arm work is entirely mine; supported in part by an FLC undergraduate research grant. Hardware sessions are operator-attended.",
+      "Two-person Fort Lewis College senior-design team advised by Dr. Yiyan Li; my teammate is building a second arm from scratch, so all work on this arm is mine; supported in part by an FLC undergraduate research grant. I run every hardware session.",
     advisor: "Dr. Yiyan Li, Fort Lewis College",
-    collaborators: "Two-person senior-design team; my teammate builds a separate robot, so the arm (bring-up, control, kinematics/IK, planning, tuning, vision integration) is mine. Crack-segmentation weights are upstream work, credited.",
+    collaborators: "Two-person senior-design team; my teammate is building a second arm from scratch, so the arm (bring-up, control, kinematics/IK, planning, tuning, vision integration) is mine. Crack-segmentation weights are upstream work, credited.",
     upstreamSystems:
       "reBot B601-DM arm and vendor SDK, OpenCrack nnU-Net weights (used as released), RealSense D405, USB\u2013CAN bridge.",
     stack: ["CAN bus", "MIT-mode motor control", "Python", "DLS IK", "Minimum-jerk planning", "RealSense D405", "nnU-Net"],
@@ -419,8 +419,8 @@ export const projects: Project[] = [
       "Planned extensions: MPC and corrections learned from data on top of the identified feed-forward.",
     ],
     provenance: [
-      "Two-person senior-design team in which my teammate builds a separate robot; all work on this arm (bring-up, control, kinematics/IK, planning, tuning, and vision integration) is mine, and hardware sessions are operator-attended.",
-      "Substantial parts of the implementation were carried out with AI coding agents under my direction (the repository's task cards are their work orders); tuning decisions and verification runs are the operator's own, with raw logs committed.",
+      "Two-person senior-design team; my teammate is building a second arm from scratch, so all work on this arm is mine.",
+      "I designed the system (the control architecture, how the ROS 2 nodes connect, and the safety gating) and wrote line-by-line pseudocode for much of the software; AI coding agents translated it into Python and C++, with a planning agent writing the task cards in plan/, implementation agents writing the code, and an independent review agent checking each change before it was accepted (docs/ORCHESTRATION.md). All hardware work is mine: motor bring-up, the torque test that found the URDF's gravity error, the gain and feed-forward decisions, and every physical run, with raw logs committed.",
       "Crack segmentation uses the OpenCrack nnU-Net weights exactly as released \u2014 no training is claimed; the arm, SDK, and camera are vendor systems.",
     ],
     architectureSummary:
@@ -463,7 +463,7 @@ export const projects: Project[] = [
       { kind: "image", src: "/media/rebot-replay-measured.jpg", alt: "Rendered replay of measured joint states from the real reBot arm", caption: "Measured-state replay: joint states recorded on the real arm (2026-10-22 smoke run), re-rendered for inspection." },
       { kind: "image", src: "/media/rebot-kd-tuning.png", alt: "Velocity plots comparing low and raised damping gains", caption: "The 3.3 Hz wobble diagnosis: velocity traces at kd 1 vs kd 4 from the first guarded run's evidence." },
       { kind: "image", src: "/media/rebot-tracking.png", alt: "Joint tracking plot from the controller-tuning campaign", caption: "Seven-joint demo tracking from the tuning campaign's committed figures." },
-      { kind: "image", src: "/media/rebot-crack-rehearsal.png", alt: "Simulated rehearsal of a crack-tracing trajectory", caption: "Crack-trace rehearsal in simulation \u2014 trajectories are rehearsed before any powered run." },
+      { kind: "image", src: "/media/rebot-crack-rehearsal.png", alt: "Simulated rehearsal of a crack-tracing trajectory", caption: "Crack-trace rehearsal in simulation \u2014 new motion scripts are rehearsed in simulation before hardware runs." },
       { kind: "image", src: "/media/rebot-trace-overlay.png", alt: "Crack image with planned trace paths overlaid", caption: "Offline demo: zero-shot crack mask converted into planned trace paths (2026-10-23)." },
     ],
     artifacts: [
@@ -703,7 +703,7 @@ export const projects: Project[] = [
     summary:
       "The challenge required a walking robot to operate on loose sand and uneven terrain, where power distribution, sensing, gait stability, and field repair mattered at the same time. I led the four-person team, designed the electrical system (Arduino Mega, ICM-20948 9-DoF IMU, bump sensors, LiPo + SBEC power, and a three-bit interface for selecting eight behaviors), and extended the firmware with gyro-magnetometer heading hold, gyro-bias calibration, and bump avoidance. After the field project, I built a Python Kuramoto coupled-oscillator simulator in which wave, ripple, and tripod phase relationships emerge from one model, then packaged it with a 34-test suite and visualizations.",
     role:
-      "Team lead — electrical system design, firmware extensions, field integration, and later CPG simulation/testing",
+      "Team lead (paid) — electrical system design, firmware extensions, field integration, and later CPG simulation/testing",
     teamContext:
       "Four-person challenge team. The physical robot, chassis, firmware, and field work were collaborative and include inherited reference implementations.",
     advisor: "Dr. Charles Hakes, Fort Lewis College",
@@ -803,9 +803,9 @@ export const projects: Project[] = [
     oneLiner:
       "Restored two unsupported industrial arms, rebuilt the ROS workstation, and developed synthetic-data and YOLO tooling for an inspection research direction recognized at the 2025 FLC symposium.",
     summary:
-      "The project began with two nonfunctional legacy robots and limited vendor support. I diagnosed controller and boot problems, restored operating environments, and rebuilt a Dockerized ROS 1 (Indigo) + ROS 2 (Humble) MoveIt/Gazebo workstation so the arms could again be simulated and programmed. In parallel, I developed Blender/Python synthetic-data tooling and YOLO-based inspection experiments. In August 2025 we also ran the detector on real panels as a qualitative end-to-end check. An earlier detector metric was removed after an internal evidence audit found the training configuration reused training images for validation, with no preserved held-out set. What remains is still useful: robot restoration, systems troubleshooting, synthetic-data generation, inspection tooling, and a symposium-award research direction.",
-    role: "Research Assistant, Computer Vision & Robotics (solo project) under Dr. Kevin Wedeward — restoration, ROS environment, synthetic data, and inspection experiments",
-    teamContext: "Individual undergraduate research project with faculty supervision.",
+      "The project began with two nonfunctional legacy robots and limited vendor support. I diagnosed controller and boot problems, restored operating environments, and rebuilt a Dockerized ROS 1 (Indigo) + ROS 2 (Humble) MoveIt/Gazebo workstation so the arms could again be simulated and programmed. In parallel, I developed Blender/Python synthetic-data tooling and YOLO-based inspection experiments. In August 2025 I also ran the detector on real panels as a qualitative end-to-end check. An earlier detector metric was removed after an internal evidence audit found the training configuration reused training images for validation, with no preserved held-out set. What remains is still useful: robot restoration, systems troubleshooting, synthetic-data generation, inspection tooling, and a symposium-award research direction. This was a paid, solo, full-time research assistantship (May–August 2025), presented at the September 2025 symposium.",
+    role: "Research Assistant, Computer Vision & Robotics (paid, solo project; full-time May–August 2025) under Dr. Kevin Wedeward — restoration, ROS environment, synthetic data, and inspection experiments",
+    teamContext: "Paid, solo undergraduate research project with faculty supervision; full-time May–August 2025, presented at the September 2025 symposium.",
     advisor: "Dr. Kevin Wedeward, Fort Lewis College",
     collaborators: "Individual undergraduate research with faculty supervision.",
     upstreamSystems: "Sawyer and Baxter vendor stacks, ROS 1/ROS 2, MoveIt, Gazebo, Blender, and YOLO.",
@@ -819,7 +819,7 @@ export const projects: Project[] = [
       "Rebuilt a Dockerized ROS 1 (Indigo) + ROS 2 (Humble) workstation with ros1_bridge, MoveIt, and Gazebo for motion-planning and simulation workflows.",
       "Created Blender/Python synthetic inspection scenes, automatic labels, YOLO training tooling, and demonstration assets.",
       "Documented Baxter troubleshooting so future students could reproduce common startup and ROS-network fixes.",
-      "Presented the inspection research direction at the Fort Lewis College Physics & Engineering Symposium, receiving second place.",
+      "Presented the inspection research at the September 2025 symposium: 2nd Place, FLC Physics & Engineering Symposium 2025, the highest-placing solo project.",
     ],
     methodology: [
       "Recovered controller and workstation functionality through hardware inspection, operating-system repair, firmware and BIOS configuration, networking, and ROS environment reconstruction.",
@@ -827,7 +827,7 @@ export const projects: Project[] = [
     ],
     experimentalDesign: [
       "Preserved restoration records, ROS workspaces, troubleshooting notes, generated scenes, labels, and qualitative inspection examples.",
-      "In August 2025 we ran the detector on real panels as a qualitative end-to-end check: Baxter's end effector held a thermal camera over four small test modules, and because four modules could not drive enough current to create a real solar-panel hotspot, we induced one by heating a single cell with a heat gun. On the saved thermal frames, the detector flagged the heated cell as a hotspot every time (thermal frames shown on this page). This was a qualitative confirmation only; a valid held-out detector evaluation remains future work.",
+      "In August 2025 I ran the detector on real panels as a qualitative end-to-end check: Baxter's end effector held a thermal camera over four small test modules, and because four modules could not drive enough current to create a real solar-panel hotspot, I induced one by heating a single cell with a heat gun. On the saved thermal frames, the detector flagged the heated cell as a hotspot every time (thermal frames shown on this page). This was a qualitative confirmation only; a valid held-out detector evaluation remains future work.",
       "Rejected the former detector result because the available configuration reused training images for validation and did not preserve the claimed dataset or valid held-out result file.",
     ],
     failureAnalysis: [
@@ -847,13 +847,13 @@ export const projects: Project[] = [
     evidence: [
       { label: "Restoration record", hint: "", status: "available", value: "Controller photographs, boot/SDK errors, repair notes, ROS workspaces, and troubleshooting guide." },
       { label: "Synthetic-data tooling", hint: "", status: "available", value: "Blender assets, generation scripts, automatic labels, and inspection examples." },
-      { label: "Research recognition", hint: "", status: "available", value: "Second place at the September 2025 Physics & Engineering Symposium." },
+      { label: "Research recognition", hint: "", status: "available", value: "2nd Place, FLC Physics & Engineering Symposium 2025, the highest-placing solo project." },
       { label: "Metric boundary", hint: "", status: "available", value: "An earlier detector metric was removed after the evidence audit found no valid held-out artifact." },
       { label: "Real-panel check", hint: "", status: "available", value: "Saved thermal frames (August 2025) from a Baxter-held camera showing the detector flagging a heat-gun-induced hotspot on small test modules — qualitative only." },
     ],
     metrics: [
       { label: "Robots restored", value: "2", hint: "Sawyer and Baxter." },
-      { label: "Symposium", value: "2nd place", hint: "FLC P&E, Sep 2025." },
+      { label: "Symposium", value: "2nd place", hint: "Highest-placing solo project, FLC P&E 2025." },
       { label: "Inspection tooling", value: "Qualitative", hint: "No held-out metric preserved." },
       { label: "Research mode", value: "Prototype", hint: "Not closed-loop validation." },
     ],
@@ -985,10 +985,10 @@ export const projects: Project[] = [
     featured: false,
     isPlaceholder: false,
     dateLabel: "Aug 2024 – Oct 2025",
-    oneLiner: "A Power Apps catalog and scheduling system designed with a community radio station for more than 60 daily users, plus embedding and graph-database prototypes — handed off before deployment.",
-    summary: "Working with Fort Lewis College's KDUR radio station, I designed and built a Power Apps data application for the music library and station workflows. The intended population was more than 60 daily DJs and staff members. I later explored an applied-AI layer: vector embeddings for artist-name normalization and a Neo4j prototype with natural-language-to-Cypher agents. When I moved full-time into robotics research, the application was handed off before deployment. The project therefore demonstrates user-centered data modeling, prototyping, and handoff — not verified production adoption.",
-    role: "Research Assistant, AI & Data — application design, data modeling, embedding prototype, graph-database exploration, and handoff",
-    teamContext: "Built with KDUR stakeholders under Dr. Matthew Welz; intended users informed requirements, but production adoption was not preserved.",
+    oneLiner: "A Power Apps catalog and scheduling system built with a community radio station and designed for 60+ daily users, plus embedding and graph-database prototypes — handed off before deployment and since deployed by the station on another platform built on my work.",
+    summary: "Working with Fort Lewis College's KDUR radio station, I designed and built a Power Apps data application for the music library and station workflows. The intended population was more than 60 daily DJs and staff members. I later explored an applied-AI layer: vector embeddings for artist-name normalization and a Neo4j prototype with natural-language-to-Cypher agents. When I moved full-time into robotics research, the application was handed off before deployment; the station (KDUR) has since deployed the system on another platform built on my work. The project demonstrates user-centered data modeling, prototyping, and handoff; no active-user count is claimed.",
+    role: "Research Assistant, AI & Data (paid, solo project) — application design, data modeling, embedding prototype, graph-database exploration, and handoff",
+    teamContext: "Paid, solo project under Dr. Matthew Welz, built with KDUR stakeholders; intended users informed requirements.",
     advisor: "Dr. Matthew Welz, Fort Lewis College",
     collaborators: "KDUR staff and intended users contributed workflow requirements and feedback.",
     upstreamSystems: "Microsoft Power Apps, vector-embedding services, Neo4j, and natural-language-to-Cypher tooling.",
@@ -996,7 +996,7 @@ export const projects: Project[] = [
     tags: ["product", "data platform", "embeddings", "community"],
     problem: "Replace fragmented music-library and scheduling workflows while reducing artist-name inconsistency that can affect search and royalty records.",
     systemType: "Stakeholder-informed application + applied-AI prototypes",
-    whyItMatters: "It adds product judgment and real stakeholder collaboration without inflating a handoff into a deployment claim.",
+    whyItMatters: "It adds product judgment and real stakeholder collaboration while keeping my handoff distinct from the station's later deployment.",
     contributions: [
       "Mapped station entities and workflows into a relational Power Apps application for songs, albums, artists, locations, and schedules.",
       "Designed the interface around an intended population of more than 60 daily station users.",
@@ -1022,7 +1022,7 @@ export const projects: Project[] = [
     ],
     provenance: [
       "More than 60 refers to the intended daily user population supplied by the station, not measured active users of a deployed application.",
-      "The Power Apps system was handed off before deployment; the embedding and graph layers remained research prototypes.",
+      "The Power Apps system was handed off before deployment; the station has since deployed the system on another platform built on my work. The embedding and graph layers remained research prototypes.",
     ],
     architectureSummary: "Station workflows feed a structured catalog application; separate experiments test whether embeddings can normalize artist names and whether graph queries can provide a more natural discovery interface.",
     architectureNodes: ["KDUR stakeholder workflows", "Power Apps catalog + schedules", "Structured station data", "Embedding name resolution", "Neo4j / NL-to-Cypher prototype"],
@@ -1030,16 +1030,16 @@ export const projects: Project[] = [
       { label: "Application artifact", hint: "", status: "available", value: "Power Apps screens, data model, and project poster." },
       { label: "Data work", hint: "", status: "available", value: "Catalog-processing scripts, CSV exports, embedding experiments, and graph prototype." },
       { label: "Stakeholder context", hint: "", status: "available", value: "Designed with station workflows and an intended population of more than 60 daily users." },
-      { label: "Status boundary", hint: "", status: "available", value: "Handed off pre-deployment; no active-user or production-impact claim." },
+      { label: "Status boundary", hint: "", status: "available", value: "Handed off before deployment; since deployed by the station on another platform from my work. No active-user count is claimed." },
     ],
     metrics: [
       { label: "Intended users", value: "60+ daily", hint: "Station population, not active users." },
-      { label: "Deployment", value: "Handed off", hint: "Pre-production." },
+      { label: "Deployment", value: "Handed off", hint: "Since deployed by the station on another platform." },
       { label: "AI layer", value: "Prototype", hint: "Embeddings + graph queries." },
       { label: "Domain", value: "Community radio", hint: "KDUR at FLC." },
     ],
     limitations: [
-      "No production telemetry or adoption record was preserved because the application was handed off before deployment.",
+      "No active-user count is claimed: the application was handed off before deployment, and the station's later deployment runs on another platform.",
       "Embedding and natural-language graph-query experiments were prototypes, not validated station services.",
       "The project should support a product/leadership narrative rather than displace stronger robotics evidence.",
     ],
@@ -1050,11 +1050,11 @@ export const projects: Project[] = [
     ],
     media: [
       { kind: "image", src: "/media/kdur-app.webp", alt: "KDUR Power Apps radio-station catalog interface", caption: "Application interface built for station library and workflow needs." },
-      { kind: "diagram", src: "/diagrams/kdur-platform.svg", alt: "KDUR application, handoff status, and separate applied-AI prototypes", caption: "Built application and research prototypes, with pre-deployment status explicit." },
+      { kind: "diagram", src: "/diagrams/kdur-platform.svg", alt: "KDUR application, handoff status, and separate applied-AI prototypes", caption: "Built application and research prototypes, with handoff status explicit." },
       { kind: "image", src: "/media/kdur-graph.webp", alt: "Neo4j graph prototype for radio catalog relationships", caption: "Graph-database exploration for catalog relationships and natural-language querying." },
     ],
     artifacts: [{ kind: "diagram", label: "System diagram", href: "/diagrams/kdur-platform.svg" }],
-    seoDescription: "A KDUR community-radio data application designed for 60+ intended daily users, with embedding and Neo4j prototypes, explicitly labeled as handed off before deployment.",
+    seoDescription: "A KDUR community-radio data application designed for 60+ intended daily users, with embedding and Neo4j prototypes, explicitly labeled as handed off before deployment and since deployed by the station on another platform built on my work.",
     sortOrder: 9,
   },
 ];

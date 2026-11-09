@@ -72,7 +72,7 @@ export const profile: Profile = {
   experience: [
     {
       title: "Research Assistant — Humanoid Robot Intelligence",
-      organization: "Fort Lewis College · Advisor: Dr. Yiyan Li",
+      organization: "Fort Lewis College · Advisor: Dr. Yiyan Li · paid, solo project",
       dateLabel: "May – Aug 2026",
       summary:
         "Integrated the Booster K1 into a vision-language navigation benchmark, completed a 1,077-episode simulation evaluation, decomposed reach and stop failures, and ran a pre-specified 2,400-episode viewpoint sweep whose null contrasts exposed the evaluation-reliability result: two identically configured 300-episode runs agreed in aggregate (15.0% vs 16.0%) but disagreed on 11.0% of episodes.",
@@ -88,15 +88,15 @@ export const profile: Profile = {
     },
     {
       title: "Senior Design — Bridge Crack-Inspection Arm",
-      organization: "Fort Lewis College · Advisor: Dr. Yiyan Li · two-person team; my teammate builds a separate robot, so all arm work is mine",
+      organization: "Fort Lewis College · Advisor: Dr. Yiyan Li · two-person team; my teammate is building a second arm from scratch, so all work on this arm is mine",
       dateLabel: "Sep 2026 – present",
       summary:
-        "Brought up a 6+1-DoF arm over CAN at 200 Hz, identified gravity/friction feed-forward on the real hardware (post-tuning holds ≤ 0.005 rad over a 41-run logged campaign), and ran guarded trajectories feeding a zero-shot crack-segmentation pipeline.",
+        "Brought up a 6+1-DoF arm over CAN at 200 Hz, identified gravity/friction feed-forward on the real hardware (post-tuning holds ≤ 0.005 rad over 41 logged hardware runs, 28 completed), and ran guarded trajectories feeding a zero-shot crack-segmentation pipeline.",
       href: "/projects/rebot-crack-inspection/",
     },
     {
       title: "Team Lead — Field Robotics",
-      organization: "NASA Colorado Robotics Challenge · Advisor: Dr. Charles Hakes · four-person team",
+      organization: "NASA Colorado Robotics Challenge · Advisor: Dr. Charles Hakes · four-person team · paid",
       dateLabel: "Oct 2025 – Apr 2026",
       summary:
         "Led a four-person team fielding an 18-DoF hexapod at Great Sand Dunes; designed the electrical system (Arduino Mega, 9-DoF IMU, bump sensors, LiPo + SBEC power) and extended the firmware with gyro-magnetometer heading hold, gyro-bias calibration, and bump avoidance.",
@@ -104,18 +104,18 @@ export const profile: Profile = {
     },
     {
       title: "Research Assistant — Computer Vision & Robotics",
-      organization: "Fort Lewis College · Advisor: Dr. Kevin Wedeward",
+      organization: "Fort Lewis College · Advisor: Dr. Kevin Wedeward · paid, solo project (full-time May–Aug 2025)",
       dateLabel: "May – Sep 2025",
       summary:
-        "Restored legacy Sawyer and Baxter platforms, rebuilt a Dockerized ROS 1 + ROS 2 workstation, and developed synthetic-data and inspection tooling; 2nd place at the 2025 FLC Physics & Engineering Symposium.",
+        "Restored legacy Sawyer and Baxter platforms, rebuilt a Dockerized ROS 1 + ROS 2 workstation, and developed synthetic-data and inspection tooling; 2nd Place, FLC Physics & Engineering Symposium 2025, the highest-placing solo project.",
       href: "/projects/legacy-robot-restoration-inspection/",
     },
     {
       title: "Research Assistant — AI & Data",
-      organization: "Fort Lewis College · Advisor: Dr. Matthew Welz",
+      organization: "Fort Lewis College · Advisor: Dr. Matthew Welz · paid, solo project",
       dateLabel: "Aug 2024 – Oct 2025",
       summary:
-        "Designed a Power Apps music-library database for the FLC radio station (designed for 60+ daily users, handed off pre-deployment), prototyped embedding-based artist-name matching, and built LLM agents that query Neo4j in natural language.",
+        "Designed a Power Apps music-library database for the FLC radio station (designed for 60+ daily users; handed off before deployment and since deployed by the station on another platform built on my work), prototyped embedding-based artist-name matching, and built LLM agents that query Neo4j in natural language.",
       href: "/projects/kdur-data-platform/",
     },
   ],
@@ -151,7 +151,7 @@ export const profile: Profile = {
   ],
 
   honors: [
-    "2nd place — Physics & Engineering Symposium, Fort Lewis College (robotic PV hotspot inspection), Sep 2025",
+    "2nd Place, FLC Physics & Engineering Symposium 2025, the highest-placing solo project.",
     "Dean's List — Spring 2026, 4.0 semester GPA",
     "Katz School of Business Leadership Award — Apr 2024",
     "New Registered Student Organization of the Year — Entrepreneurial Ventures Association, 2023–24",
@@ -159,9 +159,9 @@ export const profile: Profile = {
   ],
 
   leadership: [
-    "Student representative, Strategic Implementation Committee — one of four students serving with the FLC president, trustees, deans, and campus leaders on the 2025–2030 strategic plan",
-    "President & co-founder, Entrepreneurial Ventures Association — led an 8-person executive team, organized pitch competitions allocating $1,500 in micro-grants, and brought the NASA Venture Program to campus",
-    "Team lead, NASA Colorado Robotics Challenge — coordinated a four-person team building and fielding an autonomous 18-DoF hexapod",
+    "Student representative, Strategic Implementation Committee (unpaid) — one of four students serving with the FLC president, trustees, deans, and campus leaders on the 2025–2030 strategic plan",
+    "President & co-founder, Entrepreneurial Ventures Association — led an 8-person executive team, organized pitch competitions allocating $1,500 in micro-grants, and helped bring NASA's Technology Transfer University (T2U) program to campus",
+    "Team lead (paid), NASA Colorado Robotics Challenge — coordinated a four-person team building and fielding an autonomous 18-DoF hexapod",
     "STEM tutor — mathematics, physics, and programming",
     "Volunteer, Children's Cancer Research Fund — six years supporting a memorial golf tournament that has raised more than $175,000",
   ],
@@ -207,40 +207,28 @@ export const profile: Profile = {
 
   capabilities: [
     {
-      title: "Robot Learning & Autonomy",
+      title: "Control",
       description:
-        "Language-conditioned navigation and manipulation, behavior cloning, PPO, action representation, and the failure modes that determine closed-loop performance.",
-      icon: "Bot",
-    },
-    {
-      title: "Experimental Robotics",
-      description:
-        "Benchmark design, controlled ablations, per-episode evidence, confidence intervals, failure decomposition, and reproducible artifact packs.",
-      icon: "Gauge",
-    },
-    {
-      title: "Perception",
-      description:
-        "RGB and point-cloud pipelines using vision-language models, YOLO, PCA, ICP, and geometric measurements under real sensing constraints.",
-      icon: "ScanEye",
-    },
-    {
-      title: "Modeling & Control",
-      description:
-        "Kinematics, Jacobians, trajectory generation, locomotion rewards, visual servoing, heading control, and simulation-based validation.",
+        "joint PD + gravity/friction feed-forward (200 Hz over CAN), Jacobian and damped-least-squares IK, minimum-jerk trajectories, IMU-fused heading hold, Kuramoto CPG gaits, RL locomotion (PPO, Isaac Lab)",
       icon: "Workflow",
     },
     {
-      title: "Robotics Systems",
+      title: "Robotics & ML",
       description:
-        "Isaac Sim / Lab, ManiSkill3, MuJoCo, ROS / ROS 2, MoveIt, robot SDKs, distributed inference, and safety-aware deployment paths.",
-      icon: "Network",
+        "PyTorch, ROS 1/ROS 2, MoveIt, Isaac Lab, MuJoCo, Gazebo, NaVILA (VLN) deployment, YOLOv8/YOLO-World, Blender synthetic data, Open3D, LLM agents on Neo4j, AI coding agents & orchestration (Claude Code, Codex, local LLMs)",
+      icon: "Bot",
     },
     {
-      title: "Embedded & Edge Systems",
+      title: "Hardware",
       description:
-        "Arduino and bare-metal firmware, FPGA protocols, PCB design, sensor integration, power distribution, and hardware debugging.",
+        "board bring-up, soldering, embedded C drivers (GPIO, PWM, ADC, UART), ATmega PCB design, CAN bus, oscilloscope, logic analyzer, FPGA (Verilog, Vivado)",
       icon: "CircuitBoard",
+    },
+    {
+      title: "Programming",
+      description:
+        "Python, C++, C, Verilog, Cypher; Linux, Docker, Git | Spanish (conversational)",
+      icon: "Layers",
     },
   ],
 };
