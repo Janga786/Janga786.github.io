@@ -32,5 +32,5 @@
   <rect x="675" y="242" width="195" height="126" rx="12" class="box"/>
   <text x="695" y="278" class="n">751</text><text x="695" y="304" class="t">never reached</text><text x="695" y="335" class="s">exploration dominates</text><text x="695" y="354" class="lbl">69.7%</text>
   <path d="M805 164V205H127V242M805 205H345V242M805 205H555V242M805 205H772V242" class="dash"/>
-  <text x="30" y="422" class="s">BOUNDARY: CANONICAL RESULT IS SIMULATION-ONLY · LIVE NAVILA CONTROL IS NOT CLAIMED</text>
+  <text x="30" y="422" class="s">BOUNDARY: CANONICAL RESULT IS SIMULATION-ONLY · NO SCORE CLAIMED FOR THE 2 LIVE EPISODES</text>
 </svg>
