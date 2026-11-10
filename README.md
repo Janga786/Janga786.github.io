@@ -35,7 +35,7 @@ npm run build
 
 The production site is emitted to `out/`. There is no server runtime.
 
-`public/resume.pdf` is the final resume PDF, copied in directly. `scripts/generate_resume.py` carries the same text in a different layout; running it (`python3 scripts/generate_resume.py`) overwrites that file.
+`public/resume.pdf` is the final resume PDF with the phone number left off the public copy, copied in directly. `scripts/generate_resume.py` carries the same text in a different layout; running it (`python3 scripts/generate_resume.py`) overwrites that file.
 
 ## Content architecture
 
@@ -53,7 +53,7 @@ Project pages use distinct status labels including active research, completed st
 - `public/diagrams/` contains deterministic SVG system diagrams.
 - `public/media/` contains project photographs, videos, and report-derived figures.
 - `public/og/k1-navigation-sim.png` is a real project frame used by the homepage social card; each project route also generates a project-specific social card.
-- `public/resume.pdf` is the final resume PDF (see Validation above).
+- `public/resume.pdf` is the final resume PDF without the phone number (see Validation above).
 
 External artifacts link to the canonical GitHub repository, result report, evidence ledger, or methods documentation. Files without a defensible public source are not presented as evidence.
 

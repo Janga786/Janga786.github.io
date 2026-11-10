@@ -65,7 +65,7 @@ export const projects: Project[] = [
     oneLiner:
       "NaVILA over a 50 Hz RL walking policy I trained: a 1,077-episode simulation benchmark where success rose from under 1% to 18.3%, a 2,400-episode ablation that exposed run-to-run noise, and two live episodes on the real K1 using Booster's built-in walker.",
     summary:
-      "This project adds the Booster K1 as a new embodiment in the VLN-CE-Isaac / NaVILA evaluation stack. NaVILA, a vision-language navigation model, issues commands at about 1 Hz to a 50 Hz reinforcement-learning walking policy I trained in Isaac Lab; the policy uses only proprioception (joint and body sensing), the same category as the published 24.4% H1 baseline. Pipeline fixes (a 46-degree evaluation tilt limit that cut about 61% of early episodes short, and a camera warm-up bug) and policy retraining raised success from under 1% to 18.3% and more than doubled the mean distance walked per episode. The canonical run completed all 1,077 R2R val-unseen episodes in Isaac Sim: 197 successes (18.3% SR), 326 episodes that reached the goal radius at some point (30.3% oracle success), 10.9% SPL, and 7.59 m final navigation error. The most useful result was the decomposition. Of the 326 reaches, 129 failed to stop, while 751 never reached the goal region. That separates arrival recognition from the dominant exploration failure class. A preregistered 2,400-episode camera-height and image-transform ablation completed in August 2026 with every pre-specified contrast null. Its strongest finding was about evaluation reliability itself: two identically configured 300-episode runs agreed in aggregate (15.0% vs 16.0%) but disagreed on 11.0% of episode outcomes (33/300; Cohen's κ = 0.58), only 48% (30/63) of episodes that succeeded in either run succeeded in both, and a fixed wall-clock limit censored conditions unequally (timeouts of 2.0% vs 12.3%). Separately, NaVILA ran live on the physical K1 for two natural-language episodes with zero teleoperation, using Booster's built-in walker; my trained walking policy has only worked in simulation.",
+      "This project adds the Booster K1 as a new embodiment in the VLN-CE-Isaac / NaVILA evaluation stack. NaVILA, a vision-language navigation model, issues commands at about 1 Hz to a 50 Hz reinforcement-learning walking policy I trained in Isaac Lab; the policy uses only proprioception (joint and body sensing), the same category as the published 24.4% H1 baseline. Pipeline fixes and policy retraining raised success from under 1% to 18.3%. Early in the project, raising a 46-degree evaluation tilt limit that cut about 61% of episodes short and fixing a camera warm-up bug more than doubled the mean distance walked per episode. The canonical run completed all 1,077 R2R val-unseen episodes in Isaac Sim: 197 successes (18.3% SR), 326 episodes that reached the goal radius at some point (30.3% oracle success), 10.9% SPL, and 7.59 m final navigation error. The most useful result was the decomposition. Of the 326 reaches, 129 failed to stop, while 751 never reached the goal region. That separates arrival recognition from the dominant exploration failure class. A preregistered 2,400-episode camera-height and image-transform ablation completed in August 2026 with every pre-specified contrast null. Its strongest finding was about evaluation reliability itself: two identically configured 300-episode runs agreed in aggregate (15.0% vs 16.0%) but disagreed on 11.0% of episode outcomes (33/300; Cohen's κ = 0.58), only 48% (30/63) of episodes that succeeded in either run succeeded in both, and a fixed wall-clock limit censored conditions unequally (timeouts of 2.0% vs 12.3%). Separately, NaVILA ran live on the physical K1 for two natural-language episodes with zero teleoperation, using Booster's built-in walker; my trained walking policy has only worked in simulation.",
     role:
       "Research assistant (paid, solo project) — K1 embodiment integration, RL walking-policy training (simulation), evaluation harness, live-deployment relay, evidence ledger, and experiment design",
     teamContext:
@@ -224,7 +224,7 @@ export const projects: Project[] = [
     shortTitle: "xembench",
     category: "research",
     status: "completed-study",
-    featured: true,
+    featured: false,
     isPlaceholder: false,
     dateLabel: "2026 · v0.5.0",
     oneLiner:
@@ -695,7 +695,7 @@ export const projects: Project[] = [
     shortTitle: "18-DoF Field Hexapod",
     category: "systems-integration",
     status: "fielded-system",
-    featured: false,
+    featured: true,
     isPlaceholder: false,
     dateLabel: "Oct 2025 – Apr 2026",
     oneLiner:
