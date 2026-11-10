@@ -1,14 +1,14 @@
 # Jangara Bliss — Robotics Portfolio
 
-An evidence-first research portfolio for Jangara Bliss, a computer engineering student focused on robot learning and autonomous systems. The site is intentionally explicit about what was completed in simulation, what ran on hardware, what remains active research, what came from a team or course, and which upstream systems made the work possible.
+Portfolio site for Jangara Bliss, a computer engineering senior at Fort Lewis College working on learned control for humanoid and legged robots. The site states what was completed in simulation, what ran on hardware, what came from a team or course, and which upstream systems the work builds on.
 
-The public research narrative foregrounds two studies:
+Featured projects:
 
-- Booster K1 / NaVILA navigation research — complete 1,077-episode simulation benchmark and active viewpoint study
-- xembench — executed cross-embodiment manipulation benchmark and intervention campaign
-- CLiDA / LiDAR motion analysis appears as an attributed team sensing project with a public methods package
+- Booster K1 / NaVILA navigation research: 1,077-episode simulation benchmark (under 1% to 18.3% success), a 2,400-episode ablation, and two live episodes on the real K1
+- Bridge crack-inspection arm (reBot B601-DM): seven-motor CAN bring-up at 200 Hz, measured gravity/friction feed-forward, and zero-shot crack segmentation
+- xembench: cross-embodiment manipulation benchmark in simulation
 
-Selected Systems & Engineering separately covers the NASA hexapod, KUKA kinematics, legacy robot restoration, and embedded/FPGA/PCB work. The complete archive also preserves the KDUR data platform.
+The homepage systems section covers the Colorado Robotics Challenge hexapod, KUKA kinematics, Sawyer/Baxter restoration, and embedded/FPGA/PCB work; the projects page also includes CLiDA LiDAR motion analysis and the KDUR data platform.
 
 ## Tech stack
 
