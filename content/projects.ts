@@ -384,7 +384,7 @@ export const projects: Project[] = [
     role:
       "Sole owner of the arm \u2014 bring-up, control, kinematics/IK, planning, tuning, and vision integration",
     teamContext:
-      "Two-person Fort Lewis College senior-design team advised by Dr. Yiyan Li; my teammate is building a second arm from scratch, so all work on this arm is mine; supported in part by an FLC undergraduate research grant. I run every hardware session.",
+      "Two-person Fort Lewis College senior-design team advised by Dr. Yiyan Li; my teammate is building a second arm from scratch, so all work on this arm is mine. I run every hardware session.",
     advisor: "Dr. Yiyan Li, Fort Lewis College",
     collaborators: "Two-person senior-design team; my teammate is building a second arm from scratch, so the arm (bring-up, control, kinematics/IK, planning, tuning, vision integration) is mine. Crack-segmentation weights are upstream work, credited.",
     upstreamSystems:
@@ -609,8 +609,8 @@ export const projects: Project[] = [
     role:
       "Algorithm developer — LiDAR processing, motion/axis/dimension methods, test hardware support, and report sections",
     teamContext:
-      "Five-person CE315 design team. Protocol and individual roles come from the December 2024 team report.",
-    collaborators: "Five-person CE315 design team with shared hardware, software, testing, and documentation responsibilities.",
+      "Five-person CE 315 design team. Protocol and individual roles come from the December 2024 team report.",
+    collaborators: "Five-person CE 315 design team with shared hardware, software, testing, and documentation responsibilities.",
     upstreamSystems: "LiDAR hardware, NumPy, Open3D, PCA, and ICP methods.",
     stack: ["Python", "Open3D", "NumPy", "LiDAR", "PCA", "ICP", "3D printing"],
     tags: ["Perception", "Point Clouds", "ICP", "Experimental Robotics"],
@@ -691,7 +691,7 @@ export const projects: Project[] = [
 
   {
     slug: "hexapod-nasa-challenge",
-    title: "Autonomous Hexapod — NASA Colorado Robotics Challenge",
+    title: "Autonomous Hexapod — Colorado Robotics Challenge (NASA Space Grant)",
     shortTitle: "18-DoF Field Hexapod",
     category: "systems-integration",
     status: "fielded-system",
@@ -699,9 +699,9 @@ export const projects: Project[] = [
     isPlaceholder: false,
     dateLabel: "Oct 2025 – Apr 2026",
     oneLiner:
-      "A four-person team integrated and fielded an 18-DoF hexapod at Great Sand Dunes; I led the team, designed the electrical system, extended the firmware, and later built a coupled-oscillator gait simulator.",
+      "A four-person team integrated and fielded an 18-DoF hexapod at Great Sand Dunes; I led the team, designed the electrical system, extended the firmware from Mark W's open-source original, and later built a coupled-oscillator gait simulator.",
     summary:
-      "The challenge required a walking robot to operate on loose sand and uneven terrain, where power distribution, sensing, gait stability, and field repair mattered at the same time. I led the four-person team, designed the electrical system (Arduino Mega, ICM-20948 9-DoF IMU, bump sensors, LiPo + SBEC power, and a three-bit interface for selecting eight behaviors), and extended the firmware with gyro-magnetometer heading hold, gyro-bias calibration, and bump avoidance. After the field project, I built a Python Kuramoto coupled-oscillator simulator in which wave, ripple, and tripod phase relationships emerge from one model, then packaged it with a 34-test suite and visualizations.",
+      "The challenge required a walking robot to operate on loose sand and uneven terrain, where power distribution, sensing, gait stability, and field repair mattered at the same time. I led the four-person team, designed the electrical system (Arduino Mega, ICM-20948 9-DoF IMU, bump sensors, LiPo + SBEC power, and a three-bit interface for selecting eight behaviors), and extended the firmware, originally Mark W's open-source code, with gyro-magnetometer heading hold, gyro-bias calibration, and bump avoidance. The chassis derives from Mark W's open-source design. After the field project, I built a Python Kuramoto coupled-oscillator simulator in which wave, ripple, and tripod phase relationships emerge from one model, then packaged it with a 34-test suite and visualizations.",
     role:
       "Team lead (paid) — electrical system design, firmware extensions, field integration, and later CPG simulation/testing",
     teamContext:
@@ -787,7 +787,7 @@ export const projects: Project[] = [
       { kind: "video", label: "Physical motion clip", href: "/media/hexapod-dance.mp4" },
     ],
     seoDescription:
-      "A four-person, 18-DoF hexapod fielded at the NASA Colorado Robotics Challenge, with an electrical system I designed, firmware I extended, and a later Kuramoto CPG simulation and 34-test suite.",
+      "A four-person, 18-DoF hexapod I led for NASA Space Grant's Colorado Robotics Challenge: an electrical system I designed, firmware I extended from Mark W's open-source original, and a later Kuramoto CPG simulator with a 34-test suite.",
     sortOrder: 6,
   },
 
@@ -801,7 +801,7 @@ export const projects: Project[] = [
     isPlaceholder: false,
     dateLabel: "May – Sep 2025",
     oneLiner:
-      "Restored two unsupported industrial arms, rebuilt the ROS workstation, and developed synthetic-data and YOLO tooling for an inspection research direction recognized at the 2025 FLC symposium.",
+      "Revived two discontinued Rethink robots (Sawyer and Baxter) with no vendor support, rebuilt the ROS workstation, and built a synthetic-data thermal hotspot detector; 2nd place at the 2025 FLC Physics & Engineering Symposium.",
     summary:
       "The project began with two nonfunctional legacy robots and limited vendor support. I diagnosed controller and boot problems, restored operating environments, and rebuilt a Dockerized ROS 1 (Indigo) + ROS 2 (Humble) MoveIt/Gazebo workstation so the arms could again be simulated and programmed. In parallel, I developed Blender/Python synthetic-data tooling and YOLO-based inspection experiments. In August 2025 I also ran the detector on real panels as a qualitative end-to-end check. An earlier detector metric was removed after an internal evidence audit found the training configuration reused training images for validation, with no preserved held-out set. What remains is still useful: robot restoration, systems troubleshooting, synthetic-data generation, inspection tooling, and a symposium-award research direction. This was a paid, solo, full-time research assistantship (May–August 2025), presented at the September 2025 symposium.",
     role: "Research Assistant, Computer Vision & Robotics (paid, solo project; full-time May–August 2025) under Dr. Kevin Wedeward — restoration, ROS environment, synthetic data, and inspection experiments",
@@ -815,9 +815,9 @@ export const projects: Project[] = [
     systemType: "Hardware restoration + robotics workstation + perception prototype",
     whyItMatters: "Restoring the platform made later robotics experiments possible and exposed the difference between a detector demo and a valid held-out evaluation.",
     contributions: [
-      "Diagnosed hardware and boot failures through controller inspection, storage/OS recovery, BIOS and firmware configuration, and network troubleshooting.",
+      "Diagnosed hardware and boot failures, including Sawyer's: a dead CMOS battery had reset its BIOS into an incompatible Secure Boot setting. Obtained the Intera update from other universities and handled storage/OS recovery and network troubleshooting.",
       "Rebuilt a Dockerized ROS 1 (Indigo) + ROS 2 (Humble) workstation with ros1_bridge, MoveIt, and Gazebo for motion-planning and simulation workflows.",
-      "Created Blender/Python synthetic inspection scenes, automatic labels, YOLO training tooling, and demonstration assets.",
+      "Created Blender/Python synthetic inspection scenes and automatic labels, and trained a YOLOv8 thermal hotspot detector on them.",
       "Documented Baxter troubleshooting so future students could reproduce common startup and ROS-network fixes.",
       "Presented the inspection research at the September 2025 symposium: 2nd Place, FLC Physics & Engineering Symposium 2025, the highest-placing solo project.",
     ],
@@ -877,8 +877,9 @@ export const projects: Project[] = [
     artifacts: [
       { kind: "repo", label: "Inspection tooling", href: "https://github.com/Janga786/CV-YOLO-Inspection" },
       { kind: "repo", label: "Baxter field guide", href: "https://github.com/Janga786/Baxter-Troubleshooting" },
+      { kind: "repo", label: "ROS workstation", href: "https://github.com/Janga786/Baxter-Sawyer_Work_Station_Windows" },
     ],
-    seoDescription: "Legacy Sawyer and Baxter restoration, ROS/MoveIt/Gazebo workstation recovery, and synthetic inspection tooling with explicit evidence boundaries.",
+    seoDescription: "Solo summer research: reviving discontinued Rethink Sawyer and Baxter robots, rebuilding a ROS/MoveIt/Gazebo workstation, and a synthetic-data thermal hotspot detector; 2nd place, FLC Physics & Engineering Symposium 2025.",
     sortOrder: 7,
   },
 
@@ -891,8 +892,8 @@ export const projects: Project[] = [
     featured: false,
     isPlaceholder: false,
     dateLabel: "2023 – 2026",
-    oneLiner: "A curated hardware portfolio spanning a two-layer Arduino-Mega-class board, direct-register 40 kHz ADC sampling, a hand-built IR link, FPGA protocols, and CMOS design exercises.",
-    summary: "These projects provide the hardware foundation beneath the robotics work. The strongest examples are a two-layer Arduino-Mega-class PCB design with exported Gerbers, a bare-metal ADC sampler configured for 40 kHz acquisition, a custom IR link-layer protocol, timer-interrupt audio projects, FPGA modules and protocol exercises, and transistor-level CMOS design coursework. The board is documented as designed and Gerber-ready, not fabricated; the self-balancing folder contains component validation rather than a complete balancing controller.",
+    oneLiner: "Hardware foundation: a custom ATmega PCB design, bring-up of FLC's microcontroller board with embedded C drivers, direct-register 40 kHz ADC sampling, a hand-built IR link, FPGA protocols, and CMOS design exercises.",
+    summary: "These projects provide the hardware foundation beneath the robotics work. I soldered and brought up Fort Lewis College's microcontroller board and wrote its embedded C drivers (GPIO, PWM, ADC, UART), and earned an A in CE 433 Embedded Devices, an FPGA design course. The strongest public examples are a two-layer Arduino-Mega-class PCB design with exported Gerbers, a bare-metal ADC sampler configured for 40 kHz acquisition, a custom IR link-layer protocol, timer-interrupt audio projects, FPGA modules and protocol exercises, and transistor-level CMOS design coursework. The board is documented as designed and Gerber-ready, not fabricated; the self-balancing folder contains component validation rather than a complete balancing controller.",
     role: "Individual coursework and project collection — firmware, HDL, PCB layout, tests, and documentation",
     teamContext: "Multiple undergraduate course and independent projects, curated into public repositories later.",
     collaborators: "Primarily individual undergraduate course and independent projects.",
@@ -915,7 +916,7 @@ export const projects: Project[] = [
     ],
     experimentalDesign: [
       "Used simulation, register-level timing checks, peripheral smoke tests, synthesis results, and design-rule outputs appropriate to each artifact.",
-      "No fabricated-board validation is presented because no preserved bring-up record exists.",
+      "No validation of a fabricated copy of the custom board is presented because no preserved bring-up record exists for it.",
     ],
     failureAnalysis: [
       "Timing, protocol state, sensor wiring, and power interfaces exposed failure modes that high-level frameworks normally hide.",
