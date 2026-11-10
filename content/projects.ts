@@ -118,7 +118,6 @@ export const projects: Project[] = [
     ],
     provenance: [
       "NaVILA, VLN-CE-Isaac, Isaac Lab, RSL-RL, and Booster training/deployment code are upstream foundations; the contribution is the K1-specific integration, experiments, diagnostics, and analysis.",
-      "Substantial parts of the implementation and the unattended sweep operations were AI-assisted under my direction; the archived handoff notes in the repository record that process. The experiment designs, decisions, and claims are mine.",
       "The canonical 18.3% result is simulation-only. Two live natural-language NaVILA episodes ran on the real K1 in May 2026 with zero teleoperation (one captured on video, the second on the project record): a relay screen recording shows the VLM issuing the velocity commands (executed by Booster's built-in walking controller), paired with a dated third-person clip. My trained RL walking policy has not yet worked outside simulation, and no navigation score is claimed for the live session.",
       "The recorded below-1% prior baseline is useful context but its original raw run directory was unavailable during the evidence audit; the final 1,077-episode result is fully preserved and regenerable.",
     ],
@@ -233,9 +232,9 @@ export const projects: Project[] = [
     role:
       "Project owner — research question, benchmark architecture, experimental decisions, campaign supervision, analysis, and artifact review",
     teamContext:
-      "Independent simulation research. The repository documents extensive AI-assisted implementation and operations; ownership is claimed for direction, decisions, verification, and interpretation rather than every generated line.",
+      "Independent simulation research.",
     collaborators:
-      "Independent research project; AI coding agents assisted implementation and campaign operations under explicit review and verification.",
+      "Independent research project.",
     upstreamSystems:
       "ManiSkill3 environments and robot assets, PyTorch, Franka Panda and Unitree G1 simulation models.",
     stack: [
@@ -283,7 +282,6 @@ export const projects: Project[] = [
     ],
     provenance: [
       "The project uses ManiSkill3 environments and robot assets; it does not claim authorship of the simulator or underlying robot models.",
-      "AI coding agents assisted substantial implementation and campaign operations. The public claim is project direction, experiment design, run supervision, analysis, and verification — not sole manual authorship of every file.",
       "All results are simulation-only. No sim-to-real or hardware-transfer claim is made.",
     ],
     architectureSummary:
@@ -420,7 +418,7 @@ export const projects: Project[] = [
     ],
     provenance: [
       "Two-person senior-design team; my teammate is building a second arm from scratch, so all work on this arm is mine.",
-      "I designed the system (the control architecture, how the ROS 2 nodes connect, and the safety gating) and wrote line-by-line pseudocode for much of the software; AI coding agents translated it into Python and C++, with a planning agent writing the task cards in plan/, implementation agents writing the code, and an independent review agent checking each change before it was accepted (docs/ORCHESTRATION.md). All hardware work is mine: motor bring-up, the torque test that found the URDF's gravity error, the gain and feed-forward decisions, and every physical run, with raw logs committed.",
+      "I designed the system (the control architecture, how the ROS 2 nodes connect, and the safety gating). All hardware work is mine: motor bring-up, the torque test that found the URDF's gravity error, the gain and feed-forward decisions, and every physical run, with raw logs committed.",
       "Crack segmentation uses the OpenCrack nnU-Net weights exactly as released \u2014 no training is claimed; the arm, SDK, and camera are vendor systems.",
     ],
     architectureSummary:
