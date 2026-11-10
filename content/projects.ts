@@ -105,7 +105,7 @@ export const projects: Project[] = [
     experimentalDesign: [
       "Scored the complete 1,077-episode R2R val-unseen set under one canonical simulation configuration and reported SR, oracle success, SPL, and final navigation error.",
       "Partitioned every episode into never reached, reached without stopping, or successful to separate exploration and arrival-recognition behavior.",
-      "Preregistered a follow-up camera-height and image-transform sweep (plan committed before launch). The plan named a paired test, but its own determinism probe showed per-episode outcomes were not stable run to run, so the analysis used unpaired comparisons; that amendment was appended to the preregistration file after the sweep finished, as a dated note in the repository records. The 2,400-episode sweep completed in August 2026 with all pre-specified contrasts null; its evaluation-reliability result is that two identically configured 300-episode runs agreed in aggregate (15.0% vs 16.0%) but disagreed on 11.0% of episodes (Cohen's κ = 0.58).",
+      "Preregistered a follow-up camera-height and image-transform sweep (plan committed before launch). The plan named a paired test, but its own determinism probe showed per-episode outcomes were not stable run to run, so the analysis used unpaired comparisons; that amendment was appended to the preregistration on 22 August 2026, after the sweep finished; a dated note in that file records this. The 2,400-episode sweep completed in August 2026 with all pre-specified contrasts null; its evaluation-reliability result is that two identically configured 300-episode runs agreed in aggregate (15.0% vs 16.0%) but disagreed on 11.0% of episodes (Cohen's κ = 0.58).",
     ],
     failureAnalysis: [
       "751 episodes never entered the goal radius, making exploration the dominant observed failure class.",
@@ -119,7 +119,7 @@ export const projects: Project[] = [
     ],
     provenance: [
       "NaVILA, VLN-CE-Isaac, Isaac Lab, RSL-RL, and Booster training/deployment code are upstream foundations; the contribution is the K1-specific integration, experiments, diagnostics, and analysis.",
-      "The canonical 18.3% result is simulation-only, and it is below the published NaVILA baselines, including the 24.4% H1 result whose walking policy, like mine, used only proprioception. Two live natural-language NaVILA episodes ran on the real K1 in May 2026 with zero teleoperation (one captured on video, the second on the project record): a relay screen recording shows the VLM issuing the velocity commands (executed by Booster's built-in walking controller), paired with a dated third-person clip. My trained RL walking policy has not yet worked outside simulation, and no navigation score is claimed for the live session.",
+      "The canonical 18.3% result is simulation-only, and it is below the published NaVILA baselines, including the 24.4% H1 result whose walking policy, like mine, used only proprioception. Two live natural-language NaVILA episodes ran on the real K1 in May 2026 with zero teleoperation. One is on video, with the recorded instruction \"walk to the volley ball and turn 90 degrees\": a relay screen recording shows the VLM issuing the velocity commands (executed by Booster's built-in walking controller), paired with a dated third-person clip. The second episode was not recorded. My trained RL walking policy has not yet worked outside simulation, and no navigation score is claimed for the live session.",
       "The recorded below-1% prior baseline is useful context but its original raw run directory was unavailable during the evidence audit; the final 1,077-episode result is fully preserved and regenerable.",
     ],
     architectureSummary:
@@ -228,9 +228,9 @@ export const projects: Project[] = [
     isPlaceholder: false,
     dateLabel: "2026 · v0.5.0",
     oneLiner:
-      "A two-embodiment ManiSkill3 benchmark whose first large campaign found near-zero transfer under weak precision policies — then measured where action chunking helped and where it did not.",
+      "A two-embodiment ManiSkill3 simulation benchmark: a 6,550-episode baseline evaluation in which transfer could not yet be measured because weak native policies scored 0% on one side of each pair, and an action-chunking result on tool pulling (1.3% to 14.7%).",
     summary:
-      "Xembench asks a narrow question: how much performance survives when the task and language stay fixed but the robot body changes? A shared language-conditioned policy emits actions through a canonical 21-dimensional interface, and thin adapters map those actions to a Franka-style arm or Unitree G1 upper body. The completed Phase B baseline used 1,202 demonstrations, 18 behavior-cloning policies, and a 73-cell / 6,550-episode matrix. Push-T reached 45.7% native success and G1 box transport reached 18.8%; zero-shot cross-embodiment transfer was approximately zero because each transfer pair included a weak native side. A controlled follow-up found a real positive boundary: action chunking raised tool-pulling success from 1.3% to 14.7% across three seeds, while grasp-critical tasks stayed near zero.",
+      "Xembench asks a narrow question: how much performance survives when the task and language stay fixed but the robot body changes? A shared language-conditioned policy emits actions through a canonical 21-dimensional interface, and thin adapters map those actions to a Franka-style arm or Unitree G1 upper body. The completed Phase B baseline used 1,202 demonstrations, 18 behavior-cloning policies, and a 73-cell / 6,550-episode matrix. With canonical instructions, Push-T reached 45% native success and G1 box transport 17%. The cross-embodiment question is not answered yet: at least one task in every transfer pair scores 0% natively, so every transfer cell is 0% and no transfer drop can be measured. In a follow-up, action chunking (k=8, 2,000 demonstrations) raised tool-pulling success from 1.3% to 14.7% at three seeds, while grasp-critical tasks stayed near zero. All results are simulation only.",
     role:
       "Project owner — research question, benchmark architecture, experimental decisions, campaign supervision, analysis, and artifact review",
     teamContext:
@@ -260,7 +260,7 @@ export const projects: Project[] = [
       "Built leak-checked paraphrase and unseen-color splits, a demonstration pipeline, behavior-cloning and PPO baselines, evaluation matrices, and failure-taxonomy reports.",
       "Executed and reviewed the 1,202-demonstration, 6,550-episode Phase B campaign and stopped short of claiming transfer when native precision policies were too weak.",
       "Ran one real failure-driven data-flywheel round with equal targeted and random budgets; the mostly null result showed that more same-kind data was not the binding constraint.",
-      "Designed a precision-manipulation intervention ladder and confirmed across three seeds that action chunking rescued tool pulling but not grasp-critical tasks.",
+      "Tried a ladder of precision-manipulation changes; at three seeds, action chunking raised tool pulling from 1.3% to 14.7% but left grasp-critical tasks near zero.",
     ],
     methodology: [
       "Represented both embodiments through a canonical 21-dimensional semantic action interface and thin robot-specific adapters.",
@@ -273,7 +273,7 @@ export const projects: Project[] = [
       "The action-chunking comparison was repeated across three seeds and reported separately for tool pulling and grasp-critical tasks.",
     ],
     failureAnalysis: [
-      "Zero-shot transfer was approximately zero, but the binding ambiguity was weak native precision manipulation rather than embodiment alone.",
+      "Every transfer cell was 0%, but one side of each pair already scores 0% natively, so this says nothing yet about transfer.",
       "The equal-budget failure-driven data round was mostly null, indicating that more same-kind demonstrations did not resolve the observed ceiling at this scale.",
       "Action chunking improved temporally extended tool pulling while leaving pick-and-stack tasks near zero, localizing a persistent last-inch grasp-conversion problem.",
     ],
@@ -306,7 +306,7 @@ export const projects: Project[] = [
         label: "Native baselines",
         hint: "",
         status: "available",
-        value: "Push-T 45.7%; G1 box transport 18.8%; precision grasping near zero.",
+        value: "Push-T 45%; G1 box transport 17% (canonical instructions); precision grasping near zero.",
       },
       {
         label: "Intervention result",
@@ -318,17 +318,17 @@ export const projects: Project[] = [
         label: "Reproducibility pack",
         hint: "",
         status: "available",
-        value: "Configs, reports, driver scripts, and manifests are committed; checkpoints and CSV packs are regenerable artifacts, summarized in reports/ and available on request.",
+        value: "Code, configs, tests, and aggregated result tables are committed; per-episode CSVs, demonstrations, checkpoints, and rollout videos are not.",
       },
     ],
     metrics: [
       { label: "Baseline matrix", value: "6,550 episodes", hint: "73 cells." },
       { label: "Demonstrations", value: "1,202", hint: "Baseline campaign." },
-      { label: "Best native tasks", value: "45.7% / 18.8%", hint: "Push-T / G1 transport." },
+      { label: "Best native tasks", value: "45% / 17%", hint: "Push-T / G1 transport." },
       { label: "Chunking result", value: "1.3% → 14.7%", hint: "Tool pulling, three seeds." },
     ],
     limitations: [
-      "Cross-embodiment transfer was near zero and cannot be interpreted as a clean embodiment effect while native precision policies remain weak.",
+      "Transfer cannot yet be measured: at least one task in every transfer pair scores 0% natively.",
       "The benchmark is simulation-only and uses a deliberately constrained policy class; results do not generalize to stronger sequence models or physical robots.",
       "The first failure-driven data round was underpowered for near-zero tasks and produced a mostly null comparison.",
     ],
@@ -365,7 +365,7 @@ export const projects: Project[] = [
       { kind: "diagram", label: "Architecture", href: "https://github.com/Janga786/xembench/blob/master/docs/architecture.md" },
     ],
     seoDescription:
-      "Xembench is a two-embodiment ManiSkill3 benchmark with a 6,550-episode baseline matrix, near-zero transfer under weak native policies, and an action-chunking intervention from 1.3% to 14.7% tool-pulling success.",
+      "Xembench is a two-embodiment ManiSkill3 benchmark with a 6,550-episode simulated baseline matrix; transfer is not yet measurable under weak native policies; action chunking raised tool-pulling success from 1.3% to 14.7%.",
     sortOrder: 3,
   },
   {
@@ -585,7 +585,7 @@ export const projects: Project[] = [
     ],
     artifacts: [
       { kind: "repo", label: "Repository", href: "https://github.com/Janga786/kuka-kr6-kinematics" },
-      { kind: "report", label: "Technical documentation", href: "https://github.com/Janga786/kuka-kr6-kinematics#verification--numerical-results" },
+      { kind: "report", label: "Technical documentation", href: "https://github.com/Janga786/kuka-kr6-kinematics#how-it-is-checked" },
       { kind: "demo", label: "Figures & animations", href: "https://github.com/Janga786/kuka-kr6-kinematics#gallery" },
     ],
     seoDescription:
@@ -701,7 +701,7 @@ export const projects: Project[] = [
     oneLiner:
       "A four-person team integrated and fielded an 18-DoF hexapod at Great Sand Dunes; I led the team, designed the electrical system, extended the firmware from Mark W's open-source original, and later built a coupled-oscillator gait simulator.",
     summary:
-      "The challenge required a walking robot to operate on loose sand and uneven terrain, where power distribution, sensing, gait stability, and field repair mattered at the same time. I led the four-person team, designed the electrical system (Arduino Mega, ICM-20948 9-DoF IMU, bump sensors, LiPo + SBEC power, and a three-bit interface for selecting eight behaviors), and extended the firmware, originally Mark W's open-source code, with gyro-magnetometer heading hold, gyro-bias calibration, and bump avoidance. The chassis derives from Mark W's open-source design. After the field project, I built a Python Kuramoto coupled-oscillator simulator in which wave, ripple, and tripod phase relationships emerge from one model, then packaged it with a 34-test suite and visualizations.",
+      "The challenge required a walking robot to operate on loose sand and uneven terrain, where power distribution, sensing, gait stability, and field repair mattered at the same time. I led the four-person team, designed the electrical system (Arduino Mega, ICM-20948 9-DoF IMU, bump sensors, LiPo + SBEC power, and a three-bit interface for selecting eight behaviors), and extended the firmware with gyro-magnetometer heading hold, gyro-bias calibration, and bump avoidance; both the firmware and the chassis derive from Mark W's open-source work. After the field project, I built a Python Kuramoto coupled-oscillator simulator in which wave, ripple, and tripod phase relationships emerge from one model, then packaged it with a 34-test suite and visualizations.",
     role:
       "Team lead (paid) — electrical system design, firmware extensions, field integration, and later CPG simulation/testing",
     teamContext:
@@ -816,7 +816,7 @@ export const projects: Project[] = [
     whyItMatters: "Restoring the platform made later robotics experiments possible and exposed the difference between a detector demo and a valid held-out evaluation.",
     contributions: [
       "Diagnosed hardware and boot failures, including Sawyer's: a dead CMOS battery had reset its BIOS into an incompatible Secure Boot setting. Obtained the Intera update from other universities and handled storage/OS recovery and network troubleshooting.",
-      "Rebuilt a Dockerized ROS 1 (Indigo) + ROS 2 (Humble) workstation with ros1_bridge, MoveIt, and Gazebo for motion-planning and simulation workflows.",
+      "Rebuilt a Dockerized ROS 1 (Indigo) + ROS 2 (Humble) workstation with MoveIt and Gazebo for motion-planning and simulation workflows; the ROS 1/ROS 2 bridge was not finished.",
       "Created Blender/Python synthetic inspection scenes and automatic labels, and trained a YOLOv8 thermal hotspot detector on them.",
       "Documented Baxter troubleshooting so future students could reproduce common startup and ROS-network fixes.",
       "Presented the inspection research at the September 2025 symposium: 2nd Place, FLC Physics & Engineering Symposium 2025, the highest-placing solo project.",
@@ -840,7 +840,7 @@ export const projects: Project[] = [
     ],
     provenance: [
       "Vendor ROS packages and workspaces are upstream; the contribution is restoration, environment integration, custom scripts, synthetic-data tooling, and documentation.",
-      "The thermal hotspot detector is not in a public repository; the linked CV-YOLO-Inspection repository is an earlier synthetic-data pipeline for beverage-can inspection, built with the same Blender-to-YOLO approach.",
+      "The thermal hotspot detector is not in a public repository; the linked CV-YOLO-Inspection repository is related synthetic-data tooling for beverage-can inspection, built with the same Blender-to-YOLO approach.",
       "No mAP, accuracy, thermal-image count, live thermal feed, or closed-loop hardware-inspection result is claimed because the audited repositories do not support those statements.",
     ],
     architectureSummary: "The supported work has three layers: recover the robot controllers, rebuild the ROS planning environment, and develop synthetic-data/detection tooling. A valid held-out detector evaluation remains future work rather than a retroactive claim.",
@@ -876,7 +876,7 @@ export const projects: Project[] = [
       { kind: "image", src: "/media/pv-real-panel-thermal-hotspot-2.jpg", alt: "Second thermal frame from a different camera position with the same heated cell flagged as a hotspot", caption: "Second saved frame from a different camera position — the same heated cell is flagged again. Qualitative check, not a held-out metric." },
     ],
     artifacts: [
-      { kind: "repo", label: "Earlier synthetic-data tooling (can inspection)", href: "https://github.com/Janga786/CV-YOLO-Inspection" },
+      { kind: "repo", label: "Related synthetic-data tooling (can inspection)", href: "https://github.com/Janga786/CV-YOLO-Inspection" },
       { kind: "repo", label: "Baxter field guide", href: "https://github.com/Janga786/Baxter-Troubleshooting" },
       { kind: "repo", label: "ROS workstation", href: "https://github.com/Janga786/Baxter-Sawyer_Work_Station_Windows" },
     ],
@@ -893,66 +893,66 @@ export const projects: Project[] = [
     featured: false,
     isPlaceholder: false,
     dateLabel: "2023 – 2026",
-    oneLiner: "Hardware foundation: a custom ATmega PCB design, bring-up of FLC's microcontroller board with embedded C drivers, direct-register 40 kHz ADC sampling, a hand-built IR link, FPGA protocols, and CMOS design exercises.",
-    summary: "These projects provide the hardware foundation beneath the robotics work. I soldered and brought up Fort Lewis College's microcontroller board and wrote its embedded C drivers (GPIO, PWM, ADC, UART), and earned an A in CE 433 Embedded Devices, an FPGA design course. The strongest public examples are a two-layer Arduino-Mega-class PCB design with exported Gerbers, a bare-metal ADC sampler configured for 40 kHz acquisition, a custom IR link-layer protocol, timer-interrupt audio projects, FPGA modules and protocol exercises, and transistor-level CMOS design coursework. The board is documented as designed and Gerber-ready, not fabricated; the self-balancing folder contains component validation rather than a complete balancing controller.",
-    role: "Individual coursework and project collection — firmware, HDL, PCB layout, tests, and documentation",
-    teamContext: "Multiple undergraduate course and independent projects, curated into public repositories later.",
-    collaborators: "Primarily individual undergraduate course and independent projects.",
-    upstreamSystems: "Arduino Mega reference architecture, ATmega2560 documentation, Vivado, and standard CMOS / digital-design references.",
-    stack: ["C / C++", "ATmega2560", "Verilog", "Vivado", "PCB design", "Gerbers", "CMOS"],
-    tags: ["embedded", "FPGA", "PCB", "bare metal"],
+    oneLiner: "Hardware foundation: bring-up of FLC's ATmega2560 course board, a custom ATmega2560 board design (Eagle, Gerbers; not fabricated), register-level timer and ADC sketches, Basys 3 FPGA labs, and CMOS designs in SPICE simulation.",
+    summary: "These projects are the hardware foundation beneath the robotics work. I soldered and brought up Fort Lewis College's ATmega2560 course board and wrote its embedded C drivers (GPIO, PWM, ADC, UART), and earned an A in CE 433 Embedded Devices, an FPGA design course. The public repositories hold course-sized work: a two-layer ATmega2560 board I designed in Eagle (Gerbers exported; not fabricated), a register-level ADC sampler at 40 kHz, an IR serial link with addressing and checksum (from a course lab template), timer-interrupt music sketches, Verilog labs on a Basys 3 (Artix-7) including PicoBlaze systems and an XADC serial link checked on an oscilloscope, and schematic-level CMOS designs (an 8-bit ALU, a mirror full adder, a ring oscillator) simulated in SPICE with AMI C5 0.6 µm models. The self-balancing folder holds component bring-up sketches, not a balancing controller.",
+    role: "Individual coursework and project collection — firmware, HDL, PCB layout, SPICE decks, and documentation",
+    teamContext: "Undergraduate course projects (CE 351 microcontrollers, CE 433 Embedded Devices, Digital VLSI), curated into public repositories later.",
+    collaborators: "Individual undergraduate course projects.",
+    upstreamSystems: "Arduino Mega reference architecture, ATmega2560 documentation, course lab templates, Vivado, Xilinx PicoBlaze, textbook Verilog listings, Electric VLSI, and AMI C5 SPICE models.",
+    stack: ["C / C++", "ATmega2560", "Verilog", "Vivado", "Eagle PCB", "Gerbers", "SPICE"],
+    tags: ["embedded", "FPGA", "PCB", "register-level"],
     problem: "Build enough low-level fluency to reason about sensing, timing, protocols, power, and hardware interfaces without treating the robot as a black box.",
-    systemType: "Curated embedded / digital / PCB project collection",
+    systemType: "Curated embedded / digital / PCB / VLSI course-project collection",
     whyItMatters: "Robot learning systems still fail at clocks, registers, connectors, signal paths, and power rails; this work makes those layers inspectable.",
     contributions: [
-      "Designed and exported manufacturing files for a two-layer Arduino-Mega-class board based on the reference architecture with documented personal changes.",
-      "Configured ATmega2560 registers for 40 kHz ADC sampling and implemented interrupt-driven data handling.",
-      "Built an IR protocol and timer-interrupt music projects that make timing and state explicit at the firmware level.",
-      "Implemented FPGA and digital-design exercises in Verilog with simulation and synthesis workflows.",
-      "Used component smoke tests to validate motors, encoders, and inertial sensors without claiming a complete self-balancing robot.",
+      "Soldered and brought up FLC's ATmega2560 course board; the course sketches run on it.",
+      "Designed a two-layer, 160 × 100 mm ATmega2560 board in Eagle based on the Arduino Mega reference architecture, with Gerber, drill, and pick-and-place files; the board was not fabricated.",
+      "Set up Timer1 and the ADC by register to sample at 40 kHz, store 256 samples after a threshold trigger, and estimate frequency from zero crossings.",
+      "Built an IR serial link with addressing and checksum (from a course lab template) and timer-interrupt music sketches.",
+      "Wrote Verilog labs on a Basys 3, including PicoBlaze systems and an XADC serial link checked on an oscilloscope, and simulated schematic-level CMOS designs in SPICE.",
     ],
     methodology: [
-      "Moved from transistor and logic exercises through FPGA simulation and synthesis, direct-register microcontroller work, protocol implementation, and a two-layer board layout.",
+      "Moved from transistor-level CMOS design in simulation through FPGA labs, register-level microcontroller work, a serial link, and a two-layer board layout.",
       "Separated schematic/layout completion, manufacturing-file export, fabrication, assembly, and bring-up as different hardware milestones.",
     ],
     experimentalDesign: [
-      "Used simulation, register-level timing checks, peripheral smoke tests, synthesis results, and design-rule outputs appropriate to each artifact.",
-      "No validation of a fabricated copy of the custom board is presented because no preserved bring-up record exists for it.",
+      "Used SPICE simulation, register-level timing checks, peripheral bring-up sketches, on-board FPGA runs with oscilloscope captures, and design-rule outputs as appropriate to each artifact.",
+      "No validation of a fabricated copy of the custom board is presented because it was not fabricated.",
     ],
     failureAnalysis: [
       "Timing, protocol state, sensor wiring, and power interfaces exposed failure modes that high-level frameworks normally hide.",
-      "Several folders stop at component validation, so they cannot support claims about a complete closed-loop robot.",
+      "Several folders stop at component bring-up, so they cannot support claims about a complete closed-loop robot.",
     ],
     nextQuestions: [
       "Which board-level design should be fabricated and instrumented for a complete bring-up record?",
       "How can the low-level timing and sensing work be connected to a repeatable closed-loop robotics experiment?",
     ],
     provenance: [
-      "The custom board mirrors the Arduino Mega reference architecture with personal changes; it is not presented as a novel microcontroller platform.",
-      "Gerbers and design files exist, but fabrication is not claimed. Component-validation code is not presented as a finished balancing controller.",
+      "The custom board follows the Arduino Mega reference architecture; it is a design, not a novel microcontroller platform, and it was not fabricated.",
+      "The IR link started from a course lab template; the PicoBlaze files are Xilinx's; some Verilog modules are adapted from textbook listings; two SPICE decks started from course example cells. CMOS results are from simulation only.",
     ],
-    architectureSummary: "The portfolio moves from transistor and logic design to FPGA modules, microcontroller peripherals, communication protocols, and a complete board layout — emphasizing explicit timing and interfaces at every level.",
-    architectureNodes: ["CMOS + digital logic", "FPGA modules", "ATmega2560 peripherals", "Firmware protocols + timing", "Two-layer PCB + Gerbers"],
+    architectureSummary: "The portfolio moves from transistor-level CMOS design (in simulation) to FPGA modules, microcontroller peripherals, a serial link, and a board layout, with explicit timing and interfaces at every level.",
+    architectureNodes: ["CMOS + digital logic (SPICE)", "FPGA modules", "ATmega2560 peripherals", "Firmware timing + serial link", "Two-layer PCB design + Gerbers"],
     evidence: [
-      { label: "Board design", hint: "", status: "available", value: "Two-layer schematic/layout and production Gerbers; fabrication not claimed." },
-      { label: "Bare-metal timing", hint: "", status: "available", value: "Direct-register ADC configuration for 40 kHz sampling." },
-      { label: "Protocol implementation", hint: "", status: "available", value: "Hand-built IR link layer and interrupt-driven projects." },
-      { label: "Scope boundary", hint: "", status: "available", value: "Component validation is labeled separately from a complete closed-loop robot." },
+      { label: "Board design", hint: "", status: "available", value: "Two-layer Eagle schematic/layout and Gerbers; fabrication not claimed." },
+      { label: "Register-level timing", hint: "", status: "available", value: "Timer1-triggered ADC conversions at 40 kHz with an interrupt-driven sample buffer." },
+      { label: "Serial link", hint: "", status: "available", value: "IR serial link with addressing and checksum (from a course lab template)." },
+      { label: "Scope boundary", hint: "", status: "available", value: "Component bring-up is labeled separately from a complete closed-loop robot; CMOS work is simulation only." },
     ],
     metrics: [
-      { label: "ADC sample rate", value: "40 kHz", hint: "Direct-register sampler." },
-      { label: "PCB layers", value: "2", hint: "Gerber-ready design." },
+      { label: "ADC sample rate", value: "40 kHz", hint: "Register-level sampler." },
+      { label: "PCB layers", value: "2", hint: "Design with Gerbers." },
       { label: "Target MCU", value: "ATmega2560", hint: "Mega-class board." },
       { label: "Fabrication", value: "Not claimed", hint: "Design files only." },
     ],
     limitations: [
-      "The repository packages work from multiple courses and dates; public upload dates are not project dates.",
-      "The custom board has manufacturing files but no preserved fabricated-board bring-up record.",
-      "Some folders are peripheral validation exercises, not complete embedded products.",
+      "The repositories package work from several courses; public upload dates are not project dates.",
+      "The custom board was designed, not fabricated or assembled.",
+      "Some folders are peripheral bring-up exercises, not complete embedded products.",
     ],
     lessons: [
       "Precise scope language matters in hardware: designed, fabricated, assembled, and validated are different milestones.",
-      "Direct-register work builds intuition for the timing and bandwidth constraints hidden by high-level robotics frameworks.",
+      "Register-level work builds intuition for the timing and bandwidth constraints hidden by high-level robotics frameworks.",
       "Breadth is most useful when tied back to concrete robot interfaces rather than presented as a catalog.",
     ],
     media: [
@@ -973,8 +973,9 @@ export const projects: Project[] = [
     artifacts: [
       { kind: "repo", label: "Microcontroller portfolio", href: "https://github.com/Janga786/arduino-mega-microcontrollers" },
       { kind: "repo", label: "FPGA portfolio", href: "https://github.com/Janga786/basys3-fpga-portfolio" },
+      { kind: "repo", label: "CMOS SPICE designs", href: "https://github.com/Janga786/cmos-vlsi-spice-portfolio" },
     ],
-    seoDescription: "Embedded systems portfolio: ATmega2560 firmware, a 40 kHz ADC sampler, IR protocol, FPGA work, and a two-layer Arduino-Mega-class PCB design with Gerbers.",
+    seoDescription: "Embedded systems portfolio: ATmega2560 course-board bring-up, a 40 kHz register-level ADC sampler, an IR serial link, Basys 3 FPGA labs, CMOS SPICE simulation, and a two-layer ATmega2560 PCB design with Gerbers.",
     sortOrder: 8,
   },
 
