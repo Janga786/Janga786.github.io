@@ -58,16 +58,16 @@ export const projects: Project[] = [
     title: "Humanoid Navigation Research on the Booster K1",
     shortTitle: "K1 / NaVILA Navigation Research",
     category: "embodied-ai",
-    status: "active-research",
+    status: "completed-study",
     featured: true,
     isPlaceholder: false,
-    dateLabel: "May 2026 – present",
+    dateLabel: "May – Aug 2026",
     oneLiner:
-      "A completed 1,077-episode simulation benchmark, an audited K1 locomotion stack, and a 2,400-episode controlled sweep whose strongest finding is about evaluation reliability itself.",
+      "NaVILA over a 50 Hz RL walking policy I trained: a 1,077-episode simulation benchmark where success rose from under 1% to 18.3%, a 2,400-episode ablation that exposed run-to-run noise, and two live episodes on the real K1 using Booster's built-in walker.",
     summary:
-      "This project adds the Booster K1 as a new embodiment in the VLN-CE-Isaac / NaVILA evaluation stack. The canonical run completed all 1,077 R2R val-unseen episodes in Isaac Sim: 197 successes (18.3% SR), 326 episodes that reached the goal radius at some point (30.3% oracle success), 10.9% SPL, and 7.59 m final navigation error. The most useful result was the decomposition. Of the 326 reaches, 129 failed to stop, while 751 never reached the goal region. That separates arrival recognition from the dominant exploration failure class. A pre-specified 2,400-episode camera-height and image-transform sweep completed in August 2026 with every pre-specified contrast null; the strongest finding was about evaluation reliability itself — identically configured 300-episode runs disagreed on 11.0% of episode outcomes (Cohen's κ = 0.58), and a fixed wall-clock limit censored conditions unequally (timeouts of 2.0% vs 12.3% across two 300-episode runs). The two runs agreed in aggregate (15.0% vs 16.0%) but disagreed on 11.0% of episodes (33/300), and only 48% (30/63) of episodes that succeeded in either run succeeded in both.",
+      "This project adds the Booster K1 as a new embodiment in the VLN-CE-Isaac / NaVILA evaluation stack. NaVILA, a vision-language navigation model, issues commands at about 1 Hz to a 50 Hz reinforcement-learning walking policy I trained in Isaac Lab; the policy uses only proprioception (joint and body sensing), the same category as the published 24.4% H1 baseline. Pipeline fixes (a 46-degree evaluation tilt limit that cut about 61% of early episodes short, and a camera warm-up bug) and policy retraining raised success from under 1% to 18.3% and more than doubled the mean distance walked per episode. The canonical run completed all 1,077 R2R val-unseen episodes in Isaac Sim: 197 successes (18.3% SR), 326 episodes that reached the goal radius at some point (30.3% oracle success), 10.9% SPL, and 7.59 m final navigation error. The most useful result was the decomposition. Of the 326 reaches, 129 failed to stop, while 751 never reached the goal region. That separates arrival recognition from the dominant exploration failure class. A pre-specified 2,400-episode camera-height and image-transform sweep completed in August 2026 with every pre-specified contrast null; the strongest finding was about evaluation reliability itself — identically configured 300-episode runs disagreed on 11.0% of episode outcomes (Cohen's κ = 0.58), and a fixed wall-clock limit censored conditions unequally (timeouts of 2.0% vs 12.3% across two 300-episode runs). The two runs agreed in aggregate (15.0% vs 16.0%) but disagreed on 11.0% of episodes (33/300), and only 48% (30/63) of episodes that succeeded in either run succeeded in both. Separately, NaVILA ran live on the physical K1 for two natural-language episodes with zero teleoperation, using Booster's built-in walker; my trained walking policy has only worked in simulation.",
     role:
-      "Research assistant (paid, solo project) — K1 embodiment integration, evaluation harness, locomotion diagnostics, evidence ledger, and experiment design",
+      "Research assistant (paid, solo project) — K1 embodiment integration, RL walking-policy training (simulation), evaluation harness, live-deployment relay, evidence ledger, and experiment design",
     teamContext:
       "Paid, solo undergraduate research under Dr. Yiyan Li at Fort Lewis College, built on NaVILA, VLN-CE-Isaac, Isaac Lab, and Booster Robotics frameworks.",
     advisor: "Dr. Yiyan Li, Fort Lewis College",
@@ -93,7 +93,8 @@ export const projects: Project[] = [
       "Integrated K1 robot, camera, observation, wrapper, parser, and evaluation surfaces into the upstream NaVILA benchmark instead of treating the inherited stack as authored work.",
       "Completed and preserved the 1,077-episode canonical evaluation with per-episode measurement JSONs and a regenerable metric script.",
       "Separated never-reached, reached-without-stopping, and successful episodes to turn one aggregate score into testable failure mechanisms.",
-      "Extended Booster training and deployment frameworks with K1-specific environment configuration, reward terms, observation-contract checks, validators, filtering, and safety-aware mode handling.",
+      "Trained the 50 Hz proprioception-only walking policy (PPO in Isaac Lab, simulation only) and extended Booster training and deployment frameworks with K1-specific environment configuration, reward terms, observation-contract checks, validators, filtering, and safety-aware mode handling.",
+      "Built the relay that ran NaVILA live on the physical K1 for two natural-language episodes (RTX 5090 inference, ~350 ms; Booster SDK velocity control; Booster's built-in walker).",
       "Maintained an evidence ledger that records supported claims, nuanced values, conflicts, and missing raw artifacts rather than silently choosing the most favorable number.",
     ],
     methodology: [
@@ -104,7 +105,7 @@ export const projects: Project[] = [
     experimentalDesign: [
       "Scored the complete 1,077-episode R2R val-unseen set under one canonical simulation configuration and reported SR, oracle success, SPL, and final navigation error.",
       "Partitioned every episode into never reached, reached without stopping, or successful to separate exploration and arrival-recognition behavior.",
-      "Pre-specified a follow-up camera-height and image-transform sweep; a nondeterminism probe then undercut the preregistered paired test, so the paired design was dropped before launch and the analysis used unpaired comparisons (the change is documented in the repository's known-gaps ledger). The 2,400-episode sweep completed in August 2026 with all pre-specified contrasts null; its evaluation-reliability result is that two identically configured 300-episode runs agreed in aggregate (15.0% vs 16.0%) but disagreed on 11.0% of episodes (Cohen's κ = 0.58).",
+      "Preregistered a follow-up camera-height and image-transform sweep (plan committed before launch). The plan named a paired test, but its own determinism probe showed per-episode outcomes were not stable run to run, so the analysis used unpaired comparisons; that amendment was appended to the preregistration file after the sweep finished, as a dated note in the repository records. The 2,400-episode sweep completed in August 2026 with all pre-specified contrasts null; its evaluation-reliability result is that two identically configured 300-episode runs agreed in aggregate (15.0% vs 16.0%) but disagreed on 11.0% of episodes (Cohen's κ = 0.58).",
     ],
     failureAnalysis: [
       "751 episodes never entered the goal radius, making exploration the dominant observed failure class.",
@@ -118,7 +119,7 @@ export const projects: Project[] = [
     ],
     provenance: [
       "NaVILA, VLN-CE-Isaac, Isaac Lab, RSL-RL, and Booster training/deployment code are upstream foundations; the contribution is the K1-specific integration, experiments, diagnostics, and analysis.",
-      "The canonical 18.3% result is simulation-only. Two live natural-language NaVILA episodes ran on the real K1 in May 2026 with zero teleoperation (one captured on video, the second on the project record): a relay screen recording shows the VLM issuing the velocity commands (executed by Booster's built-in walking controller), paired with a dated third-person clip. My trained RL walking policy has not yet worked outside simulation, and no navigation score is claimed for the live session.",
+      "The canonical 18.3% result is simulation-only, and it is below the published NaVILA baselines, including the 24.4% H1 result whose walking policy, like mine, used only proprioception. Two live natural-language NaVILA episodes ran on the real K1 in May 2026 with zero teleoperation (one captured on video, the second on the project record): a relay screen recording shows the VLM issuing the velocity commands (executed by Booster's built-in walking controller), paired with a dated third-person clip. My trained RL walking policy has not yet worked outside simulation, and no navigation score is claimed for the live session.",
       "The recorded below-1% prior baseline is useful context but its original raw run directory was unavailable during the evidence audit; the final 1,077-episode result is fully preserved and regenerable.",
     ],
     architectureSummary:
@@ -163,8 +164,9 @@ export const projects: Project[] = [
       { label: "SPL / NE", value: "10.9% / 7.59 m", hint: "Path efficiency / final navigation error." },
     ],
     limitations: [
-      "The canonical result is simulation-only. The receipted May 2026 live episode shows NaVILA driving the physical K1 through the relay (built-in walker executing); no navigation score is claimed for it.",
-      "The viewpoint sweep's design changed once before launch, after nondeterministic repeat runs invalidated the original paired-retry assumption; the final 2,400-episode sweep completed with null pre-specified contrasts.",
+      "The canonical result is simulation-only, and my trained walking policy has not yet worked on the real robot. The two May 2026 live episodes used Booster's built-in walker; no navigation score is claimed for them.",
+      "The sweep's primary test changed from paired to unpaired because repeat runs were nondeterministic; the amendment recording that change was appended to the preregistration after the sweep finished. The 2,400-episode sweep completed with null pre-specified contrasts.",
+      "The walking policy tended to stall on contact with walls; the 18.3% result is still below the benchmark's published baselines.",
       "Aggregate navigation scores alone cannot isolate perception, exploration, locomotion, parser, and stopping failures; the decomposition narrows but does not eliminate that ambiguity.",
     ],
     lessons: [
@@ -202,7 +204,7 @@ export const projects: Project[] = [
         kind: "diagram",
         src: "/diagrams/vla-topology.svg",
         alt: "Tested K1 deployment path with robot, relay, and inference workstation",
-        caption: "Deployment path. A live May 2026 episode is documented in the repository; no scored navigation run is claimed.",
+        caption: "Deployment path. The two live May 2026 episodes are documented in the repository; no scored navigation run is claimed.",
       },
     ],
     artifacts: [
@@ -212,7 +214,7 @@ export const projects: Project[] = [
       { kind: "report", label: "Sweep status", href: "https://github.com/Janga786/k1-navila-research/blob/main/SWEEP_STATUS.md" },
     ],
     seoDescription:
-      "Booster K1 humanoid navigation research: a complete 1,077-episode NaVILA simulation benchmark, failure decomposition, locomotion diagnostics, and an evaluation-reliability study showing identically configured runs disagreeing on 11.0% of episodes.",
+      "Booster K1 humanoid navigation research: NaVILA over a self-trained RL walking policy, a 1,077-episode simulation benchmark (under 1% to 18.3% success), and a 2,400-episode ablation showing identically configured runs disagreeing on 11.0% of episodes.",
     sortOrder: 1,
   },
 
