@@ -223,7 +223,7 @@ export const projects: Project[] = [
     title: "X-Embodiment Language-Grounded Manipulation Benchmark",
     shortTitle: "xembench",
     category: "research",
-    status: "active-research",
+    status: "completed-study",
     featured: true,
     isPlaceholder: false,
     dateLabel: "2026 · v0.5.0",
@@ -366,7 +366,7 @@ export const projects: Project[] = [
     ],
     seoDescription:
       "Xembench is a two-embodiment ManiSkill3 benchmark with a 6,550-episode baseline matrix, near-zero transfer under weak native policies, and an action-chunking intervention from 1.3% to 14.7% tool-pulling success.",
-    sortOrder: 2,
+    sortOrder: 3,
   },
   {
     slug: "rebot-crack-inspection",
@@ -473,7 +473,7 @@ export const projects: Project[] = [
     ],
     seoDescription:
       "Senior-design bridge crack-inspection arm: CAN motor bring-up at 200 Hz, measured gravity feed-forward, guarded trajectories within 0.023 rad, and a zero-shot crack-segmentation pipeline.",
-    sortOrder: 3,
+    sortOrder: 2,
   },
 
   {
@@ -803,9 +803,9 @@ export const projects: Project[] = [
     oneLiner:
       "Revived two discontinued Rethink robots (Sawyer and Baxter) with no vendor support, rebuilt the ROS workstation, and built a synthetic-data thermal hotspot detector; 2nd place at the 2025 FLC Physics & Engineering Symposium.",
     summary:
-      "The project began with two nonfunctional legacy robots and limited vendor support. I diagnosed controller and boot problems, restored operating environments, and rebuilt a Dockerized ROS 1 (Indigo) + ROS 2 (Humble) MoveIt/Gazebo workstation so the arms could again be simulated and programmed. In parallel, I developed Blender/Python synthetic-data tooling and YOLO-based inspection experiments. In August 2025 I also ran the detector on real panels as a qualitative end-to-end check. An earlier detector metric was removed after an internal evidence audit found the training configuration reused training images for validation, with no preserved held-out set. What remains is still useful: robot restoration, systems troubleshooting, synthetic-data generation, inspection tooling, and a symposium-award research direction. This was a paid, solo, full-time research assistantship (May–August 2025), presented at the September 2025 symposium.",
-    role: "Research Assistant, Computer Vision & Robotics (paid, solo project; full-time May–August 2025) under Dr. Kevin Wedeward — restoration, ROS environment, synthetic data, and inspection experiments",
-    teamContext: "Paid, solo undergraduate research project with faculty supervision; full-time May–August 2025, presented at the September 2025 symposium.",
+      "The project began with two nonfunctional legacy robots and limited vendor support. I diagnosed controller and boot problems, restored operating environments, and rebuilt a Dockerized ROS 1 (Indigo) + ROS 2 (Humble) MoveIt/Gazebo workstation so the arms could again be simulated and programmed. In parallel, I developed Blender/Python synthetic-data tooling and YOLO-based inspection experiments. In August 2025 I also ran the detector on real panels as a qualitative end-to-end check. An earlier detector metric was removed after an internal evidence audit found the training configuration reused training images for validation, with no preserved held-out set. What remains is still useful: robot restoration, systems troubleshooting, synthetic-data generation, inspection tooling, and a symposium-award research direction. This was a paid, solo research assistantship (May–September 2025), presented at the September 2025 symposium.",
+    role: "Research Assistant, Computer Vision & Robotics (paid, solo project; May–September 2025) under Dr. Kevin Wedeward — restoration, ROS environment, synthetic data, and inspection experiments",
+    teamContext: "Paid, solo undergraduate research project with faculty supervision; May–September 2025, presented at the September 2025 symposium.",
     advisor: "Dr. Kevin Wedeward, Fort Lewis College",
     collaborators: "Individual undergraduate research with faculty supervision.",
     upstreamSystems: "Sawyer and Baxter vendor stacks, ROS 1/ROS 2, MoveIt, Gazebo, Blender, and YOLO.",
@@ -840,6 +840,7 @@ export const projects: Project[] = [
     ],
     provenance: [
       "Vendor ROS packages and workspaces are upstream; the contribution is restoration, environment integration, custom scripts, synthetic-data tooling, and documentation.",
+      "The thermal hotspot detector is not in a public repository; the linked CV-YOLO-Inspection repository is an earlier synthetic-data pipeline for beverage-can inspection, built with the same Blender-to-YOLO approach.",
       "No mAP, accuracy, thermal-image count, live thermal feed, or closed-loop hardware-inspection result is claimed because the audited repositories do not support those statements.",
     ],
     architectureSummary: "The supported work has three layers: recover the robot controllers, rebuild the ROS planning environment, and develop synthetic-data/detection tooling. A valid held-out detector evaluation remains future work rather than a retroactive claim.",
@@ -875,7 +876,7 @@ export const projects: Project[] = [
       { kind: "image", src: "/media/pv-real-panel-thermal-hotspot-2.jpg", alt: "Second thermal frame from a different camera position with the same heated cell flagged as a hotspot", caption: "Second saved frame from a different camera position — the same heated cell is flagged again. Qualitative check, not a held-out metric." },
     ],
     artifacts: [
-      { kind: "repo", label: "Inspection tooling", href: "https://github.com/Janga786/CV-YOLO-Inspection" },
+      { kind: "repo", label: "Earlier synthetic-data tooling (can inspection)", href: "https://github.com/Janga786/CV-YOLO-Inspection" },
       { kind: "repo", label: "Baxter field guide", href: "https://github.com/Janga786/Baxter-Troubleshooting" },
       { kind: "repo", label: "ROS workstation", href: "https://github.com/Janga786/Baxter-Sawyer_Work_Station_Windows" },
     ],
