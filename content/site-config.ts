@@ -11,7 +11,7 @@ export const siteConfig = {
   title: "Jangara Bliss",
   titleTemplate: "%s — Jangara Bliss",
   description:
-    "Jangara Bliss studies learning-based autonomy, robot learning, and embodied systems across simulation and real robotic platforms, with completed results, active work, and claim boundaries separated clearly.",
+    "Jangara Bliss, computer engineering senior at Fort Lewis College: learned control for humanoid and legged robots, a Booster K1 navigation benchmark in simulation, and motor control on a real seven-motor arm, with simulation and hardware results kept separate.",
 
   /* ── Visibility toggles ─────────────────────────────────────────────── */
 
