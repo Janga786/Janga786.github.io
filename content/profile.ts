@@ -19,7 +19,7 @@ export const profile: Profile = {
     "I'm a computer engineering senior at Fort Lewis College, with minors in mathematics and business administration, graduating in May 2027. From May to August 2026 I did full-time research with Dr. Yiyan Li on a Booster K1 humanoid: NaVILA, a vision-language navigation model, issuing commands at about 1 Hz to a 50 Hz reinforcement-learning walking policy I trained. I added the K1 to the VLN-CE-Isaac benchmark and ran all 1,077 episodes in simulation. Pipeline fixes (a tilt-limit mismatch and a camera warm-up bug) and policy retraining raised success from under 1% to 18.3%. That is still below the published 24.4% baseline for an H1 humanoid whose walking policy, like mine, used only proprioception. In a 2,400-episode ablation, two identically configured 300-episode runs scored 15.0% and 16.0% yet disagreed on 11.0% of individual episodes, so I now report every success rate with its uncertainty. NaVILA also ran live on the real K1 for two natural-language episodes using Booster's built-in walker; my own walking policy has only worked in simulation.",
     "This fall I moved to hardware control on my senior-capstone arm, a seven-motor reBot B601-DM I am adapting for bridge crack inspection. My teammate is building a second arm, so I am the only person working on this one. I brought up its motors over CAN with a 200 Hz control loop and built its Jacobian, inverse kinematics, and a minimum-jerk planner. A slow torque test measured 6.6 N·m of gravity load at the elbow against 2.7 N·m from the URDF; gravity and friction feed-forward with retuned gains cut loaded-joint holding error from 0.04–0.05 rad to 0.005 rad or less.",
     "Earlier projects gave me the rest of the stack. I led a four-person team that built an 18-DoF hexapod for NASA Space Grant's Colorado Robotics Challenge, designing its electrical system and extending its firmware (originally Mark W's open-source code) with heading hold and bump avoidance. As a solo summer research assistant under Dr. Kevin Wedeward, I revived two discontinued Rethink robots, Sawyer and Baxter. I also built xembench, a simulation benchmark for language-grounded manipulation across two robot bodies, a KUKA kinematics library with analytic, finite-difference, and URDF cross-checks, and point-cloud methods for a five-person LiDAR design project. Embedded, FPGA, and PCB work keeps the hardware layer concrete.",
-    "I want to learn to build reliable learned control for humanoid and legged robots, down to the embedded layer that drives the motors, especially learning that uses model predictive control (MPC) and trajectory optimization as priors or safety layers. I am applying to MS programs in robotics for Fall 2027 and plan a graduate co-op at a company building legged or humanoid robots. After the MS I plan to build embedded robot controllers at a humanoid or legged robot company.",
+    "I want to learn to build reliable learned control for humanoid and legged robots, down to the embedded layer that drives the motors, especially learning that uses model predictive control (MPC) and trajectory optimization as priors or safety layers. I am applying to MS programs in robotics for Fall 2027 and plan a graduate co-op at a company building legged or humanoid robots. After the MS I plan to build embedded robot controllers at a humanoid or legged robot company, and eventually start my own company on a problem robotics has not yet solved.",
   ],
 
   location: "Durango, Colorado",
@@ -78,20 +78,20 @@ export const profile: Profile = {
       href: "/projects/k1-navila-research/",
     },
     {
-      title: "Independent Research — xembench",
-      organization: "Language-grounded manipulation in ManiSkill3",
-      dateLabel: "2026 · active",
-      summary:
-        "Designed and ran a two-embodiment benchmark with 1,202 demonstrations and 6,550 baseline evaluation episodes, then tested failure-driven data collection and action chunking.",
-      href: "/projects/xembench/",
-    },
-    {
       title: "Senior Design — Bridge Crack-Inspection Arm",
       organization: "Fort Lewis College · Advisor: Dr. Yiyan Li · two-person team; my teammate is building a second arm from scratch, so all work on this arm is mine",
       dateLabel: "Sep 2026 – present",
       summary:
         "Brought up a 6+1-DoF arm over CAN at 200 Hz, identified gravity/friction feed-forward on the real hardware (post-tuning holds ≤ 0.005 rad over 41 logged hardware runs, 28 completed), and ran guarded trajectories feeding a zero-shot crack-segmentation pipeline.",
       href: "/projects/rebot-crack-inspection/",
+    },
+    {
+      title: "Independent Project — xembench",
+      organization: "Language-grounded manipulation benchmark in ManiSkill3 (simulation)",
+      dateLabel: "2026",
+      summary:
+        "Designed and ran a two-embodiment benchmark with 1,202 demonstrations and 6,550 baseline evaluation episodes, then tested failure-driven data collection and action chunking.",
+      href: "/projects/xembench/",
     },
     {
       title: "Team Lead — Colorado Robotics Challenge",
@@ -103,7 +103,7 @@ export const profile: Profile = {
     },
     {
       title: "Research Assistant — Computer Vision & Robotics",
-      organization: "Fort Lewis College · Advisor: Dr. Kevin Wedeward · paid, solo project (full-time May–Aug 2025)",
+      organization: "Fort Lewis College · Advisor: Dr. Kevin Wedeward · paid, solo project",
       dateLabel: "May – Sep 2025",
       summary:
         "Revived two non-functional Rethink robots (Sawyer, Baxter) with no vendor support, rebuilt a Dockerized ROS 1 + ROS 2 workstation, and trained a YOLOv8 thermal hotspot detector on Blender synthetic data; with Baxter holding the camera, it flagged an induced hotspot on test panels in every saved frame. 2nd Place, FLC Physics & Engineering Symposium 2025, the highest-placing solo project.",
