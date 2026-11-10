@@ -7,19 +7,19 @@ import type { Profile } from "@/lib/types";
 export const profile: Profile = {
   name: "Jangara Bliss",
 
-  eyebrow: "Jangara Bliss · Robot Learning & Autonomous Systems",
-  headline: "Learning-based autonomy for robots in the physical world.",
+  eyebrow: "Jangara Bliss · Robot Learning & Control",
+  headline: "Learned control for robots in the physical world.",
   subheadline:
-    "I build and study learning-based autonomous systems, with current work spanning embodied navigation, cross-embodiment manipulation, simulation, and real robotic systems.",
+    "I work on learned and model-based control for robots: a vision-language-guided humanoid evaluated in simulation, a seven-motor arm on real hardware, and the embedded layer underneath.",
 
   shortBio:
-    "Computer engineering student at Fort Lewis College focused on robot learning and autonomy, with experience spanning benchmark design, simulation, controls, perception, and embedded systems.",
+    "Computer engineering senior at Fort Lewis College (B.S. expected May 2027) working toward reliable learned control for humanoid and legged robots, with experience in RL locomotion in simulation, motor control on real hardware, evaluation, perception, and embedded systems.",
 
   longBio: [
-    "I'm a computer engineering student at Fort Lewis College, with minors in mathematics and business administration. My current research centers on humanoid navigation and robot learning. Under Dr. Yiyan Li, I integrated the Booster K1 into the VLN-CE-Isaac / NaVILA evaluation stack and completed all 1,077 R2R val-unseen episodes. The result — 18.3% success and 30.3% oracle success — became more useful after I decomposed it: 129 episodes reached the goal region but did not stop, separating arrival recognition from the larger exploration problem. A pre-specified 2,400-episode viewpoint sweep returned null contrasts but exposed how unreliable single-run VLN evaluation is — identically configured runs disagreed on 11.0% of episode outcomes — and that evaluation-reliability result is now the center of the work.",
-    "Alongside that work, I built xembench, a ManiSkill3 benchmark for language-grounded manipulation across a Franka-style arm and a Unitree G1 upper body. Its completed baseline campaign includes 1,202 demonstrations and a 6,550-episode evaluation matrix. The first result was mostly negative: zero-shot transfer was near zero because the native precision-manipulation policies were themselves weak. A follow-up intervention showed where progress was possible — action chunking raised tool-pulling success from 1.3% to 14.7%, while grasp-critical tasks remained near zero. That boundary is the point of the benchmark: make failure measurable before calling it transfer.",
-    "Earlier projects gave me the rest of the stack. I led a four-person team that fielded an 18-DoF hexapod at the NASA Colorado Robotics Challenge, designing its electrical system and extending its firmware; implemented LiDAR point-cloud algorithms for a five-person debris-analysis project; restored legacy Sawyer and Baxter robots; and built a KUKA kinematics library with analytic, finite-difference, and URDF cross-checks. Embedded and FPGA coursework keeps the hardware layer concrete rather than abstract.",
-    "The research question I want to pursue is how autonomous robots generalize and continue improving after deployment: how embodiment, viewpoint, action representation, data selection, and closed-loop feedback interact outside a curated training distribution. After a master's, I want to work as a robot learning engineer or research engineer building general-purpose autonomous systems. I value research that survives contact with a real platform and engineering that produces conclusions, not only demos.",
+    "I'm a computer engineering senior at Fort Lewis College, with minors in mathematics and business administration, graduating in May 2027. From May to August 2026 I did full-time research with Dr. Yiyan Li on a Booster K1 humanoid: NaVILA, a vision-language navigation model, issuing commands at about 1 Hz to a 50 Hz reinforcement-learning walking policy I trained. I added the K1 to the VLN-CE-Isaac benchmark and ran all 1,077 episodes in simulation. Pipeline fixes (a tilt-limit mismatch and a camera warm-up bug) and policy retraining raised success from under 1% to 18.3%. That is still below the published 24.4% baseline for an H1 humanoid whose walking policy, like mine, used only proprioception. In a 2,400-episode ablation, two identically configured 300-episode runs scored 15.0% and 16.0% yet disagreed on 11.0% of individual episodes, so I now report every success rate with its uncertainty. NaVILA also ran live on the real K1 for two natural-language episodes using Booster's built-in walker; my own walking policy has only worked in simulation.",
+    "This fall I moved to hardware control on my senior-capstone arm, a seven-motor reBot B601-DM I am adapting for bridge crack inspection. My teammate is building a second arm, so I am the only person working on this one. I brought up its motors over CAN with a 200 Hz control loop and built its Jacobian, inverse kinematics, and a minimum-jerk planner. A slow torque test measured 6.6 N·m of gravity load at the elbow against 2.7 N·m from the URDF; gravity and friction feed-forward with retuned gains cut loaded-joint holding error from 0.04–0.05 rad to 0.005 rad or less.",
+    "Earlier projects gave me the rest of the stack. I led a four-person team that built an 18-DoF hexapod for NASA Space Grant's Colorado Robotics Challenge, designing its electrical system and extending its firmware (originally Mark W's open-source code) with heading hold and bump avoidance. As a solo summer research assistant under Dr. Kevin Wedeward, I revived two discontinued Rethink robots, Sawyer and Baxter. I also built xembench, a simulation benchmark for language-grounded manipulation across two robot bodies, a KUKA kinematics library with analytic, finite-difference, and URDF cross-checks, and point-cloud methods for a five-person LiDAR design project. Embedded, FPGA, and PCB work keeps the hardware layer concrete.",
+    "I want to learn to build reliable learned control for humanoid and legged robots, down to the embedded layer that drives the motors, especially learning that uses model predictive control (MPC) and trajectory optimization as priors or safety layers. I am applying to MS programs in robotics for Fall 2027 and plan a graduate co-op at a company building legged or humanoid robots. After the MS I plan to build embedded robot controllers at a humanoid or legged robot company.",
   ],
 
   location: "Durango, Colorado",
@@ -29,43 +29,42 @@ export const profile: Profile = {
   graduation: "May 2027",
 
   gpa: "3.65",
-  upperDivisionGpa: "3.8",
+  upperDivisionGpa: "3.80",
   gpaNote:
-    "cumulative through Summer 2026; 4.0 in Spring and Summer 2026, Spring Dean's List",
+    "cumulative; 4.00 in Spring 2026 (17 credits), Dean's List",
 
   interests: [
-    "Robot learning",
-    "Autonomous systems",
-    "Embodied AI",
+    "Learned control for humanoid & legged robots",
     "Reinforcement learning",
-    "Computer vision & perception",
+    "Model predictive control & trajectory optimization",
+    "System identification",
+    "Vision-language navigation",
     "Simulation & sim-to-real",
-    "Controls & motion planning",
+    "Embedded control",
     "Experimental evaluation",
-    "Embedded systems",
   ],
 
   researchThemes: [
     {
-      title: "Generalization & Adaptation",
+      title: "Learned Control with Model-Based Structure",
       question:
-        "How can a robot remain capable when its environment, task, viewpoint, or embodiment differs from training?",
+        "How can model predictive control and trajectory optimization serve as priors or safety layers for learned controllers on humanoid and legged robots?",
       description:
-        "I am interested in identifying which parts of a learned system fail under distribution shift, then designing representations, data, and evaluations that make adaptation measurable.",
+        "My K1 walking policy and my arm controller sit at the two ends of this question: a policy trained in simulation, and hand-identified gravity and friction feed-forward on real motors. I want to learn to combine them properly.",
     },
     {
-      title: "Robot Learning & Learning-Based Control",
+      title: "From Simulation to Contact",
       question:
-        "How can robots acquire robust physical skills from demonstrations, interaction, and closed-loop feedback?",
+        "What does it take for a learned walker that works in simulation to hold up under contact and on real hardware?",
       description:
-        "My current work uses behavior cloning and reinforcement-learning tools, while treating policy class, action representation, and native competence as experimental variables rather than fixed identities.",
+        "My policy tended to stall when it touched a wall, and it has not yet worked outside simulation. Closing that gap, down to the embedded layer that drives the motors, is the skill I most want to build.",
     },
     {
-      title: "Embodied Autonomy",
+      title: "Evaluation You Can Trust",
       question:
-        "How should perception, language, planning, learning, and control be integrated into one autonomous physical system?",
+        "How much evidence does one success rate really carry, and what can verification establish about a learned controller?",
       description:
-        "I care about complete-system behavior: what the robot observes, how decisions become motion, and what deployment evidence can actually establish.",
+        "Identically configured benchmark runs that agreed in aggregate disagreed on 11.0% of episodes. I report every success rate with its uncertainty and want stronger tools than a single score.",
     },
   ],
 
@@ -75,7 +74,7 @@ export const profile: Profile = {
       organization: "Fort Lewis College · Advisor: Dr. Yiyan Li · paid, solo project",
       dateLabel: "May – Aug 2026",
       summary:
-        "Integrated the Booster K1 into a vision-language navigation benchmark, completed a 1,077-episode simulation evaluation, decomposed reach and stop failures, and ran a pre-specified 2,400-episode viewpoint sweep whose null contrasts exposed the evaluation-reliability result: two identically configured 300-episode runs agreed in aggregate (15.0% vs 16.0%) but disagreed on 11.0% of episodes.",
+        "Built a two-tier stack: NaVILA (~1 Hz) commanding a 50 Hz RL walking policy I trained in Isaac Lab (simulation only). Integrated the K1 into VLN-CE-Isaac and ran all 1,077 episodes; pipeline fixes and policy retraining raised success from under 1% to 18.3%. In a preregistered 2,400-episode ablation, two identically configured 300-episode runs agreed in aggregate (15.0% vs 16.0%) but disagreed on 11.0% of episodes. Ran NaVILA live on the physical K1 for two natural-language episodes through a relay I built, using Booster's built-in walker.",
       href: "/projects/k1-navila-research/",
     },
     {
@@ -95,11 +94,11 @@ export const profile: Profile = {
       href: "/projects/rebot-crack-inspection/",
     },
     {
-      title: "Team Lead — Field Robotics",
-      organization: "NASA Colorado Robotics Challenge · Advisor: Dr. Charles Hakes · four-person team · paid",
+      title: "Team Lead — Colorado Robotics Challenge",
+      organization: "NASA Space Grant · Advisor: Dr. Charles Hakes · four-person team · paid",
       dateLabel: "Oct 2025 – Apr 2026",
       summary:
-        "Led a four-person team fielding an 18-DoF hexapod at Great Sand Dunes; designed the electrical system (Arduino Mega, 9-DoF IMU, bump sensors, LiPo + SBEC power) and extended the firmware with gyro-magnetometer heading hold, gyro-bias calibration, and bump avoidance.",
+        "Led a four-person team fielding an 18-DoF hexapod at Great Sand Dunes; designed the electrical system (Arduino Mega, 9-DoF IMU, bump sensors, LiPo + SBEC power) and extended the firmware, originally Mark W's open-source code, with gyro-magnetometer heading hold, gyro-bias calibration, and bump avoidance. Later built a Kuramoto coupled-oscillator gait simulator with a 34-test suite.",
       href: "/projects/hexapod-nasa-challenge/",
     },
     {
@@ -107,7 +106,7 @@ export const profile: Profile = {
       organization: "Fort Lewis College · Advisor: Dr. Kevin Wedeward · paid, solo project (full-time May–Aug 2025)",
       dateLabel: "May – Sep 2025",
       summary:
-        "Restored legacy Sawyer and Baxter platforms, rebuilt a Dockerized ROS 1 + ROS 2 workstation, and developed synthetic-data and inspection tooling; 2nd Place, FLC Physics & Engineering Symposium 2025, the highest-placing solo project.",
+        "Revived two non-functional Rethink robots (Sawyer, Baxter) with no vendor support, rebuilt a Dockerized ROS 1 + ROS 2 workstation, and trained a YOLOv8 thermal hotspot detector on Blender synthetic data; with Baxter holding the camera, it flagged an induced hotspot on test panels in every saved frame. 2nd Place, FLC Physics & Engineering Symposium 2025, the highest-placing solo project.",
       href: "/projects/legacy-robot-restoration-inspection/",
     },
     {
@@ -129,18 +128,18 @@ export const profile: Profile = {
   ],
 
   missionStatement:
-    "Help build general-purpose autonomous robots that can adapt to new tasks, bodies, and environments — and continue learning after deployment.",
+    "Build reliable learned control for humanoid and legged robots, down to the embedded layer that drives the motors.",
 
   graduateStudyHomepage: [
-    "Deeper foundations in learning, perception, optimization, and control are necessary to move from integrating capable systems to designing better robot-learning methods.",
-    "K1 and xembench exposed research questions about embodiment shift, viewpoint, action representation, policy class, and data selection that engineering alone cannot settle.",
-    "The immediate goal is a robot learning or research engineering role; a master's should add research maturity while preserving the ability to build and test complete systems on real platforms.",
+    "I can train a walking policy and find where it fails, but I cannot yet design a controller that holds up under contact. That is what I want an MS to teach me.",
+    "The K1 benchmark showed that one success rate is weak evidence; the arm showed that a model file can be wrong by more than a factor of two. Both point toward learning combined with model-based control and careful identification.",
+    "After the MS I plan to build embedded robot controllers at a humanoid or legged robot company.",
   ],
 
   graduateStudyStatement: [
-    "I want graduate study to turn broad robotics range into real depth in robot learning and autonomy. I can already connect simulators, policies, control interfaces, sensors, and hardware. The next step is learning to formulate sharper questions, choose methods that isolate causes, and build models whose behavior I can explain rather than only integrate.",
-    "The K1 benchmark made evaluation itself the object of study: separating exploration, arrival recognition, locomotion, and evaluation logic mattered more than any single score, and the pre-specified viewpoint sweep returned null contrasts while exposing real run-to-run unreliability. Xembench produced a complementary lesson: transfer cannot be interpreted when the native policies are weak, and more demonstrations do not automatically repair a policy-class limitation. I want the theoretical and experimental tools to study those interactions rigorously.",
-    "After the degree, I plan to work as a robot learning engineer or research engineer on general-purpose autonomous systems. I am looking for graduate work that combines strong learning, perception, and control foundations with frequent contact with real robots, careful evaluation, and room to own an end-to-end research question.",
+    "I want an MS in robotics to turn hands-on range into depth in learned control for humanoid and legged robots, especially learning that uses MPC and trajectory optimization as priors or safety layers, down to the embedded layer.",
+    "My K1 stack was a slow decision-maker over a fast walker: NaVILA at about 1 Hz over a 50 Hz RL walking policy. It reached 18.3% success in simulation, and its policy tended to stall on contact with walls. On the capstone arm, hand-fitted gravity and friction feed-forward cut holding error to 0.005 rad or less; I want to learn to do that identification properly, including corrections learned from data.",
+    "I plan a graduate co-op at a company building legged or humanoid robots, then a role building embedded robot controllers after the degree.",
   ],
 
   builderEthos: [
@@ -159,11 +158,11 @@ export const profile: Profile = {
   ],
 
   leadership: [
-    "Student representative, Strategic Implementation Committee (unpaid) — one of four students serving with the FLC president, trustees, deans, and campus leaders on the 2025–2030 strategic plan",
-    "President & co-founder, Entrepreneurial Ventures Association — led an 8-person executive team, organized pitch competitions allocating $1,500 in micro-grants, and helped bring NASA's Technology Transfer University (T2U) program to campus",
-    "Team lead (paid), NASA Colorado Robotics Challenge — coordinated a four-person team building and fielding an autonomous 18-DoF hexapod",
-    "STEM tutor — mathematics, physics, and programming",
-    "Volunteer, Children's Cancer Research Fund — six years supporting a memorial golf tournament that has raised more than $175,000",
+    "Student representative, FLC Strategic Implementation Committee (2025–26) — one of four students serving with the FLC president, trustees, deans, and campus leaders on the 2025–2030 strategic plan",
+    "Co-founder & president, Entrepreneurial Ventures Association (2023–24) — led an 8-person executive team, ran a $1,500 micro-grant pitch competition, and helped bring NASA's Technology Transfer University (T2U) program to campus",
+    "Team lead (paid), Colorado Robotics Challenge (NASA Space Grant) — coordinated a four-person team building and fielding an autonomous 18-DoF hexapod",
+    "STEM tutor (2024–25) — mathematics, physics, and programming",
+    "Chip Competition Manager, Nicholas Cisewski Memorial Golf Tournament for pediatric cancer research (2020–present)",
   ],
 
   targetPrograms: [],
@@ -175,7 +174,7 @@ export const profile: Profile = {
   credibilitySignals: [
     {
       label: "Humanoid navigation evaluation",
-      detail: "1,077/1,077 episodes · 18.3% SR · 30.3% oracle success",
+      detail: "1,077/1,077 episodes · under 1% → 18.3% success (simulation)",
       icon: "Bot",
     },
     {
@@ -189,8 +188,8 @@ export const profile: Profile = {
       icon: "Workflow",
     },
     {
-      label: "Mathematical validation",
-      detail: "KUKA FK / IK / Jacobian / trajectories · 39-test suite",
+      label: "Hardware control",
+      detail: "7 motors over CAN at 200 Hz · holding error ≤ 0.005 rad",
       icon: "Layers",
     },
     {
