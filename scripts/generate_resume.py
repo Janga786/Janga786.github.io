@@ -3,9 +3,8 @@
 NOTE: public/resume.pdf is the final application PDF (Bliss_Jangara_Resume_Northeastern.pdf), copied
 in directly. This script carries the same text but not its exact layout; running it overwrites that file.
 
-Run with the Codex bundled Python runtime (ReportLab is preinstalled there):
-  /Users/janga/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3 \
-    scripts/generate_resume.py
+Requires ReportLab:
+  python3 scripts/generate_resume.py
 """
 
 from pathlib import Path
@@ -176,7 +175,7 @@ def build_resume():
     story.append(KeepTogether([
         entry_heading("Research Assistant, Humanoid Robot Intelligence", "May 2026 – Aug 2026", "Advisor: Dr. Yiyan Li | Booster K1 humanoid"),
         bullet("Built a two-tier stack: NaVILA, an 8B-parameter vision-language navigation model (~1 Hz), commanding a reinforcement-learning locomotion policy I trained in Isaac Sim/Isaac Lab (50 Hz; works in simulation only)."),
-        bullet("Integrated the K1 into VLN-CE-Isaac and ran all 1,077 episodes; pipeline fixes (tilt limit, camera warm-up) and policy retraining raised success from under 1% to 18.3% and more than doubled walking distance (22 runs, ~270 GPU-h in all)."),
+        bullet("Integrated the K1 into VLN-CE-Isaac and ran all 1,077 episodes; pipeline fixes (tilt limit, camera warm-up) and policy retraining (22 training runs, ~270 GPU-h) raised success from under 1% to 18.3% and more than doubled walking distance."),
         bullet("Ran a preregistered 2,400-episode ablation; two identically configured 300-episode runs agreed in aggregate (15.0% vs. 16.0%) yet disagreed on 11.0% of episodes (kappa 0.58); a fixed time limit cut off conditions unequally (2.0% vs. 12.3% of episodes)."),
         bullet("Deployed NaVILA live on the physical K1 for two natural-language episodes with zero teleoperation, via a relay I built (RTX 5090 VLM inference, ~350 ms; Booster SDK velocity control; Booster's built-in walker)."),
         bullet("Built a ROS 2 cart-seek stack (YOLO-World): K1 walks to a cart, stops ~1 m away, circles it to read a QR code; ~25 live runs."),
@@ -206,7 +205,7 @@ def build_resume():
     ]))
 
     story.extend(section_heading("Awards, Honors &amp; Programs"))
-    story.append(Paragraph("2nd Place, FLC Physics &amp; Engineering Symposium (2025) | Katz School of Business Leadership Award (2024) | New Registered Student Organization of the Year (2023–24) | Goldman Sachs Emerging Leaders Series (2024)", BODY))
+    story.append(Paragraph("2nd Place, FLC Physics &amp; Engineering Symposium (2025) | New Registered Student Organization of the Year (2023–24) | Katz School of Business Leadership Award (2024) | Goldman Sachs Emerging Leaders Series (2024) | Dean's List (2026)", BODY))
 
     story.extend(section_heading("Leadership &amp; Service"))
     story.append(bullet("<b>Co-Founder &amp; President, Entrepreneurial Ventures Association</b> (2023–24): led an 8-person executive team; ran a $1,500 micro-grant pitch competition; helped bring NASA's Technology Transfer University (T2U) program to campus."))
