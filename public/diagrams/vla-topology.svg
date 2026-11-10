@@ -35,7 +35,7 @@
   <!-- GPU -->
   <rect x="610" y="80" width="220" height="110" rx="10" class="box"/>
   <text x="630" y="112" class="t">Inference workstation</text>
-  <text x="630" y="134" class="s">RTX 5090 · 8B VLN model (NaVILA)</text>
+  <text x="630" y="134" class="s">RTX 5090 · NaVILA (8B)</text>
   <text x="630" y="152" class="lbl">model-serving path</text>
   <text x="630" y="170" class="s">live mode: 2 episodes</text>
 
@@ -49,7 +49,7 @@
   <path d="M610 160 H544" class="flow" marker-end="url(#a)"/>
   <text x="551" y="184" class="s">actions</text>
   <path d="M320 160 H254" class="flow" marker-end="url(#acc)"/>
-  <text x="258" y="184" class="lbl">velocity cmds</text>
+  <text x="256" y="184" class="lbl">vel. cmds</text>
 
   <!-- instruction input -->
   <rect x="320" y="250" width="220" height="64" rx="10" class="box" stroke-dasharray="0"/>
