@@ -124,7 +124,7 @@ export const profile: Profile = {
     "Evidence before narrative",
     "Separate a demo from an evaluation",
     "Treat deployment as an experimental discipline",
-    "Credit teams, upstream work, and tools precisely",
+    "Credit teams and upstream work precisely",
     "Build across interfaces without hiding their failure modes",
   ],
 
@@ -147,7 +147,7 @@ export const profile: Profile = {
     "Deployment realism — a simulator result, a hardware test, and a closed-loop hardware evaluation are three different claims.",
     "Evaluation discipline — preserve per-episode data, define denominators, report negative results, and state what the experiment cannot establish.",
     "Full-stack range — comfortable moving between learned policies, benchmark harnesses, ROS and SDK interfaces, control logic, firmware, and electronics.",
-    "Provenance — identify team roles, upstream frameworks, course context, and AI-assisted implementation instead of implying sole authorship.",
+    "Provenance — identify team roles, upstream frameworks, and course context instead of implying sole authorship.",
   ],
 
   honors: [

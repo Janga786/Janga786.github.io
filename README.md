@@ -50,7 +50,7 @@ All public copy lives under `content/`:
 - `writing.ts` — real research outputs with authorship and status labels; no planned-content cards
 - `site-config.ts` — canonical URL and visibility toggles
 
-Project pages use distinct status labels including active research, completed study, fielded system, and validated library. Visible attribution fields identify the applicant's role, advisor when applicable, collaborators, and upstream systems/models. Separate provenance notes preserve team ownership, course context, inherited code, AI-assisted implementation, and simulation/hardware boundaries.
+Project pages use distinct status labels including active research, completed study, fielded system, and validated library. Visible attribution fields identify the applicant's role, advisor when applicable, collaborators, and upstream systems/models. Separate provenance notes preserve team ownership, course context, inherited code, and simulation/hardware boundaries.
 
 ## Media and evidence
 
@@ -72,6 +72,6 @@ If the production domain changes, update `siteUrl` in `content/site-config.ts`.
 - Do not convert a hardware clip into a model-control claim without synchronized command or model traces.
 - Do not publish a detector metric without a preserved held-out split and result artifact.
 - Distinguish designed, fabricated, assembled, and validated hardware milestones.
-- Name team roles, course origins, upstream frameworks, inherited code, and AI-assisted implementation.
+- Name team roles, course origins, upstream frameworks, and inherited code.
 - Preserve denominators, per-episode artifacts, and negative results.
 - Keep limitations visible; an unsupported number is removed, not softened.
