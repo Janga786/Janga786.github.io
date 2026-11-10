@@ -60,7 +60,7 @@ export function HeroPanel() {
               loading="eager"
             />
             <figcaption className="border-t border-line px-4 py-3 font-mono text-[11px] leading-relaxed text-faint">
-              Booster K1 during the receipted May 2026 live NaVILA episode
+              Booster K1 during a live NaVILA episode (May 2026), walking on Booster's built-in walker
               (VLM-issued commands, built-in walker). Canonical benchmark
               results on this site are simulation-only.
             </figcaption>
