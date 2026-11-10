@@ -174,7 +174,7 @@ def build_resume():
     story.append(KeepTogether([
         entry_heading("Research Assistant, Humanoid Robot Intelligence", "May 2026 – Aug 2026", "Advisor: Dr. Yiyan Li | Booster K1 humanoid"),
         bullet("Built a two-tier stack: NaVILA, an 8B-parameter vision-language navigation model (~1 Hz), commanding a reinforcement-learning locomotion policy I trained in Isaac Sim/Isaac Lab (50 Hz; works in simulation only)."),
-        bullet("Integrated the K1 into VLN-CE-Isaac and ran all 1,077 episodes; pipeline fixes and policy retraining (22 training runs, ~270 GPU-h) raised success from under 1% to 18.3% and more than doubled walking distance."),
+        bullet("Integrated the K1 into VLN-CE-Isaac and ran all 1,077 episodes; pipeline fixes and policy retraining raised success from under 1% to 18.3%; 22 training runs (~270 GPU-h) in all, including gait work after the benchmark."),
         bullet("Ran a preregistered 2,400-episode ablation; two identically configured 300-episode runs agreed in aggregate (15.0% vs. 16.0%) yet disagreed on 11.0% of episodes (kappa 0.58); a fixed time limit cut off conditions unequally (2.0% vs. 12.3% of episodes)."),
         bullet("Deployed NaVILA live on the physical K1 for two natural-language episodes with zero teleoperation, via a relay I built (RTX 5090 VLM inference, ~350 ms; Booster SDK velocity control; Booster's built-in walker)."),
         bullet("Built a ROS 2 cart-seek stack (YOLO-World): K1 walks to a cart, stops ~1 m away, circles it to read a QR code; ~25 live runs."),
@@ -189,7 +189,7 @@ def build_resume():
     story.append(KeepTogether([
         entry_heading("Research Assistant, Computer Vision &amp; Robotics", "May 2025 – Sep 2025", "Advisor: Dr. Kevin Wedeward | Solo project"),
         bullet("Revived two non-functional Rethink robots (Sawyer, Baxter) with no vendor support: traced Sawyer's boot failure to a dead CMOS battery that had reset its BIOS into an incompatible Secure Boot setting, obtained the Intera update from other universities, and set up ROS 1/ROS 2 with Docker, MoveIt, and Gazebo."),
-        bullet("Trained a YOLOv8 thermal hotspot detector on Blender synthetic data; with Baxter holding the camera, it flagged an induced hotspot on test panels every time. 2nd Place, FLC Physics &amp; Engineering Symposium (top solo project)."),
+        bullet("Trained a YOLOv8 thermal hotspot detector on Blender synthetic data; with Baxter holding the camera, it flagged an induced hotspot on test panels in every saved frame. 2nd Place, FLC Physics &amp; Engineering Symposium (top solo project)."),
     ]))
     story.append(Spacer(1, 2.2))
     story.append(KeepTogether([
