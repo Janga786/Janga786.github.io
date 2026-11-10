@@ -437,7 +437,7 @@ export const projects: Project[] = [
       { label: "Tuning campaign", hint: "", status: "available", value: "CONTROLLER_TUNING.md write-up with raw logs: 41 logged runs (28 completed), gravity measurement, and per-joint post-tuning holds." },
       { label: "First guarded run", hint: "", status: "available", value: "2026-10-22 evidence directory: tracking within 0.023 rad, wobble diagnosis plots, and the kd comparison." },
       { label: "Vision pipeline", hint: "", status: "available", value: "Live D405 capture, ~17 Hz crack masks, and offline trace-path demos with overlays." },
-      { label: "Test suite", hint: "", status: "available", value: "Offline unit/integration/contract tests (588 test functions as of 2026-10-30)." },
+      { label: "Test suite", hint: "", status: "available", value: "Offline unit/integration/contract tests (725 passed, 26 skipped on a CPU-only machine, 2026-11-09)." },
     ],
     metrics: [
       { label: "Post-tuning hold error", value: "\u2264 0.005 rad", hint: "From 0.04\u20130.05 rad before feed-forward." },

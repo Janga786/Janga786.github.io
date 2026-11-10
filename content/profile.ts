@@ -82,7 +82,7 @@ export const profile: Profile = {
       organization: "Fort Lewis College · Advisor: Dr. Yiyan Li · two-person team; my teammate is building a second arm from scratch, so all work on this arm is mine",
       dateLabel: "Sep 2026 – present",
       summary:
-        "Brought up a 6+1-DoF arm over CAN at 200 Hz, identified gravity/friction feed-forward on the real hardware (post-tuning holds ≤ 0.005 rad over 41 logged hardware runs, 28 completed), and ran guarded trajectories feeding a zero-shot crack-segmentation pipeline.",
+        "Brought up a 6+1-DoF arm over CAN at 200 Hz, identified gravity/friction feed-forward on the real hardware (post-tuning single-joint holds ≤ 0.005 rad; 41 logged hardware runs, 28 completed), and ran guarded trajectories on the real arm. A zero-shot crack-segmentation model, with weights used as released, runs on the wrist camera; no crack has been traced yet.",
       href: "/projects/rebot-crack-inspection/",
     },
     {
@@ -189,7 +189,7 @@ export const profile: Profile = {
     },
     {
       label: "Hardware control",
-      detail: "7 motors over CAN at 200 Hz · holding error ≤ 0.005 rad",
+      detail: "7 motors over CAN at 200 Hz · single-joint holding error ≤ 0.005 rad",
       icon: "Layers",
     },
     {
