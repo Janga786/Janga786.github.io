@@ -1,7 +1,6 @@
 """Generate the evidence-aligned PDF linked from the portfolio.
 
-NOTE: public/resume.pdf is the final application PDF (Bliss_Jangara_Resume_Northeastern.pdf), copied
-in directly. This script carries the same text but not its exact layout; running it overwrites that file.
+NOTE: public/resume.pdf is the final application PDF, copied in directly. This script carries the same text but not its exact layout; running it overwrites that file.
 
 Requires ReportLab:
   python3 scripts/generate_resume.py
