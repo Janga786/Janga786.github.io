@@ -841,7 +841,7 @@ export const projects: Project[] = [
     provenance: [
       "Vendor ROS packages and workspaces are upstream; the contribution is restoration, environment integration, custom scripts, synthetic-data tooling, and documentation.",
       "The thermal hotspot detector is not in a public repository; the linked CV-YOLO-Inspection repository is related synthetic-data tooling for beverage-can inspection, built with the same Blender-to-YOLO approach.",
-      "No mAP, accuracy, thermal-image count, live thermal feed, or closed-loop hardware-inspection result is claimed because the audited repositories do not support those statements.",
+      "No detector accuracy figure, thermal-image count, live thermal feed, or closed-loop hardware-inspection result is claimed because the audited repositories do not support those statements.",
     ],
     architectureSummary: "The supported work has three layers: recover the robot controllers, rebuild the ROS planning environment, and develop synthetic-data/detection tooling. A valid held-out detector evaluation remains future work rather than a retroactive claim.",
     architectureNodes: ["Legacy robot diagnostics", "Recovered controller + OS", "ROS / MoveIt / Gazebo workstation", "Synthetic image + label generation", "YOLO experimentation with held-out evaluation still required"],
@@ -988,8 +988,8 @@ export const projects: Project[] = [
     featured: false,
     isPlaceholder: false,
     dateLabel: "Aug 2024 – Oct 2025",
-    oneLiner: "A Power Apps catalog and scheduling system built with a community radio station and designed for 60+ daily users, plus embedding and graph-database prototypes — handed off before deployment and since deployed by the station on another platform built on my work.",
-    summary: "Working with Fort Lewis College's KDUR radio station, I designed and built a Power Apps data application for the music library and station workflows. The intended population was more than 60 daily DJs and staff members. I later explored an applied-AI layer: vector embeddings for artist-name normalization and a Neo4j prototype with natural-language-to-Cypher agents. When I moved full-time into robotics research, the application was handed off before deployment; the station (KDUR) has since deployed the system on another platform built on my work. The project demonstrates user-centered data modeling, prototyping, and handoff; no active-user count is claimed.",
+    oneLiner: "A Power Apps catalog and scheduling system built with a community radio station and designed for 60+ daily users, plus embedding and graph-database prototypes — handed off before deployment and since deployed by the station on another platform.",
+    summary: "Working with Fort Lewis College's KDUR radio station, I designed and built a Power Apps data application for the music library and station workflows. The intended population was more than 60 daily DJs and staff members. I later explored an applied-AI layer: vector embeddings for artist-name normalization and a Neo4j prototype with natural-language-to-Cypher agents. When I moved full-time into robotics research, the application was handed off before deployment; the station (KDUR) has since deployed the system on another platform. The project demonstrates user-centered data modeling, prototyping, and handoff; no active-user count is claimed.",
     role: "Research Assistant, AI & Data (paid, solo project) — application design, data modeling, embedding prototype, graph-database exploration, and handoff",
     teamContext: "Paid, solo project under Dr. Matthew Welz, built with KDUR stakeholders; intended users informed requirements.",
     advisor: "Dr. Matthew Welz, Fort Lewis College",
@@ -1025,7 +1025,7 @@ export const projects: Project[] = [
     ],
     provenance: [
       "More than 60 refers to the intended daily user population supplied by the station, not measured active users of a deployed application.",
-      "The Power Apps system was handed off before deployment; the station has since deployed the system on another platform built on my work. The embedding and graph layers remained research prototypes.",
+      "The Power Apps system was handed off before deployment; the station has since deployed the system on another platform. The embedding and graph layers remained research prototypes.",
     ],
     architectureSummary: "Station workflows feed a structured catalog application; separate experiments test whether embeddings can normalize artist names and whether graph queries can provide a more natural discovery interface.",
     architectureNodes: ["KDUR stakeholder workflows", "Power Apps catalog + schedules", "Structured station data", "Embedding name resolution", "Neo4j / NL-to-Cypher prototype"],
@@ -1057,7 +1057,7 @@ export const projects: Project[] = [
       { kind: "image", src: "/media/kdur-graph.webp", alt: "Neo4j graph prototype for radio catalog relationships", caption: "Graph-database exploration for catalog relationships and natural-language querying." },
     ],
     artifacts: [{ kind: "diagram", label: "System diagram", href: "/diagrams/kdur-platform.svg" }],
-    seoDescription: "A KDUR community-radio data application designed for 60+ intended daily users, with embedding and Neo4j prototypes, explicitly labeled as handed off before deployment and since deployed by the station on another platform built on my work.",
+    seoDescription: "A KDUR community-radio data application designed for 60+ intended daily users, with embedding and Neo4j prototypes, explicitly labeled as handed off before deployment and since deployed by the station on another platform.",
     sortOrder: 9,
   },
 ];

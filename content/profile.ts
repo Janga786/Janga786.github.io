@@ -114,7 +114,7 @@ export const profile: Profile = {
       organization: "Fort Lewis College · Advisor: Dr. Matthew Welz · paid, solo project",
       dateLabel: "Aug 2024 – Oct 2025",
       summary:
-        "Designed a Power Apps music-library database for the FLC radio station (designed for 60+ daily users; handed off before deployment and since deployed by the station on another platform built on my work), prototyped embedding-based artist-name matching, and built LLM agents that query Neo4j in natural language.",
+        "Designed a Power Apps music-library database for the FLC radio station (designed for 60+ daily users; handed off before deployment and since deployed by the station on another platform), prototyped embedding-based artist-name matching, and built LLM agents that query Neo4j in natural language.",
       href: "/projects/kdur-data-platform/",
     },
   ],
