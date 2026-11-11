@@ -1,6 +1,6 @@
 # Jangara Bliss — Robotics Portfolio
 
-Portfolio site for Jangara Bliss, a computer engineering senior at Fort Lewis College working on learned control for humanoid and legged robots. The site states what was completed in simulation, what ran on hardware, what came from a team or course, and which upstream systems the work builds on.
+Portfolio site for Jangara Bliss, a computer engineering senior at Fort Lewis College working on learned control for robots. The site states what was completed in simulation, what ran on hardware, what came from a team or course, and which upstream systems the work builds on.
 
 Featured projects:
 

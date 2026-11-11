@@ -13,13 +13,13 @@ export const profile: Profile = {
     "I work on learned and model-based control for robots: a vision-language-guided humanoid evaluated in simulation, a seven-motor arm on real hardware, and the embedded layer underneath.",
 
   shortBio:
-    "Computer engineering senior at Fort Lewis College (B.S. expected May 2027) working toward reliable learned control for humanoid and legged robots, with experience in RL locomotion in simulation, motor control on real hardware, evaluation, perception, and embedded systems.",
+    "Computer engineering senior at Fort Lewis College (B.S. expected May 2027) working toward reliable learned control for robots, with experience in RL locomotion in simulation, motor control on real hardware, evaluation, perception, and embedded systems.",
 
   longBio: [
     "I'm a computer engineering senior at Fort Lewis College, with minors in mathematics and business administration, graduating in May 2027. From May to August 2026 I did full-time research with Dr. Yiyan Li on a Booster K1 humanoid: NaVILA, a vision-language navigation model, issuing commands at about 1 Hz to a 50 Hz reinforcement-learning walking policy I trained. I added the K1 to the VLN-CE-Isaac benchmark and ran all 1,077 episodes in simulation. Pipeline fixes and policy retraining raised success from under 1% to 18.3%. That is still below the published 24.4% baseline for an H1 humanoid whose walking policy, like mine, used only proprioception. In a 2,400-episode ablation, two identically configured 300-episode runs scored 15.0% and 16.0% yet disagreed on 11.0% of individual episodes, so I now report every success rate with its uncertainty. NaVILA also ran live on the real K1 for two natural-language episodes using Booster's built-in walker; my own walking policy has only worked in simulation.",
     "This fall I moved to hardware control on my senior-capstone arm, a seven-motor reBot B601-DM I am adapting for bridge crack inspection. My teammate is building a second arm, so I am the only person working on this one. I brought up its motors over CAN with a 200 Hz control loop and built its Jacobian, inverse kinematics, and a minimum-jerk planner. A slow torque test measured 6.6 N·m of gravity load at the elbow against 2.7 N·m from the URDF; gravity and friction feed-forward with retuned gains cut loaded-joint holding error from 0.04–0.05 rad to 0.005 rad or less.",
     "Earlier projects gave me the rest of the stack. I led a four-person team that built an 18-DoF hexapod for NASA Space Grant's Colorado Robotics Challenge, designing its electrical system and extending its firmware (originally Mark W's open-source code) with heading hold and bump avoidance. As a solo summer research assistant under Dr. Kevin Wedeward, I revived two discontinued Rethink robots, Sawyer and Baxter. I also built xembench, a simulation benchmark for language-grounded manipulation across two robot bodies, a KUKA kinematics library with analytic, finite-difference, and URDF cross-checks, and point-cloud methods for a five-person LiDAR design project. Embedded, FPGA, and PCB work keeps the hardware layer concrete.",
-    "I want to learn to build reliable learned control for humanoid and legged robots, down to the embedded layer that drives the motors, especially learning that uses model predictive control (MPC) and trajectory optimization as priors or safety layers. I am applying to MS programs in robotics for Fall 2027 and hope to do a graduate co-op or internship at a company building legged or humanoid robots. After the MS I plan to build embedded robot controllers at a humanoid or legged robot company, and eventually start my own company that puts robots to work on needs like food and housing.",
+    "I want to learn to build reliable learned control for robots, down to the embedded layer that drives the motors, especially learning that uses model predictive control (MPC) and trajectory optimization as priors or safety layers. I am applying to MS programs in robotics for Fall 2027 and hope to do a graduate co-op or internship at a robotics company. After the MS I plan to build embedded robot controllers at a robot company, and eventually start my own company that puts robots to work on needs like food and housing.",
   ],
 
   location: "Durango, Colorado",
@@ -48,7 +48,7 @@ export const profile: Profile = {
     {
       title: "Learned Control with Model-Based Structure",
       question:
-        "How can model predictive control and trajectory optimization serve as priors or safety layers for learned controllers on humanoid and legged robots?",
+        "How can model predictive control and trajectory optimization serve as priors or safety layers for learned controllers on robots?",
       description:
         "My K1 walking policy and my arm controller sit at the two ends of this question: a policy trained in simulation, and hand-identified gravity and friction feed-forward on real motors. I want to learn to combine them properly.",
     },
@@ -128,18 +128,18 @@ export const profile: Profile = {
   ],
 
   missionStatement:
-    "Build reliable learned control for humanoid and legged robots, down to the embedded layer that drives the motors.",
+    "Build reliable learned control for robots, down to the embedded layer that drives the motors.",
 
   graduateStudyHomepage: [
     "I can train a walking policy and find where it fails, but I cannot yet design a controller that holds up under contact. That is what I want an MS to teach me.",
     "The K1 benchmark showed that one success rate is weak evidence; the arm showed that a model file can be wrong by more than a factor of two. Both point toward learning combined with model-based control and careful identification.",
-    "After the MS I plan to build embedded robot controllers at a humanoid or legged robot company.",
+    "After the MS I plan to build embedded robot controllers at a robot company.",
   ],
 
   graduateStudyStatement: [
-    "I want an MS in robotics to turn hands-on range into depth in learned control for humanoid and legged robots, especially learning that uses MPC and trajectory optimization as priors or safety layers, down to the embedded layer.",
+    "I want an MS in robotics to turn hands-on range into depth in learned control for robots, especially learning that uses MPC and trajectory optimization as priors or safety layers, down to the embedded layer.",
     "My K1 stack was a slow decision-maker over a fast walker: NaVILA at about 1 Hz over a 50 Hz RL walking policy. It reached 18.3% success in simulation, and its policy tended to stall on contact with walls. On the capstone arm, hand-fitted gravity and friction feed-forward cut holding error to 0.005 rad or less; I want to learn to do that identification properly, including corrections learned from data.",
-    "I hope to do a graduate co-op or internship at a company building legged or humanoid robots, then build embedded robot controllers after the degree.",
+    "I hope to do a graduate co-op or internship at a robotics company, then build embedded robot controllers after the degree.",
   ],
 
   builderEthos: [
