@@ -11,7 +11,7 @@ export const siteConfig = {
   title: "Jangara Bliss",
   titleTemplate: "%s — Jangara Bliss",
   description:
-    "Jangara Bliss, computer engineering senior at Fort Lewis College: learned control for humanoid and legged robots, a Booster K1 navigation benchmark in simulation, and motor control on a real seven-motor arm, with simulation and hardware results kept separate.",
+    "Jangara Bliss, computer engineering senior at Fort Lewis College: learned control for robots, a Booster K1 navigation benchmark in simulation, and motor control on a real seven-motor arm, with simulation and hardware results kept separate.",
 
   /* ── Visibility toggles ─────────────────────────────────────────────── */
 
