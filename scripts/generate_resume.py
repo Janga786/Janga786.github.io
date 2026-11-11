@@ -172,7 +172,7 @@ def build_resume():
 
     story.extend(section_heading("Research &amp; Engineering Experience"))
     story.append(KeepTogether([
-        entry_heading("Research Assistant, Humanoid Robot Intelligence", "May 2026 – Aug 2026", "Advisor: Dr. Yiyan Li | Booster K1 humanoid"),
+        entry_heading("Research Assistant, Humanoid Robot Intelligence", "May 2026 – Aug 2026", "Advisor: Dr. Yiyan Li | Booster K1, solo project"),
         bullet("Built a two-tier stack: NaVILA, an 8B-parameter vision-language navigation model (~1 Hz), commanding a reinforcement-learning locomotion policy I trained in Isaac Sim/Isaac Lab (50 Hz; works in simulation only)."),
         bullet("Deployed NaVILA live on the physical K1 for two natural-language episodes with zero teleoperation, via a relay I built (RTX 5090 VLM inference, ~350 ms; Booster SDK velocity control; Booster's built-in walker)."),
         bullet("Integrated the K1 into VLN-CE-Isaac and ran all 1,077 episodes; pipeline fixes and policy retraining raised success from under 1% to 18.3% (22 training runs, ~270 GPU-h in all). Per-episode records and analysis scripts are public: github.com/Janga786/k1-navila-research."),
@@ -199,7 +199,7 @@ def build_resume():
     ]))
     story.append(Spacer(1, 2.2))
     story.append(KeepTogether([
-        entry_heading("Research Assistant, AI &amp; Data", "Aug 2024 – Oct 2025", "Advisor: Dr. Matthew Welz"),
+        entry_heading("Research Assistant, AI &amp; Data", "Aug 2024 – Oct 2025", "Advisor: Dr. Matthew Welz | Solo project"),
         bullet("Built the FLC radio station's music-library database (Power Apps; designed for 60+ daily users) and prototyped embedding-based artist matching and LLM agents over Neo4j; the station later deployed the database on another platform."),
     ]))
 
